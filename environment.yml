@@ -1,0 +1,17 @@
+name: qe-mini-example
+channels:
+  - default
+  - conda-forge
+dependencies:
+  - python=3.7.*
+  - sphinx=2.4.4
+  - sphinxcontrib-bibtex=1.0.0
+  - pip
+  - pandas
+  - matplotlib
+  - seaborn
+  - scipy
+  - ipywidgets
+  - pip:
+    - mikeio
+    - jupyter-book>=0.7.0b
