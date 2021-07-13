@@ -192,11 +192,41 @@
 
             <!-- Launch buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/DHI/getting_started_dfs_pyhton/maain?urlpath=tree/docs/dfs0.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
         </div>
 
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reading-data">
+   Reading data
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -207,6 +237,240 @@
                 
   <div class="section" id="dfs0">
 <h1>Dfs0<a class="headerlink" href="#dfs0" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="reading-data">
+<h2>Reading data<a class="headerlink" href="#reading-data" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">mikeio</span> <span class="kn">import</span> <span class="n">Dfs0</span>
+
+<span class="n">dfs</span> <span class="o">=</span> <span class="n">Dfs0</span><span class="p">(</span><span class="s2">&quot;TemporalEqTime.dfs0&quot;</span><span class="p">)</span>
+<span class="n">dfs</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mikeio.Dfs0&gt;
+Timeaxis: TimeAxisType.TimeEquidistant
+Items:
+  0:  WaterLevel item &lt;Water Level&gt; (meter)
+  1:  WaterDepth item &lt;Water Depth&gt; (meter)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span> <span class="o">=</span> <span class="n">dfs</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="n">ds</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mikeio.DataSet&gt;
+Dimensions: (10,)
+Time: 1970-01-01 00:00:03 - 1970-01-01 00:01:33
+Items:
+  0:  WaterLevel item &lt;Water Level&gt; (meter)
+  1:  WaterDepth item &lt;Water Depth&gt; (meter)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">ds</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mikeio.dataset.Dataset
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>WaterLevel item</th>
+      <th>WaterDepth item</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1970-01-01 00:00:03</th>
+      <td>0.0</td>
+      <td>100.0</td>
+    </tr>
+    <tr>
+      <th>1970-01-01 00:00:13</th>
+      <td>1.0</td>
+      <td>101.0</td>
+    </tr>
+    <tr>
+      <th>1970-01-01 00:00:23</th>
+      <td>2.0</td>
+      <td>102.0</td>
+    </tr>
+    <tr>
+      <th>1970-01-01 00:00:33</th>
+      <td>3.0</td>
+      <td>103.0</td>
+    </tr>
+    <tr>
+      <th>1970-01-01 00:00:43</th>
+      <td>4.0</td>
+      <td>104.0</td>
+    </tr>
+    <tr>
+      <th>1970-01-01 00:00:53</th>
+      <td>5.0</td>
+      <td>105.0</td>
+    </tr>
+    <tr>
+      <th>1970-01-01 00:01:03</th>
+      <td>10.0</td>
+      <td>110.0</td>
+    </tr>
+    <tr>
+      <th>1970-01-01 00:01:13</th>
+      <td>11.0</td>
+      <td>111.0</td>
+    </tr>
+    <tr>
+      <th>1970-01-01 00:01:23</th>
+      <td>12.0</td>
+      <td>112.0</td>
+    </tr>
+    <tr>
+      <th>1970-01-01 00:01:33</th>
+      <td>13.0</td>
+      <td>113.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df2</span> <span class="o">=</span> <span class="n">dfs</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span>
+<span class="n">df2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>WaterLevel item</th>
+      <th>WaterDepth item</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1970-01-01 00:00:03</th>
+      <td>0.0</td>
+      <td>100.0</td>
+    </tr>
+    <tr>
+      <th>1970-01-01 00:00:13</th>
+      <td>1.0</td>
+      <td>101.0</td>
+    </tr>
+    <tr>
+      <th>1970-01-01 00:00:23</th>
+      <td>2.0</td>
+      <td>102.0</td>
+    </tr>
+    <tr>
+      <th>1970-01-01 00:00:33</th>
+      <td>3.0</td>
+      <td>103.0</td>
+    </tr>
+    <tr>
+      <th>1970-01-01 00:00:43</th>
+      <td>4.0</td>
+      <td>104.0</td>
+    </tr>
+    <tr>
+      <th>1970-01-01 00:00:53</th>
+      <td>5.0</td>
+      <td>105.0</td>
+    </tr>
+    <tr>
+      <th>1970-01-01 00:01:03</th>
+      <td>10.0</td>
+      <td>110.0</td>
+    </tr>
+    <tr>
+      <th>1970-01-01 00:01:13</th>
+      <td>11.0</td>
+      <td>111.0</td>
+    </tr>
+    <tr>
+      <th>1970-01-01 00:01:23</th>
+      <td>12.0</td>
+      <td>112.0</td>
+    </tr>
+    <tr>
+      <th>1970-01-01 00:01:33</th>
+      <td>13.0</td>
+      <td>113.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">all</span><span class="p">(</span><span class="n">df</span> <span class="o">==</span> <span class="n">df2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
