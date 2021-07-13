@@ -214,6 +214,39 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#get-row-by-number">
+   Get row by number
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#get-row-by-name-named-index">
+   Get row by name (named index)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#timeseries">
+   Timeseries
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#resampling">
+   Resampling
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#extrapolation">
+   Extrapolation
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -234,7 +267,8 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cities</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Copenhagen&quot;</span><span class="p">,</span> <span class="s2">&quot;London&quot;</span><span class="p">],</span>
-          <span class="s1">&#39;population&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">11.2</span><span class="p">]}</span>
+          <span class="s1">&#39;population&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">11.2</span><span class="p">],</span>
+          <span class="s1">&#39;dist_to_coast&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">2.3</span><span class="p">]}</span>
 </pre></div>
 </div>
 </div>
@@ -267,6 +301,7 @@
       <th></th>
       <th>name</th>
       <th>population</th>
+      <th>dist_to_coast</th>
     </tr>
   </thead>
   <tbody>
@@ -274,11 +309,13 @@
       <th>0</th>
       <td>Copenhagen</td>
       <td>1.5</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>1</th>
       <td>London</td>
       <td>11.2</td>
+      <td>2.3</td>
     </tr>
   </tbody>
 </table>
@@ -311,6 +348,7 @@
       <th></th>
       <th>name</th>
       <th>population</th>
+      <th>dist_to_coast</th>
     </tr>
   </thead>
   <tbody>
@@ -318,6 +356,7 @@
       <th>1</th>
       <td>London</td>
       <td>11.2</td>
+      <td>2.3</td>
     </tr>
   </tbody>
 </table>
@@ -333,6 +372,1134 @@
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6.35
 </pre></div>
 </div>
+</div>
+</div>
+<div class="section" id="get-row-by-number">
+<h2>Get row by number<a class="headerlink" href="#get-row-by-number" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>name             Copenhagen
+population              1.5
+dist_to_coast           0.0
+Name: 0, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>name             London
+population         11.2
+dist_to_coast       2.3
+Name: 1, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="get-row-by-name-named-index">
+<h2>Get row by name (named index)<a class="headerlink" href="#get-row-by-name-named-index" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>population</th>
+      <th>dist_to_coast</th>
+    </tr>
+    <tr>
+      <th>name</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Copenhagen</th>
+      <td>1.5</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>London</th>
+      <td>11.2</td>
+      <td>2.3</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;London&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>population       11.2
+dist_to_coast     2.3
+Name: London, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">index</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;Copenhagen&#39;, &#39;London&#39;], dtype=&#39;object&#39;, name=&#39;name&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;population&#39;, &#39;dist_to_coast&#39;], dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can transpose the dataframe, (rows -&gt; columns)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>name</th>
+      <th>Copenhagen</th>
+      <th>London</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>population</th>
+      <td>1.5</td>
+      <td>11.2</td>
+    </tr>
+    <tr>
+      <th>dist_to_coast</th>
+      <td>0.0</td>
+      <td>2.3</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;London&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">population</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>11.2
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="timeseries">
+<h2>Timeseries<a class="headerlink" href="#timeseries" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;oceandata.csv&quot;</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="s1">&#39;datetime&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>waterlevel</th>
+      <th>current</th>
+      <th>temperature</th>
+    </tr>
+    <tr>
+      <th>datetime</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2015-02-18 12:30:00</th>
+      <td>-0.23</td>
+      <td>0.852451</td>
+      <td>10.852451</td>
+    </tr>
+    <tr>
+      <th>2015-02-18 12:40:00</th>
+      <td>-0.25</td>
+      <td>0.902668</td>
+      <td>10.902668</td>
+    </tr>
+    <tr>
+      <th>2015-02-18 12:50:00</th>
+      <td>-0.26</td>
+      <td>0.163363</td>
+      <td>10.163363</td>
+    </tr>
+    <tr>
+      <th>2015-02-18 13:00:00</th>
+      <td>-0.27</td>
+      <td>0.668361</td>
+      <td>10.668361</td>
+    </tr>
+    <tr>
+      <th>2015-02-18 13:10:00</th>
+      <td>-0.28</td>
+      <td>0.069319</td>
+      <td>10.069319</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pandas.core.frame.DataFrame
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">waterlevel</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pandas.core.series.Series
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;datetime&#39;&gt;
+</pre></div>
+</div>
+<img alt="_images/pandas_23_1.png" src="_images/pandas_23_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">waterlevel</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;datetime&#39;&gt;
+</pre></div>
+</div>
+<img alt="_images/pandas_24_1.png" src="_images/pandas_24_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">index</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DatetimeIndex([&#39;2015-02-18 12:30:00&#39;, &#39;2015-02-18 12:40:00&#39;,
+               &#39;2015-02-18 12:50:00&#39;, &#39;2015-02-18 13:00:00&#39;,
+               &#39;2015-02-18 13:10:00&#39;, &#39;2015-02-18 13:20:00&#39;,
+               &#39;2015-02-18 13:30:00&#39;, &#39;2015-02-18 13:40:00&#39;,
+               &#39;2015-02-18 13:50:00&#39;, &#39;2015-02-18 14:00:00&#39;,
+               ...
+               &#39;2015-02-19 11:40:00&#39;, &#39;2015-02-19 11:50:00&#39;,
+               &#39;2015-02-19 12:00:00&#39;, &#39;2015-02-19 12:10:00&#39;,
+               &#39;2015-02-19 12:20:00&#39;, &#39;2015-02-19 12:30:00&#39;,
+               &#39;2015-02-19 12:40:00&#39;, &#39;2015-02-19 12:50:00&#39;,
+               &#39;2015-02-19 13:00:00&#39;, &#39;2015-02-19 13:10:00&#39;],
+              dtype=&#39;datetime64[ns]&#39;, name=&#39;datetime&#39;, length=144, freq=None)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>waterlevel</th>
+      <th>current</th>
+      <th>temperature</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>139.000000</td>
+      <td>144.000000</td>
+      <td>144.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>-0.098129</td>
+      <td>0.530844</td>
+      <td>10.530844</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>0.144847</td>
+      <td>0.278987</td>
+      <td>0.278987</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>-0.340000</td>
+      <td>0.012785</td>
+      <td>10.012785</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>-0.235000</td>
+      <td>0.295251</td>
+      <td>10.295251</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>-0.080000</td>
+      <td>0.507880</td>
+      <td>10.507880</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>0.020000</td>
+      <td>0.786672</td>
+      <td>10.786672</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>0.150000</td>
+      <td>0.993855</td>
+      <td>10.993855</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;2015-02-18&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;datetime&#39;&gt;
+</pre></div>
+</div>
+<img alt="_images/pandas_27_1.png" src="_images/pandas_27_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;2015-02-18&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">interpolate</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;datetime&#39;&gt;
+</pre></div>
+</div>
+<img alt="_images/pandas_28_1.png" src="_images/pandas_28_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;2015-02-18 14:00&#39;</span><span class="p">:</span><span class="s1">&#39;2015-02-18 15:20&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>waterlevel</th>
+      <th>current</th>
+      <th>temperature</th>
+    </tr>
+    <tr>
+      <th>datetime</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2015-02-18 14:00:00</th>
+      <td>-0.34</td>
+      <td>0.788007</td>
+      <td>10.788007</td>
+    </tr>
+    <tr>
+      <th>2015-02-18 14:10:00</th>
+      <td>NaN</td>
+      <td>0.030756</td>
+      <td>10.030756</td>
+    </tr>
+    <tr>
+      <th>2015-02-18 14:20:00</th>
+      <td>NaN</td>
+      <td>0.293056</td>
+      <td>10.293056</td>
+    </tr>
+    <tr>
+      <th>2015-02-18 14:30:00</th>
+      <td>NaN</td>
+      <td>0.259692</td>
+      <td>10.259692</td>
+    </tr>
+    <tr>
+      <th>2015-02-18 14:40:00</th>
+      <td>NaN</td>
+      <td>0.471166</td>
+      <td>10.471166</td>
+    </tr>
+    <tr>
+      <th>2015-02-18 14:50:00</th>
+      <td>NaN</td>
+      <td>0.822787</td>
+      <td>10.822787</td>
+    </tr>
+    <tr>
+      <th>2015-02-18 15:20:00</th>
+      <td>-0.31</td>
+      <td>0.262204</td>
+      <td>10.262204</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_interp</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">interpolate</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_interp</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;2015-02-18 14:00&#39;</span><span class="p">:</span><span class="s1">&#39;2015-02-18 15:20&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>waterlevel</th>
+      <th>current</th>
+      <th>temperature</th>
+    </tr>
+    <tr>
+      <th>datetime</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2015-02-18 14:00:00</th>
+      <td>-0.340</td>
+      <td>0.788007</td>
+      <td>10.788007</td>
+    </tr>
+    <tr>
+      <th>2015-02-18 14:10:00</th>
+      <td>-0.335</td>
+      <td>0.030756</td>
+      <td>10.030756</td>
+    </tr>
+    <tr>
+      <th>2015-02-18 14:20:00</th>
+      <td>-0.330</td>
+      <td>0.293056</td>
+      <td>10.293056</td>
+    </tr>
+    <tr>
+      <th>2015-02-18 14:30:00</th>
+      <td>-0.325</td>
+      <td>0.259692</td>
+      <td>10.259692</td>
+    </tr>
+    <tr>
+      <th>2015-02-18 14:40:00</th>
+      <td>-0.320</td>
+      <td>0.471166</td>
+      <td>10.471166</td>
+    </tr>
+    <tr>
+      <th>2015-02-18 14:50:00</th>
+      <td>-0.315</td>
+      <td>0.822787</td>
+      <td>10.822787</td>
+    </tr>
+    <tr>
+      <th>2015-02-18 15:20:00</th>
+      <td>-0.310</td>
+      <td>0.262204</td>
+      <td>10.262204</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="resampling">
+<h2>Resampling<a class="headerlink" href="#resampling" title="Permalink to this headline">¶</a></h2>
+<p>Resampled data uses timestamp from either the start or the end of the interval, and thus introduces a phase shift.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO correct phase shift</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;H&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;pandas.core.resample.DatetimeIndexResampler object at 0x7f2da2715cd0&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Resampling requires an aggregation function, e.g., sum, mean, median,…</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;D&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>waterlevel</th>
+      <th>current</th>
+      <th>temperature</th>
+    </tr>
+    <tr>
+      <th>datetime</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2015-02-18</th>
+      <td>-8.36</td>
+      <td>34.500139</td>
+      <td>704.500139</td>
+    </tr>
+    <tr>
+      <th>2015-02-19</th>
+      <td>-5.28</td>
+      <td>41.941404</td>
+      <td>811.941404</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">sum</span></code> function doesn’t make sense in this example. Better to use <code class="docutils literal notranslate"><span class="pre">mean</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;H&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>waterlevel</th>
+      <th>current</th>
+      <th>temperature</th>
+    </tr>
+    <tr>
+      <th>datetime</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2015-02-18 12:00:00</th>
+      <td>-0.246667</td>
+      <td>0.639494</td>
+      <td>10.639494</td>
+    </tr>
+    <tr>
+      <th>2015-02-18 13:00:00</th>
+      <td>-0.305000</td>
+      <td>0.394493</td>
+      <td>10.394493</td>
+    </tr>
+    <tr>
+      <th>2015-02-18 14:00:00</th>
+      <td>-0.340000</td>
+      <td>0.444244</td>
+      <td>10.444244</td>
+    </tr>
+    <tr>
+      <th>2015-02-18 15:00:00</th>
+      <td>-0.322500</td>
+      <td>0.397150</td>
+      <td>10.397150</td>
+    </tr>
+    <tr>
+      <th>2015-02-18 16:00:00</th>
+      <td>-0.283333</td>
+      <td>0.488036</td>
+      <td>10.488036</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;H&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>waterlevel</th>
+      <th>current</th>
+      <th>temperature</th>
+    </tr>
+    <tr>
+      <th>datetime</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2015-02-18 12:00:00</th>
+      <td>-0.23</td>
+      <td>0.852451</td>
+      <td>10.852451</td>
+    </tr>
+    <tr>
+      <th>2015-02-18 13:00:00</th>
+      <td>-0.27</td>
+      <td>0.668361</td>
+      <td>10.668361</td>
+    </tr>
+    <tr>
+      <th>2015-02-18 14:00:00</th>
+      <td>-0.34</td>
+      <td>0.788007</td>
+      <td>10.788007</td>
+    </tr>
+    <tr>
+      <th>2015-02-18 15:00:00</th>
+      <td>-0.31</td>
+      <td>0.262204</td>
+      <td>10.262204</td>
+    </tr>
+    <tr>
+      <th>2015-02-18 16:00:00</th>
+      <td>-0.32</td>
+      <td>0.012785</td>
+      <td>10.012785</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;H&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">median</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>waterlevel</th>
+      <th>current</th>
+      <th>temperature</th>
+    </tr>
+    <tr>
+      <th>datetime</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2015-02-18 12:00:00</th>
+      <td>-0.250</td>
+      <td>0.852451</td>
+      <td>10.852451</td>
+    </tr>
+    <tr>
+      <th>2015-02-18 13:00:00</th>
+      <td>-0.305</td>
+      <td>0.473989</td>
+      <td>10.473989</td>
+    </tr>
+    <tr>
+      <th>2015-02-18 14:00:00</th>
+      <td>-0.340</td>
+      <td>0.382111</td>
+      <td>10.382111</td>
+    </tr>
+    <tr>
+      <th>2015-02-18 15:00:00</th>
+      <td>-0.320</td>
+      <td>0.380533</td>
+      <td>10.380533</td>
+    </tr>
+    <tr>
+      <th>2015-02-18 16:00:00</th>
+      <td>-0.285</td>
+      <td>0.501532</td>
+      <td>10.501532</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_h</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;H&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">interpolate</span><span class="p">()</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+<span class="n">df_h</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>waterlevel</th>
+      <th>current</th>
+      <th>temperature</th>
+    </tr>
+    <tr>
+      <th>datetime</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2015-02-18 13:00:00</th>
+      <td>-0.27</td>
+      <td>0.668361</td>
+      <td>10.668361</td>
+    </tr>
+    <tr>
+      <th>2015-02-18 14:00:00</th>
+      <td>-0.34</td>
+      <td>0.788007</td>
+      <td>10.788007</td>
+    </tr>
+    <tr>
+      <th>2015-02-18 15:00:00</th>
+      <td>-0.33</td>
+      <td>0.400396</td>
+      <td>10.400396</td>
+    </tr>
+    <tr>
+      <th>2015-02-18 16:00:00</th>
+      <td>-0.32</td>
+      <td>0.012785</td>
+      <td>10.012785</td>
+    </tr>
+    <tr>
+      <th>2015-02-18 17:00:00</th>
+      <td>-0.23</td>
+      <td>0.817479</td>
+      <td>10.817479</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="extrapolation">
+<h2>Extrapolation<a class="headerlink" href="#extrapolation" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rng</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s2">&quot;2015-02-17&quot;</span><span class="p">,</span><span class="s2">&quot;2015-02-20&quot;</span><span class="p">,</span><span class="n">freq</span><span class="o">=</span><span class="s1">&#39;H&#39;</span><span class="p">)</span>
+<span class="n">ix</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DatetimeIndex</span><span class="p">(</span><span class="n">rng</span><span class="p">)</span>
+<span class="n">dfr</span> <span class="o">=</span> <span class="n">df_interp</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">ix</span><span class="p">)</span>
+<span class="n">dfr</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+</pre></div>
+</div>
+<img alt="_images/pandas_44_1.png" src="_images/pandas_44_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dfr</span><span class="o">.</span><span class="n">ffill</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+</pre></div>
+</div>
+<img alt="_images/pandas_45_1.png" src="_images/pandas_45_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_extra</span> <span class="o">=</span> <span class="n">dfr</span><span class="o">.</span><span class="n">bfill</span><span class="p">()</span><span class="o">.</span><span class="n">ffill</span><span class="p">()</span>
+<span class="n">df_extra</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+</pre></div>
+</div>
+<img alt="_images/pandas_46_1.png" src="_images/pandas_46_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_extra</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>waterlevel</th>
+      <th>current</th>
+      <th>temperature</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2015-02-17 00:00:00</th>
+      <td>-0.27</td>
+      <td>0.668361</td>
+      <td>10.668361</td>
+    </tr>
+    <tr>
+      <th>2015-02-17 01:00:00</th>
+      <td>-0.27</td>
+      <td>0.668361</td>
+      <td>10.668361</td>
+    </tr>
+    <tr>
+      <th>2015-02-17 02:00:00</th>
+      <td>-0.27</td>
+      <td>0.668361</td>
+      <td>10.668361</td>
+    </tr>
+    <tr>
+      <th>2015-02-17 03:00:00</th>
+      <td>-0.27</td>
+      <td>0.668361</td>
+      <td>10.668361</td>
+    </tr>
+    <tr>
+      <th>2015-02-17 04:00:00</th>
+      <td>-0.27</td>
+      <td>0.668361</td>
+      <td>10.668361</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2015-02-19 20:00:00</th>
+      <td>-0.08</td>
+      <td>0.619919</td>
+      <td>10.619919</td>
+    </tr>
+    <tr>
+      <th>2015-02-19 21:00:00</th>
+      <td>-0.08</td>
+      <td>0.619919</td>
+      <td>10.619919</td>
+    </tr>
+    <tr>
+      <th>2015-02-19 22:00:00</th>
+      <td>-0.08</td>
+      <td>0.619919</td>
+      <td>10.619919</td>
+    </tr>
+    <tr>
+      <th>2015-02-19 23:00:00</th>
+      <td>-0.08</td>
+      <td>0.619919</td>
+      <td>10.619919</td>
+    </tr>
+    <tr>
+      <th>2015-02-20 00:00:00</th>
+      <td>-0.08</td>
+      <td>0.619919</td>
+      <td>10.619919</td>
+    </tr>
+  </tbody>
+</table>
+<p>73 rows × 3 columns</p>
+</div></div></div>
 </div>
 </div>
 </div>
