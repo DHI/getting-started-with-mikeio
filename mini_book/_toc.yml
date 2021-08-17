@@ -6,7 +6,7 @@ root: intro
 chapters:
 - file: installation
   sections:
-  - file: exercises/exercise_python 
+  - file: exercises/exercise_1A_basic_python 
 - file: numpy
 - file: matplotlib
 - file: pandas
