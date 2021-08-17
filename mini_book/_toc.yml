@@ -8,6 +8,8 @@ chapters:
   sections:
   - file: exercises/exercise_1A_basic_python 
 - file: numpy
+  sections:
+  - file: exercises/exercise_1B_NumPy
 - file: matplotlib
 - file: pandas
 - file: dfs0
