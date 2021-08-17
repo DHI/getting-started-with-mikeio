@@ -6,5 +6,5 @@
 4. Install MIKE IO
 5. Install [JupyterLab](https://jupyterlab.readthedocs.io/en/stable/)
 
-![](install.gif)
+![](images/install.gif)
 
