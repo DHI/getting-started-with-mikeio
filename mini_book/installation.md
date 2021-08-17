@@ -4,6 +4,7 @@
 2. Install Python
 3. (On PCs without MIKE Zero) Install [VC redist](https://aka.ms/vs/16/release/vc_redist.x64.exe)
 4. Install MIKE IO
+5. Install [JupyterLab](https://jupyterlab.readthedocs.io/en/stable/)
 
 ![](install.gif)
 
