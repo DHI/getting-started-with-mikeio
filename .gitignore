@@ -129,3 +129,4 @@ dmypy.json
 .pyre/
 
 _build
+mini_book/output
