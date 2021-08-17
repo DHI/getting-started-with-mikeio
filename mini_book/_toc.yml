@@ -11,6 +11,8 @@ chapters:
   sections:
   - file: exercises/exercise_1B_NumPy
 - file: matplotlib
+  sections:
+  - file: exercises/exercise_1C_matplotlib
 - file: pandas
 - file: dfs0
 - file: dfs2
