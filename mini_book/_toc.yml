@@ -5,6 +5,8 @@ format: jb-book
 root: intro
 chapters:
 - file: installation
+  sections:
+  - file: exercises/exercise_python 
 - file: numpy
 - file: pandas
 - file: dfs0
