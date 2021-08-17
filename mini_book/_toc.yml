@@ -8,6 +8,7 @@ chapters:
   sections:
   - file: exercises/exercise_python 
 - file: numpy
+- file: matplotlib
 - file: pandas
 - file: dfs0
 - file: dfs2
