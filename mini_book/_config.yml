@@ -3,7 +3,7 @@
 
 title: Getting started with Dfs files in Python using MIKE IO
 author: Henrik Andersson and Jesper Mariegaard
-logo: logo.png
+logo: images/logo.png
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
