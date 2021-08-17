@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Exercise 1A: basic python &#8212; Getting started with Dfs files in Python using MIKE IO</title>
+    <title>Exercise 1B: NumPy &#8212; Getting started with Dfs files in Python using MIKE IO</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -51,8 +51,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="NumPy" href="../numpy.html" />
-    <link rel="prev" title="Installing Python and MIKE IO" href="../installation.html" />
+    <link rel="next" title="Matplotlib" href="../matplotlib.html" />
+    <link rel="prev" title="NumPy" href="../numpy.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -90,35 +90,35 @@
  </li>
 </ul>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active has-children">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../installation.html">
    Installing Python and MIKE IO
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="exercise_1A_basic_python.html">
+     Exercise 1A: basic python
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../numpy.html">
+   NumPy
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
    <i class="fas fa-chevron-down">
    </i>
   </label>
   <ul class="current">
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     Exercise 1A: basic python
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../numpy.html">
-   NumPy
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="exercise_1B_NumPy.html">
      Exercise 1B: NumPy
     </a>
    </li>
@@ -185,7 +185,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/exercises/exercise_1A_basic_python.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/exercises/exercise_1B_NumPy.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -210,7 +210,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/exercises/exercise_1A_basic_python.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/exercises/exercise_1B_NumPy.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -233,33 +233,33 @@
             <nav id="bd-toc-nav">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#a-1-jupyter">
-   1A.1: Jupyter
+  <a class="reference internal nav-link" href="#b-1-1d-array">
+   1B.1: 1d array
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#a-2-basic-python-data-structures">
-   1A.2 Basic python data structures
+  <a class="reference internal nav-link" href="#b-2-indexing">
+   1B.2: Indexing
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#a-2-1-lists">
-   1A.2.1 Lists
+  <a class="reference internal nav-link" href="#b-3-functions">
+   1B.3: Functions
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#a-2-2-tuples">
-   1A.2.2 Tuples
+  <a class="reference internal nav-link" href="#b-4-nan-values">
+   1B.4: NaN values
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#a-2-3-dictionaries">
-   1A.2.3 Dictionaries
+  <a class="reference internal nav-link" href="#b-5-boolean-arrays">
+   1B.5: Boolean arrays
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#a-3-control-structures">
-   1A.3 Control structures
+  <a class="reference internal nav-link" href="#b-6-2d-arrays">
+   1B.6: 2D arrays
   </a>
  </li>
 </ul>
@@ -273,234 +273,174 @@
         
               <div>
                 
-  <div class="section" id="exercise-1a-basic-python">
-<h1>Exercise 1A: basic python<a class="headerlink" href="#exercise-1a-basic-python" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="a-1-jupyter">
-<h2>1A.1: Jupyter<a class="headerlink" href="#a-1-jupyter" title="Permalink to this headline">¶</a></h2>
-<p>A cell in jupyter are either “code” or “markdown”. See <a class="reference external" href="https://www.markdownguide.org/cheat-sheet/">markdown cheat sheet</a> for help on writing markdown text.</p>
-<p>You will be navigating Jupyter cells alot so it’s important to learn a few <a class="reference external" href="https://www.dataday.life/notes/jupyter-notebooks/cheat-sheet-jupyter-notebook-keyboard-shortcuts/">keyboard shortcuts</a>:</p>
-<ul class="simple">
-<li><p>‘Ctrl’+’Enter’: run</p></li>
-<li><p>‘Shift’+’Enter’: run and jump to next</p></li>
-</ul>
-<p>You can exit “edit mode” (and enter “command mode”) by pressing ‘Esc’, you can now press:</p>
-<ul class="simple">
-<li><p>‘a’: insert cell above</p></li>
-<li><p>‘b’: insert cell below</p></li>
-<li><p>‘m’: change cell to markdown</p></li>
-<li><p>‘y’: change cell to code</p></li>
-<li><p>‘d’+’d’: delete cell</p></li>
-</ul>
+  <div class="section" id="exercise-1b-numpy">
+<h1>Exercise 1B: NumPy<a class="headerlink" href="#exercise-1b-numpy" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="https://numpy.org/doc/stable/user/quickstart.html">NumPy Quickstart</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="c1"># Run this cell using &#39;Shift&#39;+&#39;Enter</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import numpy and give it the alias np</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>b = 0 # this is a markdown cell, change it to code (‘Esc’ then ‘y’) and execute (‘Ctrl’+’Enter’)</p>
+<div class="section" id="b-1-1d-array">
+<h2>1B.1: 1d array<a class="headerlink" href="#b-1-1d-array" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Insert a cell below this one (&#39;Esc&#39; then &#39;b&#39;), </span>
-<span class="c1"># write a=1 and execute with &#39;Shift&#39;+&#39;Enter&#39; (which will run and move to next) </span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define a numpy array A with three float elements using np.array()</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Delete this cell (&#39;Esc&#39; then &#39;d&#39; then &#39;d&#39;)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># print the properties .ndim, .size and .shape of A</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### This is code cell, change it to markdown (&#39;Esc&#39; then &#39;m&#39;) and execute with &#39;Shift&#39;+&#39;Enter&#39;</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="a-2-basic-python-data-structures">
-<h2>1A.2 Basic python data structures<a class="headerlink" href="#a-2-basic-python-data-structures" title="Permalink to this headline">¶</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create variable called var_a with the value 2.0</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define another numpy array B with three float elements</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Now change the value of the variable var_a to &quot;my_string&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Take the sum of these arrays using &#39;+&#39;</span>
+<span class="c1"># How does this defer from using &#39;+&#39; on lists? </span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># check the type of the variable var_a by using the type() function</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a numpy array z4 with four zeroes using np.zeros()</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-<div class="section" id="a-2-1-lists">
-<h2>1A.2.1 Lists<a class="headerlink" href="#a-2-1-lists" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="b-2-indexing">
+<h2>1B.2: Indexing<a class="headerlink" href="#b-2-indexing" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a list called LA with three elements: 1.0, &quot;txt&quot; and 3 </span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a variable LB and set it equal to LA</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># print the last element of B</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Change the first element of LB to &quot;b&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># print the two first elements in two different ways:</span>
+<span class="c1"># a) using slicing A[i0:i1] (like with lists)</span>
+<span class="c1"># b) using array indexing A[idx] with idx=[i0,i1,i2,...] ()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="b-3-functions">
+<h2>1B.3: Functions<a class="headerlink" href="#b-3-functions" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># take the sum of the elements in A by using np.sum() or A.sum()</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print out the first element of LA. Did it change? Why? </span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Find the mean and std in the same way</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Append a new element None to the list LA</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># sort the elements of A using np.sort()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="b-4-nan-values">
+<h2>1B.4: NaN values<a class="headerlink" href="#b-4-nan-values" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://www.askpython.com/python/examples/nan-in-numpy-and-pandas">Understanding NaNs in Python</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># take the mean of A using np.mean()</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print the list LB</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># take the mean of a using np.nanmean()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="b-5-boolean-arrays">
+<h2>1B.5: Boolean arrays<a class="headerlink" href="#b-5-boolean-arrays" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create a boolean array idx showing which elements of B </span>
+<span class="c1"># are larger than the B.mean()</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a new list LC, set it to the sum of LA and LB and print the result</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="a-2-2-tuples">
-<h2>1A.2.2 Tuples<a class="headerlink" href="#a-2-2-tuples" title="Permalink to this headline">¶</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a tuple T with two elements &quot;1&quot; and 2.0</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># print idx</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create two variables t1, t2 and set them to the first and second element of T</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># print B[idx]</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Change the first element to 1.0. What happens? Why?</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># use np.where to show the index of the True elements</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-<div class="section" id="a-2-3-dictionaries">
-<h2>1A.2.3 Dictionaries<a class="headerlink" href="#a-2-3-dictionaries" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="b-6-2d-arrays">
+<h2>1B.6: 2D arrays<a class="headerlink" href="#b-6-2d-arrays" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define an empty dictionary D with dict() </span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># add a key-value pair using D[key] = value, with your initials and full name as key and value</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a 2D array a2D by using np.array() and a list of lists</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># add a another key-value pair with initials and name of a colleague</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># print the first row of a2D</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print the value of the first item using square brackets []</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># print the last row of a2D</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define the same dictionary an alternative way using D={k1:v1, k2:v2}</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># print all the keys using the keys() method on the D object, D.___()</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># print all the items with with items()</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="a-3-control-structures">
-<h2>1A.3 Control structures<a class="headerlink" href="#a-3-control-structures" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://www.w3schools.com/python/python_conditions.asp">Python conditions</a></p></li>
-<li><p><a class="reference external" href="https://www.w3schools.com/python/python_for_loops.asp">Python for loop</a></p></li>
-</ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">v1</span> <span class="o">=</span> <span class="mf">4.0</span>
-<span class="n">v2</span> <span class="o">=</span> <span class="mf">5.0</span>
-<span class="c1"># write the code that will print the statement &quot;great&quot; if v2 is greater than v1</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># write the code that will do the same as above but also has an else statement &quot;not so great&quot;</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">L</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Hello&quot;</span><span class="p">,</span> <span class="s2">&quot;World&quot;</span><span class="p">]</span>
-<span class="c1"># write a for loop that loops through the elements of L and prints them</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># make a2D a 1D array by using .flatten()</span>
 </pre></div>
 </div>
 </div>
@@ -533,8 +473,8 @@
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="../installation.html" title="previous page">Installing Python and MIKE IO</a>
-    <a class='right-next' id="next-link" href="../numpy.html" title="next page">NumPy</a>
+    <a class='left-prev' id="prev-link" href="../numpy.html" title="previous page">NumPy</a>
+    <a class='right-next' id="next-link" href="../matplotlib.html" title="next page">Matplotlib</a>
 
         </div>
         
