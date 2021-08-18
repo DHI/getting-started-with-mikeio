@@ -249,6 +249,26 @@
    Reading data
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#writing-data">
+   Writing data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#eum">
+   EUM
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#precipitation-data">
+   Precipitation data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#selecting-items">
+   Selecting items
+  </a>
+ </li>
 </ul>
 
             </nav>
@@ -262,6 +282,14 @@
                 
   <div class="section" id="dfs0">
 <h1>Dfs0<a class="headerlink" href="#dfs0" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="section" id="reading-data">
 <h2>Reading data<a class="headerlink" href="#reading-data" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
@@ -313,9 +341,10 @@ Items:
 </div>
 </div>
 </div>
+<p>The MIKE IO <code class="docutils literal notranslate"><span class="pre">Dataset</span></code> are used by all Dfs classes (Dfs0,Dfs1,Dfs2,Dfs3, Dfsu) but Dfs0 data are best handled by a Pandas DataFrame.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span> <span class="c1"># convert dataset to dataframe</span>
 <span class="n">df</span>
 </pre></div>
 </div>
@@ -400,7 +429,7 @@ Items:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df2</span> <span class="o">=</span> <span class="n">dfs</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df2</span> <span class="o">=</span> <span class="n">dfs</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span> <span class="c1"># or read as a data frame directly</span>
 <span class="n">df2</span>
 </pre></div>
 </div>
@@ -495,6 +524,473 @@ Items:
 </div>
 </div>
 </div>
+</div>
+<div class="section" id="writing-data">
+<h2>Writing data<a class="headerlink" href="#writing-data" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://climate.nasa.gov/vital-signs/global-temperature/">NASA - Global temperature</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;https://data.giss.nasa.gov/gistemp/graphs/graph_data/Global_Mean_Estimates_based_on_Land_and_Ocean_Data/graph.txt&quot;</span><span class="p">,</span>
+                <span class="n">delim_whitespace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                <span class="n">skiprows</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+                <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="s2">&quot;temperature_anomaly&quot;</span><span class="p">,</span> <span class="s2">&quot;temperature_anomaly_smooth&quot;</span><span class="p">],</span>
+                <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                <span class="n">parse_dates</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>temperature_anomaly</th>
+      <th>temperature_anomaly_smooth</th>
+    </tr>
+    <tr>
+      <th>year</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1880-01-01</th>
+      <td>-0.16</td>
+      <td>-0.09</td>
+    </tr>
+    <tr>
+      <th>1881-01-01</th>
+      <td>-0.08</td>
+      <td>-0.12</td>
+    </tr>
+    <tr>
+      <th>1882-01-01</th>
+      <td>-0.10</td>
+      <td>-0.16</td>
+    </tr>
+    <tr>
+      <th>1883-01-01</th>
+      <td>-0.17</td>
+      <td>-0.20</td>
+    </tr>
+    <tr>
+      <th>1884-01-01</th>
+      <td>-0.28</td>
+      <td>-0.23</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>temperature_anomaly</th>
+      <th>temperature_anomaly_smooth</th>
+    </tr>
+    <tr>
+      <th>year</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2016-01-01</th>
+      <td>1.02</td>
+      <td>0.88</td>
+    </tr>
+    <tr>
+      <th>2017-01-01</th>
+      <td>0.92</td>
+      <td>0.91</td>
+    </tr>
+    <tr>
+      <th>2018-01-01</th>
+      <td>0.85</td>
+      <td>0.95</td>
+    </tr>
+    <tr>
+      <th>2019-01-01</th>
+      <td>0.98</td>
+      <td>0.98</td>
+    </tr>
+    <tr>
+      <th>2020-01-01</th>
+      <td>1.02</td>
+      <td>1.01</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;year&#39;&gt;
+</pre></div>
+</div>
+<img alt="_images/dfs0_14_1.png" src="_images/dfs0_14_1.png" />
+</div>
+</div>
+<p>The simplest way to create a dfs0 file is to use the <code class="docutils literal notranslate"><span class="pre">to_dfs0</span></code> method on a Pandas dataframe.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_dfs0</span><span class="p">(</span><span class="s2">&quot;output/global_temperature.dfs0&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/hostedtoolcache/Python/3.9.6/x64/lib/python3.9/site-packages/mikeio/dfs0.py:348: UserWarning: mikecore WriteDfs0DataDouble returned True! Writing file probably failed.
+  warnings.warn(
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s read it back in again…</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">saved_dfs0</span> <span class="o">=</span> <span class="n">Dfs0</span><span class="p">(</span><span class="s2">&quot;output/global_temperature.dfs0&quot;</span><span class="p">)</span>
+<span class="n">saved_dfs0</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mikeio.Dfs0&gt;
+Timeaxis: TimeAxisType.CalendarNonEquidistant
+Items:
+  0:  temperature_anomaly &lt;Undefined&gt; (undefined)
+  1:  temperature_anomaly_smooth &lt;Undefined&gt; (undefined)
+</pre></div>
+</div>
+</div>
+</div>
+<p>By default, EUM types are undefined. But it can be specified.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">mikeio.eum</span> <span class="kn">import</span> <span class="n">EUMType</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">to_dfs0</span><span class="p">(</span><span class="s2">&quot;output/global_temperature_eum.dfs0&quot;</span><span class="p">,</span> <span class="n">itemtype</span><span class="o">=</span><span class="n">EUMType</span><span class="o">.</span><span class="n">Temperature</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="eum">
+<h2>EUM<a class="headerlink" href="#eum" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">mikeio.eum</span> <span class="kn">import</span> <span class="n">ItemInfo</span><span class="p">,</span> <span class="n">EUMType</span><span class="p">,</span> <span class="n">EUMUnit</span>
+
+<span class="n">EUMType</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">&quot;wind&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Wind Velocity,
+ Wind Direction,
+ Wind friction factor,
+ Wind speed,
+ Depth of Wind,
+ Wind friction speed]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">EUMType</span><span class="o">.</span><span class="n">Wind_speed</span><span class="o">.</span><span class="n">units</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[meter per sec, feet per sec, knot, km per hour, miles per hour]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="precipitation-data">
+<h2>Precipitation data<a class="headerlink" href="#precipitation-data" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/precipitation.csv&quot;</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Precipitation station 1</th>
+      <th>Precipitation station 2</th>
+      <th>Precipitation station 3</th>
+      <th>Precipitation station 4</th>
+      <th>Precipitation station 5</th>
+      <th>Precipitation station 6</th>
+      <th>Precipitation station 7</th>
+      <th>Precipitation station 8</th>
+      <th>Precipitation station 9</th>
+    </tr>
+    <tr>
+      <th>date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2001-01-01</th>
+      <td>0.0</td>
+      <td>0.000</td>
+      <td>0.021</td>
+      <td>0.071</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.025</td>
+      <td>0.025</td>
+      <td>0.000</td>
+    </tr>
+    <tr>
+      <th>2001-01-02</th>
+      <td>0.0</td>
+      <td>0.025</td>
+      <td>0.037</td>
+      <td>0.000</td>
+      <td>0.004</td>
+      <td>0.054</td>
+      <td>0.042</td>
+      <td>0.021</td>
+      <td>0.054</td>
+    </tr>
+    <tr>
+      <th>2001-01-03</th>
+      <td>0.0</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.042</td>
+      <td>0.000</td>
+    </tr>
+    <tr>
+      <th>2001-01-04</th>
+      <td>0.0</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+    </tr>
+    <tr>
+      <th>2001-01-05</th>
+      <td>0.0</td>
+      <td>0.000</td>
+      <td>0.158</td>
+      <td>0.021</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.017</td>
+      <td>0.021</td>
+      <td>0.000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">mikecore.DfsFile</span> <span class="kn">import</span> <span class="n">DataValueType</span>
+
+<span class="n">items</span> <span class="o">=</span> <span class="p">[</span><span class="n">ItemInfo</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">EUMType</span><span class="o">.</span><span class="n">Precipitation_Rate</span><span class="p">,</span> <span class="n">EUMUnit</span><span class="o">.</span><span class="n">mm_per_hour</span><span class="p">,</span> <span class="n">data_value_type</span><span class="o">=</span><span class="n">DataValueType</span><span class="o">.</span><span class="n">MeanStepBackward</span><span class="p">)</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span>
+
+<span class="n">items</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Precipitation station 1 &lt;Precipitation Rate&gt; (mm per hour),
+ Precipitation station 2 &lt;Precipitation Rate&gt; (mm per hour),
+ Precipitation station 3 &lt;Precipitation Rate&gt; (mm per hour),
+ Precipitation station 4 &lt;Precipitation Rate&gt; (mm per hour),
+ Precipitation station 5 &lt;Precipitation Rate&gt; (mm per hour),
+ Precipitation station 6 &lt;Precipitation Rate&gt; (mm per hour),
+ Precipitation station 7 &lt;Precipitation Rate&gt; (mm per hour),
+ Precipitation station 8 &lt;Precipitation Rate&gt; (mm per hour),
+ Precipitation station 9 &lt;Precipitation Rate&gt; (mm per hour)]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">items</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">data_value_type</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;DataValueType.MeanStepBackward: 3&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_dfs0</span><span class="p">(</span><span class="s2">&quot;output/precipitation.dfs0&quot;</span><span class="p">,</span><span class="n">items</span><span class="o">=</span><span class="n">items</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/hostedtoolcache/Python/3.9.6/x64/lib/python3.9/site-packages/mikeio/dfs0.py:348: UserWarning: mikecore WriteDfs0DataDouble returned True! Writing file probably failed.
+  warnings.warn(
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="selecting-items">
+<h2>Selecting items<a class="headerlink" href="#selecting-items" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dfs</span> <span class="o">=</span> <span class="n">Dfs0</span><span class="p">(</span><span class="s2">&quot;output/precipitation.dfs0&quot;</span><span class="p">)</span>
+<span class="n">ds</span> <span class="o">=</span> <span class="n">dfs</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">items</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span> <span class="c1"># select item by item number (starting from zero)</span>
+<span class="n">ds</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mikeio.DataSet&gt;
+Dimensions: (31,)
+Time: 2001-01-01 00:00:00 - 2001-01-31 00:00:00
+Items:
+  0:  Precipitation station 2 &lt;Precipitation Rate&gt; (mm per hour)
+  1:  Precipitation station 5 &lt;Precipitation Rate&gt; (mm per hour)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span> <span class="o">=</span> <span class="n">dfs</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">items</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Precipitation station 6&quot;</span><span class="p">,</span><span class="s2">&quot;Precipitation station 3&quot;</span><span class="p">])</span> <span class="c1"># or by name (in the order you like it)</span>
+<span class="n">ds</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mikeio.DataSet&gt;
+Dimensions: (31,)
+Time: 2001-01-01 00:00:00 - 2001-01-31 00:00:00
+Items:
+  0:  Precipitation station 6 &lt;Precipitation Rate&gt; (mm per hour)
+  1:  Precipitation station 3 &lt;Precipitation Rate&gt; (mm per hour)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">items</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">reversed</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">2</span><span class="p">)))</span> <span class="c1"># not sure if this is useful, but it is possible ;-)</span>
+<span class="n">items</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[7, 5, 3, 1]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span> <span class="o">=</span> <span class="n">dfs</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">items</span><span class="o">=</span><span class="n">items</span><span class="p">)</span>
+<span class="n">ds</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mikeio.DataSet&gt;
+Dimensions: (31,)
+Time: 2001-01-01 00:00:00 - 2001-01-31 00:00:00
+Items:
+  0:  Precipitation station 8 &lt;Precipitation Rate&gt; (mm per hour)
+  1:  Precipitation station 6 &lt;Precipitation Rate&gt; (mm per hour)
+  2:  Precipitation station 4 &lt;Precipitation Rate&gt; (mm per hour)
+  3:  Precipitation station 2 &lt;Precipitation Rate&gt; (mm per hour)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that once you have read data into a Dataset, the item number no longer reflects the item number in the file!</p>
 </div>
 </div>
 
