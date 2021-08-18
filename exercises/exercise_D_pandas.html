@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Exercise 1A: basic python &#8212; Getting started with Dfs files in Python using MIKE IO</title>
+    <title>Exercise D: Pandas &#8212; Getting started with Dfs files in Python using MIKE IO</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -51,8 +51,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="NumPy" href="../numpy.html" />
-    <link rel="prev" title="Basic Python" href="../basic.html" />
+    <link rel="next" title="Dfs0" href="../dfs0.html" />
+    <link rel="prev" title="Pandas" href="../pandas.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -95,18 +95,18 @@
    Installing Python and MIKE IO
   </a>
  </li>
- <li class="toctree-l1 current active has-children">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../basic.html">
    Basic Python
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul class="current">
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="exercise_1A_basic_python.html">
      Exercise 1A: basic python
     </a>
    </li>
@@ -146,18 +146,18 @@
    </li>
   </ul>
  </li>
- <li class="toctree-l1 has-children">
+ <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="../pandas.html">
    Pandas
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
   <label for="toctree-checkbox-4">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="exercise_D_pandas.html">
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      Exercise D: Pandas
     </a>
    </li>
@@ -226,7 +226,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/exercises/exercise_1A_basic_python.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/exercises/exercise_D_pandas.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -251,7 +251,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/exercises/exercise_1A_basic_python.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/exercises/exercise_D_pandas.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -274,33 +274,13 @@
             <nav id="bd-toc-nav">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#a-1-jupyter">
-   1A.1: Jupyter
+  <a class="reference internal nav-link" href="#d-1-create-dataframe-from-dict">
+   D.1 Create DataFrame from dict
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#a-2-variables">
-   1A.2 Variables
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#a-3-lists">
-   1A.3 Lists
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#a-4-tuples">
-   1A.4 Tuples
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#a-5-dictionaries">
-   1A.5 Dictionaries
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#a-6-control-structures">
-   1A.6 Control structures
+  <a class="reference internal nav-link" href="#d-2-read-dataframe-from-csv-xlsx">
+   D.2 Read DataFrame from csv/xlsx
   </a>
  </li>
 </ul>
@@ -314,221 +294,99 @@
         
               <div>
                 
-  <div class="section" id="exercise-1a-basic-python">
-<h1>Exercise 1A: basic python<a class="headerlink" href="#exercise-1a-basic-python" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="a-1-jupyter">
-<h2>1A.1: Jupyter<a class="headerlink" href="#a-1-jupyter" title="Permalink to this headline">¶</a></h2>
+  <div class="section" id="exercise-d-pandas">
+<h1>Exercise D: Pandas<a class="headerlink" href="#exercise-d-pandas" title="Permalink to this headline">¶</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="c1"># Run this cell using &#39;Shift&#39;+&#39;Enter</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>b = 0 # this is a markdown cell, change it to code (‘Esc’ then ‘y’) and execute (‘Ctrl’+’Enter’)</p>
+<div class="section" id="d-1-create-dataframe-from-dict">
+<h2>D.1 Create DataFrame from dict<a class="headerlink" href="#d-1-create-dataframe-from-dict" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Insert a cell below this one (&#39;Esc&#39; then &#39;b&#39;), </span>
-<span class="c1"># write a=1 and execute with &#39;Shift&#39;+&#39;Enter&#39; (which will run and move to next) </span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Delete this cell (&#39;Esc&#39; then &#39;d&#39; then &#39;d&#39;)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">medals</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Country&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;China&#39;</span><span class="p">,</span><span class="s1">&#39;New Zealand&#39;</span><span class="p">,</span><span class="s1">&#39;France&#39;</span><span class="p">],</span>
+          <span class="s1">&#39;Gold&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">38</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span>
+          <span class="s1">&#39;Silver&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">32</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">12</span><span class="p">],</span>
+          <span class="s1">&#39;Bronze&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">18</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">11</span><span class="p">],</span>
+          <span class="s1">&#39;Population&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1_439_323_776</span><span class="p">,</span> <span class="mi">4_822_233</span><span class="p">,</span> <span class="mi">65_273_511</span><span class="p">]}</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### This is code cell, change it to markdown (&#39;Esc&#39; then &#39;m&#39;) and execute with &#39;Shift&#39;+&#39;Enter&#39;</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="a-2-variables">
-<h2>1A.2 Variables<a class="headerlink" href="#a-2-variables" title="Permalink to this headline">¶</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create variable called var_a with the value 2.0</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create a DataFrame df from the medals dict, print it</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Now change the value of the variable var_a to &quot;my_string&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># set the index to &#39;Country&#39;</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># check the type of the variable var_a by using the type() function</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="a-3-lists">
-<h2>1A.3 Lists<a class="headerlink" href="#a-3-lists" title="Permalink to this headline">¶</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a list called LA with three elements: 1.0, &quot;txt&quot; and 3 </span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># add a new column &#39;Total&#39; with total number of medals per country</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a variable LB and set it equal to LA</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># add a new column &#39;Population_per_medal&#39; (convert to np.int32)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Change the first element of LB to &quot;b&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># sort the DataFrame by &quot;Population_per_medal&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="d-2-read-dataframe-from-csv-xlsx">
+<h2>D.2 Read DataFrame from csv/xlsx<a class="headerlink" href="#d-2-read-dataframe-from-csv-xlsx" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># read olympic-medals.csv with pd.read_csv() using index_col=0 as argument</span>
+<span class="c1"># call the new DataFrame df2</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print out the first element of LA. Did it change? Why? </span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># print the first 4 rows</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Append a new element None to the list LA</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get the row of &quot;Denmark&quot;</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print the list LB</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># sort the teams alphabetically</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a new list LC, set it to the sum of LA and LB and print the result</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="a-4-tuples">
-<h2>1A.4 Tuples<a class="headerlink" href="#a-4-tuples" title="Permalink to this headline">¶</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a tuple T with two elements &quot;1&quot; and 2.0</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create two variables t1, t2 and set them to the first and second element of T</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Change the first element to 1.0. What happens? Why?</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="a-5-dictionaries">
-<h2>1A.5 Dictionaries<a class="headerlink" href="#a-5-dictionaries" title="Permalink to this headline">¶</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define an empty dictionary D with dict() </span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># add a key-value pair using D[key] = value, with your initials and </span>
-<span class="c1"># full name as key and value</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># add a another key-value pair with initials and name of a colleague</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print the value of the first item using square brackets []</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define the same dictionary an alternative way using D={k1:v1, k2:v2}</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># print all the keys using the keys() method on the D object, D.___()</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># print all the items with with items()</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="a-6-control-structures">
-<h2>1A.6 Control structures<a class="headerlink" href="#a-6-control-structures" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://www.w3schools.com/python/python_conditions.asp">Python conditions</a></p></li>
-<li><p><a class="reference external" href="https://www.w3schools.com/python/python_for_loops.asp">Python for loop</a></p></li>
-</ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">v1</span> <span class="o">=</span> <span class="mf">4.0</span>
-<span class="n">v2</span> <span class="o">=</span> <span class="mf">5.0</span>
-<span class="c1"># write the code that will print the statement &quot;great&quot; if v2 is greater than v1</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># write the code that will do the same as above but also has an else statement &quot;not so great&quot;</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">L</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Hello&quot;</span><span class="p">,</span> <span class="s2">&quot;World&quot;</span><span class="p">]</span>
-<span class="c1"># write a for loop that loops through the elements of L and prints them</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get the total number of Silver medals</span>
 </pre></div>
 </div>
 </div>
@@ -561,8 +419,8 @@
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="../basic.html" title="previous page">Basic Python</a>
-    <a class='right-next' id="next-link" href="../numpy.html" title="next page">NumPy</a>
+    <a class='left-prev' id="prev-link" href="../pandas.html" title="previous page">Pandas</a>
+    <a class='right-next' id="next-link" href="../dfs0.html" title="next page">Dfs0</a>
 
         </div>
         
