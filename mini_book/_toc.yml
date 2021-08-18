@@ -5,6 +5,7 @@ format: jb-book
 root: intro
 chapters:
 - file: installation
+- file: basic
   sections:
   - file: exercises/exercise_1A_basic_python 
 - file: numpy
