@@ -15,6 +15,8 @@ chapters:
   sections:
   - file: exercises/exercise_1C_matplotlib
 - file: pandas
+  sections:
+  - file: exercises/exercise_D_pandas
 - file: dfs0
   sections:
   - file: exercises/exercise_2_Dfs0
