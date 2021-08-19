@@ -332,7 +332,12 @@
   <div class="section" id="numpy">
 <h1>NumPy<a class="headerlink" href="#numpy" title="Permalink to this headline">¶</a></h1>
 <p><a class="reference external" href="https://numpy.org/">NumPy</a> is a fundamental library for computation in Python.</p>
-<p>Lets’s compare regular Python lists and NumPy arrays.</p>
+<p>Additional resources:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://numpy.org/doc/stable/user/quickstart.html">NumPy Quickstart</a></p></li>
+<li><p><a class="reference external" href="https://numpy.org/doc/stable/user/absolute_beginners.html">NumPy absolute basics</a></p></li>
+<li><p><a class="reference external" href="https://numpy.org/doc/stable/user/numpy-for-matlab-users.html">NumPy for MATLAB users</a></p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -342,9 +347,10 @@
 </div>
 <div class="section" id="python-list">
 <h2>Python list<a class="headerlink" href="#python-list" title="Permalink to this headline">¶</a></h2>
+<p>Lets’s compare regular Python lists and NumPy arrays.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># A list is created with [..,..]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># A list is created with [.., ..]</span>
 <span class="n">myvals</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">]</span>
 <span class="n">myvals</span>
 </pre></div>
@@ -373,9 +379,7 @@
 <h2>Numpy 1D array (vector)<a class="headerlink" href="#numpy-1d-array-vector" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-
-<span class="n">myvals_np</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.2</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">myvals_np</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.2</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -500,7 +504,7 @@
 <div class="section" id="math-operations">
 <h2>Math operations<a class="headerlink" href="#math-operations" title="Permalink to this headline">¶</a></h2>
 <p>Python is a general purpose language <em>not</em> designed with numerical computing in mind.</p>
-<p>However, NumPy is designed to for numerical computing!</p>
+<p>However, NumPy is designed for numerical computing!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mf">1.2</span><span class="p">,</span> <span class="mf">4.5</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="mf">2.3</span><span class="p">,</span> <span class="mf">4.3</span><span class="p">]</span> <span class="c1"># is this the result you expected??</span>
@@ -623,8 +627,8 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.73143724, 0.01367924, 0.95233124, 0.18994864, 0.38111831,
-       0.56458693, 0.09573525, 0.12666354, 0.07223003, 0.46385011])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.12329264, 0.89871592, 0.96429855, 0.34029858, 0.44278563,
+       0.04573206, 0.9480723 , 0.22098875, 0.04300613, 0.89565114])
 </pre></div>
 </div>
 </div>
@@ -636,7 +640,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.35915805378680543
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.49228416992597646
 </pre></div>
 </div>
 </div>
@@ -648,7 +652,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.29964150627691444
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.37349662540001066
 </pre></div>
 </div>
 </div>
@@ -660,7 +664,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9523312411704666
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9642985513657024
 </pre></div>
 </div>
 </div>
@@ -672,8 +676,8 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.37227918, -0.34547882,  0.59317319, -0.16920941,  0.02196026,
-        0.20542888, -0.26342281, -0.23249451, -0.28692802,  0.10469206])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.36899153,  0.40643175,  0.47201438, -0.15198559, -0.04949854,
+       -0.44655211,  0.45578813, -0.27129542, -0.44927804,  0.40336697])
 </pre></div>
 </div>
 </div>
@@ -725,8 +729,8 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.35617316, 0.24446746, 0.94668171, 0.40360782, 0.61897262,
-       0.8790044 , 0.11811924, 0.27559279, 0.65361   , 0.39109277])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.75313015, 0.87992655, 0.58404183, 0.1881795 , 0.14677109,
+       0.25727888, 0.68826975, 0.45388841, 0.05955301, 0.21507722])
 </pre></div>
 </div>
 </div>
@@ -739,7 +743,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.35617316, 0.24446746, 0.94668171, 0.40360782, 0.61897262,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.75313015, 0.87992655, 0.58404183, 0.1881795 , 0.14677109,
               nan,        nan,        nan,        nan,        nan])
 </pre></div>
 </div>
@@ -764,7 +768,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5139805530606546
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5104098242763343
 </pre></div>
 </div>
 </div>
@@ -776,7 +780,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.11895098, 0.76801718, 2.9740883 , 1.26797136, 1.94455983,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([2.36602816, 2.76437079, 1.83482151, 0.59118334, 0.46109498,
               nan,        nan,        nan,        nan,        nan])
 </pre></div>
 </div>
@@ -795,9 +799,8 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-3.14638815e+00, -2.17675395e+00, -4.26496080e-03,  2.73562718e-01,
-        3.24403496e-01,  9.40895193e-01,  2.70587539e+00,  3.02348694e+00,
-        5.07187076e+00,  5.55946240e+00])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-2.97933367, -2.06293284, -1.52159186, -1.18612053, -0.56252262,
+        0.80882466,  1.00913902,  1.20589921,  1.39226204,  1.75539292])
 </pre></div>
 </div>
 </div>
@@ -809,8 +812,8 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([False, False, False,  True,  True,  True, False, False, False,
-       False])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([False, False, False, False,  True,  True,  True,  True, False,
+        True])
 </pre></div>
 </div>
 </div>
@@ -822,7 +825,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ True,  True,  True, False, False, False, False, False, False,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ True,  True,  True,  True,  True, False, False, False, False,
        False])
 </pre></div>
 </div>
@@ -835,7 +838,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-3.14638815, -2.17675395, -0.00426496])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-2.97933367, -2.06293284, -1.52159186, -1.18612053, -0.56252262])
 </pre></div>
 </div>
 </div>
@@ -854,8 +857,8 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.        , 0.        , 0.        , 0.27356272, 0.3244035 ,
-       0.94089519, 2.70587539, 3.02348694, 5.07187076, 5.5594624 ])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.        , 0.        , 0.        , 0.        , 0.        ,
+       0.80882466, 1.00913902, 1.20589921, 1.39226204, 1.75539292])
 </pre></div>
 </div>
 </div>
@@ -867,7 +870,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([3, 4, 5]),)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([4, 5, 6, 7, 9]),)
 </pre></div>
 </div>
 </div>
@@ -891,7 +894,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9.55186555175901
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9.613819974647638
 </pre></div>
 </div>
 </div>
@@ -922,7 +925,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.001846568037362
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.1769972078721063
 </pre></div>
 </div>
 </div>
@@ -1117,15 +1120,15 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">-</span> <span class="n">rowmeans</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">-</span> <span class="n">rowmeans</span>    <span class="c1"># this will fail</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1753</span><span class="o">/</span><span class="mf">2430823324.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">X</span> <span class="o">-</span> <span class="n">rowmeans</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1754</span><span class="o">/</span><span class="mf">3751175632.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">X</span> <span class="o">-</span> <span class="n">rowmeans</span>    <span class="c1"># this will fail</span>
 
 <span class="ne">ValueError</span>: operands could not be broadcast together with shapes (2,3) (2,) 
 </pre></div>
