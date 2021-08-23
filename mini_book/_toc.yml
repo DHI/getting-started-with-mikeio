@@ -16,10 +16,11 @@ chapters:
   - file: exercises/exercise_C_matplotlib
 - file: pandas
   sections:
-  - file: exercises/exercise_D_pandas
+  - file: exercises/exercise_D_pandas_basics
+  - file: exercises/exercise_E_pandas_timeseries
 - file: dfs0
   sections:
-  - file: exercises/exercise_E_Dfs0
+  - file: exercises/exercise_F_Dfs0
 - file: dfs2
 - file: generic
 
