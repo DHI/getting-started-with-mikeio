@@ -271,6 +271,11 @@
    Installation example
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#test-your-installation">
+   Test your installation
+  </a>
+ </li>
 </ul>
 
             </nav>
@@ -291,6 +296,7 @@
 <li><p>(On PCs without MIKE Zero) Install <a class="reference external" href="https://aka.ms/vs/16/release/vc_redist.x64.exe">VC redist</a></p></li>
 <li><p>Open command prompt (<code class="docutils literal notranslate"><span class="pre">cmd.exe</span></code>)</p></li>
 <li><p>Install MIKE IO (<code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">mikeio</span></code>)</p></li>
+<li><p>Install matplotlib (<code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">matplotlib</span></code>)</p></li>
 <li><p>Install <a class="reference external" href="https://jupyterlab.readthedocs.io/en/stable/">JupyterLab</a> (<code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">jupyterlab</span></code>)</p></li>
 <li><p>Start Jupyter lab (<code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">lab</span></code>)</p></li>
 <li><p>You are now ready to start working with MIKE IO in Python</p></li>
@@ -298,6 +304,36 @@
 <div class="section" id="installation-example">
 <h2>Installation example<a class="headerlink" href="#installation-example" title="Permalink to this headline">¶</a></h2>
 <p><img alt="" src="_images/install.gif" /></p>
+</div>
+<div class="section" id="test-your-installation">
+<h2>Test your installation<a class="headerlink" href="#test-your-installation" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>Open command prompt (<code class="docutils literal notranslate"><span class="pre">cmd.exe</span></code>)</p></li>
+<li><p>Start python (<code class="docutils literal notranslate"><span class="pre">&gt;</span> <span class="pre">python</span></code>)</p></li>
+<li><p>Run the following lines of code:</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
+<span class="kn">import</span> <span class="nn">mikeio</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Python version: </span><span class="si">{</span><span class="n">sys</span><span class="o">.</span><span class="n">version</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;NumPy: &quot;</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Pandas: &quot;</span> <span class="o">+</span> <span class="n">pd</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Matplotlib: &quot;</span> <span class="o">+</span> <span class="n">mpl</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;MIKE IO: &quot;</span> <span class="o">+</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>Can you say yes to the following questions?</p></li>
+</ol>
+<ul class="simple">
+<li><p>My Python version is 3.8 or greater</p></li>
+<li><p>My NumPy version is 1.18 or greater</p></li>
+<li><p>My pandas version is 1.0 or greater</p></li>
+<li><p>My matplotlib version is 3.2 or greater</p></li>
+<li><p>My MIKE IO version is 0.7 or greater</p></li>
+</ul>
 </div>
 </div>
 
