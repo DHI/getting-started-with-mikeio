@@ -33,7 +33,7 @@ print("Matplotlib: " + mpl.__version__)
 print("MIKE IO: " + mikeio.__version__)
 ```
 
-4. Can you say yes to the following questions? 
+Can you say yes to the following questions? 
 
 * My Python version is 3.8 or greater
 * My NumPy version is 1.18 or greater
