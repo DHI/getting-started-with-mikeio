@@ -22,6 +22,10 @@ chapters:
   sections:
   - file: exercises/exercise_F_Dfs0
 - file: dfs2
+  sections:
+  - file: exercises/exercise_H_generic_dfs
 - file: generic
+  sections:
+  - file: exercises/exercise_F_Dfs0
 - file: exercises/exercise_G_data_processing
 
