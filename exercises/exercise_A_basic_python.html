@@ -316,6 +316,13 @@
   <a class="reference internal nav-link" href="#a-1-jupyter">
    A.1: Jupyter
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#change-this-code-cell-to-markdown-esc-then-m-and-execute-with-shift-enter">
+     Change this code cell to markdown (‘Esc’ then ‘m’) and execute with ‘Shift’+’Enter’
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#a-2-variables">
@@ -366,7 +373,13 @@
 </div>
 </div>
 </div>
-<p>b = 0 # this is a markdown cell, change it to code (‘Esc’ then ‘y’) and execute (‘Ctrl’+’Enter’)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># this is a markdown cell, change it to code (&#39;Esc&#39; then &#39;y&#39;) and execute (&#39;Ctrl&#39;+&#39;Enter&#39;) </span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Insert a cell below this one (&#39;Esc&#39; then &#39;b&#39;), </span>
@@ -377,17 +390,13 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Delete this cell (&#39;Esc&#39; then &#39;d&#39; then &#39;d&#39;)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">=</span><span class="mi">1</span>
 </pre></div>
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### Change this code cell to markdown (&#39;Esc&#39; then &#39;m&#39;) and execute with &#39;Shift&#39;+&#39;Enter&#39;</span>
-</pre></div>
-</div>
-</div>
+<div class="section" id="change-this-code-cell-to-markdown-esc-then-m-and-execute-with-shift-enter">
+<h3>Change this code cell to markdown (‘Esc’ then ‘m’) and execute with ‘Shift’+’Enter’<a class="headerlink" href="#change-this-code-cell-to-markdown-esc-then-m-and-execute-with-shift-enter" title="Permalink to this headline">¶</a></h3>
 </div>
 </div>
 <div class="section" id="a-2-variables">
@@ -395,6 +404,7 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create variable called var_a with the value 2.0</span>
+<span class="n">var_a</span> <span class="o">=</span> <span class="mf">2.0</span>
 </pre></div>
 </div>
 </div>
@@ -402,6 +412,7 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Now change the value of the variable var_a to &quot;my_string&quot;</span>
+<span class="n">var_a</span> <span class="o">=</span> <span class="s2">&quot;my_string&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -409,6 +420,13 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># check the type of the variable var_a by using the type() function</span>
+
+<span class="nb">type</span><span class="p">(</span><span class="n">var_a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>str
 </pre></div>
 </div>
 </div>
@@ -419,6 +437,8 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a list called LA with three elements: 1.0, &quot;txt&quot; and 3 </span>
+
+<span class="n">LA</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="s2">&quot;txt&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -426,6 +446,8 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a variable LB and set it equal to LA</span>
+
+<span class="n">LB</span> <span class="o">=</span> <span class="n">LA</span>
 </pre></div>
 </div>
 </div>
@@ -433,13 +455,21 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Change the first element of LB to &quot;b&quot;</span>
+
+<span class="n">LB</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;b&quot;</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print out the first element of LA. Did it change? Why? </span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print out the first element of LA. Did it change? Why?</span>
+<span class="n">LB</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;b&#39;, &#39;txt&#39;, 3]
 </pre></div>
 </div>
 </div>
@@ -447,6 +477,7 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Append a new element None to the list LA</span>
+<span class="n">LA</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -454,6 +485,12 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print the list LB</span>
+<span class="n">LB</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;b&#39;, &#39;txt&#39;, 3, None]
 </pre></div>
 </div>
 </div>
@@ -461,6 +498,13 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a new list LC, set it to the sum of LA and LB and print the result</span>
+<span class="n">LC</span> <span class="o">=</span> <span class="n">LA</span> <span class="o">+</span> <span class="n">LB</span>
+<span class="n">LC</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;b&#39;, &#39;txt&#39;, 3, None, &#39;b&#39;, &#39;txt&#39;, 3, None]
 </pre></div>
 </div>
 </div>
@@ -471,6 +515,7 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a tuple T with two elements &quot;1&quot; and 2.0</span>
+<span class="n">T</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -478,6 +523,24 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create two variables t1, t2 and set them to the first and second element of T</span>
+<span class="n">t1</span><span class="p">,</span> <span class="n">t2</span> <span class="o">=</span> <span class="n">T</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">T</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1723</span><span class="o">/</span><span class="mf">4074638045.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">T</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
+
+<span class="ne">TypeError</span>: &#39;tuple&#39; object does not support item assignment
 </pre></div>
 </div>
 </div>
@@ -485,6 +548,12 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Change the first element to 1.0. What happens? Why?</span>
+<span class="n">t1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;1&#39;
 </pre></div>
 </div>
 </div>
@@ -495,6 +564,7 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define an empty dictionary D with dict() </span>
+<span class="n">D</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
