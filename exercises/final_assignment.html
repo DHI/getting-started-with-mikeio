@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Exercise A: basic python &#8212; Getting started with Dfs files in Python using MIKE IO</title>
+    <title>Final assignment: Data processing &#8212; Getting started with Dfs files in Python using MIKE IO</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -51,8 +51,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="NumPy" href="../numpy.html" />
-    <link rel="prev" title="Basic Python" href="../basic.html" />
+    <link rel="prev" title="Exercise H: Generic dfs" href="exercise_H_generic_dfs.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -95,18 +94,18 @@
    Installing Python and MIKE IO
   </a>
  </li>
- <li class="toctree-l1 current active has-children">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../basic.html">
    Basic Python
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul class="current">
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="exercise_A_basic_python.html">
      Exercise A: basic python
     </a>
    </li>
@@ -219,8 +218,8 @@
    </li>
   </ul>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="final_assignment.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Final assignment: Data processing
   </a>
  </li>
@@ -265,7 +264,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/exercises/exercise_A_basic_python.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/exercises/final_assignment.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -290,7 +289,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/exercises/exercise_A_basic_python.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/exercises/final_assignment.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -313,33 +312,18 @@
             <nav id="bd-toc-nav">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#a-1-jupyter">
-   A.1: Jupyter
+  <a class="reference internal nav-link" href="#g-1-convert-all-timeseries-to-dfs0">
+   G.1 Convert all timeseries to Dfs0
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#a-2-variables">
-   A.2 Variables
+  <a class="reference internal nav-link" href="#g-2-add-region-specific-info-to-normalize-timeseries-with-surface-area">
+   G.2 Add region specific info to normalize timeseries with surface area
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#a-3-lists">
-   A.3 Lists
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#a-4-tuples">
-   A.4 Tuples
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#a-5-dictionaries">
-   A.5 Dictionaries
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#a-6-control-structures">
-   A.6 Control structures
+  <a class="reference internal nav-link" href="#g-3-gridded-weather-forcing-data">
+   G.3 Gridded weather forcing data
   </a>
  </li>
 </ul>
@@ -353,226 +337,108 @@
         
               <div>
                 
-  <div class="section" id="exercise-a-basic-python">
-<h1>Exercise A: basic python<a class="headerlink" href="#exercise-a-basic-python" title="Permalink to this headline">¶</a></h1>
-<p>2021-8-24</p>
-<div class="section" id="a-1-jupyter">
-<h2>A.1: Jupyter<a class="headerlink" href="#a-1-jupyter" title="Permalink to this headline">¶</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="c1"># Run this cell using &#39;Shift&#39;+&#39;Enter</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>b = 0 # this is a markdown cell, change it to code (‘Esc’ then ‘y’) and execute (‘Ctrl’+’Enter’)</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Insert a cell below this one (&#39;Esc&#39; then &#39;b&#39;), </span>
-<span class="c1"># write a=1 and execute with &#39;Shift&#39;+&#39;Enter&#39; (which will run and move to next) </span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Delete this cell (&#39;Esc&#39; then &#39;d&#39; then &#39;d&#39;)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### Change this code cell to markdown (&#39;Esc&#39; then &#39;m&#39;) and execute with &#39;Shift&#39;+&#39;Enter&#39;</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="a-2-variables">
-<h2>A.2 Variables<a class="headerlink" href="#a-2-variables" title="Permalink to this headline">¶</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create variable called var_a with the value 2.0</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Now change the value of the variable var_a to &quot;my_string&quot;</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># check the type of the variable var_a by using the type() function</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="a-3-lists">
-<h2>A.3 Lists<a class="headerlink" href="#a-3-lists" title="Permalink to this headline">¶</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a list called LA with three elements: 1.0, &quot;txt&quot; and 3 </span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a variable LB and set it equal to LA</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Change the first element of LB to &quot;b&quot;</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print out the first element of LA. Did it change? Why? </span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Append a new element None to the list LA</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print the list LB</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a new list LC, set it to the sum of LA and LB and print the result</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="a-4-tuples">
-<h2>A.4 Tuples<a class="headerlink" href="#a-4-tuples" title="Permalink to this headline">¶</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a tuple T with two elements &quot;1&quot; and 2.0</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create two variables t1, t2 and set them to the first and second element of T</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Change the first element to 1.0. What happens? Why?</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="a-5-dictionaries">
-<h2>A.5 Dictionaries<a class="headerlink" href="#a-5-dictionaries" title="Permalink to this headline">¶</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define an empty dictionary D with dict() </span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># add a key-value pair using D[key] = value, with your initials and </span>
-<span class="c1"># full name as key and value</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># add a another key-value pair with initials and name of a colleague</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print the value of the first item using square brackets []</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define the same dictionary an alternative way using D={k1:v1, k2:v2}</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># print all the keys using the keys() method on the D object, D.___()</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># print all the items with with items()</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="a-6-control-structures">
-<h2>A.6 Control structures<a class="headerlink" href="#a-6-control-structures" title="Permalink to this headline">¶</a></h2>
+  <div class="section" id="final-assignment-data-processing">
+<h1>Final assignment: Data processing<a class="headerlink" href="#final-assignment-data-processing" title="Permalink to this headline">¶</a></h1>
+<p>The final exercise involves converting data from an hypothetical external provider.</p>
+<p>The data will be used for MIKE modelling and must be converted to Dfs0 with apppropriate EUM types/units in order to be used by the MIKE software.</p>
+<p>The data is provided as a <a class="reference external" href="https://github.com/DHI/getting-started-with-mikeio/raw/main/mini_book/data/stream_data.zip">zip file</a>.</p>
+<p>Inside the zip file, there are a many timeseries of discharge data from streams located across several regions (<code class="docutils literal notranslate"><span class="pre">*.dat</span></code>).</p>
+<p>Static data for each region is found in a separate file (<code class="docutils literal notranslate"><span class="pre">region_info.csv</span></code>)</p>
+<p>Pandas <code class="docutils literal notranslate"><span class="pre">read_csv</span></code> is very powerful, but here are a few things to keep in mind</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://www.w3schools.com/python/python_conditions.asp">Python conditions</a></p></li>
-<li><p><a class="reference external" href="https://www.w3schools.com/python/python_for_loops.asp">Python for loop</a></p></li>
+<li><p>Column separator e.g. comma (,)</p></li>
+<li><p>Blank lines</p></li>
+<li><p>Comments</p></li>
+<li><p>Missing values</p></li>
+<li><p>Date format</p></li>
 </ul>
+<p>The MIKE engine can not handle missing values / delete values, fill in in missing values with interpolated values.</p>
+<p>In order to save diskspace, crop the timeseries to simulation period Feb 1 - June 30.</p>
+<div class="section" id="g-1-convert-all-timeseries-to-dfs0">
+<h2>G.1 Convert all timeseries to Dfs0<a class="headerlink" href="#g-1-convert-all-timeseries-to-dfs0" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">v1</span> <span class="o">=</span> <span class="mf">4.0</span>
-<span class="n">v2</span> <span class="o">=</span> <span class="mf">5.0</span>
-<span class="c1"># write the code that will print the statement &quot;great&quot; if v2 is greater than v1</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">mikeio</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># write the code that will do the same as above but also has an else statement &quot;not so great&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This is one way to find and filter filenames in a directory</span>
+<span class="c1"># [x for x in os.listdir(&quot;datafolder&quot;) if &quot;some_str&quot; in x]</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">L</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Hello&quot;</span><span class="p">,</span> <span class="s2">&quot;World&quot;</span><span class="p">]</span>
-<span class="c1"># write a for loop that loops through the elements of L and prints them</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This is useful!</span>
+<span class="c1"># help(pd.read_csv)</span>
 </pre></div>
 </div>
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># example of reading csv</span>
+<span class="c1"># df = pd.read_csv(&quot;../data/oceandata.csv&quot;, comment=&#39;#&#39;, index_col=0, sep=&#39;,&#39;, parse_dates=True)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="g-2-add-region-specific-info-to-normalize-timeseries-with-surface-area">
+<h2>G.2 Add region specific info to normalize timeseries with surface area<a class="headerlink" href="#g-2-add-region-specific-info-to-normalize-timeseries-with-surface-area" title="Permalink to this headline">¶</a></h2>
+<p>Each timeseries belongs to a region identified in the filename, e.g. <code class="docutils literal notranslate"><span class="pre">s15_east_novayork_river.dat</span></code> is located in the <code class="docutils literal notranslate"><span class="pre">novayork</span></code> region.</p>
+</div>
+<div class="section" id="g-3-gridded-weather-forcing-data">
+<h2>G.3 Gridded weather forcing data<a class="headerlink" href="#g-3-gridded-weather-forcing-data" title="Permalink to this headline">¶</a></h2>
+<p>The dataset is provided in NumPy binary format and consists of</p>
+<ul class="simple">
+<li><p>Temperture 2m (degree Kelvin)</p></li>
+<li><p>Relative humidity 2m (%)</p></li>
+</ul>
+<p>The spatial grid is: 40E - 50E, 10-15N with a grid spacing of 1 degree in each direction.</p>
+<p>The time axis consists of two timesteps ‘2005-01-31’, ‘2005-07-31’ which is sufficent to cover the simulation period.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tmp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;../data/temperature_2m.npy&quot;</span><span class="p">)</span>
+<span class="n">rh</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;../data/rel_hum_2m.npy&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dy</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">dx</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">time</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s2">&quot;2005-01-01&quot;</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;6M&#39;</span><span class="p">,</span> <span class="n">periods</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">mikeio</span> <span class="kn">import</span> <span class="n">Dfs2</span><span class="p">,</span> <span class="n">Dataset</span>
+<span class="kn">from</span> <span class="nn">mikeio.eum</span> <span class="kn">import</span> <span class="n">ItemInfo</span><span class="p">,</span> <span class="n">EUMType</span><span class="p">,</span> <span class="n">EUMUnit</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="n">tmp</span><span class="p">,</span> <span class="n">rh</span><span class="p">]</span>
+<span class="c1"># ds = Dataset(data,...</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The expected outcome</p>
+<p><img alt="" src="../_images/weather_dfs2.png" /></p>
 </div>
 </div>
 
@@ -601,8 +467,7 @@
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="../basic.html" title="previous page">Basic Python</a>
-    <a class='right-next' id="next-link" href="../numpy.html" title="next page">NumPy</a>
+    <a class='left-prev' id="prev-link" href="exercise_H_generic_dfs.html" title="previous page">Exercise H: Generic dfs</a>
 
         </div>
         
