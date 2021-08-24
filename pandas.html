@@ -762,7 +762,7 @@ Name: London, dtype: float64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;datetime&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/pandas_23_1.png" src="_images/pandas_23_1.png" />
+<img alt="_images/pandas_22_1.png" src="_images/pandas_22_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -775,7 +775,7 @@ Name: London, dtype: float64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;datetime&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/pandas_24_1.png" src="_images/pandas_24_1.png" />
+<img alt="_images/pandas_23_1.png" src="_images/pandas_23_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -894,7 +894,7 @@ Name: London, dtype: float64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;datetime&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/pandas_27_1.png" src="_images/pandas_27_1.png" />
+<img alt="_images/pandas_26_1.png" src="_images/pandas_26_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -907,7 +907,7 @@ Name: London, dtype: float64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;datetime&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/pandas_28_1.png" src="_images/pandas_28_1.png" />
+<img alt="_images/pandas_27_1.png" src="_images/pandas_27_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1086,13 +1086,7 @@ Name: London, dtype: float64
 </div>
 <div class="section" id="resampling">
 <h2>Resampling<a class="headerlink" href="#resampling" title="Permalink to this headline">¶</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO correct phase shift</span>
-</pre></div>
-</div>
-</div>
-</div>
+<p>Aggregate temporal data</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;H&#39;</span><span class="p">)</span>
@@ -1100,7 +1094,7 @@ Name: London, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;pandas.core.resample.DatetimeIndexResampler object at 0x7f00172779d0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;pandas.core.resample.DatetimeIndexResampler object at 0x7f74cbc36400&gt;
 </pre></div>
 </div>
 </div>
@@ -1445,6 +1439,7 @@ Name: London, dtype: float64
 </table>
 </div></div></div>
 </div>
+<p>Note: resample will use the left end-point (e.g. start of the day) as the new label for the aggregated data. This introduces a time-shift if you’re using resample() for standard timeseries downsampling!</p>
 </div>
 <div class="section" id="extrapolation">
 <h2>Extrapolation<a class="headerlink" href="#extrapolation" title="Permalink to this headline">¶</a></h2>
@@ -1461,7 +1456,7 @@ Name: London, dtype: float64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
 </pre></div>
 </div>
-<img alt="_images/pandas_44_1.png" src="_images/pandas_44_1.png" />
+<img alt="_images/pandas_43_1.png" src="_images/pandas_43_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1474,7 +1469,7 @@ Name: London, dtype: float64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
 </pre></div>
 </div>
-<img alt="_images/pandas_45_1.png" src="_images/pandas_45_1.png" />
+<img alt="_images/pandas_44_1.png" src="_images/pandas_44_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1488,7 +1483,7 @@ Name: London, dtype: float64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
 </pre></div>
 </div>
-<img alt="_images/pandas_46_1.png" src="_images/pandas_46_1.png" />
+<img alt="_images/pandas_45_1.png" src="_images/pandas_45_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
