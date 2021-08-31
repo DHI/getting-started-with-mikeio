@@ -20,3 +20,10 @@ latex:
 bibtex_bibfiles:
   - references.bib
 
+repository: 
+  url: https://github.com/DHI/getting-started-with-mikeio
+  path_to_book: mini_book
+  branch: main
+
+launch_buttons:
+  colab_url: "https://colab.research.google.com"
