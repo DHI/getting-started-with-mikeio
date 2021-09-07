@@ -1252,6 +1252,20 @@ Items:
 </table>
 </div></div></div>
 </div>
+<p>Using a <a class="reference external" href="https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions">list comprehension</a> is a compact way to manipulate data similar to using a for loop.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">squares</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
+<span class="n">squares</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+</pre></div>
+</div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">mikecore.DfsFile</span> <span class="kn">import</span> <span class="n">DataValueType</span>
@@ -1272,6 +1286,62 @@ Items:
  Precipitation station 7 &lt;Precipitation Rate&gt; (mm per hour),
  Precipitation station 8 &lt;Precipitation Rate&gt; (mm per hour),
  Precipitation station 9 &lt;Precipitation Rate&gt; (mm per hour)]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">string</span> <span class="kn">import</span> <span class="n">ascii_uppercase</span>
+
+<span class="k">def</span> <span class="nf">create_prec_item</span><span class="p">(</span><span class="n">raw_name</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Create a item info with clean short name and correct EUM&quot;&quot;&quot;</span>
+    
+    <span class="n">idx</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">raw_name</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">-</span> <span class="mi">1</span>
+    
+    <span class="n">name</span> <span class="o">=</span> <span class="p">(</span><span class="n">raw_name</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;Precipitation &quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+                     <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="s2">&quot;_&quot;</span><span class="p">)</span>
+                     <span class="o">.</span><span class="n">capitalize</span><span class="p">()</span>
+                     <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">raw_name</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">ascii_uppercase</span><span class="p">[</span><span class="n">idx</span><span class="p">])</span>
+           <span class="p">)</span>
+    
+    <span class="n">iteminfo</span> <span class="o">=</span> <span class="n">ItemInfo</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">EUMType</span><span class="o">.</span><span class="n">Precipitation_Rate</span><span class="p">,</span> <span class="n">EUMUnit</span><span class="o">.</span><span class="n">mm_per_hour</span><span class="p">,</span> <span class="n">data_value_type</span><span class="o">=</span><span class="n">DataValueType</span><span class="o">.</span><span class="n">MeanStepBackward</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">iteminfo</span>
+    
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">create_prec_item</span><span class="p">(</span><span class="s2">&quot;Precipitation station 9&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Station_I &lt;Precipitation Rate&gt; (mm per hour)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">items</span> <span class="o">=</span> <span class="p">[</span><span class="n">create_prec_item</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span>
+
+<span class="n">items</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Station_A &lt;Precipitation Rate&gt; (mm per hour),
+ Station_B &lt;Precipitation Rate&gt; (mm per hour),
+ Station_C &lt;Precipitation Rate&gt; (mm per hour),
+ Station_D &lt;Precipitation Rate&gt; (mm per hour),
+ Station_E &lt;Precipitation Rate&gt; (mm per hour),
+ Station_F &lt;Precipitation Rate&gt; (mm per hour),
+ Station_G &lt;Precipitation Rate&gt; (mm per hour),
+ Station_H &lt;Precipitation Rate&gt; (mm per hour),
+ Station_I &lt;Precipitation Rate&gt; (mm per hour)]
 </pre></div>
 </div>
 </div>
@@ -1311,8 +1381,8 @@ Items:
 Dimensions: (31,)
 Time: 2001-01-01 00:00:00 - 2001-01-31 00:00:00
 Items:
-  0:  Precipitation station 2 &lt;Precipitation Rate&gt; (mm per hour)
-  1:  Precipitation station 5 &lt;Precipitation Rate&gt; (mm per hour)
+  0:  Station_B &lt;Precipitation Rate&gt; (mm per hour)
+  1:  Station_E &lt;Precipitation Rate&gt; (mm per hour)
 </pre></div>
 </div>
 </div>
@@ -1325,12 +1395,49 @@ Items:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mikeio.Dataset&gt;
-Dimensions: (31,)
-Time: 2001-01-01 00:00:00 - 2001-01-31 00:00:00
-Items:
-  0:  Precipitation station 6 &lt;Precipitation Rate&gt; (mm per hour)
-  1:  Precipitation station 3 &lt;Precipitation Rate&gt; (mm per hour)
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
+<span class="nn">/opt/hostedtoolcache/Python/3.9.6/x64/lib/python3.9/site-packages/mikeio/dfsutil.py</span> in <span class="ni">_item_numbers_by_name</span><span class="nt">(dfsItemInfo, item_names)</span>
+<span class="g g-Whitespace">    </span><span class="mi">100</span>     <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">101</span>         <span class="n">item_numbers</span> <span class="o">=</span> <span class="p">[</span><span class="n">item_lookup</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">item_names</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">102</span>     <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.9.6/x64/lib/python3.9/site-packages/mikeio/dfsutil.py</span> in <span class="ni">&lt;listcomp&gt;</span><span class="nt">(.0)</span>
+<span class="g g-Whitespace">    </span><span class="mi">100</span>     <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">101</span>         <span class="n">item_numbers</span> <span class="o">=</span> <span class="p">[</span><span class="n">item_lookup</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">item_names</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">102</span>     <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+
+<span class="ne">KeyError</span>: &#39;Precipitation station 6&#39;
+
+<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
+
+<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1629</span><span class="o">/</span><span class="mf">2477775645.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">ds</span> <span class="o">=</span> <span class="n">dfs</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">items</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Precipitation station 6&quot;</span><span class="p">,</span><span class="s2">&quot;Precipitation station 3&quot;</span><span class="p">])</span> <span class="c1"># or by name (in the order you like it)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">ds</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.9.6/x64/lib/python3.9/site-packages/mikeio/dfs0.py</span> in <span class="ni">read</span><span class="nt">(self, items, time_steps)</span>
+<span class="g g-Whitespace">    </span><span class="mi">115</span> 
+<span class="g g-Whitespace">    </span><span class="mi">116</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_n_items</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">dfs</span><span class="o">.</span><span class="n">ItemInfo</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">117</span>         <span class="n">item_numbers</span> <span class="o">=</span> <span class="n">_valid_item_numbers</span><span class="p">(</span><span class="n">dfs</span><span class="o">.</span><span class="n">ItemInfo</span><span class="p">,</span> <span class="n">items</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">118</span> 
+<span class="g g-Whitespace">    </span><span class="mi">119</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_n_timesteps</span> <span class="o">=</span> <span class="n">dfs</span><span class="o">.</span><span class="n">FileInfo</span><span class="o">.</span><span class="n">TimeAxis</span><span class="o">.</span><span class="n">NumberOfTimeSteps</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.9.6/x64/lib/python3.9/site-packages/mikeio/dfsutil.py</span> in <span class="ni">_valid_item_numbers</span><span class="nt">(dfsItemInfo, items)</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span>     <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">item</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">items</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">16</span>         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+<span class="ne">---&gt; </span><span class="mi">17</span>             <span class="n">items</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">_item_numbers_by_name</span><span class="p">(</span><span class="n">dfsItemInfo</span><span class="p">,</span> <span class="p">[</span><span class="n">item</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
+<span class="g g-Whitespace">     </span><span class="mi">18</span>         <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">19</span>             <span class="k">if</span> <span class="p">(</span><span class="n">item</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">item</span> <span class="o">&gt;=</span> <span class="n">n_items_file</span><span class="p">):</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.9.6/x64/lib/python3.9/site-packages/mikeio/dfsutil.py</span> in <span class="ni">_item_numbers_by_name</span><span class="nt">(dfsItemInfo, item_names)</span>
+<span class="g g-Whitespace">    </span><span class="mi">101</span>         <span class="n">item_numbers</span> <span class="o">=</span> <span class="p">[</span><span class="n">item_lookup</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">item_names</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">102</span>     <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">103</span>         <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Selected item name not found. Valid names are </span><span class="si">{</span><span class="n">names</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">104</span> 
+<span class="g g-Whitespace">    </span><span class="mi">105</span>     <span class="k">return</span> <span class="n">item_numbers</span>
+
+<span class="ne">KeyError</span>: &quot;Selected item name not found. Valid names are [&#39;Station_A&#39;, &#39;Station_B&#39;, &#39;Station_C&#39;, &#39;Station_D&#39;, &#39;Station_E&#39;, &#39;Station_F&#39;, &#39;Station_G&#39;, &#39;Station_H&#39;, &#39;Station_I&#39;]&quot;
 </pre></div>
 </div>
 </div>
@@ -1360,10 +1467,10 @@ Items:
 Dimensions: (31,)
 Time: 2001-01-01 00:00:00 - 2001-01-31 00:00:00
 Items:
-  0:  Precipitation station 8 &lt;Precipitation Rate&gt; (mm per hour)
-  1:  Precipitation station 6 &lt;Precipitation Rate&gt; (mm per hour)
-  2:  Precipitation station 4 &lt;Precipitation Rate&gt; (mm per hour)
-  3:  Precipitation station 2 &lt;Precipitation Rate&gt; (mm per hour)
+  0:  Station_H &lt;Precipitation Rate&gt; (mm per hour)
+  1:  Station_F &lt;Precipitation Rate&gt; (mm per hour)
+  2:  Station_D &lt;Precipitation Rate&gt; (mm per hour)
+  3:  Station_B &lt;Precipitation Rate&gt; (mm per hour)
 </pre></div>
 </div>
 </div>
