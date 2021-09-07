@@ -18,6 +18,7 @@ chapters:
   sections:
   - file: exercises/exercise_D_pandas_basics
   - file: exercises/exercise_E_pandas_timeseries
+- file: datetime_timedelta
 - file: dfs0
   sections:
   - file: exercises/exercise_F_Dfs0
@@ -28,4 +29,3 @@ chapters:
   sections:
   - file: exercises/exercise_H_generic_dfs
 - file: exercises/final_assignment
-
