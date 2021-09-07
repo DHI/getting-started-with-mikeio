@@ -1,0 +1,12 @@
+digraph{
+
+    node [shape=box]; numpy; pandas;
+    node [shape=ellipse]; mikecore; mikeio; ufs
+
+    mikeio -> mikecore
+    mikeio -> pandas
+    mikeio -> numpy
+    mikecore -> ufs
+    mikecore -> numpy
+    pandas -> numpy
+}

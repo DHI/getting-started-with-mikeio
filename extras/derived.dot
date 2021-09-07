@@ -1,0 +1,16 @@
+digraph{
+
+    node [shape=box]; numpy; pandas;
+    node [shape=ellipse]; mikecore; mikeio; ufs; fmskill; fmdap
+
+    mikeio -> mikecore
+    mikeio -> pandas
+    mikeio -> numpy
+    mikecore -> ufs
+    mikecore -> numpy
+    pandas -> numpy
+
+    fmskill -> mikeio
+    fmdap -> mikeio
+
+}
