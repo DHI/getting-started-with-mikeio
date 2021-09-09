@@ -290,11 +290,56 @@
 
             <!-- Launch buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/DHI/getting-started-with-mikeio/main?urlpath=lab/tree/mini_book/exercises/exercise_H_generic_dfs.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/DHI/getting-started-with-mikeio/blob/main/mini_book/exercises/exercise_H_generic_dfs.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
         </div>
 
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#read">
+   read()
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#concat">
+   concat()
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#diff">
+   diff()
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -305,7 +350,92 @@
                 
   <div class="section" id="exercise-h-generic-dfs">
 <h1>Exercise H: Generic dfs<a class="headerlink" href="#exercise-h-generic-dfs" title="Permalink to this headline">¶</a></h1>
-<p>[in development]</p>
+<p>Test your skills in processing of generic dfs files.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">mikeio</span>
+<span class="kn">import</span> <span class="nn">mikeio.generic</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="read">
+<h2>read()<a class="headerlink" href="#read" title="Permalink to this headline">¶</a></h2>
+<p>read returns a mikeio <a class="reference external" href="https://dhi.github.io/mikeio/understanding_dataset.html">Dataset</a> for any dfs file</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fn</span> <span class="o">=</span> <span class="s1">&#39;../data/wind_20050501.dfs2&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># read fn to a variable ds and determine:</span>
+<span class="c1"># a) the number of items</span>
+<span class="c1"># b) the start and end of the file</span>
+<span class="c1"># a) the minimum value of the first item </span>
+<span class="c1"># (hint: you access the data of the first item with ds.data[0])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="concat">
+<h2>concat()<a class="headerlink" href="#concat" title="Permalink to this headline">¶</a></h2>
+<p>concat belongs to the submodule mikeio.generic</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fn1</span> <span class="o">=</span> <span class="s1">&#39;../data/wind_20050501.dfs2&#39;</span>
+<span class="n">fn2</span> <span class="o">=</span> <span class="s1">&#39;../data/wind_20050502.dfs2&#39;</span>
+<span class="n">fn3</span> <span class="o">=</span> <span class="s1">&#39;../data/wind_20050503.dfs2&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># use concat and the above files to create a </span>
+<span class="c1"># new file &quot;wind_200505_3days.dfs2&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fn4</span> <span class="o">=</span> <span class="s1">&#39;../data/wind_20050504.dfs2&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># add also fn4 and see what happens. Why does it fail? </span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="diff">
+<h2>diff()<a class="headerlink" href="#diff" title="Permalink to this headline">¶</a></h2>
+<p>diff() belongs to the submodule mikeio.generic</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fnA</span> <span class="o">=</span> <span class="s1">&#39;../data/wind_20050501.dfs2&#39;</span>
+<span class="n">fnB</span> <span class="o">=</span> <span class="s1">&#39;../data/wind_20050501_v2.dfs2&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># use diff to produce a new file wind_20050501_diff.dfs2 </span>
+<span class="c1"># with the difference between the two above files</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
