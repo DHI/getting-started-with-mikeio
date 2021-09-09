@@ -323,6 +323,11 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#read">
+   Read
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#concatenation">
    Concatenation
   </a>
@@ -382,6 +387,29 @@
 </li>
 </ul>
 <p>The generic methods works on larger-than-memory files as they process one time step at a time. This can however make them in-efficient for dfs0 processing!</p>
+<div class="section" id="read">
+<h2>Read<a class="headerlink" href="#read" title="Permalink to this headline">¶</a></h2>
+<p>The mikeio.read() method returns a mikeio <a class="reference external" href="https://dhi.github.io/mikeio/understanding_dataset.html">Dataset</a> for any dfs file.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">&quot;data/tide1.dfs1&quot;</span><span class="p">)</span>
+<span class="n">ds</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1942</span><span class="o">/</span><span class="mf">3549787519.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">ds</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">&quot;data/tide1.dfs1&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">ds</span>
+
+<span class="ne">NameError</span>: name &#39;mikeio&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+</div>
 <div class="section" id="concatenation">
 <h2>Concatenation<a class="headerlink" href="#concatenation" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
@@ -437,10 +465,10 @@ Items:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f290bf46a90&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f46c7f26f70&gt;
 </pre></div>
 </div>
-<img alt="_images/generic_7_1.png" src="_images/generic_7_1.png" />
+<img alt="_images/generic_9_1.png" src="_images/generic_9_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -470,7 +498,7 @@ Items:
   0:  Level &lt;Water Level&gt; (meter)
 </pre></div>
 </div>
-<img alt="_images/generic_9_1.png" src="_images/generic_9_1.png" />
+<img alt="_images/generic_11_1.png" src="_images/generic_11_1.png" />
 </div>
 </div>
 </div>
@@ -548,7 +576,7 @@ Items:
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0%|          | 0/5 [00:00&lt;?, ?it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 5/5 [00:00&lt;00:00, 1881.02it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 5/5 [00:00&lt;00:00, 2385.02it/s]
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -572,7 +600,7 @@ Items:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/generic_18_0.png" src="_images/generic_18_0.png" />
+<img alt="_images/generic_20_0.png" src="_images/generic_20_0.png" />
 </div>
 </div>
 </div>
@@ -588,7 +616,7 @@ Items:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/generic_20_0.png" src="_images/generic_20_0.png" />
+<img alt="_images/generic_22_0.png" src="_images/generic_22_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -620,7 +648,7 @@ Items:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/generic_24_0.png" src="_images/generic_24_0.png" />
+<img alt="_images/generic_26_0.png" src="_images/generic_26_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -663,7 +691,7 @@ Items:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/generic_29_0.png" src="_images/generic_29_0.png" />
+<img alt="_images/generic_31_0.png" src="_images/generic_31_0.png" />
 </div>
 </div>
 <p>The 2d array must first be flipped upside down and then converted to a 1d vector using <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.flatten.html">numpy.ndarray.flatten</a> to match how data is stored in dfs files.</p>
@@ -686,7 +714,7 @@ Items:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/generic_32_0.png" src="_images/generic_32_0.png" />
+<img alt="_images/generic_34_0.png" src="_images/generic_34_0.png" />
 </div>
 </div>
 </div>
