@@ -342,6 +342,23 @@
    Slicing
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#writing-data">
+   Writing data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#geographical-coordinates">
+     Geographical coordinates
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#projected-coordinates">
+     Projected coordinates
+    </a>
+   </li>
+  </ul>
+ </li>
 </ul>
 
             </nav>
@@ -481,7 +498,7 @@ Items:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fc20d7b0f40&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f7910d9fdc0&gt;
 </pre></div>
 </div>
 <img alt="_images/dfs2_10_1.png" src="_images/dfs2_10_1.png" />
@@ -567,7 +584,7 @@ Items:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7fc20d739880&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f7910d588b0&gt;
 </pre></div>
 </div>
 <img alt="_images/dfs2_18_1.png" src="_images/dfs2_18_1.png" />
@@ -678,7 +695,7 @@ Items:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.lines.Line2D at 0x7fc20c4b3850&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.lines.Line2D at 0x7f7910bc2040&gt;
 </pre></div>
 </div>
 <img alt="_images/dfs2_27_1.png" src="_images/dfs2_27_1.png" />
@@ -710,6 +727,86 @@ Items:
 </pre></div>
 </div>
 <img alt="_images/dfs2_29_1.png" src="_images/dfs2_29_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="writing-data">
+<h2>Writing data<a class="headerlink" href="#writing-data" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="geographical-coordinates">
+<h3>Geographical coordinates<a class="headerlink" href="#geographical-coordinates" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_i</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">24</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">data_i</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(2, 4, 3)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">data_i</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="c1"># first timestep</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x7f79109a0b20&gt;
+</pre></div>
+</div>
+<img alt="_images/dfs2_32_1.png" src="_images/dfs2_32_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="kn">from</span> <span class="nn">mikeio</span> <span class="kn">import</span> <span class="n">Dataset</span>
+<span class="kn">from</span> <span class="nn">mikeio.eum</span> <span class="kn">import</span> <span class="n">EUMType</span><span class="p">,</span> <span class="n">ItemInfo</span>
+
+<span class="n">nt</span> <span class="o">=</span> <span class="n">data_i</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="n">ds</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="p">[</span><span class="n">data_i</span><span class="p">],</span>
+             <span class="n">time</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s2">&quot;2020&quot;</span><span class="p">,</span><span class="n">periods</span><span class="o">=</span><span class="n">nt</span><span class="p">,</span><span class="n">freq</span><span class="o">=</span><span class="s1">&#39;D&#39;</span><span class="p">),</span>
+             <span class="n">items</span><span class="o">=</span><span class="p">[</span><span class="n">ItemInfo</span><span class="p">(</span><span class="s2">&quot;Example&quot;</span><span class="p">,</span><span class="n">EUMType</span><span class="o">.</span><span class="n">Elevation</span><span class="p">)])</span>
+<span class="n">ds</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mikeio.Dataset&gt;
+Dimensions: (2, 4, 3)
+Time: 2020-01-01 00:00:00 - 2020-01-02 00:00:00
+Items:
+  0:  Example &lt;Elevation&gt; (meter)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dfs</span> <span class="o">=</span> <span class="n">Dfs2</span><span class="p">()</span>
+<span class="n">dfs</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;example_geo.dfs2&quot;</span><span class="p">,</span><span class="n">data</span><span class="o">=</span><span class="n">ds</span><span class="p">,</span> <span class="n">coordinate</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;LONG/LAT&quot;</span><span class="p">,</span> <span class="mf">55.0</span><span class="p">,</span> <span class="mf">12.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Screenshot from MIKE Zero (viridis palette).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Note the location of the origin.</p>
+</div>
+<p><img alt="" src="_images/example_dfs2_geo.png" /></p>
+</div>
+<div class="section" id="projected-coordinates">
+<h3>Projected coordinates<a class="headerlink" href="#projected-coordinates" title="Permalink to this headline">¶</a></h3>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>To be completed at latest 2021-09-14</p>
 </div>
 </div>
 </div>
