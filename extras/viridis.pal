@@ -1,0 +1,32 @@
+// Created     : 2021-09-13 15:29:22
+// DLL         : C:\Program Files (x86)\DHI\MIKE Zero\2021\bin\x64\pfs2004.dll
+// Version     : 19.0.0.14309
+
+[PALETTE_FILE]
+   [MIKEZero_Palette_Definition]
+      Palette_Title = 'Palette'
+      Palette_Type = 0
+      Locked = false
+      Topmost_Value = false
+      Nice_Value = true
+      RGB_Delete_Color = 255, 255, 255
+      RGB_Color_Value = 68, 1, 84
+      RGB_Color_Value = 67, 24, 101
+      RGB_Color_Value = 66, 46, 118
+      RGB_Color_Value = 65, 68, 135
+      RGB_Color_Value = 57, 86, 138
+      RGB_Color_Value = 49, 103, 140
+      RGB_Color_Value = 42, 120, 142
+      RGB_Color_Value = 39, 136, 138
+      RGB_Color_Value = 36, 152, 135
+      RGB_Color_Value = 34, 168, 132
+      RGB_Color_Value = 64, 182, 115
+      RGB_Color_Value = 93, 196, 98
+      RGB_Color_Value = 122, 209, 81
+      RGB_Color_Value = 166, 217, 66
+      RGB_Color_Value = 210, 224, 51
+      RGB_Color_Value = 253, 231, 37
+   EndSect  // MIKEZero_Palette_Definition
+
+EndSect  // PALETTE_FILE
+
