@@ -354,12 +354,13 @@
                 
   <div class="section" id="final-assignment-data-processing">
 <h1>Final assignment: Data processing<a class="headerlink" href="#final-assignment-data-processing" title="Permalink to this headline">¶</a></h1>
+<p>2021-9-14</p>
 <p>The final exercise involves converting data from one or more providers.</p>
 <p>Since this exercise is designed to prepare you for real project work, the information you need to solve it might be slightly incomplete or not provided in context. Use your best judgment and most likely your client and your colleagues will be happy ;-)</p>
 <p>Parts of this assignment can be solved in several ways. Use descriptive variable names and comments or descriptive text if necessary to clarify.
 The final solution should be clear to your colleagues and will be shared with some of your fellow students for review.</p>
-<p>The data will be used for MIKE modelling and must be converted to Dfs with apppropriate EUM types/units in order to be used by the MIKE software.</p>
-<p>The data is provided as a <a class="reference external" href="https://github.com/DHI/getting-started-with-mikeio/raw/main/mini_book/data/stream_data.zip">zip file</a> and two binary files (<a class="reference internal" href="#gridded-data"><span class="std std-ref">FA.3 Gridded weather forcing data</span></a>).</p>
+<p>The data will be used for MIKE modelling and must be converted to Dfs with <strong>apppropriate EUM types/units</strong> in order to be used by the MIKE software.</p>
+<p>The data is provided as a <a class="reference external" href="https://github.com/DHI/getting-started-with-mikeio/raw/main/mini_book/data/stream_data.zip">zip file</a> and two binary files (in the data folder - see FA.3 below).</p>
 <p>Inside the zip file, there are a many timeseries (ASCII format) of discharge data from streams located across several regions (<code class="docutils literal notranslate"><span class="pre">*.dat</span></code>).</p>
 <p>Static data for each region is found in a separate file (<code class="docutils literal notranslate"><span class="pre">region_info.csv</span></code>)</p>
 <p><img alt="" src="../_images/region_info.png" /></p>
@@ -371,8 +372,8 @@ The final solution should be clear to your colleagues and will be shared with so
 <li><p>Missing values</p></li>
 <li><p>Date format</p></li>
 </ul>
-<p>The MIKE engine can not handle missing values / delete values, fill in in missing values with interpolated values.</p>
-<p>In order to save diskspace, crop the timeseries to simulation period Feb 1 - June 30.</p>
+<p>The MIKE engine can not handle missing values / delete values, <strong>fill in missing values</strong> with interpolated values.</p>
+<p>In order to save diskspace, <strong>crop the timeseries</strong> to simulation period Feb 1 - June 30.</p>
 <div class="section" id="fa-1-convert-all-timeseries-to-dfs0">
 <h2>FA.1 Convert all timeseries to Dfs0<a class="headerlink" href="#fa-1-convert-all-timeseries-to-dfs0" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
@@ -409,19 +410,23 @@ The final solution should be clear to your colleagues and will be shared with so
 </div>
 </div>
 </div>
+<p>a) Convert all timeseries to dfs0 (remember that the notebook should be runnable for your peers so put the files somewhere reasonable).</p>
+<p>b) Read s15_east_novayork_river.dfs0, print the “header”, plot, and show that the number of missing values is 0.</p>
 </div>
 <div class="section" id="fa-2-add-region-specific-info-to-normalize-timeseries-with-surface-area">
 <h2>FA.2 Add region specific info to normalize timeseries with surface area<a class="headerlink" href="#fa-2-add-region-specific-info-to-normalize-timeseries-with-surface-area" title="Permalink to this headline">¶</a></h2>
 <p>Each timeseries belongs to a region identified in the filename, e.g. <code class="docutils literal notranslate"><span class="pre">s15_east_novayork_river.dat</span></code> is located in the <code class="docutils literal notranslate"><span class="pre">novayork</span></code> region.</p>
+<p>a) Convert all timeseries to dfs0 with specific discharge, by doing:</p>
 <p>For each timeseries in the dataset:</p>
-<ol class="simple">
-<li><p>Find out which region it belongs to</p></li>
+<ul class="simple">
+<li><p>Find out which region it belongs to (hint: the string method <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str.split">split()</a> will be useful)</p></li>
 <li><p>Divide the timeseries values with the surface area for the region (take into account units)</p></li>
-<li><p>Create two dfs0 files, one with discharge and another one with specific discharge <em>(discharge / area)</em></p></li>
-</ol>
+<li><p>Create a dfs0 file with specific discharge <em>(discharge / area)</em> (like the one with discharge from FA.1)</p></li>
+</ul>
+<p>b) Determine which station has the largest max specific discharge (in the simulation period).</p>
 </div>
 <div class="section" id="fa-3-gridded-weather-forcing-data">
-<span id="gridded-data"></span><h2>FA.3 Gridded weather forcing data<a class="headerlink" href="#fa-3-gridded-weather-forcing-data" title="Permalink to this headline">¶</a></h2>
+<h2>FA.3 Gridded weather forcing data<a class="headerlink" href="#fa-3-gridded-weather-forcing-data" title="Permalink to this headline">¶</a></h2>
 <p>The dataset is provided in NumPy binary format and consists of</p>
 <ul class="simple">
 <li><p>Temperature 2m (degree Kelvin)</p></li>
@@ -431,7 +436,8 @@ The final solution should be clear to your colleagues and will be shared with so
 <p>The time axis consists of two timesteps ‘2005-01-31’, ‘2005-07-31’ which is sufficent to cover the simulation period.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tmp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;../data/temperature_2m.npy&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Note: these files are in the data folder</span>
+<span class="n">tmp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;../data/temperature_2m.npy&quot;</span><span class="p">)</span>
 <span class="n">rh</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;../data/rel_hum_2m.npy&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -462,13 +468,16 @@ The final solution should be clear to your colleagues and will be shared with so
 </div>
 </div>
 </div>
-<p>The expected outcome</p>
+<p>a) Create the Dataset as indicated and write it to a new dfs2 file using the Dfs2 class (check that file appear as the one shown below when opening in MIKE Zero)</p>
+<p>b) Open the file again and print the header and the longitude, latitude (of the origin)</p>
+<p>c) Read the data from the file and document that the mean of the relative humidity is the same as the mean of the rh variable above (note: due to rounding errors the may not be exactly the same)</p>
+<p>The expected outcome when opening the file in MIKE Zero</p>
 <p><img alt="" src="../_images/weather_dfs2.png" /></p>
 </div>
 <div class="section" id="submission-of-solution">
 <h2>Submission of solution<a class="headerlink" href="#submission-of-solution" title="Permalink to this headline">¶</a></h2>
-<p>Your solution to the above tasks is to be delivered in the format of a single Jupyter notebook file.</p>
-<p>The solution will be reviewed by a couple of your fellow students, which will provide feedback on both the correctnes and clarity of your solution.</p>
+<p>Your solution to the above tasks is to be delivered in the format of a single Jupyter notebook file. Please create a new and name it final_assignment_xyz.ipynb where xyz is your initials. It should be easy to understand and runnable by your peers.</p>
+<p>The solution will be reviewed by three of your fellow students, which will provide feedback on both the correctnes and clarity of your solution.</p>
 <p>The submission and review process is handled by Campus + Eduflow.</p>
 </div>
 </div>
