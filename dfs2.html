@@ -498,7 +498,7 @@ Items:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f7910d9fdc0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fa3acaf7670&gt;
 </pre></div>
 </div>
 <img alt="_images/dfs2_10_1.png" src="_images/dfs2_10_1.png" />
@@ -584,7 +584,7 @@ Items:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f7910d588b0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7fa3aca01040&gt;
 </pre></div>
 </div>
 <img alt="_images/dfs2_18_1.png" src="_images/dfs2_18_1.png" />
@@ -695,7 +695,7 @@ Items:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.lines.Line2D at 0x7f7910bc2040&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.lines.Line2D at 0x7fa3ac7e9eb0&gt;
 </pre></div>
 </div>
 <img alt="_images/dfs2_27_1.png" src="_images/dfs2_27_1.png" />
@@ -755,7 +755,7 @@ Items:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x7f79109a0b20&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x7fa3ac6bef40&gt;
 </pre></div>
 </div>
 <img alt="_images/dfs2_32_1.png" src="_images/dfs2_32_1.png" />
@@ -790,7 +790,7 @@ Items:
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dfs</span> <span class="o">=</span> <span class="n">Dfs2</span><span class="p">()</span>
-<span class="n">dfs</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;example_geo.dfs2&quot;</span><span class="p">,</span><span class="n">data</span><span class="o">=</span><span class="n">ds</span><span class="p">,</span> <span class="n">coordinate</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;LONG/LAT&quot;</span><span class="p">,</span> <span class="mf">55.0</span><span class="p">,</span> <span class="mf">12.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">])</span>
+<span class="n">dfs</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;example_geo.dfs2&quot;</span><span class="p">,</span><span class="n">data</span><span class="o">=</span><span class="n">ds</span><span class="p">,</span> <span class="n">coordinate</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;LONG/LAT&quot;</span><span class="p">,</span> <span class="mf">55.0</span><span class="p">,</span> <span class="mf">12.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span> <span class="n">dx</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">dy</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -804,10 +804,47 @@ Items:
 </div>
 <div class="section" id="projected-coordinates">
 <h3>Projected coordinates<a class="headerlink" href="#projected-coordinates" title="Permalink to this headline">¶</a></h3>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>To be completed at latest 2021-09-14</p>
+<p>Projection string in WKT format. Use MIKE Zero for formatting. Some shorthands are available for UTM zones, e.g. UTM-32.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">mikecore.Projections</span> <span class="kn">import</span> <span class="n">Cartography</span>
+
+<span class="n">proj</span> <span class="o">=</span> <span class="n">Cartography</span><span class="o">.</span><span class="n">CreateProjOrigin</span><span class="p">(</span><span class="s2">&quot;UTM-32&quot;</span><span class="p">,</span> <span class="n">east</span><span class="o">=</span><span class="mf">337100.0</span><span class="p">,</span> <span class="n">north</span><span class="o">=</span><span class="mf">6122900.0</span><span class="p">,</span> <span class="n">orientationProj</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>
+<span class="n">proj</span><span class="o">.</span><span class="n">ProjectionString</span>
+</pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;PROJCS[&quot;UTM-32&quot;,GEOGCS[&quot;Unused&quot;,DATUM[&quot;UTM Projections&quot;,SPHEROID[&quot;WGS 1984&quot;,6378137,298.257223563]],PRIMEM[&quot;Greenwich&quot;,0],UNIT[&quot;Degree&quot;,0.0174532925199433]],PROJECTION[&quot;Transverse_Mercator&quot;],PARAMETER[&quot;False_Easting&quot;,500000],PARAMETER[&quot;False_Northing&quot;,0],PARAMETER[&quot;Central_Meridian&quot;,9],PARAMETER[&quot;Scale_Factor&quot;,0.9996],PARAMETER[&quot;Latitude_Of_Origin&quot;,0],UNIT[&quot;Meter&quot;,1]]&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">proj</span><span class="o">.</span><span class="n">LonOrigin</span><span class="p">,</span> <span class="n">proj</span><span class="o">.</span><span class="n">LatOrigin</span><span class="p">,</span> <span class="n">proj</span><span class="o">.</span><span class="n">Orientation</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(6.438741601179531, 55.22570782640155, -2.104289814530738)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dfs</span> <span class="o">=</span> <span class="n">Dfs2</span><span class="p">()</span>
+<span class="n">dfs</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;example_proj.dfs2&quot;</span><span class="p">,</span>
+          <span class="n">data</span><span class="o">=</span><span class="n">ds</span><span class="p">,</span> 
+          <span class="n">coordinate</span><span class="o">=</span><span class="p">[</span><span class="n">proj</span><span class="o">.</span><span class="n">ProjectionString</span><span class="p">,</span> <span class="n">proj</span><span class="o">.</span><span class="n">LonOrigin</span><span class="p">,</span> <span class="n">proj</span><span class="o">.</span><span class="n">LatOrigin</span><span class="p">,</span> <span class="n">proj</span><span class="o">.</span><span class="n">Orientation</span><span class="p">],</span>
+          <span class="n">dx</span><span class="o">=</span><span class="mi">10000</span><span class="p">,</span> <span class="n">dy</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Screenshot from MIKE Zero using a projected coordinate system.</p>
+<p><img alt="" src="_images/example_dfs2_proj.png" /></p>
 </div>
 </div>
 <div class="toctree-wrapper compound">
