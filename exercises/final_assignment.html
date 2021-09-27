@@ -23,7 +23,7 @@
 
     
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -69,6 +69,10 @@
     
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
       
       <img src="../_static/logo.png" class="logo" alt="logo">
       
@@ -432,7 +436,7 @@ The final solution should be clear to your colleagues and will be shared with so
 <li><p>Temperature 2m (degree Kelvin)</p></li>
 <li><p>Relative humidity 2m (%)</p></li>
 </ul>
-<p>The spatial grid is: 40E - 50E, 10-15N with a grid spacing of 1 degree in each direction.</p>
+<p>The spatial grid is: 40°N - 50°N, 10°E-15°E with a grid spacing of 1 degree in each direction.</p>
 <p>The time axis consists of two timesteps ‘2005-01-31’, ‘2005-07-31’ which is sufficent to cover the simulation period.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -525,7 +529,7 @@ The final solution should be clear to your colleagues and will be shared with so
         
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
+    <footer class="footer">
     <div class="container">
       <p>
         

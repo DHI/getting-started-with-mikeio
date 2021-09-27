@@ -23,7 +23,7 @@
 
     
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -70,6 +70,10 @@
     
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
       
       <img src="_static/logo.png" class="logo" alt="logo">
       
@@ -1402,12 +1406,12 @@ Items:
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
-<span class="nn">/opt/hostedtoolcache/Python/3.9.6/x64/lib/python3.9/site-packages/mikeio/dfsutil.py</span> in <span class="ni">_item_numbers_by_name</span><span class="nt">(dfsItemInfo, item_names)</span>
+<span class="nn">/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages/mikeio/dfsutil.py</span> in <span class="ni">_item_numbers_by_name</span><span class="nt">(dfsItemInfo, item_names)</span>
 <span class="g g-Whitespace">    </span><span class="mi">100</span>     <span class="k">try</span><span class="p">:</span>
 <span class="ne">--&gt; </span><span class="mi">101</span>         <span class="n">item_numbers</span> <span class="o">=</span> <span class="p">[</span><span class="n">item_lookup</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">item_names</span><span class="p">]</span>
 <span class="g g-Whitespace">    </span><span class="mi">102</span>     <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
 
-<span class="nn">/opt/hostedtoolcache/Python/3.9.6/x64/lib/python3.9/site-packages/mikeio/dfsutil.py</span> in <span class="ni">&lt;listcomp&gt;</span><span class="nt">(.0)</span>
+<span class="nn">/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages/mikeio/dfsutil.py</span> in <span class="ni">&lt;listcomp&gt;</span><span class="nt">(.0)</span>
 <span class="g g-Whitespace">    </span><span class="mi">100</span>     <span class="k">try</span><span class="p">:</span>
 <span class="ne">--&gt; </span><span class="mi">101</span>         <span class="n">item_numbers</span> <span class="o">=</span> <span class="p">[</span><span class="n">item_lookup</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">item_names</span><span class="p">]</span>
 <span class="g g-Whitespace">    </span><span class="mi">102</span>     <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
@@ -1417,25 +1421,25 @@ Items:
 <span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
 
 <span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1636</span><span class="o">/</span><span class="mf">2477775645.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1713</span><span class="o">/</span><span class="mf">2477775645.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">ds</span> <span class="o">=</span> <span class="n">dfs</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">items</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Precipitation station 6&quot;</span><span class="p">,</span><span class="s2">&quot;Precipitation station 3&quot;</span><span class="p">])</span> <span class="c1"># or by name (in the order you like it)</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">ds</span>
 
-<span class="nn">/opt/hostedtoolcache/Python/3.9.6/x64/lib/python3.9/site-packages/mikeio/dfs0.py</span> in <span class="ni">read</span><span class="nt">(self, items, time_steps)</span>
+<span class="nn">/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages/mikeio/dfs0.py</span> in <span class="ni">read</span><span class="nt">(self, items, time_steps)</span>
 <span class="g g-Whitespace">    </span><span class="mi">115</span> 
 <span class="g g-Whitespace">    </span><span class="mi">116</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_n_items</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">dfs</span><span class="o">.</span><span class="n">ItemInfo</span><span class="p">)</span>
 <span class="ne">--&gt; </span><span class="mi">117</span>         <span class="n">item_numbers</span> <span class="o">=</span> <span class="n">_valid_item_numbers</span><span class="p">(</span><span class="n">dfs</span><span class="o">.</span><span class="n">ItemInfo</span><span class="p">,</span> <span class="n">items</span><span class="p">)</span>
 <span class="g g-Whitespace">    </span><span class="mi">118</span> 
 <span class="g g-Whitespace">    </span><span class="mi">119</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_n_timesteps</span> <span class="o">=</span> <span class="n">dfs</span><span class="o">.</span><span class="n">FileInfo</span><span class="o">.</span><span class="n">TimeAxis</span><span class="o">.</span><span class="n">NumberOfTimeSteps</span>
 
-<span class="nn">/opt/hostedtoolcache/Python/3.9.6/x64/lib/python3.9/site-packages/mikeio/dfsutil.py</span> in <span class="ni">_valid_item_numbers</span><span class="nt">(dfsItemInfo, items)</span>
+<span class="nn">/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages/mikeio/dfsutil.py</span> in <span class="ni">_valid_item_numbers</span><span class="nt">(dfsItemInfo, items)</span>
 <span class="g g-Whitespace">     </span><span class="mi">15</span>     <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">item</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">items</span><span class="p">):</span>
 <span class="g g-Whitespace">     </span><span class="mi">16</span>         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
 <span class="ne">---&gt; </span><span class="mi">17</span>             <span class="n">items</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">_item_numbers_by_name</span><span class="p">(</span><span class="n">dfsItemInfo</span><span class="p">,</span> <span class="p">[</span><span class="n">item</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
 <span class="g g-Whitespace">     </span><span class="mi">18</span>         <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
 <span class="g g-Whitespace">     </span><span class="mi">19</span>             <span class="k">if</span> <span class="p">(</span><span class="n">item</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">item</span> <span class="o">&gt;=</span> <span class="n">n_items_file</span><span class="p">):</span>
 
-<span class="nn">/opt/hostedtoolcache/Python/3.9.6/x64/lib/python3.9/site-packages/mikeio/dfsutil.py</span> in <span class="ni">_item_numbers_by_name</span><span class="nt">(dfsItemInfo, item_names)</span>
+<span class="nn">/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages/mikeio/dfsutil.py</span> in <span class="ni">_item_numbers_by_name</span><span class="nt">(dfsItemInfo, item_names)</span>
 <span class="g g-Whitespace">    </span><span class="mi">101</span>         <span class="n">item_numbers</span> <span class="o">=</span> <span class="p">[</span><span class="n">item_lookup</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">item_names</span><span class="p">]</span>
 <span class="g g-Whitespace">    </span><span class="mi">102</span>     <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
 <span class="ne">--&gt; </span><span class="mi">103</span>         <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Selected item name not found. Valid names are </span><span class="si">{</span><span class="n">names</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -1538,7 +1542,7 @@ Items:
         
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
+    <footer class="footer">
     <div class="container">
       <p>
         
