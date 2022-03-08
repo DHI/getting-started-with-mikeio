@@ -2,4 +2,4 @@ jupyter-book
 matplotlib
 numpy
 pandas
-mikeio
+git+https://github.com/DHI/mikeio@dataarray #TODO update when released to PyPI
