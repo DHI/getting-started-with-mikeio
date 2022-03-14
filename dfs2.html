@@ -659,7 +659,7 @@ Time: 2020-05-15 11:04:52 (time-invariant)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.lines.Line2D at 0x7f3498b58ee0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.lines.Line2D at 0x7f6ba013fee0&gt;
 </pre></div>
 </div>
 <img alt="_images/dfs2_20_1.png" src="_images/dfs2_20_1.png" />
@@ -719,7 +719,7 @@ Time: 2020-05-15 11:04:52 (time-invariant)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x7f349895c0d0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x7f6b98f3f2e0&gt;
 </pre></div>
 </div>
 <img alt="_images/dfs2_25_1.png" src="_images/dfs2_25_1.png" />
@@ -749,8 +749,8 @@ Number of grid points: 12
 
 <span class="n">da</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">data_i</span><span class="p">,</span>
                       <span class="n">geometry</span><span class="o">=</span><span class="n">grid</span><span class="p">,</span>
-                     <span class="n">time</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s2">&quot;2020&quot;</span><span class="p">,</span><span class="n">periods</span><span class="o">=</span><span class="n">nt</span><span class="p">,</span><span class="n">freq</span><span class="o">=</span><span class="s1">&#39;D&#39;</span><span class="p">),</span>
-                     <span class="n">item</span><span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">ItemInfo</span><span class="p">(</span><span class="s2">&quot;Example&quot;</span><span class="p">,</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">EUMType</span><span class="o">.</span><span class="n">Elevation</span><span class="p">))</span>
+                      <span class="n">time</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s2">&quot;2020&quot;</span><span class="p">,</span><span class="n">periods</span><span class="o">=</span><span class="n">nt</span><span class="p">,</span><span class="n">freq</span><span class="o">=</span><span class="s1">&#39;D&#39;</span><span class="p">),</span>
+                      <span class="n">item</span><span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">ItemInfo</span><span class="p">(</span><span class="s2">&quot;Example&quot;</span><span class="p">,</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">EUMType</span><span class="o">.</span><span class="n">Elevation</span><span class="p">))</span>
 
 <span class="n">da</span>
 </pre></div>
@@ -799,10 +799,6 @@ Items:
 <div class="section" id="projected-coordinates">
 <h3>Projected coordinates<a class="headerlink" href="#projected-coordinates" title="Permalink to this headline">¶</a></h3>
 <p>Projection string in WKT format. Use MIKE Zero for formatting. Some shorthands are available for UTM zones, e.g. UTM-32.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>TODO: Dfs2 with projected coordinates should work as easy as geographical coordinates.</p>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pgrid</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">Grid2D</span><span class="p">(</span><span class="n">x0</span> <span class="o">=</span> <span class="mf">337100.0</span><span class="p">,</span> <span class="n">dx</span><span class="o">=</span> <span class="mf">10000.0</span><span class="p">,</span> <span class="n">y0</span><span class="o">=</span> <span class="mf">6122900.0</span><span class="p">,</span> <span class="n">dy</span><span class="o">=</span><span class="mf">10000.0</span><span class="p">,</span> <span class="n">nx</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">ny</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s2">&quot;UTM-32&quot;</span><span class="p">)</span>
@@ -849,7 +845,7 @@ Time: 2020-01-01 00:00:00 - 2020-01-02 00:00:00 (2 records)
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;Easting [m]&#39;, ylabel=&#39;Northing [m]&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/dfs2_36_1.png" src="_images/dfs2_36_1.png" />
+<img alt="_images/dfs2_35_1.png" src="_images/dfs2_35_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
