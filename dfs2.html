@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dfs2 &#8212; Getting started with Dfs files in Python using MIKE IO</title>
     
-  <link href="_static/css/theme.css" rel="stylesheet" />
-  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -22,8 +22,8 @@
       
 
     
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -31,30 +31,35 @@
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
 
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Exercise G: Dfs2" href="exercises/exercise_G_Dfs2.html" />
     <link rel="prev" title="Exercise F: Dfs0" href="exercises/exercise_F_Dfs0.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
     
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
@@ -279,7 +284,7 @@
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
@@ -319,7 +324,7 @@
         </div>
 
         <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
             <div class="tocsection onthispage pt-5 pb-3">
                 <i class="fas fa-list"></i> Contents
@@ -371,16 +376,73 @@
 </div>
     <div id="main-content" class="row">
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Dfs2</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reading-data">
+   Reading data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#spatial-axes">
+   Spatial axes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#extract-data-at-location">
+   Extract data at location
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#slicing">
+   Slicing
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#writing-data">
+   Writing data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#geographical-coordinates">
+     Geographical coordinates
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#projected-coordinates">
+     Projected coordinates
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
               <div>
                 
-  <div class="section" id="dfs2">
+  <div class="tex2jax_ignore mathjax_ignore section" id="dfs2">
 <h1>Dfs2<a class="headerlink" href="#dfs2" title="Permalink to this headline">¶</a></h1>
+<p><strong>This material have been updated to use MIKE IO 1.0, which is under development and at the moment available via <a class="reference external" href="https://github.com/DHI/mikeio">GitHub</a></strong></p>
 <p><a class="reference external" href="https://docs.mikepoweredbydhi.com/core_libraries/dfs/dfs-file-system/">DFS - Reference manual</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">mikeio</span>
 </pre></div>
 </div>
 </div>
@@ -389,36 +451,15 @@
 <h2>Reading data<a class="headerlink" href="#reading-data" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">mikeio</span> <span class="kn">import</span> <span class="n">Dfs2</span>
-
-<span class="n">dfs</span> <span class="o">=</span> <span class="n">Dfs2</span><span class="p">(</span><span class="s2">&quot;data/gebco_sound.dfs2&quot;</span><span class="p">)</span>
-
-<span class="n">dfs</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mikeio.Dfs2&gt;
-dx: 0.00417
-dy: 0.00417
-Items:
-  0:  Elevation &lt;Total Water Depth&gt; (meter)
-Time: time-invariant file (1 step)
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span> <span class="o">=</span> <span class="n">dfs</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">&quot;data/gebco_sound.dfs2&quot;</span><span class="p">)</span>
 <span class="n">ds</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mikeio.Dataset&gt;
-Dimensions: (1, 264, 216)
-Time: 2020-05-15 11:04:52 - 2020-05-15 11:04:52
+Dimensions: (time:1, y:264, x:216)
+Time: 2020-05-15 11:04:52 (time-invariant)
 Items:
   0:  Elevation &lt;Total Water Depth&gt; (meter)
 </pre></div>
@@ -457,7 +498,7 @@ Items:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>numpy.ndarray
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mikeio.dataarray.DataArray
 </pre></div>
 </div>
 </div>
@@ -476,36 +517,15 @@ Items:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">elevation</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Column&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Row # (starting at the top)&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">elevation</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Row # (starting at the top)&#39;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;Longitude [degrees]&#39;, ylabel=&#39;Latitude [degrees]&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/dfs2_9_1.png" src="_images/dfs2_9_1.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">elevation</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,:],</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Top row (N)&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">elevation</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,:],</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Bottom row (S)&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Column #&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Water depth (m)&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fc54922c9d0&gt;
-</pre></div>
-</div>
-<img alt="_images/dfs2_10_1.png" src="_images/dfs2_10_1.png" />
+<img alt="_images/dfs2_8_1.png" src="_images/dfs2_8_1.png" />
 </div>
 </div>
 </div>
@@ -513,85 +533,17 @@ Items:
 <h2>Spatial axes<a class="headerlink" href="#spatial-axes" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dfs</span><span class="o">.</span><span class="n">latitude</span><span class="p">,</span> <span class="n">dfs</span><span class="o">.</span><span class="n">longitude</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span><span class="o">.</span><span class="n">geometry</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(55.20208333333332, 12.20208333333332)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mikeio.Grid2D&gt;
+x-axis: nx=216 points from x0=12.2021 to x1=13.0979 with dx=0.00416667
+y-axis: ny=264 points from y0=55.2021 to y1=56.2979 with dy=0.00416667
+Number of grid points: 57024
 </pre></div>
 </div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dfs</span><span class="o">.</span><span class="n">dy</span><span class="p">,</span> <span class="n">dfs</span><span class="o">.</span><span class="n">dx</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.004166666883975267, 0.004166666883975267)
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ny</span> <span class="o">=</span> <span class="n">elevation</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-<span class="n">nx</span> <span class="o">=</span> <span class="n">elevation</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
-<span class="n">ny</span><span class="p">,</span> <span class="n">nx</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(264, 216)
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lats</span> <span class="o">=</span> <span class="p">[</span><span class="n">dfs</span><span class="o">.</span><span class="n">latitude</span> <span class="o">+</span> <span class="n">dfs</span><span class="o">.</span><span class="n">dy</span><span class="o">*</span><span class="n">i</span>  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">ny</span><span class="p">)]</span>
-<span class="n">lons</span> <span class="o">=</span> <span class="p">[</span><span class="n">dfs</span><span class="o">.</span><span class="n">longitude</span> <span class="o">+</span> <span class="n">dfs</span><span class="o">.</span><span class="n">dx</span><span class="o">*</span><span class="n">i</span>  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nx</span><span class="p">)]</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lats</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">lats</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(55.20208333333332, 56.297916723818815)
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lons</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">lons</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(12.20208333333332, 13.097916713388003)
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">elevation</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">extent</span><span class="o">=</span><span class="p">(</span><span class="n">lons</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">lons</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">lats</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">lats</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7fc5491369a0&gt;
-</pre></div>
-</div>
-<img alt="_images/dfs2_18_1.png" src="_images/dfs2_18_1.png" />
 </div>
 </div>
 </div>
@@ -600,40 +552,36 @@ Items:
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stn</span> <span class="o">=</span> <span class="mf">12.74792</span><span class="p">,</span> <span class="mf">55.865</span>
-<span class="n">k</span><span class="p">,</span><span class="n">j</span> <span class="o">=</span> <span class="n">dfs</span><span class="o">.</span><span class="n">find_nearest_elements</span><span class="p">(</span><span class="n">lon</span><span class="o">=</span><span class="n">stn</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">lat</span><span class="o">=</span><span class="n">stn</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">j</span><span class="p">)</span>
+<span class="n">da_stn</span> <span class="o">=</span> <span class="n">elevation</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">stn</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">stn</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">da_stn</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>104 131
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mikeio.DataArray&gt;
+Name: Elevation
+Dimensions: (time:1)
+Time: 2020-05-15 11:04:52 (time-invariant)
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">elevation</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">,</span><span class="n">marker</span><span class="o">=</span><span class="s1">&#39;*&#39;</span><span class="p">,</span><span class="n">s</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Indexed by row/column&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">da_stn</span><span class="o">.</span><span class="n">values</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Indexed by row/column&#39;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-42.69764539])
 </pre></div>
 </div>
-<img alt="_images/dfs2_21_1.png" src="_images/dfs2_21_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">elevation</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">extent</span><span class="o">=</span><span class="p">(</span><span class="n">lons</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">lons</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">lats</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">lats</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">elevation</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">stn</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">stn</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">marker</span><span class="o">=</span><span class="s1">&#39;*&#39;</span><span class="p">,</span><span class="n">s</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Indexed by spatial coordinates&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">12.85</span><span class="p">,</span> <span class="mf">56.0</span><span class="p">,</span> <span class="s2">&quot;Sweden&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">12.3</span><span class="p">,</span> <span class="mf">55.8</span><span class="p">,</span> <span class="s2">&quot;Denmark&quot;</span><span class="p">)</span>
 </pre></div>
@@ -643,7 +591,7 @@ Items:
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(12.3, 55.8, &#39;Denmark&#39;)
 </pre></div>
 </div>
-<img alt="_images/dfs2_22_1.png" src="_images/dfs2_22_1.png" />
+<img alt="_images/dfs2_14_1.png" src="_images/dfs2_14_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -651,13 +599,13 @@ Items:
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="c1"># Find minimum value</span>
-<span class="n">idx_1d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nanargmin</span><span class="p">(</span><span class="n">elevation</span><span class="p">)</span>
+<span class="n">idx_1d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nanargmin</span><span class="p">(</span><span class="n">elevation</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
 <span class="n">idx_1d</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>22595
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>34475
 </pre></div>
 </div>
 </div>
@@ -670,14 +618,26 @@ Items:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0, 104, 131)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0, 159, 131)
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">elevation</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">elevation</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">159</span><span class="p">,</span><span class="mi">131</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array(-43.)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">elevation</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -692,45 +652,45 @@ Items:
 <h2>Slicing<a class="headerlink" href="#slicing" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">elevation</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">elevation</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">stn</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">stn</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.lines.Line2D at 0x7fc548f2d9a0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.lines.Line2D at 0x7f3498b58ee0&gt;
 </pre></div>
 </div>
-<img alt="_images/dfs2_27_1.png" src="_images/dfs2_27_1.png" />
+<img alt="_images/dfs2_20_1.png" src="_images/dfs2_20_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">lats</span><span class="p">,</span> <span class="n">elevation</span><span class="p">[</span><span class="mi">0</span><span class="p">,:,</span><span class="n">j</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;North-South&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">j</span><span class="p">,</span><span class="n">k</span> <span class="o">=</span> <span class="n">elevation</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">find_index</span><span class="p">(</span><span class="n">stn</span><span class="p">)</span>
+<span class="n">elevation</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">k</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;West-East&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mf">12.2</span><span class="p">,</span> <span class="mf">13.2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;North-South&#39;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(12.2, 13.2)
 </pre></div>
 </div>
-<img alt="_images/dfs2_28_1.png" src="_images/dfs2_28_1.png" />
+<img alt="_images/dfs2_21_1.png" src="_images/dfs2_21_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">lons</span><span class="p">,</span> <span class="n">elevation</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">k</span><span class="p">,:])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;West-East&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">elevation</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">j</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;South-North&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;West-East&#39;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:title={&#39;center&#39;:&#39;South-North&#39;}, xlabel=&#39;x&#39;, ylabel=&#39;Elevation [meter]&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/dfs2_29_1.png" src="_images/dfs2_29_1.png" />
+<img alt="_images/dfs2_22_1.png" src="_images/dfs2_22_1.png" />
 </div>
 </div>
 </div>
@@ -759,32 +719,63 @@ Items:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x7fc548e017f0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x7f349895c0d0&gt;
 </pre></div>
 </div>
-<img alt="_images/dfs2_32_1.png" src="_images/dfs2_32_1.png" />
+<img alt="_images/dfs2_25_1.png" src="_images/dfs2_25_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grid</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">Grid2D</span><span class="p">(</span><span class="n">x0</span> <span class="o">=</span> <span class="mf">12.0</span><span class="p">,</span> <span class="n">dx</span><span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">y0</span><span class="o">=</span> <span class="mf">55.0</span><span class="p">,</span> <span class="n">dy</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">nx</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">ny</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s2">&quot;LONG/LAT&quot;</span><span class="p">)</span>
+<span class="n">grid</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mikeio.Grid2D&gt;
+x-axis: nx=3 points from x0=12 to x1=14 with dx=1
+y-axis: ny=4 points from y0=55 to y1=58 with dy=1
+Number of grid points: 12
+</pre></div>
+</div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
-<span class="kn">from</span> <span class="nn">mikeio</span> <span class="kn">import</span> <span class="n">Dataset</span>
-<span class="kn">from</span> <span class="nn">mikeio.eum</span> <span class="kn">import</span> <span class="n">EUMType</span><span class="p">,</span> <span class="n">ItemInfo</span>
-
 <span class="n">nt</span> <span class="o">=</span> <span class="n">data_i</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
-<span class="n">ds</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="p">[</span><span class="n">data_i</span><span class="p">],</span>
-             <span class="n">time</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s2">&quot;2020&quot;</span><span class="p">,</span><span class="n">periods</span><span class="o">=</span><span class="n">nt</span><span class="p">,</span><span class="n">freq</span><span class="o">=</span><span class="s1">&#39;D&#39;</span><span class="p">),</span>
-             <span class="n">items</span><span class="o">=</span><span class="p">[</span><span class="n">ItemInfo</span><span class="p">(</span><span class="s2">&quot;Example&quot;</span><span class="p">,</span><span class="n">EUMType</span><span class="o">.</span><span class="n">Elevation</span><span class="p">)])</span>
+<span class="n">da</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">data_i</span><span class="p">,</span>
+                      <span class="n">geometry</span><span class="o">=</span><span class="n">grid</span><span class="p">,</span>
+                     <span class="n">time</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s2">&quot;2020&quot;</span><span class="p">,</span><span class="n">periods</span><span class="o">=</span><span class="n">nt</span><span class="p">,</span><span class="n">freq</span><span class="o">=</span><span class="s1">&#39;D&#39;</span><span class="p">),</span>
+                     <span class="n">item</span><span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">ItemInfo</span><span class="p">(</span><span class="s2">&quot;Example&quot;</span><span class="p">,</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">EUMType</span><span class="o">.</span><span class="n">Elevation</span><span class="p">))</span>
+
+<span class="n">da</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mikeio.DataArray&gt;
+Name: Example
+Dimensions: (time:2, y:4, x:3)
+Time: 2020-01-01 00:00:00 - 2020-01-02 00:00:00 (2 records)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">Dataset</span><span class="p">([</span><span class="n">da</span><span class="p">])</span>
 <span class="n">ds</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mikeio.Dataset&gt;
-Dimensions: (2, 4, 3)
-Time: 2020-01-01 00:00:00 - 2020-01-02 00:00:00
+Dimensions: (time:2, y:4, x:3)
+Time: 2020-01-01 00:00:00 - 2020-01-02 00:00:00 (2 records)
 Items:
   0:  Example &lt;Elevation&gt; (meter)
 </pre></div>
@@ -793,8 +784,7 @@ Items:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dfs</span> <span class="o">=</span> <span class="n">Dfs2</span><span class="p">()</span>
-<span class="n">dfs</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;example_geo.dfs2&quot;</span><span class="p">,</span><span class="n">data</span><span class="o">=</span><span class="n">ds</span><span class="p">,</span> <span class="n">coordinate</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;LONG/LAT&quot;</span><span class="p">,</span> <span class="mf">55.0</span><span class="p">,</span> <span class="mf">12.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span> <span class="n">dx</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">dy</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span><span class="o">.</span><span class="n">to_dfs</span><span class="p">(</span><span class="s2">&quot;example_geo.dfs2&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -809,40 +799,62 @@ Items:
 <div class="section" id="projected-coordinates">
 <h3>Projected coordinates<a class="headerlink" href="#projected-coordinates" title="Permalink to this headline">¶</a></h3>
 <p>Projection string in WKT format. Use MIKE Zero for formatting. Some shorthands are available for UTM zones, e.g. UTM-32.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>TODO: Dfs2 with projected coordinates should work as easy as geographical coordinates.</p>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">mikecore.Projections</span> <span class="kn">import</span> <span class="n">Cartography</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pgrid</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">Grid2D</span><span class="p">(</span><span class="n">x0</span> <span class="o">=</span> <span class="mf">337100.0</span><span class="p">,</span> <span class="n">dx</span><span class="o">=</span> <span class="mf">10000.0</span><span class="p">,</span> <span class="n">y0</span><span class="o">=</span> <span class="mf">6122900.0</span><span class="p">,</span> <span class="n">dy</span><span class="o">=</span><span class="mf">10000.0</span><span class="p">,</span> <span class="n">nx</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">ny</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s2">&quot;UTM-32&quot;</span><span class="p">)</span>
+<span class="n">pgrid</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mikeio.Grid2D&gt;
+x-axis: nx=3 points from x0=337100 to x1=357100 with dx=10000
+y-axis: ny=4 points from y0=6.1229e+06 to y1=6.1529e+06 with dy=10000
+Number of grid points: 12
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pda</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">data_i</span><span class="p">,</span>
+                       <span class="n">geometry</span><span class="o">=</span><span class="n">pgrid</span><span class="p">,</span>
+                       <span class="n">time</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s2">&quot;2020&quot;</span><span class="p">,</span><span class="n">periods</span><span class="o">=</span><span class="n">nt</span><span class="p">,</span><span class="n">freq</span><span class="o">=</span><span class="s1">&#39;D&#39;</span><span class="p">),</span>
+                       <span class="n">item</span><span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">ItemInfo</span><span class="p">(</span><span class="s2">&quot;Example&quot;</span><span class="p">,</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">EUMType</span><span class="o">.</span><span class="n">Elevation</span><span class="p">))</span>
 
-<span class="n">proj</span> <span class="o">=</span> <span class="n">Cartography</span><span class="o">.</span><span class="n">CreateProjOrigin</span><span class="p">(</span><span class="s2">&quot;UTM-32&quot;</span><span class="p">,</span> <span class="n">east</span><span class="o">=</span><span class="mf">337100.0</span><span class="p">,</span> <span class="n">north</span><span class="o">=</span><span class="mf">6122900.0</span><span class="p">,</span> <span class="n">orientationProj</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>
-<span class="n">proj</span><span class="o">.</span><span class="n">ProjectionString</span>
+<span class="n">pda</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;PROJCS[&quot;UTM-32&quot;,GEOGCS[&quot;Unused&quot;,DATUM[&quot;UTM Projections&quot;,SPHEROID[&quot;WGS 1984&quot;,6378137,298.257223563]],PRIMEM[&quot;Greenwich&quot;,0],UNIT[&quot;Degree&quot;,0.0174532925199433]],PROJECTION[&quot;Transverse_Mercator&quot;],PARAMETER[&quot;False_Easting&quot;,500000],PARAMETER[&quot;False_Northing&quot;,0],PARAMETER[&quot;Central_Meridian&quot;,9],PARAMETER[&quot;Scale_Factor&quot;,0.9996],PARAMETER[&quot;Latitude_Of_Origin&quot;,0],UNIT[&quot;Meter&quot;,1]]&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mikeio.DataArray&gt;
+Name: Example
+Dimensions: (time:2, y:4, x:3)
+Time: 2020-01-01 00:00:00 - 2020-01-02 00:00:00 (2 records)
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">proj</span><span class="o">.</span><span class="n">LonOrigin</span><span class="p">,</span> <span class="n">proj</span><span class="o">.</span><span class="n">LatOrigin</span><span class="p">,</span> <span class="n">proj</span><span class="o">.</span><span class="n">Orientation</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pda</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(6.438741601179531, 55.22570782640155, -2.104289814530738)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;Easting [m]&#39;, ylabel=&#39;Northing [m]&#39;&gt;
 </pre></div>
 </div>
+<img alt="_images/dfs2_36_1.png" src="_images/dfs2_36_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dfs</span> <span class="o">=</span> <span class="n">Dfs2</span><span class="p">()</span>
-<span class="n">dfs</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;example_proj.dfs2&quot;</span><span class="p">,</span>
-          <span class="n">data</span><span class="o">=</span><span class="n">ds</span><span class="p">,</span> 
-          <span class="n">coordinate</span><span class="o">=</span><span class="p">[</span><span class="n">proj</span><span class="o">.</span><span class="n">ProjectionString</span><span class="p">,</span> <span class="n">proj</span><span class="o">.</span><span class="n">LonOrigin</span><span class="p">,</span> <span class="n">proj</span><span class="o">.</span><span class="n">LatOrigin</span><span class="p">,</span> <span class="n">proj</span><span class="o">.</span><span class="n">Orientation</span><span class="p">],</span>
-          <span class="n">dx</span><span class="o">=</span><span class="mi">10000</span><span class="p">,</span> <span class="n">dy</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pda</span><span class="o">.</span><span class="n">to_dfs</span><span class="p">(</span><span class="s2">&quot;example_proj.dfs2&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -877,54 +889,42 @@ Items:
 
               </div>
               
-        
             
-
-
-
-<div class='prev-next-bottom'>
-    
-    <div id="prev">
-        <a class="left-prev" href="exercises/exercise_F_Dfs0.html" title="previous page">
-            <i class="prevnext-label fas fa-angle-left"></i>
-            <div class="prevnext-info">
-                <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">Exercise F: Dfs0</p>
-            </div>
-        </a>
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="exercises/exercise_F_Dfs0.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Exercise F: Dfs0</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="exercises/exercise_G_Dfs2.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Exercise G: Dfs2</p>
     </div>
-     <div id="next">
-        <a class="right-next" href="exercises/exercise_G_Dfs2.html" title="next page">
-            <div class="prevnext-info">
-                <p class="prevnext-label">next</p>
-                <p class="prevnext-title">Exercise G: Dfs2</p>
-            </div>
-            <i class="prevnext-label fas fa-angle-right"></i>
-        </a>
-     </div>
-
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
-        
+            
         </div>
     </div>
     <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By Henrik Andersson and Jesper Mariegaard<br/>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
-    </div>
-  </footer>
+  <p>
+    
+      By Henrik Andersson and Jesper Mariegaard<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
 </main>
 
 
       </div>
     </div>
   
-  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
-  
   </body>
 </html>

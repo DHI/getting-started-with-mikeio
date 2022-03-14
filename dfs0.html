@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dfs0 &#8212; Getting started with Dfs files in Python using MIKE IO</title>
     
-  <link href="_static/css/theme.css" rel="stylesheet" />
-  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -22,8 +22,8 @@
       
 
     
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -31,30 +31,35 @@
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
 
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Exercise F: Dfs0" href="exercises/exercise_F_Dfs0.html" />
     <link rel="prev" title="Datetimes and timedeltas" href="datetime_timedelta.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
     
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
@@ -279,7 +284,7 @@
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
@@ -319,7 +324,7 @@
         </div>
 
         <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
             <div class="tocsection onthispage pt-5 pb-3">
                 <i class="fas fa-list"></i> Contents
@@ -359,15 +364,59 @@
 </div>
     <div id="main-content" class="row">
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Dfs0</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reading-data">
+   Reading data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#writing-data">
+   Writing data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#eum">
+   EUM
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#precipitation-data">
+   Precipitation data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#selecting-items">
+   Selecting items
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
               <div>
                 
-  <div class="section" id="dfs0">
+  <div class="tex2jax_ignore mathjax_ignore section" id="dfs0">
 <h1>Dfs0<a class="headerlink" href="#dfs0" title="Permalink to this headline">¶</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">mikeio</span>
 </pre></div>
 </div>
 </div>
@@ -376,34 +425,15 @@
 <h2>Reading data<a class="headerlink" href="#reading-data" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">mikeio</span> <span class="kn">import</span> <span class="n">Dfs0</span>
-
-<span class="n">dfs</span> <span class="o">=</span> <span class="n">Dfs0</span><span class="p">(</span><span class="s2">&quot;data/TemporalEqTime.dfs0&quot;</span><span class="p">)</span>
-<span class="n">dfs</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mikeio.Dfs0&gt;
-Timeaxis: TimeAxisType.TimeEquidistant
-Items:
-  0:  WaterLevel item &lt;Water Level&gt; (meter)
-  1:  WaterDepth item &lt;Water Depth&gt; (meter)
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span> <span class="o">=</span> <span class="n">dfs</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">&quot;data/TemporalEqTime.dfs0&quot;</span><span class="p">)</span>
 <span class="n">ds</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mikeio.Dataset&gt;
-Dimensions: (10,)
-Time: 1970-01-01 00:00:03 - 1970-01-01 00:01:33
+Dimensions: (time:10)
+Time: 1970-01-01 00:00:03 - 1970-01-01 00:01:33 (10 records)
 Items:
   0:  WaterLevel item &lt;Water Level&gt; (meter)
   1:  WaterDepth item &lt;Water Depth&gt; (meter)
@@ -432,6 +462,10 @@ Items:
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages/mikeio/dataset.py:379: FutureWarning: property data is deprecated
+  warnings.warn(
+</pre></div>
+</div>
 <div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -508,103 +542,6 @@ Items:
   </tbody>
 </table>
 </div></div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df2</span> <span class="o">=</span> <span class="n">dfs</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span> <span class="c1"># or read as a data frame directly</span>
-<span class="n">df2</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>WaterLevel item</th>
-      <th>WaterDepth item</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>1970-01-01 00:00:03</th>
-      <td>0.0</td>
-      <td>100.0</td>
-    </tr>
-    <tr>
-      <th>1970-01-01 00:00:13</th>
-      <td>1.0</td>
-      <td>101.0</td>
-    </tr>
-    <tr>
-      <th>1970-01-01 00:00:23</th>
-      <td>2.0</td>
-      <td>102.0</td>
-    </tr>
-    <tr>
-      <th>1970-01-01 00:00:33</th>
-      <td>3.0</td>
-      <td>103.0</td>
-    </tr>
-    <tr>
-      <th>1970-01-01 00:00:43</th>
-      <td>4.0</td>
-      <td>104.0</td>
-    </tr>
-    <tr>
-      <th>1970-01-01 00:00:53</th>
-      <td>5.0</td>
-      <td>105.0</td>
-    </tr>
-    <tr>
-      <th>1970-01-01 00:01:03</th>
-      <td>10.0</td>
-      <td>110.0</td>
-    </tr>
-    <tr>
-      <th>1970-01-01 00:01:13</th>
-      <td>11.0</td>
-      <td>111.0</td>
-    </tr>
-    <tr>
-      <th>1970-01-01 00:01:23</th>
-      <td>12.0</td>
-      <td>112.0</td>
-    </tr>
-    <tr>
-      <th>1970-01-01 00:01:33</th>
-      <td>13.0</td>
-      <td>113.0</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">all</span><span class="p">(</span><span class="n">df</span> <span class="o">==</span> <span class="n">df2</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
-</pre></div>
-</div>
-</div>
 </div>
 </div>
 <div class="section" id="writing-data">
@@ -1052,7 +989,7 @@ Items:
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;Date&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/dfs0_18_1.png" src="_images/dfs0_18_1.png" />
+<img alt="_images/dfs0_15_1.png" src="_images/dfs0_15_1.png" />
 </div>
 </div>
 <p>The simplest way to create a dfs0 file is to use the <code class="docutils literal notranslate"><span class="pre">to_dfs0</span></code> method on a Pandas dataframe.</p>
@@ -1066,14 +1003,15 @@ Items:
 <p>Let’s read it back in again…</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">saved_dfs0</span> <span class="o">=</span> <span class="n">Dfs0</span><span class="p">(</span><span class="s2">&quot;output/naples_fl.dfs0&quot;</span><span class="p">)</span>
-<span class="n">saved_dfs0</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">saved_ds</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">&quot;output/naples_fl.dfs0&quot;</span><span class="p">)</span>
+<span class="n">saved_ds</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mikeio.Dfs0&gt;
-Timeaxis: TimeAxisType.CalendarEquidistant
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mikeio.Dataset&gt;
+Dimensions: (time:7108)
+Time: 2002-03-01 00:00:00 - 2021-08-15 00:00:00 (7108 records)
 Items:
   0:  temperature_avg_f &lt;Undefined&gt; (undefined)
   1:  temperature_max_f &lt;Undefined&gt; (undefined)
@@ -1097,13 +1035,14 @@ Items:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Dfs0</span><span class="p">(</span><span class="s2">&quot;output/naples_fl_eum.dfs0&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mikeio</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">&quot;output/naples_fl_eum.dfs0&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mikeio.Dfs0&gt;
-Timeaxis: TimeAxisType.CalendarEquidistant
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mikeio.Dataset&gt;
+Dimensions: (time:7108)
+Time: 2002-03-01 00:00:00 - 2021-08-15 00:00:00 (7108 records)
 Items:
   0:  temperature_max_c &lt;Temperature&gt; (degree Celsius)
 </pre></div>
@@ -1286,15 +1225,15 @@ Items:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Precipitation station 1 &lt;Precipitation Rate&gt; (mm per hour),
- Precipitation station 2 &lt;Precipitation Rate&gt; (mm per hour),
- Precipitation station 3 &lt;Precipitation Rate&gt; (mm per hour),
- Precipitation station 4 &lt;Precipitation Rate&gt; (mm per hour),
- Precipitation station 5 &lt;Precipitation Rate&gt; (mm per hour),
- Precipitation station 6 &lt;Precipitation Rate&gt; (mm per hour),
- Precipitation station 7 &lt;Precipitation Rate&gt; (mm per hour),
- Precipitation station 8 &lt;Precipitation Rate&gt; (mm per hour),
- Precipitation station 9 &lt;Precipitation Rate&gt; (mm per hour)]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Precipitation station 1 &lt;Precipitation Rate&gt; (mm per hour) - 3,
+ Precipitation station 2 &lt;Precipitation Rate&gt; (mm per hour) - 3,
+ Precipitation station 3 &lt;Precipitation Rate&gt; (mm per hour) - 3,
+ Precipitation station 4 &lt;Precipitation Rate&gt; (mm per hour) - 3,
+ Precipitation station 5 &lt;Precipitation Rate&gt; (mm per hour) - 3,
+ Precipitation station 6 &lt;Precipitation Rate&gt; (mm per hour) - 3,
+ Precipitation station 7 &lt;Precipitation Rate&gt; (mm per hour) - 3,
+ Precipitation station 8 &lt;Precipitation Rate&gt; (mm per hour) - 3,
+ Precipitation station 9 &lt;Precipitation Rate&gt; (mm per hour) - 3]
 </pre></div>
 </div>
 </div>
@@ -1328,7 +1267,7 @@ Items:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Station_I &lt;Precipitation Rate&gt; (mm per hour)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Station_I &lt;Precipitation Rate&gt; (mm per hour) - 3
 </pre></div>
 </div>
 </div>
@@ -1342,15 +1281,15 @@ Items:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Station_A &lt;Precipitation Rate&gt; (mm per hour),
- Station_B &lt;Precipitation Rate&gt; (mm per hour),
- Station_C &lt;Precipitation Rate&gt; (mm per hour),
- Station_D &lt;Precipitation Rate&gt; (mm per hour),
- Station_E &lt;Precipitation Rate&gt; (mm per hour),
- Station_F &lt;Precipitation Rate&gt; (mm per hour),
- Station_G &lt;Precipitation Rate&gt; (mm per hour),
- Station_H &lt;Precipitation Rate&gt; (mm per hour),
- Station_I &lt;Precipitation Rate&gt; (mm per hour)]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Station_A &lt;Precipitation Rate&gt; (mm per hour) - 3,
+ Station_B &lt;Precipitation Rate&gt; (mm per hour) - 3,
+ Station_C &lt;Precipitation Rate&gt; (mm per hour) - 3,
+ Station_D &lt;Precipitation Rate&gt; (mm per hour) - 3,
+ Station_E &lt;Precipitation Rate&gt; (mm per hour) - 3,
+ Station_F &lt;Precipitation Rate&gt; (mm per hour) - 3,
+ Station_G &lt;Precipitation Rate&gt; (mm per hour) - 3,
+ Station_H &lt;Precipitation Rate&gt; (mm per hour) - 3,
+ Station_I &lt;Precipitation Rate&gt; (mm per hour) - 3]
 </pre></div>
 </div>
 </div>
@@ -1369,7 +1308,7 @@ Items:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_dfs0</span><span class="p">(</span><span class="s2">&quot;output/precipitation.dfs0&quot;</span><span class="p">,</span><span class="n">items</span><span class="o">=</span><span class="n">items</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_dfs0</span><span class="p">(</span><span class="s2">&quot;output/precipitation.dfs0&quot;</span><span class="p">,</span> <span class="n">items</span><span class="o">=</span><span class="n">items</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1379,112 +1318,55 @@ Items:
 <h2>Selecting items<a class="headerlink" href="#selecting-items" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dfs</span> <span class="o">=</span> <span class="n">Dfs0</span><span class="p">(</span><span class="s2">&quot;output/precipitation.dfs0&quot;</span><span class="p">)</span>
-<span class="n">ds</span> <span class="o">=</span> <span class="n">dfs</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">items</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span> <span class="c1"># select item by item number (starting from zero)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">&quot;output/precipitation.dfs0&quot;</span><span class="p">,</span> <span class="n">items</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span> <span class="c1"># select item by item number (starting from zero)</span>
 <span class="n">ds</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mikeio.Dataset&gt;
-Dimensions: (31,)
-Time: 2001-01-01 00:00:00 - 2001-01-31 00:00:00
+Dimensions: (time:31)
+Time: 2001-01-01 00:00:00 - 2001-01-31 00:00:00 (31 records)
 Items:
-  0:  Station_B &lt;Precipitation Rate&gt; (mm per hour)
-  1:  Station_E &lt;Precipitation Rate&gt; (mm per hour)
+  0:  Station_B &lt;Precipitation Rate&gt; (mm per hour) - 3
+  1:  Station_E &lt;Precipitation Rate&gt; (mm per hour) - 3
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span> <span class="o">=</span> <span class="n">dfs</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">items</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Precipitation station 6&quot;</span><span class="p">,</span><span class="s2">&quot;Precipitation station 3&quot;</span><span class="p">])</span> <span class="c1"># or by name (in the order you like it)</span>
-<span class="n">ds</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
-<span class="nn">/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages/mikeio/dfsutil.py</span> in <span class="ni">_item_numbers_by_name</span><span class="nt">(dfsItemInfo, item_names)</span>
-<span class="g g-Whitespace">    </span><span class="mi">100</span>     <span class="k">try</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">101</span>         <span class="n">item_numbers</span> <span class="o">=</span> <span class="p">[</span><span class="n">item_lookup</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">item_names</span><span class="p">]</span>
-<span class="g g-Whitespace">    </span><span class="mi">102</span>     <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages/mikeio/dfsutil.py</span> in <span class="ni">&lt;listcomp&gt;</span><span class="nt">(.0)</span>
-<span class="g g-Whitespace">    </span><span class="mi">100</span>     <span class="k">try</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">101</span>         <span class="n">item_numbers</span> <span class="o">=</span> <span class="p">[</span><span class="n">item_lookup</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">item_names</span><span class="p">]</span>
-<span class="g g-Whitespace">    </span><span class="mi">102</span>     <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
-
-<span class="ne">KeyError</span>: &#39;Precipitation station 6&#39;
-
-<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
-
-<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1713</span><span class="o">/</span><span class="mf">2477775645.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">ds</span> <span class="o">=</span> <span class="n">dfs</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">items</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Precipitation station 6&quot;</span><span class="p">,</span><span class="s2">&quot;Precipitation station 3&quot;</span><span class="p">])</span> <span class="c1"># or by name (in the order you like it)</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">ds</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages/mikeio/dfs0.py</span> in <span class="ni">read</span><span class="nt">(self, items, time_steps)</span>
-<span class="g g-Whitespace">    </span><span class="mi">115</span> 
-<span class="g g-Whitespace">    </span><span class="mi">116</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_n_items</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">dfs</span><span class="o">.</span><span class="n">ItemInfo</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">117</span>         <span class="n">item_numbers</span> <span class="o">=</span> <span class="n">_valid_item_numbers</span><span class="p">(</span><span class="n">dfs</span><span class="o">.</span><span class="n">ItemInfo</span><span class="p">,</span> <span class="n">items</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">118</span> 
-<span class="g g-Whitespace">    </span><span class="mi">119</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_n_timesteps</span> <span class="o">=</span> <span class="n">dfs</span><span class="o">.</span><span class="n">FileInfo</span><span class="o">.</span><span class="n">TimeAxis</span><span class="o">.</span><span class="n">NumberOfTimeSteps</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages/mikeio/dfsutil.py</span> in <span class="ni">_valid_item_numbers</span><span class="nt">(dfsItemInfo, items)</span>
-<span class="g g-Whitespace">     </span><span class="mi">15</span>     <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">item</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">items</span><span class="p">):</span>
-<span class="g g-Whitespace">     </span><span class="mi">16</span>         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
-<span class="ne">---&gt; </span><span class="mi">17</span>             <span class="n">items</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">_item_numbers_by_name</span><span class="p">(</span><span class="n">dfsItemInfo</span><span class="p">,</span> <span class="p">[</span><span class="n">item</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
-<span class="g g-Whitespace">     </span><span class="mi">18</span>         <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
-<span class="g g-Whitespace">     </span><span class="mi">19</span>             <span class="k">if</span> <span class="p">(</span><span class="n">item</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">item</span> <span class="o">&gt;=</span> <span class="n">n_items_file</span><span class="p">):</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages/mikeio/dfsutil.py</span> in <span class="ni">_item_numbers_by_name</span><span class="nt">(dfsItemInfo, item_names)</span>
-<span class="g g-Whitespace">    </span><span class="mi">101</span>         <span class="n">item_numbers</span> <span class="o">=</span> <span class="p">[</span><span class="n">item_lookup</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">item_names</span><span class="p">]</span>
-<span class="g g-Whitespace">    </span><span class="mi">102</span>     <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">103</span>         <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Selected item name not found. Valid names are </span><span class="si">{</span><span class="n">names</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">104</span> 
-<span class="g g-Whitespace">    </span><span class="mi">105</span>     <span class="k">return</span> <span class="n">item_numbers</span>
-
-<span class="ne">KeyError</span>: &quot;Selected item name not found. Valid names are [&#39;Station_A&#39;, &#39;Station_B&#39;, &#39;Station_C&#39;, &#39;Station_D&#39;, &#39;Station_E&#39;, &#39;Station_F&#39;, &#39;Station_G&#39;, &#39;Station_H&#39;, &#39;Station_I&#39;]&quot;
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">items</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">reversed</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">2</span><span class="p">)))</span> <span class="c1"># not sure if this is useful, but it is possible ;-)</span>
-<span class="n">items</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[7, 5, 3, 1]
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span> <span class="o">=</span> <span class="n">dfs</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">items</span><span class="o">=</span><span class="n">items</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">&quot;output/precipitation.dfs0&quot;</span><span class="p">,</span> <span class="n">items</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Station_E&quot;</span><span class="p">,</span><span class="s2">&quot;Station_B&quot;</span><span class="p">])</span> <span class="c1"># or by name (in the order you like it)</span>
 <span class="n">ds</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mikeio.Dataset&gt;
-Dimensions: (31,)
-Time: 2001-01-01 00:00:00 - 2001-01-31 00:00:00
+Dimensions: (time:31)
+Time: 2001-01-01 00:00:00 - 2001-01-31 00:00:00 (31 records)
 Items:
-  0:  Station_H &lt;Precipitation Rate&gt; (mm per hour)
-  1:  Station_F &lt;Precipitation Rate&gt; (mm per hour)
-  2:  Station_D &lt;Precipitation Rate&gt; (mm per hour)
-  3:  Station_B &lt;Precipitation Rate&gt; (mm per hour)
+  0:  Station_E &lt;Precipitation Rate&gt; (mm per hour) - 3
+  1:  Station_B &lt;Precipitation Rate&gt; (mm per hour) - 3
 </pre></div>
 </div>
 </div>
 </div>
-<p>Note that once you have read data into a Dataset, the item number no longer reflects the item number in the file!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span><span class="p">[</span><span class="s2">&quot;Station_E&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mikeio.DataArray&gt;
+Name: Station_E
+Dimensions: (time:31)
+Time: 2001-01-01 00:00:00 - 2001-01-31 00:00:00 (31 records)
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 <div class="toctree-wrapper compound">
 </div>
@@ -1512,54 +1394,42 @@ Items:
 
               </div>
               
-        
             
-
-
-
-<div class='prev-next-bottom'>
-    
-    <div id="prev">
-        <a class="left-prev" href="datetime_timedelta.html" title="previous page">
-            <i class="prevnext-label fas fa-angle-left"></i>
-            <div class="prevnext-info">
-                <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">Datetimes and timedeltas</p>
-            </div>
-        </a>
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="datetime_timedelta.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Datetimes and timedeltas</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="exercises/exercise_F_Dfs0.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Exercise F: Dfs0</p>
     </div>
-     <div id="next">
-        <a class="right-next" href="exercises/exercise_F_Dfs0.html" title="next page">
-            <div class="prevnext-info">
-                <p class="prevnext-label">next</p>
-                <p class="prevnext-title">Exercise F: Dfs0</p>
-            </div>
-            <i class="prevnext-label fas fa-angle-right"></i>
-        </a>
-     </div>
-
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
-        
+            
         </div>
     </div>
     <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By Henrik Andersson and Jesper Mariegaard<br/>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
-    </div>
-  </footer>
+  <p>
+    
+      By Henrik Andersson and Jesper Mariegaard<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
 </main>
 
 
       </div>
     </div>
   
-  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
-  
   </body>
 </html>

@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Generic dfs processing &#8212; Getting started with Dfs files in Python using MIKE IO</title>
     
-  <link href="_static/css/theme.css" rel="stylesheet" />
-  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -22,8 +22,8 @@
       
 
     
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -31,30 +31,35 @@
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
 
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Exercise H: Generic dfs" href="exercises/exercise_H_generic_dfs.html" />
     <link rel="prev" title="Exercise G: Dfs2" href="exercises/exercise_G_Dfs2.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
     
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
@@ -279,7 +284,7 @@
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
@@ -319,7 +324,7 @@
         </div>
 
         <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
             <div class="tocsection onthispage pt-5 pb-3">
                 <i class="fas fa-list"></i> Contents
@@ -371,10 +376,65 @@
 </div>
     <div id="main-content" class="row">
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Generic dfs processing</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#read">
+   Read
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#concatenation">
+   Concatenation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#extract-time-steps-or-items">
+   Extract time steps or items
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#diff">
+   Diff
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#scaling">
+   Scaling
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#spatially-varying-correction">
+     Spatially varying correction
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#clean-up">
+   Clean up
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
               <div>
                 
-  <div class="section" id="generic-dfs-processing">
+  <div class="tex2jax_ignore mathjax_ignore section" id="generic-dfs-processing">
 <h1>Generic dfs processing<a class="headerlink" href="#generic-dfs-processing" title="Permalink to this headline">¶</a></h1>
 <p>Tools and methods that applies to any type of dfs files.</p>
 <p>The generic tools are useful for common data processing tasks, where detailed configuration is not necessary.</p>
@@ -410,8 +470,8 @@
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mikeio.Dataset&gt;
-Dimensions: (97, 10)
-Time: 2019-01-01 00:00:00 - 2019-01-03 00:00:00
+Dimensions: (time:97, x:10)
+Time: 2019-01-01 00:00:00 - 2019-01-03 00:00:00 (97 records)
 Items:
   0:  Level &lt;Water Level&gt; (meter)
 </pre></div>
@@ -438,8 +498,8 @@ Items:
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mikeio.Dataset&gt;
-Dimensions: (97, 10)
-Time: 2019-01-01 00:00:00 - 2019-01-03 00:00:00
+Dimensions: (time:97, x:10)
+Time: 2019-01-01 00:00:00 - 2019-01-03 00:00:00 (97 records)
 Items:
   0:  Level &lt;Water Level&gt; (meter)
 </pre></div>
@@ -455,8 +515,8 @@ Items:
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mikeio.Dataset&gt;
-Dimensions: (97, 10)
-Time: 2019-01-02 00:00:00 - 2019-01-04 00:00:00
+Dimensions: (time:97, x:10)
+Time: 2019-01-02 00:00:00 - 2019-01-04 00:00:00 (97 records)
 Items:
   0:  Level &lt;Water Level&gt; (meter)
 </pre></div>
@@ -473,10 +533,16 @@ Items:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f7b2c8926d0&gt;
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages/mikeio/dataset.py:379: FutureWarning: property data is deprecated
+  warnings.warn(
+/opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages/mikeio/dataset.py:379: FutureWarning: property data is deprecated
+  warnings.warn(
 </pre></div>
 </div>
-<img alt="_images/generic_10_1.png" src="_images/generic_10_1.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f7127aa0eb0&gt;
+</pre></div>
+</div>
+<img alt="_images/generic_10_2.png" src="_images/generic_10_2.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -499,14 +565,18 @@ Items:
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages/mikeio/dataset.py:379: FutureWarning: property data is deprecated
+  warnings.warn(
+</pre></div>
+</div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mikeio.Dataset&gt;
-Dimensions: (145, 10)
-Time: 2019-01-01 00:00:00 - 2019-01-04 00:00:00
+Dimensions: (time:145, x:10)
+Time: 2019-01-01 00:00:00 - 2019-01-04 00:00:00 (145 records)
 Items:
   0:  Level &lt;Water Level&gt; (meter)
 </pre></div>
 </div>
-<img alt="_images/generic_12_1.png" src="_images/generic_12_1.png" />
+<img alt="_images/generic_12_2.png" src="_images/generic_12_2.png" />
 </div>
 </div>
 </div>
@@ -534,8 +604,8 @@ Items:
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mikeio.Dataset&gt;
-Dimensions: (49, 10)
-Time: 2019-01-02 00:00:00 - 2019-01-03 00:00:00
+Dimensions: (time:49, x:10)
+Time: 2019-01-02 00:00:00 - 2019-01-03 00:00:00 (49 records)
 Items:
   0:  Level &lt;Water Level&gt; (meter)
 </pre></div>
@@ -559,8 +629,9 @@ Items:
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mikeio.Dataset&gt;
-Dimensions: (2, 441)
-Time: 1997-09-15 21:00:00 - 1997-09-16 00:00:00
+Geometry: DfsuVerticalProfileSigmaZ (4 sigma-layers, 5 z-layers)
+Dimensions: (time:2, element:441)
+Time: 1997-09-15 21:00:00 - 1997-09-16 00:00:00 (2 records)
 Items:
   0:  Salinity &lt;Salinity&gt; (PSU)
 </pre></div>
@@ -584,7 +655,7 @@ Items:
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0%|          | 0/5 [00:00&lt;?, ?it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 5/5 [00:00&lt;00:00, 1611.95it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 5/5 [00:00&lt;00:00, 1856.38it/s]
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -624,7 +695,84 @@ Items:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/generic_23_0.png" src="_images/generic_23_0.png" />
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">Input In [15],</span> in <span class="ni">&lt;cell line: 2&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">ds</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">&quot;data/gebco_sound.dfs2&quot;</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">ds</span><span class="p">[</span><span class="s1">&#39;Elevation&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages/matplotlib/_api/deprecation.py:456,</span> in <span class="ni">make_keyword_only.&lt;locals&gt;.wrapper</span><span class="nt">(*args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">450</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">name_idx</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">451</span>     <span class="n">warn_deprecated</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">452</span>         <span class="n">since</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="s2">&quot;Passing the </span><span class="si">%(name)s</span><span class="s2"> </span><span class="si">%(obj_type)s</span><span class="s2"> &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">453</span>         <span class="s2">&quot;positionally is deprecated since Matplotlib </span><span class="si">%(since)s</span><span class="s2">; the &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">454</span>         <span class="s2">&quot;parameter will become keyword-only </span><span class="si">%(removal)s</span><span class="s2">.&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">455</span>         <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">obj_type</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;parameter of </span><span class="si">{</span><span class="n">func</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">()&quot;</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">456</span> <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages/matplotlib/pyplot.py:2640,</span> in <span class="ni">imshow</span><span class="nt">(X, cmap, norm, aspect, interpolation, alpha, vmin, vmax, origin, extent, interpolation_stage, filternorm, filterrad, resample, url, data, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2634</span> <span class="nd">@_copy_docstring_and_deprecators</span><span class="p">(</span><span class="n">Axes</span><span class="o">.</span><span class="n">imshow</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2635</span> <span class="k">def</span> <span class="nf">imshow</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">2636</span>         <span class="n">X</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2637</span>         <span class="n">alpha</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2638</span>         <span class="n">interpolation_stage</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">filternorm</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">filterrad</span><span class="o">=</span><span class="mf">4.0</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2639</span>         <span class="n">resample</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="ne">-&gt; </span><span class="mi">2640</span>     <span class="n">__ret</span> <span class="o">=</span> <span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">2641</span>         <span class="n">X</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="n">aspect</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2642</span>         <span class="n">interpolation</span><span class="o">=</span><span class="n">interpolation</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="n">vmin</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2643</span>         <span class="n">vmax</span><span class="o">=</span><span class="n">vmax</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="n">origin</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="n">extent</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2644</span>         <span class="n">interpolation_stage</span><span class="o">=</span><span class="n">interpolation_stage</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2645</span>         <span class="n">filternorm</span><span class="o">=</span><span class="n">filternorm</span><span class="p">,</span> <span class="n">filterrad</span><span class="o">=</span><span class="n">filterrad</span><span class="p">,</span> <span class="n">resample</span><span class="o">=</span><span class="n">resample</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2646</span>         <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span> <span class="o">**</span><span class="p">({</span><span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="n">data</span><span class="p">}</span> <span class="k">if</span> <span class="n">data</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="p">{}),</span>
+<span class="g g-Whitespace">   </span><span class="mi">2647</span>         <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2648</span>     <span class="n">sci</span><span class="p">(</span><span class="n">__ret</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2649</span>     <span class="k">return</span> <span class="n">__ret</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages/matplotlib/_api/deprecation.py:456,</span> in <span class="ni">make_keyword_only.&lt;locals&gt;.wrapper</span><span class="nt">(*args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">450</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">name_idx</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">451</span>     <span class="n">warn_deprecated</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">452</span>         <span class="n">since</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="s2">&quot;Passing the </span><span class="si">%(name)s</span><span class="s2"> </span><span class="si">%(obj_type)s</span><span class="s2"> &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">453</span>         <span class="s2">&quot;positionally is deprecated since Matplotlib </span><span class="si">%(since)s</span><span class="s2">; the &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">454</span>         <span class="s2">&quot;parameter will become keyword-only </span><span class="si">%(removal)s</span><span class="s2">.&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">455</span>         <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">obj_type</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;parameter of </span><span class="si">{</span><span class="n">func</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">()&quot;</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">456</span> <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages/matplotlib/__init__.py:1412,</span> in <span class="ni">_preprocess_data.&lt;locals&gt;.inner</span><span class="nt">(ax, data, *args, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1409</span> <span class="nd">@functools</span><span class="o">.</span><span class="n">wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1410</span> <span class="k">def</span> <span class="nf">inner</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1411</span>     <span class="k">if</span> <span class="n">data</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1412</span>         <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="o">*</span><span class="nb">map</span><span class="p">(</span><span class="n">sanitize_sequence</span><span class="p">,</span> <span class="n">args</span><span class="p">),</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1414</span>     <span class="n">bound</span> <span class="o">=</span> <span class="n">new_sig</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1415</span>     <span class="n">auto_label</span> <span class="o">=</span> <span class="p">(</span><span class="n">bound</span><span class="o">.</span><span class="n">arguments</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">label_namer</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1416</span>                   <span class="ow">or</span> <span class="n">bound</span><span class="o">.</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">label_namer</span><span class="p">))</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages/matplotlib/axes/_axes.py:5488,</span> in <span class="ni">Axes.imshow</span><span class="nt">(self, X, cmap, norm, aspect, interpolation, alpha, vmin, vmax, origin, extent, interpolation_stage, filternorm, filterrad, resample, url, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">5481</span> <span class="bp">self</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="n">aspect</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">5482</span> <span class="n">im</span> <span class="o">=</span> <span class="n">mimage</span><span class="o">.</span><span class="n">AxesImage</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cmap</span><span class="p">,</span> <span class="n">norm</span><span class="p">,</span> <span class="n">interpolation</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">5483</span>                       <span class="n">origin</span><span class="p">,</span> <span class="n">extent</span><span class="p">,</span> <span class="n">filternorm</span><span class="o">=</span><span class="n">filternorm</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">5484</span>                       <span class="n">filterrad</span><span class="o">=</span><span class="n">filterrad</span><span class="p">,</span> <span class="n">resample</span><span class="o">=</span><span class="n">resample</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">5485</span>                       <span class="n">interpolation_stage</span><span class="o">=</span><span class="n">interpolation_stage</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">5486</span>                       <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">5488</span> <span class="n">im</span><span class="o">.</span><span class="n">set_data</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">5489</span> <span class="n">im</span><span class="o">.</span><span class="n">set_alpha</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">5490</span> <span class="k">if</span> <span class="n">im</span><span class="o">.</span><span class="n">get_clip_path</span><span class="p">()</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">5491</span>     <span class="c1"># image does not already have clipping set, clip to axes patch</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages/matplotlib/image.py:706,</span> in <span class="ni">_ImageBase.set_data</span><span class="nt">(self, A)</span>
+<span class="g g-Whitespace">    </span><span class="mi">702</span> <span class="bp">self</span><span class="o">.</span><span class="n">_A</span> <span class="o">=</span> <span class="n">cbook</span><span class="o">.</span><span class="n">safe_masked_invalid</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">704</span> <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_A</span><span class="o">.</span><span class="n">dtype</span> <span class="o">!=</span> <span class="n">np</span><span class="o">.</span><span class="n">uint8</span> <span class="ow">and</span>
+<span class="g g-Whitespace">    </span><span class="mi">705</span>         <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">can_cast</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_A</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="s2">&quot;same_kind&quot;</span><span class="p">)):</span>
+<span class="ne">--&gt; </span><span class="mi">706</span>     <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Image data of dtype </span><span class="si">{}</span><span class="s2"> cannot be converted to &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">707</span>                     <span class="s2">&quot;float&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_A</span><span class="o">.</span><span class="n">dtype</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">709</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_A</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">3</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">710</span>     <span class="c1"># If just one dimension assume scalar and apply colormap</span>
+<span class="g g-Whitespace">    </span><span class="mi">711</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_A</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_A</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">0</span><span class="p">]</span>
+
+<span class="ne">TypeError</span>: Image data of dtype object cannot be converted to float
+</pre></div>
+</div>
+<img alt="_images/generic_23_1.png" src="_images/generic_23_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -634,7 +782,10 @@ Items:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-43.0
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mikeio.DataArray&gt;
+Name: Elevation
+Dimensions: ()
+Time: 2020-05-15 11:04:52 (time-invariant)
 </pre></div>
 </div>
 </div>
@@ -656,7 +807,84 @@ Items:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/generic_27_0.png" src="_images/generic_27_0.png" />
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">Input In [18],</span> in <span class="ni">&lt;cell line: 2&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">ds2</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">&quot;gebco_sound_local_datum.dfs2&quot;</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">ds2</span><span class="p">[</span><span class="s1">&#39;Elevation&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages/matplotlib/_api/deprecation.py:456,</span> in <span class="ni">make_keyword_only.&lt;locals&gt;.wrapper</span><span class="nt">(*args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">450</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">name_idx</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">451</span>     <span class="n">warn_deprecated</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">452</span>         <span class="n">since</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="s2">&quot;Passing the </span><span class="si">%(name)s</span><span class="s2"> </span><span class="si">%(obj_type)s</span><span class="s2"> &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">453</span>         <span class="s2">&quot;positionally is deprecated since Matplotlib </span><span class="si">%(since)s</span><span class="s2">; the &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">454</span>         <span class="s2">&quot;parameter will become keyword-only </span><span class="si">%(removal)s</span><span class="s2">.&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">455</span>         <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">obj_type</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;parameter of </span><span class="si">{</span><span class="n">func</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">()&quot;</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">456</span> <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages/matplotlib/pyplot.py:2640,</span> in <span class="ni">imshow</span><span class="nt">(X, cmap, norm, aspect, interpolation, alpha, vmin, vmax, origin, extent, interpolation_stage, filternorm, filterrad, resample, url, data, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2634</span> <span class="nd">@_copy_docstring_and_deprecators</span><span class="p">(</span><span class="n">Axes</span><span class="o">.</span><span class="n">imshow</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2635</span> <span class="k">def</span> <span class="nf">imshow</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">2636</span>         <span class="n">X</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2637</span>         <span class="n">alpha</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2638</span>         <span class="n">interpolation_stage</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">filternorm</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">filterrad</span><span class="o">=</span><span class="mf">4.0</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2639</span>         <span class="n">resample</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="ne">-&gt; </span><span class="mi">2640</span>     <span class="n">__ret</span> <span class="o">=</span> <span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">2641</span>         <span class="n">X</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="n">aspect</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2642</span>         <span class="n">interpolation</span><span class="o">=</span><span class="n">interpolation</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="n">vmin</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2643</span>         <span class="n">vmax</span><span class="o">=</span><span class="n">vmax</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="n">origin</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="n">extent</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2644</span>         <span class="n">interpolation_stage</span><span class="o">=</span><span class="n">interpolation_stage</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2645</span>         <span class="n">filternorm</span><span class="o">=</span><span class="n">filternorm</span><span class="p">,</span> <span class="n">filterrad</span><span class="o">=</span><span class="n">filterrad</span><span class="p">,</span> <span class="n">resample</span><span class="o">=</span><span class="n">resample</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2646</span>         <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span> <span class="o">**</span><span class="p">({</span><span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="n">data</span><span class="p">}</span> <span class="k">if</span> <span class="n">data</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="p">{}),</span>
+<span class="g g-Whitespace">   </span><span class="mi">2647</span>         <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2648</span>     <span class="n">sci</span><span class="p">(</span><span class="n">__ret</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2649</span>     <span class="k">return</span> <span class="n">__ret</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages/matplotlib/_api/deprecation.py:456,</span> in <span class="ni">make_keyword_only.&lt;locals&gt;.wrapper</span><span class="nt">(*args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">450</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">name_idx</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">451</span>     <span class="n">warn_deprecated</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">452</span>         <span class="n">since</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="s2">&quot;Passing the </span><span class="si">%(name)s</span><span class="s2"> </span><span class="si">%(obj_type)s</span><span class="s2"> &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">453</span>         <span class="s2">&quot;positionally is deprecated since Matplotlib </span><span class="si">%(since)s</span><span class="s2">; the &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">454</span>         <span class="s2">&quot;parameter will become keyword-only </span><span class="si">%(removal)s</span><span class="s2">.&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">455</span>         <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">obj_type</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;parameter of </span><span class="si">{</span><span class="n">func</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">()&quot;</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">456</span> <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages/matplotlib/__init__.py:1412,</span> in <span class="ni">_preprocess_data.&lt;locals&gt;.inner</span><span class="nt">(ax, data, *args, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1409</span> <span class="nd">@functools</span><span class="o">.</span><span class="n">wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1410</span> <span class="k">def</span> <span class="nf">inner</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1411</span>     <span class="k">if</span> <span class="n">data</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1412</span>         <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="o">*</span><span class="nb">map</span><span class="p">(</span><span class="n">sanitize_sequence</span><span class="p">,</span> <span class="n">args</span><span class="p">),</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1414</span>     <span class="n">bound</span> <span class="o">=</span> <span class="n">new_sig</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1415</span>     <span class="n">auto_label</span> <span class="o">=</span> <span class="p">(</span><span class="n">bound</span><span class="o">.</span><span class="n">arguments</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">label_namer</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1416</span>                   <span class="ow">or</span> <span class="n">bound</span><span class="o">.</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">label_namer</span><span class="p">))</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages/matplotlib/axes/_axes.py:5488,</span> in <span class="ni">Axes.imshow</span><span class="nt">(self, X, cmap, norm, aspect, interpolation, alpha, vmin, vmax, origin, extent, interpolation_stage, filternorm, filterrad, resample, url, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">5481</span> <span class="bp">self</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="n">aspect</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">5482</span> <span class="n">im</span> <span class="o">=</span> <span class="n">mimage</span><span class="o">.</span><span class="n">AxesImage</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cmap</span><span class="p">,</span> <span class="n">norm</span><span class="p">,</span> <span class="n">interpolation</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">5483</span>                       <span class="n">origin</span><span class="p">,</span> <span class="n">extent</span><span class="p">,</span> <span class="n">filternorm</span><span class="o">=</span><span class="n">filternorm</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">5484</span>                       <span class="n">filterrad</span><span class="o">=</span><span class="n">filterrad</span><span class="p">,</span> <span class="n">resample</span><span class="o">=</span><span class="n">resample</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">5485</span>                       <span class="n">interpolation_stage</span><span class="o">=</span><span class="n">interpolation_stage</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">5486</span>                       <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">5488</span> <span class="n">im</span><span class="o">.</span><span class="n">set_data</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">5489</span> <span class="n">im</span><span class="o">.</span><span class="n">set_alpha</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">5490</span> <span class="k">if</span> <span class="n">im</span><span class="o">.</span><span class="n">get_clip_path</span><span class="p">()</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">5491</span>     <span class="c1"># image does not already have clipping set, clip to axes patch</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages/matplotlib/image.py:706,</span> in <span class="ni">_ImageBase.set_data</span><span class="nt">(self, A)</span>
+<span class="g g-Whitespace">    </span><span class="mi">702</span> <span class="bp">self</span><span class="o">.</span><span class="n">_A</span> <span class="o">=</span> <span class="n">cbook</span><span class="o">.</span><span class="n">safe_masked_invalid</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">704</span> <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_A</span><span class="o">.</span><span class="n">dtype</span> <span class="o">!=</span> <span class="n">np</span><span class="o">.</span><span class="n">uint8</span> <span class="ow">and</span>
+<span class="g g-Whitespace">    </span><span class="mi">705</span>         <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">can_cast</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_A</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="s2">&quot;same_kind&quot;</span><span class="p">)):</span>
+<span class="ne">--&gt; </span><span class="mi">706</span>     <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Image data of dtype </span><span class="si">{}</span><span class="s2"> cannot be converted to &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">707</span>                     <span class="s2">&quot;float&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_A</span><span class="o">.</span><span class="n">dtype</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">709</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_A</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">3</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">710</span>     <span class="c1"># If just one dimension assume scalar and apply colormap</span>
+<span class="g g-Whitespace">    </span><span class="mi">711</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_A</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_A</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">0</span><span class="p">]</span>
+
+<span class="ne">TypeError</span>: Image data of dtype object cannot be converted to float
+</pre></div>
+</div>
+<img alt="_images/generic_27_1.png" src="_images/generic_27_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -666,7 +894,10 @@ Items:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-45.099998474121094
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mikeio.DataArray&gt;
+Name: Elevation
+Dimensions: ()
+Time: 2020-05-15 11:04:52 (time-invariant)
 </pre></div>
 </div>
 </div>
@@ -682,7 +913,7 @@ Items:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(264, 216)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>()
 </pre></div>
 </div>
 </div>
@@ -699,7 +930,16 @@ Items:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/generic_32_0.png" src="_images/generic_32_0.png" />
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">IndexError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="nn">Input In [21],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">factor</span><span class="p">[:,</span><span class="mi">0</span><span class="p">:</span><span class="mi">100</span><span class="p">]</span> <span class="o">=</span> <span class="mf">5.3</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">factor</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">40</span><span class="p">,]</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">factor</span><span class="p">[</span><span class="mi">150</span><span class="p">:,</span><span class="mi">150</span><span class="p">:]</span> <span class="o">=</span> <span class="mf">10.7</span>
+
+<span class="ne">IndexError</span>: too many indices for array: array is 0-dimensional, but 2 were indexed
+</pre></div>
+</div>
 </div>
 </div>
 <p>The 2d array must first be flipped upside down and then converted to a 1d vector using <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.flatten.html">numpy.ndarray.flatten</a> to match how data is stored in dfs files.</p>
@@ -708,6 +948,26 @@ Items:
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">factor_ud</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">flipud</span><span class="p">(</span><span class="n">factor</span><span class="p">)</span>
 <span class="n">factor_vec</span>  <span class="o">=</span> <span class="n">factor_ud</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
 <span class="n">mikeio</span><span class="o">.</span><span class="n">generic</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="s2">&quot;data/gebco_sound.dfs2&quot;</span><span class="p">,</span><span class="s2">&quot;gebco_sound_spatial.dfs2&quot;</span><span class="p">,</span><span class="n">factor</span><span class="o">=</span><span class="n">factor_vec</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="nn">Input In [22],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">factor_ud</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">flipud</span><span class="p">(</span><span class="n">factor</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">factor_vec</span>  <span class="o">=</span> <span class="n">factor_ud</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">generic</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="s2">&quot;data/gebco_sound.dfs2&quot;</span><span class="p">,</span><span class="s2">&quot;gebco_sound_spatial.dfs2&quot;</span><span class="p">,</span><span class="n">factor</span><span class="o">=</span><span class="n">factor_vec</span><span class="p">)</span>
+
+<span class="nn">File &lt;__array_function__ internals&gt;:180,</span> in <span class="ni">flipud</span><span class="nt">(*args, **kwargs)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages/numpy/lib/twodim_base.py:153,</span> in <span class="ni">flipud</span><span class="nt">(m)</span>
+<span class="g g-Whitespace">    </span><span class="mi">151</span> <span class="n">m</span> <span class="o">=</span> <span class="n">asanyarray</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">152</span> <span class="k">if</span> <span class="n">m</span><span class="o">.</span><span class="n">ndim</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">153</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Input must be &gt;= 1-d.&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">154</span> <span class="k">return</span> <span class="n">m</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span>
+
+<span class="ne">ValueError</span>: Input must be &gt;= 1-d.
 </pre></div>
 </div>
 </div>
@@ -722,7 +982,43 @@ Items:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/generic_35_0.png" src="_images/generic_35_0.png" />
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">Exception</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">Input In [23],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">ds3</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">&quot;gebco_sound_spatial.dfs2&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">ds3</span><span class="p">[</span><span class="s1">&#39;Elevation&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages/mikeio/__init__.py:64,</span> in <span class="ni">read</span><span class="nt">(filename, items, time_steps, time, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">61</span> <span class="k">if</span> <span class="s2">&quot;dfs&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">ext</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">62</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;mikeio.read is only supported for Dfs files&quot;</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">64</span> <span class="n">dfs</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">66</span> <span class="k">return</span> <span class="n">dfs</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">items</span><span class="o">=</span><span class="n">items</span><span class="p">,</span> <span class="n">time_steps</span><span class="o">=</span><span class="n">time_steps</span><span class="p">,</span> <span class="n">time</span><span class="o">=</span><span class="n">time</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages/mikeio/__init__.py:79,</span> in <span class="ni">open</span><span class="nt">(filename)</span>
+<span class="g g-Whitespace">     </span><span class="mi">76</span>     <span class="k">return</span> <span class="n">Dfs1</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">78</span> <span class="k">elif</span> <span class="n">ext</span> <span class="o">==</span> <span class="s2">&quot;.dfs2&quot;</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">79</span>     <span class="k">return</span> <span class="n">Dfs2</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">81</span> <span class="k">elif</span> <span class="n">ext</span> <span class="o">==</span> <span class="s2">&quot;.dfs3&quot;</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">82</span>     <span class="k">return</span> <span class="n">Dfs3</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages/mikeio/dfs2.py:127,</span> in <span class="ni">Dfs2.__init__</span><span class="nt">(self, filename, dtype)</span>
+<span class="g g-Whitespace">    </span><span class="mi">124</span> <span class="bp">self</span><span class="o">.</span><span class="n">geometry</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="g g-Whitespace">    </span><span class="mi">126</span> <span class="k">if</span> <span class="n">filename</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">127</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_read_dfs2_header</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">129</span>     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_projstr</span> <span class="o">==</span> <span class="s2">&quot;LONG/LAT&quot;</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">130</span>         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_orientation</span> <span class="o">==</span> <span class="mf">0.0</span><span class="p">:</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages/mikeio/dfs2.py:177,</span> in <span class="ni">Dfs2._read_dfs2_header</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">175</span> <span class="k">def</span> <span class="nf">_read_dfs2_header</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">176</span>     <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_filename</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">177</span>         <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;file </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_filename</span><span class="si">}</span><span class="s2"> does not exist!&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">179</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_dfs</span> <span class="o">=</span> <span class="n">DfsFileFactory</span><span class="o">.</span><span class="n">Dfs2FileOpen</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_filename</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">180</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_source</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dfs</span>
+
+<span class="ne">Exception</span>: file gebco_sound_spatial.dfs2 does not exist!
+</pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -738,6 +1034,18 @@ Items:
 <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;oresundHD_difference.dfsu&quot;</span><span class="p">)</span>
 <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;gebco_sound_local_datum.dfs2&quot;</span><span class="p">)</span>
 <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;gebco_sound_spatial.dfs2&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="nn">Input In [24],</span> in <span class="ni">&lt;cell line: 7&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;oresundHD_difference.dfsu&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;gebco_sound_local_datum.dfs2&quot;</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">7</span> <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;gebco_sound_spatial.dfs2&quot;</span><span class="p">)</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;gebco_sound_spatial.dfs2&#39;
 </pre></div>
 </div>
 </div>
@@ -769,54 +1077,42 @@ Items:
 
               </div>
               
-        
             
-
-
-
-<div class='prev-next-bottom'>
-    
-    <div id="prev">
-        <a class="left-prev" href="exercises/exercise_G_Dfs2.html" title="previous page">
-            <i class="prevnext-label fas fa-angle-left"></i>
-            <div class="prevnext-info">
-                <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">Exercise G: Dfs2</p>
-            </div>
-        </a>
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="exercises/exercise_G_Dfs2.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Exercise G: Dfs2</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="exercises/exercise_H_generic_dfs.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Exercise H: Generic dfs</p>
     </div>
-     <div id="next">
-        <a class="right-next" href="exercises/exercise_H_generic_dfs.html" title="next page">
-            <div class="prevnext-info">
-                <p class="prevnext-label">next</p>
-                <p class="prevnext-title">Exercise H: Generic dfs</p>
-            </div>
-            <i class="prevnext-label fas fa-angle-right"></i>
-        </a>
-     </div>
-
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
-        
+            
         </div>
     </div>
     <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By Henrik Andersson and Jesper Mariegaard<br/>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
-    </div>
-  </footer>
+  <p>
+    
+      By Henrik Andersson and Jesper Mariegaard<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
 </main>
 
 
       </div>
     </div>
   
-  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
-  
   </body>
 </html>
