@@ -5,7 +5,7 @@
 ![](images/python_path.png)
 3. (On PCs without MIKE Zero) Install [VC redist](https://aka.ms/vs/16/release/vc_redist.x64.exe)
 4. Open command prompt (`cmd.exe`)
-5. Install MIKE IO (`pip install mikeio`)
+5. Install MIKE IO (`pip install mikeio==1.0a1`) - Alpha release of MIKE IO 1.0
 6. Install matplotlib (`pip install matplotlib`)
 7. Install [JupyterLab](https://jupyterlab.readthedocs.io/en/stable/) (`pip install jupyterlab`)
 8. Start Jupyter lab (`jupyter lab`)
@@ -39,4 +39,4 @@ Can you say yes to the following questions?
 * My NumPy version is 1.18 or greater
 * My pandas version is 1.0 or greater
 * My matplotlib version is 3.2 or greater
-* My MIKE IO version is 0.7 or greater
+* My MIKE IO version is 1.0 or greater
