@@ -2,4 +2,4 @@ jupyter-book
 matplotlib
 numpy
 pandas
-git+https://github.com/DHI/mikeio #TODO update when released to PyPI
+mikeio==1.0a2
