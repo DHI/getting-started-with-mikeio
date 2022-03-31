@@ -458,9 +458,10 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mikeio.Dataset&gt;
-Dimensions: (time:1, y:264, x:216)
-Time: 2020-05-15 11:04:52 (time-invariant)
-Items:
+dims: (time:1, y:264, x:216)
+time: 2020-05-15 11:04:52 (time-invariant)
+geometry: Grid2D (ny=264, nx=216)
+items:
   0:  Elevation &lt;Total Water Depth&gt; (meter)
 </pre></div>
 </div>
@@ -559,9 +560,11 @@ Number of grid points: 57024
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mikeio.DataArray&gt;
-Name: Elevation
-Dimensions: (time:1)
-Time: 2020-05-15 11:04:52 (time-invariant)
+name: Elevation
+dims: (time:1)
+time: 2020-05-15 11:04:52 (time-invariant)
+geometry: GeometryPoint2D(x=12.74792, y=55.865)
+values: [-42.69764539]
 </pre></div>
 </div>
 </div>
@@ -659,7 +662,7 @@ Time: 2020-05-15 11:04:52 (time-invariant)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.lines.Line2D at 0x7f967c5002b0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.lines.Line2D at 0x7f0df48ccfa0&gt;
 </pre></div>
 </div>
 <img alt="_images/dfs2_20_1.png" src="_images/dfs2_20_1.png" />
@@ -719,7 +722,7 @@ Time: 2020-05-15 11:04:52 (time-invariant)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x7f967c32a3d0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x7f0df4746d30&gt;
 </pre></div>
 </div>
 <img alt="_images/dfs2_25_1.png" src="_images/dfs2_25_1.png" />
@@ -758,9 +761,10 @@ Number of grid points: 12
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mikeio.DataArray&gt;
-Name: Example
-Dimensions: (time:2, y:4, x:3)
-Time: 2020-01-01 00:00:00 - 2020-01-02 00:00:00 (2 records)
+name: Example
+dims: (time:2, y:4, x:3)
+time: 2020-01-01 00:00:00 - 2020-01-02 00:00:00 (2 records)
+geometry: Grid2D (ny=4, nx=3)
 </pre></div>
 </div>
 </div>
@@ -774,9 +778,10 @@ Time: 2020-01-01 00:00:00 - 2020-01-02 00:00:00 (2 records)
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mikeio.Dataset&gt;
-Dimensions: (time:2, y:4, x:3)
-Time: 2020-01-01 00:00:00 - 2020-01-02 00:00:00 (2 records)
-Items:
+dims: (time:2, y:4, x:3)
+time: 2020-01-01 00:00:00 - 2020-01-02 00:00:00 (2 records)
+geometry: Grid2D (ny=4, nx=3)
+items:
   0:  Example &lt;Elevation&gt; (meter)
 </pre></div>
 </div>
@@ -828,9 +833,10 @@ Number of grid points: 12
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mikeio.DataArray&gt;
-Name: Example
-Dimensions: (time:2, y:4, x:3)
-Time: 2020-01-01 00:00:00 - 2020-01-02 00:00:00 (2 records)
+name: Example
+dims: (time:2, y:4, x:3)
+time: 2020-01-01 00:00:00 - 2020-01-02 00:00:00 (2 records)
+geometry: Grid2D (ny=4, nx=3)
 </pre></div>
 </div>
 </div>
