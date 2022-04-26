@@ -130,3 +130,5 @@ dmypy.json
 
 _build
 mini_book/output
+
+/tmp/
