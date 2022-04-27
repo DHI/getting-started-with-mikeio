@@ -1,0 +1,9 @@
+% boogus data
+% created for the Getting started with Dfs files in Python using MIKE IO
+% 2022-04-27
+
+station;dato;tid;temperatur
+1;2000-03-01;10:00;3,5
+1;2000-03-02;12:00;3,8
+1;2000-03-03;10:00;4,23
+1;2000-03-04;13:00;10,5
