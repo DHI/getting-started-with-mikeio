@@ -342,6 +342,11 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#delimited-files">
+   Delimited files
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#timeseries">
    Timeseries
   </a>
@@ -384,6 +389,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#get-row-by-name-named-index">
    Get row by name (named index)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#delimited-files">
+   Delimited files
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -710,6 +720,239 @@ Name: London, dtype: float64
 </div>
 </div>
 </div>
+<div class="section" id="delimited-files">
+<h2>Delimited files<a class="headerlink" href="#delimited-files" title="Permalink to this headline">¶</a></h2>
+<p>Delimited files, separated by comma, semi-colon, tabs, spaces or any other special character, is a very common data format for tabular data. Comma separated value (csv) files can be read by the <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.read_csv.html">pandas <code class="docutils literal notranslate"><span class="pre">read_csv</span></code> function</a>. It is a very powerful function, with a lot of options. It is very rare, that you have to write your own python function to parse csv files.</p>
+<p>Below is an example of csv file:</p>
+<p><img alt="" src="_images/csv_example.png" /></p>
+<ul class="simple">
+<li><p>Header with comments</p></li>
+<li><p>Columns are separated with semi-colon (;)</p></li>
+<li><p>Decimal separator is (,)</p></li>
+<li><p>Date and time are in separate columns</p></li>
+<li><p>There is a redundant station column</p></li>
+<li><p>The column names are not in english</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/boogus.csv&quot;</span><span class="p">,</span> <span class="n">comment</span><span class="o">=</span><span class="s2">&quot;%&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;;&quot;</span><span class="p">,</span> <span class="n">decimal</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span><span class="p">[[</span><span class="s2">&quot;dato&quot;</span><span class="p">,</span><span class="s2">&quot;tid&quot;</span><span class="p">]],</span> <span class="n">usecols</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>dato_tid</th>
+      <th>temperatur</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2000-03-01 10:00:00</td>
+      <td>3.50</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2000-03-02 12:00:00</td>
+      <td>3.80</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2000-03-03 10:00:00</td>
+      <td>4.23</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2000-03-04 13:00:00</td>
+      <td>10.50</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Most functions in Pandas returns a copy, so even though the below line, looks like it changes the name, since it is printed to the screen, the <code class="docutils literal notranslate"><span class="pre">df</span></code> variable is not changed.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;temperatur&quot;</span><span class="p">:</span> <span class="s2">&quot;air_temperature&quot;</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>dato_tid</th>
+      <th>air_temperature</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2000-03-01 10:00:00</td>
+      <td>3.50</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2000-03-02 12:00:00</td>
+      <td>3.80</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2000-03-03 10:00:00</td>
+      <td>4.23</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2000-03-04 13:00:00</td>
+      <td>10.50</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="c1"># not modfied</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>dato_tid</th>
+      <th>temperatur</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2000-03-01 10:00:00</td>
+      <td>3.50</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2000-03-02 12:00:00</td>
+      <td>3.80</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2000-03-03 10:00:00</td>
+      <td>4.23</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2000-03-04 13:00:00</td>
+      <td>10.50</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_new_name</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;temperatur&quot;</span><span class="p">:</span> <span class="s2">&quot;air_temperature&quot;</span><span class="p">})</span>
+<span class="n">df_new_name</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>dato_tid</th>
+      <th>air_temperature</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2000-03-01 10:00:00</td>
+      <td>3.50</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2000-03-02 12:00:00</td>
+      <td>3.80</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2000-03-03 10:00:00</td>
+      <td>4.23</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2000-03-04 13:00:00</td>
+      <td>10.50</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
 <div class="section" id="timeseries">
 <h2>Timeseries<a class="headerlink" href="#timeseries" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
@@ -824,7 +1067,7 @@ Name: London, dtype: float64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;datetime&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/pandas_22_1.png" src="_images/pandas_22_1.png" />
+<img alt="_images/pandas_31_1.png" src="_images/pandas_31_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -837,7 +1080,7 @@ Name: London, dtype: float64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;datetime&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/pandas_23_1.png" src="_images/pandas_23_1.png" />
+<img alt="_images/pandas_32_1.png" src="_images/pandas_32_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -956,7 +1199,7 @@ Name: London, dtype: float64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;datetime&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/pandas_26_1.png" src="_images/pandas_26_1.png" />
+<img alt="_images/pandas_35_1.png" src="_images/pandas_35_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -969,7 +1212,7 @@ Name: London, dtype: float64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;datetime&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/pandas_27_1.png" src="_images/pandas_27_1.png" />
+<img alt="_images/pandas_36_1.png" src="_images/pandas_36_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1156,7 +1399,7 @@ Name: London, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;pandas.core.resample.DatetimeIndexResampler object at 0x7f4341daef40&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;pandas.core.resample.DatetimeIndexResampler object at 0x7f490ed360d0&gt;
 </pre></div>
 </div>
 </div>
@@ -1518,7 +1761,7 @@ Name: London, dtype: float64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
 </pre></div>
 </div>
-<img alt="_images/pandas_43_1.png" src="_images/pandas_43_1.png" />
+<img alt="_images/pandas_52_1.png" src="_images/pandas_52_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1531,7 +1774,7 @@ Name: London, dtype: float64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
 </pre></div>
 </div>
-<img alt="_images/pandas_44_1.png" src="_images/pandas_44_1.png" />
+<img alt="_images/pandas_53_1.png" src="_images/pandas_53_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1545,7 +1788,7 @@ Name: London, dtype: float64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
 </pre></div>
 </div>
-<img alt="_images/pandas_45_1.png" src="_images/pandas_45_1.png" />
+<img alt="_images/pandas_54_1.png" src="_images/pandas_54_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
