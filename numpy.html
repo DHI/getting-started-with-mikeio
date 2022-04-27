@@ -104,17 +104,29 @@ const thebe_selector_output = ".output, .cell_output"
    Installing Python and MIKE IO
   </a>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="basic.html">
    Basic Python
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="exercises/exercise_A_basic_python.html">
+     Exercise A: basic python
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1 current active has-children">
   <a class="current reference internal" href="#">
    NumPy
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -130,8 +142,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="matplotlib.html">
    Matplotlib
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -147,8 +159,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="pandas.html">
    Pandas
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-  <label for="toctree-checkbox-3">
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -174,8 +186,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="dfs0.html">
    Dfs0
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-  <label for="toctree-checkbox-4">
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -191,8 +203,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="dfs2.html">
    Dfs2
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
-  <label for="toctree-checkbox-5">
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -208,8 +220,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="generic.html">
    Generic dfs processing
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-  <label for="toctree-checkbox-6">
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -736,8 +748,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.16865562, 0.40993034, 0.44289489, 0.25809046, 0.01223889,
-       0.7569131 , 0.70685049, 0.08714633, 0.20446097, 0.52760726])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.07989362, 0.4349008 , 0.8265026 , 0.80708115, 0.83620546,
+       0.61533941, 0.50272249, 0.73304246, 0.0350355 , 0.83519255])
 </pre></div>
 </div>
 </div>
@@ -749,7 +761,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.3574788352735806
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5705916041148973
 </pre></div>
 </div>
 </div>
@@ -761,7 +773,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.24120863086462138
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.2899996258642199
 </pre></div>
 </div>
 </div>
@@ -773,7 +785,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7569131036075811
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.8362054585331529
 </pre></div>
 </div>
 </div>
@@ -785,8 +797,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.18882321,  0.05245151,  0.08541605, -0.09938838, -0.34523994,
-        0.39943427,  0.34937165, -0.2703325 , -0.15301787,  0.17012843])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.49069798, -0.13569081,  0.255911  ,  0.23648954,  0.26561385,
+        0.0447478 , -0.06786911,  0.16245086, -0.5355561 ,  0.26460095])
 </pre></div>
 </div>
 </div>
@@ -838,8 +850,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.29386013, 0.79144426, 0.40961596, 0.03111248, 0.59921935,
-       0.13909914, 0.91901543, 0.49211769, 0.31929646, 0.52666596])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.6113112 , 0.02589003, 0.99851546, 0.77736681, 0.5981891 ,
+       0.7057157 , 0.54986083, 0.59780379, 0.64200155, 0.80757358])
 </pre></div>
 </div>
 </div>
@@ -852,7 +864,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.29386013, 0.79144426, 0.40961596, 0.03111248, 0.59921935,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.6113112 , 0.02589003, 0.99851546, 0.77736681, 0.5981891 ,
               nan,        nan,        nan,        nan,        nan])
 </pre></div>
 </div>
@@ -877,7 +889,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.42505043474063636
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.6022545195535244
 </pre></div>
 </div>
 </div>
@@ -889,7 +901,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.92318882, 2.48639547, 1.28684648, 0.09774274, 1.8825031 ,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.92049079, 0.08133592, 3.13692884, 2.44216985, 1.87926648,
               nan,        nan,        nan,        nan,        nan])
 </pre></div>
 </div>
@@ -908,8 +920,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-3.1618018 , -0.35350604, -0.18240157,  0.66218434,  2.11311688,
-        2.1776628 ,  2.99810728,  3.73927939,  5.09254503,  5.32216562])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-4.75045523, -4.27961324, -0.43344628,  1.40629009,  1.62198629,
+        2.28627396,  2.35271133,  3.25418513,  3.50661395,  5.47053921])
 </pre></div>
 </div>
 </div>
@@ -921,7 +933,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([False, False, False,  True, False, False,  True,  True, False,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([False, False,  True, False, False, False,  True, False,  True,
        False])
 </pre></div>
 </div>
@@ -947,7 +959,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-3.1618018 , -0.35350604, -0.18240157])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-4.75045523, -4.27961324, -0.43344628])
 </pre></div>
 </div>
 </div>
@@ -966,8 +978,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.        , 0.        , 0.        , 0.66218434, 2.11311688,
-       2.1776628 , 2.99810728, 3.73927939, 5.09254503, 5.32216562])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.        , 0.        , 0.        , 1.40629009, 1.62198629,
+       2.28627396, 2.35271133, 3.25418513, 3.50661395, 5.47053921])
 </pre></div>
 </div>
 </div>
@@ -979,7 +991,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([3, 6, 7]),)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([2, 6, 8]),)
 </pre></div>
 </div>
 </div>
@@ -1003,7 +1015,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9.579347604737404
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9.657200275683563
 </pre></div>
 </div>
 </div>
@@ -1034,7 +1046,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.0774391048818885
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.3562845776848462
 </pre></div>
 </div>
 </div>
