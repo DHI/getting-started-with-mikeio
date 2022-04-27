@@ -416,8 +416,8 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># read fn to a variable ds and determine:</span>
 <span class="c1"># a) the number of items</span>
 <span class="c1"># b) the start and end of the file</span>
-<span class="c1"># a) the minimum value of the first item </span>
-<span class="c1"># (hint: you access the data of the first item with ds.data[0])</span>
+<span class="c1"># a) the minimum value for each timestep of the first item </span>
+<span class="c1"># (hint: use the .min(axis=&#39;space&#39;) on the dataarray</span>
 </pre></div>
 </div>
 </div>
@@ -438,7 +438,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># use concat and the above files to create a </span>
-<span class="c1"># new file &quot;wind_200505_3days.dfs2&quot;</span>
+<span class="c1"># new file &quot;wind_200505_3days.dfs2&quot;b</span>
 </pre></div>
 </div>
 </div>
