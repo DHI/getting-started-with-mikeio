@@ -429,6 +429,9 @@ The final solution should be clear to your colleagues and will be shared with so
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">mikeio</span>
+
+<span class="kn">from</span> <span class="nn">mikeio</span> <span class="kn">import</span> <span class="n">Dataset</span>
+<span class="kn">from</span> <span class="nn">mikeio.eum</span> <span class="kn">import</span> <span class="n">EUMType</span><span class="p">,</span> <span class="n">ItemInfo</span><span class="p">,</span> <span class="n">EUMUnit</span>
 </pre></div>
 </div>
 </div>
@@ -501,21 +504,20 @@ The final solution should be clear to your colleagues and will be shared with so
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">mikeio</span> <span class="kn">import</span> <span class="n">Dfs2</span><span class="p">,</span> <span class="n">Dataset</span>
-<span class="kn">from</span> <span class="nn">mikeio.eum</span> <span class="kn">import</span> <span class="n">ItemInfo</span><span class="p">,</span> <span class="n">EUMType</span><span class="p">,</span> <span class="n">EUMUnit</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="n">tmp</span><span class="p">,</span> <span class="n">rh</span><span class="p">]</span>
 <span class="c1"># ds = Dataset(data,...</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>a) Create the Dataset as indicated and write it to a new dfs2 file using the Dfs2 class (check that file appear as the one shown below when opening in MIKE Zero)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># geometry = mikeio.Grid2D(x,...)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>a) Create the Dataset as indicated and write it to a new dfs2 file (check that file appears as the one shown below when opening in MIKE Zero)</p>
 <p>b) Open the file again and print the header and the longitude, latitude (of the origin)</p>
 <p>c) Read the data from the file and document that the mean of the relative humidity is the same as the mean of the rh variable above (note: due to rounding errors the may not be exactly the same)</p>
 <p>The expected outcome when opening the file in MIKE Zero</p>
