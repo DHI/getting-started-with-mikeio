@@ -540,9 +540,8 @@ items:
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mikeio.Grid2D&gt;
-x-axis: nx=216 points from x0=12.2021 to x1=13.0979 with dx=0.00416667
-y-axis: ny=264 points from y0=55.2021 to y1=56.2979 with dy=0.00416667
-Number of grid points: 57024
+axis: nx=216 points from x0=0 to x1=13.0979 with dx=0.00416667
+axis: ny=264 points from y0=0 to y1=56.2979 with dy=0.00416667
 </pre></div>
 </div>
 </div>
@@ -633,7 +632,7 @@ values: [-42.69764539]
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array(-43.)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-43.0
 </pre></div>
 </div>
 </div>
@@ -662,7 +661,7 @@ values: [-42.69764539]
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.lines.Line2D at 0x7f1ed83c7c70&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.lines.Line2D at 0x7fe9539c9760&gt;
 </pre></div>
 </div>
 <img alt="_images/dfs2_20_1.png" src="_images/dfs2_20_1.png" />
@@ -677,10 +676,23 @@ values: [-42.69764539]
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(12.2, 13.2)
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="nn">Input In [17],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">j</span><span class="p">,</span><span class="n">k</span> <span class="o">=</span> <span class="n">elevation</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">find_index</span><span class="p">(</span><span class="n">stn</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">elevation</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">k</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;West-East&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mf">12.2</span><span class="p">,</span> <span class="mf">13.2</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.12/x64/lib/python3.9/site-packages/mikeio/spatial/grid_geometry.py:522,</span> in <span class="ni">Grid2D.find_index</span><span class="nt">(self, x, y, coords, area)</span>
+<span class="g g-Whitespace">    </span><span class="mi">520</span>         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;x,y and coords cannot be given at the same time!&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">521</span>     <span class="k">if</span> <span class="n">x</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">y</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">522</span>         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;please provide either both x AND y or coords!&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">523</span>     <span class="n">coords</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">atleast_1d</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">atleast_1d</span><span class="p">(</span><span class="n">y</span><span class="p">)])</span>
+<span class="g g-Whitespace">    </span><span class="mi">525</span> <span class="k">if</span> <span class="n">coords</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+
+<span class="ne">ValueError</span>: please provide either both x AND y or coords!
 </pre></div>
 </div>
-<img alt="_images/dfs2_21_1.png" src="_images/dfs2_21_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -690,10 +702,14 @@ values: [-42.69764539]
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:title={&#39;center&#39;:&#39;South-North&#39;}, xlabel=&#39;x&#39;, ylabel=&#39;Elevation [meter]&#39;&gt;
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">Input In [18],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">elevation</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">j</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;South-North&quot;</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;j&#39; is not defined
 </pre></div>
 </div>
-<img alt="_images/dfs2_22_1.png" src="_images/dfs2_22_1.png" />
 </div>
 </div>
 </div>
@@ -722,7 +738,7 @@ values: [-42.69764539]
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x7f1ed8241970&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x7fe958429370&gt;
 </pre></div>
 </div>
 <img alt="_images/dfs2_25_1.png" src="_images/dfs2_25_1.png" />
@@ -737,9 +753,8 @@ values: [-42.69764539]
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mikeio.Grid2D&gt;
-x-axis: nx=3 points from x0=12 to x1=14 with dx=1
-y-axis: ny=4 points from y0=55 to y1=58 with dy=1
-Number of grid points: 12
+axis: nx=3 points from x0=12 to x1=14 with dx=1
+axis: ny=4 points from y0=55 to y1=58 with dy=1
 </pre></div>
 </div>
 </div>
@@ -813,9 +828,8 @@ items:
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mikeio.Grid2D&gt;
-x-axis: nx=3 points from x0=337100 to x1=357100 with dx=10000
-y-axis: ny=4 points from y0=6.1229e+06 to y1=6.1529e+06 with dy=10000
-Number of grid points: 12
+axis: nx=3 points from x0=337100 to x1=357100 with dx=10000
+axis: ny=4 points from y0=6.1229e+06 to y1=6.1529e+06 with dy=10000
 </pre></div>
 </div>
 </div>
