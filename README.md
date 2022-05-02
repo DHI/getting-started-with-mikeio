@@ -3,9 +3,9 @@ Course material for: Getting started with dfs files in Python using MIKE IO
 
 ## Info for participants
 
-The material has been updated to use MIKE IO 1.0 (currently available in Alpha)
+The material has been updated to use MIKE IO 1.0 (currently available in Beta)
 ```
-pip install mikeio==1.0a2
+pip install mikeio==1.0b0
 ```
 
 The entire repo can be downloaded as a [zip file](https://github.com/DHI/getting-started-with-mikeio/archive/refs/heads/main.zip).
