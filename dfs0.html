@@ -690,6 +690,14 @@ items:
 <p>7108 rows × 6 columns</p>
 </div></div></div>
 </div>
+<p>Writing a Dfs0 from a dataframe can be done like this (after importing mikeio).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_dfs0</span><span class="p">(</span><span class="s2">&quot;raw.dfs0&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
 <p>You will probably have the need to parse certain a specific data formats many times, then it is a good idea to create a function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -704,9 +712,6 @@ items:
                             <span class="s1">&#39;TMIN (Degrees Fahrenheit)&#39;</span><span class="p">:</span> <span class="s1">&#39;temperature_min_f&#39;</span><span class="p">,</span>
                             <span class="s1">&#39;PRCP (Inches)&#39;</span><span class="p">:</span> <span class="s1">&#39;prec_in&#39;</span><span class="p">})</span>
     <span class="p">)[</span><span class="n">sel_cols</span><span class="p">]</span>
-    
-    <span class="n">df</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DatetimeIndex</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;infer&#39;</span><span class="p">)</span> <span class="c1"># detect equidistant</span>
-    
     <span class="k">return</span> <span class="n">df</span>
 </pre></div>
 </div>
@@ -985,7 +990,7 @@ items:
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;Date&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/dfs0_15_1.png" src="_images/dfs0_15_1.png" />
+<img alt="_images/dfs0_17_1.png" src="_images/dfs0_17_1.png" />
 </div>
 </div>
 <p>The simplest way to create a dfs0 file is to use the <code class="docutils literal notranslate"><span class="pre">to_dfs0</span></code> method on a Pandas dataframe.</p>
@@ -1022,9 +1027,78 @@ items:
 <p>By default, EUM types are undefined. But it can be specified.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">mikeio.eum</span> <span class="kn">import</span> <span class="n">EUMType</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df2</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;temperature_max_c&#39;</span><span class="p">,</span> <span class="s1">&#39;prec_in&#39;</span><span class="p">]]</span>
+<span class="n">df2</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<span class="n">df</span><span class="p">[</span><span class="s1">&#39;temperature_max_c&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to_dfs0</span><span class="p">(</span><span class="s2">&quot;output/naples_fl_eum.dfs0&quot;</span><span class="p">,</span> <span class="n">itemtype</span><span class="o">=</span><span class="n">EUMType</span><span class="o">.</span><span class="n">Temperature</span><span class="p">)</span>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>temperature_max_c</th>
+      <th>prec_in</th>
+    </tr>
+    <tr>
+      <th>Date</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2002-03-01</th>
+      <td>25.555556</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>2002-03-02</th>
+      <td>28.333333</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>2002-03-03</th>
+      <td>28.888889</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>2002-03-04</th>
+      <td>24.444444</td>
+      <td>0.08</td>
+    </tr>
+    <tr>
+      <th>2002-03-05</th>
+      <td>21.111111</td>
+      <td>0.00</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">mikeio</span> <span class="kn">import</span> <span class="n">ItemInfo</span><span class="p">,</span> <span class="n">EUMType</span><span class="p">,</span> <span class="n">EUMUnit</span>
+
+<span class="n">df2</span><span class="o">.</span><span class="n">to_dfs0</span><span class="p">(</span><span class="s2">&quot;output/naples_fl_eum.dfs0&quot;</span><span class="p">,</span>
+            <span class="n">items</span><span class="o">=</span><span class="p">[</span>
+                   <span class="n">ItemInfo</span><span class="p">(</span><span class="n">EUMType</span><span class="o">.</span><span class="n">Temperature</span><span class="p">),</span>
+                   <span class="n">ItemInfo</span><span class="p">(</span><span class="n">EUMType</span><span class="o">.</span><span class="n">Precipitation_Rate</span><span class="p">,</span> <span class="n">EUMUnit</span><span class="o">.</span><span class="n">inch_per_day</span><span class="p">)]</span>
+           <span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1040,7 +1114,8 @@ items:
 dims: (time:7108)
 time: 2002-03-01 00:00:00 - 2021-08-15 00:00:00 (7108 records)
 items:
-  0:  temperature_max_c &lt;Temperature&gt; (degree Celsius)
+  0:  Temperature &lt;Temperature&gt; (degree Celsius)
+  1:  Precipitation Rate &lt;Precipitation Rate&gt; (inch per day)
 </pre></div>
 </div>
 </div>
