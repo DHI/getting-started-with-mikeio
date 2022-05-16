@@ -23,8 +23,6 @@ chapters:
   sections:
   - file: exercises/exercise_F_Dfs0
 - file: dfs2
-  sections:
-  - file: exercises/exercise_G_Dfs2
 - file: generic
   sections:
   - file: exercises/exercise_H_generic_dfs
