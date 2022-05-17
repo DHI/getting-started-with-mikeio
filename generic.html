@@ -320,11 +320,6 @@ const thebe_selector_output = ".output, .cell_output"
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#read">
-   Read
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#concatenation">
    Concatenation
   </a>
@@ -377,11 +372,6 @@ const thebe_selector_output = ".output, .cell_output"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#read">
-   Read
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#concatenation">
    Concatenation
   </a>
@@ -426,10 +416,8 @@ const thebe_selector_output = ".output, .cell_output"
 <h1>Generic dfs processing<a class="headerlink" href="#generic-dfs-processing" title="Permalink to this headline">¶</a></h1>
 <p>Tools and methods that applies to any type of dfs files.</p>
 <p>The generic tools are useful for common data processing tasks, where detailed configuration is not necessary.</p>
+<p>mikeio.generic: methods that read any dfs file and outputs a new dfs file of the same type</p>
 <ul class="simple">
-<li><p>mikeio.read()</p></li>
-<li><p>mikeio.generic: methods that read any dfs file and outputs a new dfs file of the same type</p>
-<ul>
 <li><p>concat: Concatenates files along the time axis</p></li>
 <li><p>scale: Apply scaling to any dfs file</p></li>
 <li><p>sum: Sum two dfs files</p></li>
@@ -437,8 +425,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>extract: Extract timesteps and/or items to a new dfs file</p></li>
 <li><p>time-avg: Create a temporally averaged dfs file</p></li>
 <li><p>quantile: Create temporal quantiles of dfs file</p></li>
-</ul>
-</li>
 </ul>
 <p>The generic methods works on larger-than-memory files as they process one time step at a time. This can however make them in-efficient for dfs0 processing!</p>
 <div class="cell docutils container">
@@ -449,28 +435,6 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="kn">import</span> <span class="nn">mikeio</span>
 <span class="kn">import</span> <span class="nn">mikeio.generic</span>
 </pre></div>
-</div>
-</div>
-</div>
-<div class="section" id="read">
-<h2>Read<a class="headerlink" href="#read" title="Permalink to this headline">¶</a></h2>
-<p>The mikeio.read() method returns a mikeio <a class="reference external" href="https://dhi.github.io/mikeio/understanding_dataset.html">Dataset</a> for any dfs file.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">&quot;data/tide1.dfs1&quot;</span><span class="p">)</span>
-<span class="n">ds</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mikeio.Dataset&gt;
-dims: (time:97, x:10)
-time: 2019-01-01 00:00:00 - 2019-01-03 00:00:00 (97 records)
-geometry: Grid1D (n=10, dx=0.06667)
-items:
-  0:  Level &lt;Water Level&gt; (meter)
-</pre></div>
-</div>
 </div>
 </div>
 </div>
@@ -516,28 +480,24 @@ items:
 <p>Plot one of the points along the line.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t1</span><span class="o">.</span><span class="n">time</span><span class="p">,</span><span class="n">t1</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">][:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;File 1&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t2</span><span class="o">.</span><span class="n">time</span><span class="p">,</span><span class="n">t2</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">][:,</span><span class="mi">1</span><span class="p">],</span><span class="s1">&#39;k+&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;File 2&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t1</span><span class="o">.</span><span class="n">time</span><span class="p">,</span><span class="n">t1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;File 1&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t2</span><span class="o">.</span><span class="n">time</span><span class="p">,</span><span class="n">t2</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">,</span><span class="s1">&#39;k+&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;File 2&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/hostedtoolcache/Python/3.9.12/x64/lib/python3.9/site-packages/mikeio/dataset.py:390: FutureWarning: property data is deprecated, use to_numpy() instead
-  warnings.warn(
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7ff5c377e670&gt;
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f4934b8f880&gt;
-</pre></div>
-</div>
-<img alt="_images/generic_9_2.png" src="_images/generic_9_2.png" />
+<img alt="_images/generic_7_1.png" src="_images/generic_7_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mikeio</span><span class="o">.</span><span class="n">generic</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">infilenames</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;data/tide1.dfs1&quot;</span><span class="p">,</span>
                                    <span class="s2">&quot;data/tide2.dfs1&quot;</span><span class="p">],</span>
-                      <span class="n">outfilename</span><span class="o">=</span><span class="s2">&quot;concat.dfs1&quot;</span><span class="p">)</span>
+                      <span class="n">outfilename</span><span class="o">=</span><span class="s2">&quot;concat.dfs1&quot;</span><span class="p">,</span> <span class="n">keep</span><span class="o">=</span><span class="s2">&quot;last&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -545,16 +505,12 @@ items:
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">&quot;concat.dfs1&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">time</span><span class="p">,</span><span class="n">c</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">][:,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 <span class="n">c</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/hostedtoolcache/Python/3.9.12/x64/lib/python3.9/site-packages/mikeio/dataset.py:390: FutureWarning: property data is deprecated, use to_numpy() instead
-  warnings.warn(
-</pre></div>
-</div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mikeio.Dataset&gt;
 dims: (time:145, x:10)
 time: 2019-01-01 00:00:00 - 2019-01-04 00:00:00 (145 records)
@@ -563,7 +519,7 @@ items:
   0:  Level &lt;Water Level&gt; (meter)
 </pre></div>
 </div>
-<img alt="_images/generic_11_2.png" src="_images/generic_11_2.png" />
+<img alt="_images/generic_9_1.png" src="_images/generic_9_1.png" />
 </div>
 </div>
 </div>
@@ -643,7 +599,7 @@ items:
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0%|          | 0/5 [00:00&lt;?, ?it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 5/5 [00:00&lt;00:00, 1213.98it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 5/5 [00:00&lt;00:00, 1513.86it/s]
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -665,7 +621,7 @@ items:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/generic_20_0.png" src="_images/generic_20_0.png" />
+<img alt="_images/generic_18_0.png" src="_images/generic_18_0.png" />
 </div>
 </div>
 </div>
@@ -680,7 +636,7 @@ items:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/generic_22_0.png" src="_images/generic_22_0.png" />
+<img alt="_images/generic_20_0.png" src="_images/generic_20_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -716,7 +672,7 @@ values: -1.0
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/generic_26_0.png" src="_images/generic_26_0.png" />
+<img alt="_images/generic_24_0.png" src="_images/generic_24_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -764,7 +720,7 @@ values: -3.0999999046325684
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/generic_31_0.png" src="_images/generic_31_0.png" />
+<img alt="_images/generic_29_0.png" src="_images/generic_29_0.png" />
 </div>
 </div>
 <p>The 2d array must first be flipped upside down and then converted to a 1d vector using <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.flatten.html">numpy.ndarray.flatten</a> to match how data is stored in dfs files.</p>
@@ -786,7 +742,7 @@ values: -3.0999999046325684
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/generic_34_0.png" src="_images/generic_34_0.png" />
+<img alt="_images/generic_32_0.png" src="_images/generic_32_0.png" />
 </div>
 </div>
 </div>
