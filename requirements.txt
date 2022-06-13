@@ -3,4 +3,4 @@ matplotlib
 numpy
 pandas
 traitlets==5.2.0
-mikeio==1.0b2
+mikeio==1.0.1
