@@ -1,22 +1,28 @@
 # Getting started with Dfs files in Python using MIKE IO
 
-## Who should attend?
+## Is this course right for me?
 
-The course has been designed for MIKE modelers with some previous experience with programming or scripting, e.g. Python, Matlab, R, C# or Fortran. 
+This course is right for you if:
 
-## Content
+* ✔️ You use Python for programming or data analysis
+* ✔️ You are a MIKE modeler with knowledge of the Python libraries NumPy and Pandas
+* ✔️ You are prepared to complete a four-module instructor-led online course over four weeks with group work included in each module
+* ✔️ Your schedule allows you to allocate two hours to complete assignments for each module
 
-The course comprises typical data processing tasks in connection with MIKE modelling, extracting selected data for analysis, preparing time series input data (forcing, boundary condition) for simulations etc. We will use Jupyter notebooks with Python packages such as NumPy, pandas and MIKE IO.
 
-## Benefits
+## What are my expected outcomes?
 
-After the course you will have improved your skills and knowledge on how to more efficiently read, write and perform data analysis on data stored in dfs files using Python.
+Upon completion of the course, you will be able to:
+
+* ✔️ Read, write and analyse dfs0, dfs1, dfs2, dfs3, dfsu and mesh files
+* ✔️ Utilise data processing and visualisation via Python data science ecosystem
+* ✔️ Convert data to/from 3rd party data formats such as csv, Excel and NetCDF
+* ✔️ Facilitate scripting and automation of water modelling workflows
+* ✔️ Read and write dfs files using a simple syntax with MIKE Core SDK backend
 
 :::{note}
-Don't forget to install Python
-:::
-
 And remember the Zen of Python...
+:::
 
 ```
 import this
