@@ -4,7 +4,7 @@ Course material for the course: Getting started with dfs files in Python - Using
 
 ## Info for participants
 
-The material is based on MIKE IO 1.0
+The material is based on MIKE IO 1.2
 
 
 The entire repo can be downloaded as a [zip file](https://github.com/DHI/getting-started-with-mikeio/archive/refs/heads/main.zip).
