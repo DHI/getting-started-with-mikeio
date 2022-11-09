@@ -449,6 +449,9 @@ title="Print to PDF"
 <li><p>Install Python (<a class="reference external" href="https://mamba.readthedocs.io/en/latest/installation.html">https://mamba.readthedocs.io/en/latest/installation.html</a>)</p></li>
 <li><p>(On Windows PC without MIKE Zero) Install <a class="reference external" href="https://aka.ms/vs/16/release/vc_redist.x64.exe">VC redist</a></p></li>
 <li><p>Open miniforge prompt</p></li>
+</ol>
+<p><img alt="" src="_images/prompt.png" /></p>
+<ol class="simple">
 <li><p>Install common libraries (<code class="docutils literal notranslate"><span class="pre">mamba</span> <span class="pre">install</span> <span class="pre">matplotlib</span> <span class="pre">jupyterlab</span></code>)</p></li>
 <li><p>Install MIKE IO using pip, <strong>not conda</strong>! (<code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">mikeio</span></code>)</p></li>
 <li><p>Start Jupyter lab (<code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">lab</span></code>)</p></li>
@@ -457,11 +460,11 @@ title="Print to PDF"
 <section id="test-your-installation">
 <h2>Test your installation<a class="headerlink" href="#test-your-installation" title="Permalink to this headline">#</a></h2>
 <ol class="simple">
-<li><p>Open command prompt (<code class="docutils literal notranslate"><span class="pre">cmd.exe</span></code>)</p></li>
-<li><p>Start python (<code class="docutils literal notranslate"><span class="pre">&gt;</span> <span class="pre">python</span></code>)</p></li>
+<li><p>Open miniforge prompt</p></li>
+<li><p>Start python (<code class="docutils literal notranslate"><span class="pre">python</span></code>)</p></li>
 <li><p>Run the following lines of code:</p></li>
 </ol>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
