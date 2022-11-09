@@ -383,6 +383,18 @@ title="Print to PDF"
    Test your installation
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#faq">
+   FAQ
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#when-i-try-to-load-mikeio-i-get-this-error">
+     When I try to load mikeio I get this error:
+    </a>
+   </li>
+  </ul>
+ </li>
 </ul>
 
     </nav>
@@ -407,6 +419,18 @@ title="Print to PDF"
    Test your installation
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#faq">
+   FAQ
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#when-i-try-to-load-mikeio-i-get-this-error">
+     When I try to load mikeio I get this error:
+    </a>
+   </li>
+  </ul>
+ </li>
 </ul>
 
                         </nav>
@@ -422,10 +446,10 @@ title="Print to PDF"
 <p>There are several ways to install Python, for scientific applications we recommend to use the Mambaforge distribution.</p>
 <ol class="simple">
 <li><p>Download Mamba installer from <a class="reference external" href="https://github.com/conda-forge/miniforge#mambaforge">https://github.com/conda-forge/miniforge#mambaforge</a></p></li>
-<li><p>Install Python</p></li>
-<li><p>(On PCs without MIKE Zero) Install <a class="reference external" href="https://aka.ms/vs/16/release/vc_redist.x64.exe">VC redist</a></p></li>
-<li><p>Open command prompt (<code class="docutils literal notranslate"><span class="pre">cmd.exe</span></code>)</p></li>
-<li><p>Install common libraries (<code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">matplotlib</span> <span class="pre">jupyterlab</span></code>)</p></li>
+<li><p>Install Python (<a class="reference external" href="https://mamba.readthedocs.io/en/latest/installation.html">https://mamba.readthedocs.io/en/latest/installation.html</a>)</p></li>
+<li><p>(On Windows PC without MIKE Zero) Install <a class="reference external" href="https://aka.ms/vs/16/release/vc_redist.x64.exe">VC redist</a></p></li>
+<li><p>Open miniforge prompt</p></li>
+<li><p>Install common libraries (<code class="docutils literal notranslate"><span class="pre">mamba</span> <span class="pre">install</span> <span class="pre">matplotlib</span> <span class="pre">jupyterlab</span></code>)</p></li>
 <li><p>Install MIKE IO using pip, <strong>not conda</strong>! (<code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">mikeio</span></code>)</p></li>
 <li><p>Start Jupyter lab (<code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">lab</span></code>)</p></li>
 <li><p>You are now ready to start working with MIKE IO in Python</p></li>
@@ -457,6 +481,16 @@ title="Print to PDF"
 <li><p>My matplotlib version is 3.2 or greater</p></li>
 <li><p>My MIKE IO version is 1.0 or greater</p></li>
 </ul>
+</section>
+<section id="faq">
+<h2>FAQ<a class="headerlink" href="#faq" title="Permalink to this headline">#</a></h2>
+<section id="when-i-try-to-load-mikeio-i-get-this-error">
+<h3>When I try to load mikeio I get this error:<a class="headerlink" href="#when-i-try-to-load-mikeio-i-get-this-error" title="Permalink to this headline">#</a></h3>
+<blockquote>
+<div><p><strong>FileNotFoundError:</strong> Could not find module ‘C:\ProgramData\mambaforge\lib\site-packages\mikecore\bin\windows\eum’</p>
+</div></blockquote>
+<p>The solution is to install <a class="reference external" href="https://aka.ms/vs/16/release/vc_redist.x64.exe">VC redist</a></p>
+</section>
 </section>
 </section>
 
