@@ -2,5 +2,4 @@ jupyter-book
 matplotlib
 numpy
 pandas
-traitlets==5.2.0
 mikeio==1.2.2
