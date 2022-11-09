@@ -6,6 +6,9 @@ There are several ways to install Python, for scientific applications we recomme
 2. Install Python (<https://mamba.readthedocs.io/en/latest/installation.html>)
 3. (On Windows PC without MIKE Zero) Install [VC redist](https://aka.ms/vs/16/release/vc_redist.x64.exe) 
 4. Open miniforge prompt
+
+![](images/prompt.png)
+
 5. Install common libraries (`mamba install matplotlib jupyterlab`)
 6. Install MIKE IO using pip, **not conda**! (`pip install mikeio`)
 7. Start Jupyter lab (`jupyter lab`)
@@ -13,11 +16,14 @@ There are several ways to install Python, for scientific applications we recomme
 
 ## Test your installation
 
-1. Open command prompt (`cmd.exe`)
-2. Start python (`> python`) 
+1. Open miniforge prompt
+
+
+
+2. Start python (`python`) 
 3. Run the following lines of code:
 
-```
+```python
 import sys
 import numpy as np
 import pandas as pd
