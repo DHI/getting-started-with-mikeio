@@ -1,18 +1,15 @@
 # Installing Python and MIKE IO
 
-1. Download Python from [https://www.python.org/downloads/](https://www.python.org/downloads/)
-2. Install Python (Select Add Python to PATH)
-![](images/python_path.png)
+There are several ways to install Python, for scientific applications we recommend to use the Mambaforge distribution.
+
+1. Download Mamba installer from <https://github.com/conda-forge/miniforge#mambaforge>
+2. Install Python
 3. (On PCs without MIKE Zero) Install [VC redist](https://aka.ms/vs/16/release/vc_redist.x64.exe)
 4. Open command prompt (`cmd.exe`)
-5. Install MIKE IO (`pip install mikeio`)
-6. Install matplotlib (`pip install matplotlib`)
-7. Install [JupyterLab](https://jupyterlab.readthedocs.io/en/stable/) (`pip install jupyterlab`)
-8. Start Jupyter lab (`jupyter lab`)
-9. You are now ready to start working with MIKE IO in Python
-
-## Installation example
-![](images/install.gif)
+5. Install common libraries (`conda install matplotlib jupyterlab`)
+6. Install MIKE IO using pip, **not conda**! (`pip install mikeio`)
+7. Start Jupyter lab (`jupyter lab`)
+8. You are now ready to start working with MIKE IO in Python
 
 ## Test your installation
 

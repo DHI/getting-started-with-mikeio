@@ -237,13 +237,13 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="dfsu.html">
-   Dfsu 2D
+  <a class="reference internal" href="mesh.html">
+   Mesh
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="mesh.html">
-   Mesh
+  <a class="reference internal" href="dfsu.html">
+   Dfsu 2D
   </a>
  </li>
 </ul>
@@ -379,11 +379,6 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#installation-example">
-   Installation example
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#test-your-installation">
    Test your installation
   </a>
@@ -408,11 +403,6 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#installation-example">
-   Installation example
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#test-your-installation">
    Test your installation
   </a>
@@ -429,22 +419,17 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="installing-python-and-mike-io">
 <h1>Installing Python and MIKE IO<a class="headerlink" href="#installing-python-and-mike-io" title="Permalink to this headline">#</a></h1>
+<p>There are several ways to install Python, for scientific applications we recommend to use the Mambaforge distribution.</p>
 <ol class="simple">
-<li><p>Download Python from <a class="reference external" href="https://www.python.org/downloads/">https://www.python.org/downloads/</a></p></li>
-<li><p>Install Python (Select Add Python to PATH)
-<img alt="" src="_images/python_path.png" /></p></li>
+<li><p>Download Mamba installer from <a class="reference external" href="https://github.com/conda-forge/miniforge#mambaforge">https://github.com/conda-forge/miniforge#mambaforge</a></p></li>
+<li><p>Install Python</p></li>
 <li><p>(On PCs without MIKE Zero) Install <a class="reference external" href="https://aka.ms/vs/16/release/vc_redist.x64.exe">VC redist</a></p></li>
 <li><p>Open command prompt (<code class="docutils literal notranslate"><span class="pre">cmd.exe</span></code>)</p></li>
-<li><p>Install MIKE IO (<code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">mikeio</span></code>)</p></li>
-<li><p>Install matplotlib (<code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">matplotlib</span></code>)</p></li>
-<li><p>Install <a class="reference external" href="https://jupyterlab.readthedocs.io/en/stable/">JupyterLab</a> (<code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">jupyterlab</span></code>)</p></li>
+<li><p>Install common libraries (<code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">matplotlib</span> <span class="pre">jupyterlab</span></code>)</p></li>
+<li><p>Install MIKE IO using pip, <strong>not conda</strong>! (<code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">mikeio</span></code>)</p></li>
 <li><p>Start Jupyter lab (<code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">lab</span></code>)</p></li>
 <li><p>You are now ready to start working with MIKE IO in Python</p></li>
 </ol>
-<section id="installation-example">
-<h2>Installation example<a class="headerlink" href="#installation-example" title="Permalink to this headline">#</a></h2>
-<p><img alt="" src="_images/install.gif" /></p>
-</section>
 <section id="test-your-installation">
 <h2>Test your installation<a class="headerlink" href="#test-your-installation" title="Permalink to this headline">#</a></h2>
 <ol class="simple">
