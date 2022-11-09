@@ -22,8 +22,9 @@ chapters:
 - file: dfs0
   sections:
   - file: exercises/exercise_F_Dfs0
-- file: dfs2
 - file: generic
   sections:
   - file: exercises/exercise_H_generic_dfs
-- file: exercises/final_assignment
+- file: dfs1
+- file: dfs2
+- file: dfsu
