@@ -27,5 +27,6 @@ chapters:
   - file: exercises/exercise_H_generic_dfs
 - file: dfs1
 - file: dfs2
-- file: dfsu
 - file: mesh
+- file: dfsu
+
