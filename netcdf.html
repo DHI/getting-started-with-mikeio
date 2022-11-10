@@ -525,11 +525,6 @@ title="Print to PDF"
    </li>
   </ul>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#unstructured-grid-forcing">
-   Unstructured grid forcing
-  </a>
- </li>
 </ul>
 
     </nav>
@@ -581,11 +576,6 @@ title="Print to PDF"
    </li>
   </ul>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#unstructured-grid-forcing">
-   Unstructured grid forcing
-  </a>
- </li>
 </ul>
 
                         </nav>
@@ -613,8 +603,8 @@ title="Print to PDF"
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: netcdf4 in /opt/hostedtoolcache/Python/3.9.15/x64/lib/python3.9/site-packages (1.6.1)
 Requirement already satisfied: xarray in /opt/hostedtoolcache/Python/3.9.15/x64/lib/python3.9/site-packages (2022.11.0)
-Requirement already satisfied: numpy&gt;=1.9 in /opt/hostedtoolcache/Python/3.9.15/x64/lib/python3.9/site-packages (from netcdf4) (1.23.4)
 Requirement already satisfied: cftime in /opt/hostedtoolcache/Python/3.9.15/x64/lib/python3.9/site-packages (from netcdf4) (1.6.2)
+Requirement already satisfied: numpy&gt;=1.9 in /opt/hostedtoolcache/Python/3.9.15/x64/lib/python3.9/site-packages (from netcdf4) (1.23.4)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: packaging&gt;=21.0 in /opt/hostedtoolcache/Python/3.9.15/x64/lib/python3.9/site-packages (from xarray) (21.3)
@@ -654,7 +644,7 @@ Requirement already satisfied: six&gt;=1.5 in /opt/hostedtoolcache/Python/3.9.15
 <span class="ne">---&gt; </span><span class="mi">55</span>     <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cache</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
 <span class="g g-Whitespace">     </span><span class="mi">56</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_cache</span><span class="o">.</span><span class="n">move_to_end</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
 
-<span class="ne">KeyError</span>: [&lt;class &#39;netCDF4._netCDF4.Dataset&#39;&gt;, (&#39;/home/runner/work/getting-started-with-mikeio/getting-started-with-mikeio/mini_book/data/era5_small.nc&#39;,), &#39;r&#39;, ((&#39;clobber&#39;, True), (&#39;diskless&#39;, False), (&#39;format&#39;, &#39;NETCDF4&#39;), (&#39;persist&#39;, False)), &#39;5351bdf3-197c-40ec-8ccf-3cfc1de6d614&#39;]
+<span class="ne">KeyError</span>: [&lt;class &#39;netCDF4._netCDF4.Dataset&#39;&gt;, (&#39;/home/runner/work/getting-started-with-mikeio/getting-started-with-mikeio/mini_book/data/era5_small.nc&#39;,), &#39;r&#39;, ((&#39;clobber&#39;, True), (&#39;diskless&#39;, False), (&#39;format&#39;, &#39;NETCDF4&#39;), (&#39;persist&#39;, False)), &#39;d76d1ebb-fe21-45c3-939b-651978a0b393&#39;]
 
 <span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
 
@@ -973,105 +963,6 @@ And remember to flip the dataset upside-down since the y-axis in MIKE is south-t
 <p>Screenshot of U 10m from MIKE Zero</p>
 <p><img alt="" src="images/era5_u10_dfs2.png" /></p>
 </section>
-</section>
-<section id="unstructured-grid-forcing">
-<h2>Unstructured grid forcing<a class="headerlink" href="#unstructured-grid-forcing" title="Permalink to this headline">#</a></h2>
-<p>E.g. roughness map</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">msh</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">Mesh</span><span class="p">(</span><span class="s2">&quot;data/FakeLake.dfsu&quot;</span><span class="p">)</span>
-<span class="n">msh</span><span class="o">.</span><span class="n">plot</span><span class="p">();</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-
-<span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">30</span><span class="p">)</span>
-<span class="n">manning</span> <span class="o">=</span> <span class="mi">32</span> <span class="o">+</span> <span class="p">(</span><span class="mi">40</span> <span class="o">-</span> <span class="mi">32</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">z</span><span class="o">/</span><span class="mi">10</span><span class="p">))</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">manning</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">30</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Manning&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Depth (m)&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;This is only an example...&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Extract the Z values in each element.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ze</span> <span class="o">=</span> <span class="n">msh</span><span class="o">.</span><span class="n">element_coordinates</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Create a new array of manning numbers based on the depth. This is only a hypothetical example of a data transformation based on the data in the file, not a best practise for bed friction.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">me</span> <span class="o">=</span> <span class="mi">32</span> <span class="o">+</span> <span class="p">(</span><span class="mi">40</span> <span class="o">-</span> <span class="mi">32</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">ze</span><span class="o">/</span><span class="mi">10</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>The primary use case of DFS files is for time-varying data, so in order to use this time-independent data, we have to introduce a new axis, a time dimension.</p>
-<p>One simple way to do this is to use the numpy function <code class="docutils literal notranslate"><span class="pre">atleast_2d</span></code>.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">me2d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">atleast_2d</span><span class="p">(</span><span class="n">me</span><span class="p">)</span> <span class="c1"># Introduce time axis</span>
-<span class="n">me2d</span><span class="o">.</span><span class="n">shape</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Now the array is a 2d array</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">mikeio.eum</span> <span class="kn">import</span> <span class="n">ItemInfo</span>
-
-<span class="n">my_ds</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">Dataset</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="p">[</span><span class="n">me2d</span><span class="p">],</span>
-                <span class="n">time</span><span class="o">=</span><span class="s2">&quot;2000-1-1&quot;</span><span class="p">,</span> <span class="c1"># For static data, this is not used by MIKE 21</span>
-                <span class="n">items</span><span class="o">=</span><span class="p">[</span><span class="n">ItemInfo</span><span class="p">(</span><span class="s2">&quot;Roughness&quot;</span><span class="p">,</span> <span class="n">EUMType</span><span class="o">.</span><span class="n">Mannings_M</span><span class="p">)],</span>
-                <span class="n">geometry</span><span class="o">=</span><span class="n">msh</span><span class="o">.</span><span class="n">geometry</span><span class="p">)</span>
-<span class="n">my_ds</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_ds</span><span class="o">.</span><span class="n">Roughness</span><span class="o">.</span><span class="n">plot</span><span class="p">();</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_ds</span><span class="o">.</span><span class="n">to_dfs</span><span class="p">(</span><span class="s2">&quot;manning.dfsu&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dfs</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;manning.dfsu&quot;</span><span class="p">)</span>
-<span class="n">dfs</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span> <span class="o">=</span> <span class="n">dfs</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-<span class="n">ds</span><span class="p">[</span><span class="s2">&quot;Roughness&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Manning&quot;</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-</div>
 </section>
 <div class="toctree-wrapper compound">
 </div>
