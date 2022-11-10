@@ -637,7 +637,7 @@ title="Print to PDF"
 </ul>
 <p>Ways of calculating</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://dhi.github.io/mikeio/dataset.html#methods">mikeio.Dataset</a></p></li>
+<li><p><a class="reference external" href="https://dhi.github.io/mikeio/dataset.html#methods">mikeio.Dataset</a> (or <a class="reference external" href="https://dhi.github.io/mikeio/dataarray.html#methods">mikeio.DataArray</a>)</p></li>
 <li><p><a class="reference external" href="https://dhi.github.io/mikeio/generic.html">mikeio.generic</a> (temporal aggregations only; larger-than-memory)</p></li>
 <li><p>custom code (typically with NumPy)</p></li>
 </ul>
@@ -660,55 +660,13 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">Exception</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">ds</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">&quot;data/NorthSea_HD_and_windspeed.dfsu&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">ds</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.9.15/x64/lib/python3.9/site-packages/mikeio/__init__.py:113,</span> in <span class="ni">read</span><span class="nt">(filename, items, time, keepdims, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">110</span> <span class="k">if</span> <span class="s2">&quot;dfs&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">ext</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">111</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;mikeio.read() is only supported for Dfs files&quot;</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">113</span> <span class="n">dfs</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">115</span> <span class="k">return</span> <span class="n">dfs</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">items</span><span class="o">=</span><span class="n">items</span><span class="p">,</span> <span class="n">time</span><span class="o">=</span><span class="n">time</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="n">keepdims</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.9.15/x64/lib/python3.9/site-packages/mikeio/__init__.py:162,</span> in <span class="ni">open</span><span class="nt">(filename, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">159</span>     <span class="k">return</span> <span class="n">Dfs3</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">161</span> <span class="k">elif</span> <span class="n">ext</span> <span class="o">==</span> <span class="s2">&quot;.dfsu&quot;</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">162</span>     <span class="k">return</span> <span class="n">Dfsu</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">164</span> <span class="k">elif</span> <span class="n">ext</span> <span class="o">==</span> <span class="s2">&quot;.mesh&quot;</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">165</span>     <span class="k">return</span> <span class="n">Mesh</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.9.15/x64/lib/python3.9/site-packages/mikeio/dfsu_factory.py:12,</span> in <span class="ni">Dfsu.__new__</span><span class="nt">(self, filename, *args, **kwargs)</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="k">def</span> <span class="fm">__new__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<span class="g g-Whitespace">     </span><span class="mi">11</span>     <span class="n">filename</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
-<span class="ne">---&gt; </span><span class="mi">12</span>     <span class="nb">type</span><span class="p">,</span> <span class="n">dfs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_DfsuFileType_n_Obj</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">14</span>     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_type_is_spectral</span><span class="p">(</span><span class="nb">type</span><span class="p">):</span>
-<span class="g g-Whitespace">     </span><span class="mi">15</span>         <span class="k">return</span> <span class="n">DfsuSpectral</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">dfs</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.9.15/x64/lib/python3.9/site-packages/mikeio/dfsu_factory.py:29,</span> in <span class="ni">Dfsu._get_DfsuFileType_n_Obj</span><span class="nt">(filename)</span>
-<span class="g g-Whitespace">     </span><span class="mi">27</span> <span class="n">ext</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">filename</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-<span class="g g-Whitespace">     </span><span class="mi">28</span> <span class="k">if</span> <span class="s2">&quot;dfs&quot;</span> <span class="ow">in</span> <span class="n">ext</span><span class="p">:</span>
-<span class="ne">---&gt; </span><span class="mi">29</span>     <span class="n">dfs</span> <span class="o">=</span> <span class="n">DfsuFile</span><span class="o">.</span><span class="n">Open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">30</span>     <span class="nb">type</span> <span class="o">=</span> <span class="n">DfsuFileType</span><span class="p">(</span><span class="n">dfs</span><span class="o">.</span><span class="n">DfsuFileType</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">31</span>     <span class="c1"># dfs.Close()</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.9.15/x64/lib/python3.9/site-packages/mikecore/DfsuFile.py:294,</span> in <span class="ni">DfsuFile.Open</span><span class="nt">(fileName)</span>
-<span class="g g-Whitespace">    </span><span class="mi">291</span> <span class="nd">@staticmethod</span>
-<span class="g g-Whitespace">    </span><span class="mi">292</span> <span class="k">def</span> <span class="nf">Open</span><span class="p">(</span><span class="n">fileName</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">293</span>   <span class="n">dfs</span> <span class="o">=</span> <span class="n">DfsFile</span><span class="p">();</span>
-<span class="ne">--&gt; </span><span class="mi">294</span>   <span class="n">dfs</span><span class="o">.</span><span class="n">Open</span><span class="p">(</span><span class="n">fileName</span><span class="p">,</span> <span class="n">DfsFileMode</span><span class="o">.</span><span class="n">Read</span><span class="p">);</span>
-<span class="g g-Whitespace">    </span><span class="mi">295</span>   <span class="k">return</span> <span class="p">(</span><span class="n">DfsuFile</span><span class="p">(</span><span class="n">dfs</span><span class="p">))</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.9.15/x64/lib/python3.9/site-packages/mikecore/DfsFile.py:710,</span> in <span class="ni">DfsFile.Open</span><span class="nt">(self, filename, mode, parameters)</span>
-<span class="g g-Whitespace">    </span><span class="mi">707</span>     <span class="bp">self</span><span class="o">.</span><span class="n">Close</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">709</span> <span class="k">if</span> <span class="p">(</span><span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">filename</span><span class="p">)):</span>
-<span class="ne">--&gt; </span><span class="mi">710</span>     <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;File not found </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">filename</span><span class="p">))</span>
-<span class="g g-Whitespace">    </span><span class="mi">712</span> <span class="c1"># Check if trying to edit a read-only file.</span>
-<span class="g g-Whitespace">    </span><span class="mi">713</span> <span class="k">if</span> <span class="p">((</span><span class="n">mode</span> <span class="o">==</span> <span class="n">DfsFileMode</span><span class="o">.</span><span class="n">Edit</span> <span class="ow">or</span> <span class="n">mode</span> <span class="o">==</span> <span class="n">DfsFileMode</span><span class="o">.</span><span class="n">Append</span><span class="p">)</span> 
-<span class="g g-Whitespace">    </span><span class="mi">714</span>     <span class="ow">and</span> <span class="p">(</span><span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">access</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">W_OK</span><span class="p">))):</span>
-
-<span class="ne">Exception</span>: File not found data/NorthSea_HD_and_windspeed.dfsu
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mikeio.Dataset&gt;
+dims: (time:67, element:958)
+time: 2017-10-27 00:00:00 - 2017-10-29 18:00:00 (67 records)
+geometry: Dfsu2D (958 elements, 570 nodes)
+items:
+  0:  Surface elevation &lt;Surface Elevation&gt; (meter)
+  1:  Wind speed &lt;Wind speed&gt; (meter per sec)
 </pre></div>
 </div>
 </div>
@@ -724,12 +682,20 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(958,)
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mean_ws</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Mean wind speed&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/statistics_7_0.png" src="_images/statistics_7_0.png" />
 </div>
 </div>
 </section>
@@ -747,12 +713,67 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Surface elevation</th>
+      <th>Wind speed</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2017-10-27 00:00:00</th>
+      <td>0.256916</td>
+      <td>10.234554</td>
+    </tr>
+    <tr>
+      <th>2017-10-27 01:00:00</th>
+      <td>0.274964</td>
+      <td>10.264292</td>
+    </tr>
+    <tr>
+      <th>2017-10-27 02:00:00</th>
+      <td>0.287414</td>
+      <td>10.531686</td>
+    </tr>
+    <tr>
+      <th>2017-10-27 03:00:00</th>
+      <td>0.290940</td>
+      <td>10.794677</td>
+    </tr>
+    <tr>
+      <th>2017-10-27 04:00:00</th>
+      <td>0.287235</td>
+      <td>10.858319</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Wind speed&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">();</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/statistics_10_0.png" src="_images/statistics_10_0.png" />
 </div>
 </div>
 <p>Dataset has other methods for calculating typical statistics, e.g. max, quantile…</p>
@@ -762,12 +783,18 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="_images/statistics_12_0.png" src="_images/statistics_12_0.png" />
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span><span class="p">[[</span><span class="s2">&quot;Wind speed&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="n">q</span><span class="o">=</span><span class="p">[</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.9</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;space&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">();</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/statistics_13_0.png" src="_images/statistics_13_0.png" />
 </div>
 </div>
 <p>It’s important to know that the element area is not taking into account when doing the spatial aggregations! Only Dataset.average supports weighted averages.</p>
@@ -781,6 +808,9 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="_images/statistics_15_0.png" src="_images/statistics_15_0.png" />
+</div>
 </div>
 </section>
 <section id="quantiles-to-file">
@@ -789,6 +819,21 @@ title="Print to PDF"
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dsq</span>  <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="n">q</span><span class="o">=</span><span class="p">[</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.9</span><span class="p">])</span>
 <span class="n">dsq</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mikeio.Dataset&gt;
+dims: (element:958)
+time: 2017-10-27 00:00:00 (time-invariant)
+geometry: Dfsu2D (958 elements, 570 nodes)
+items:
+  0:  Quantile 0.1, Surface elevation &lt;Surface Elevation&gt; (meter)
+  1:  Quantile 0.5, Surface elevation &lt;Surface Elevation&gt; (meter)
+  2:  Quantile 0.9, Surface elevation &lt;Surface Elevation&gt; (meter)
+  3:  Quantile 0.1, Wind speed &lt;Wind speed&gt; (meter per sec)
+  4:  Quantile 0.5, Wind speed &lt;Wind speed&gt; (meter per sec)
+  5:  Quantile 0.9, Wind speed &lt;Wind speed&gt; (meter per sec)
 </pre></div>
 </div>
 </div>
@@ -817,6 +862,73 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Surface elevation</th>
+      <th>Wind speed</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>64186.000000</td>
+      <td>64186.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>0.449857</td>
+      <td>12.772705</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>0.651157</td>
+      <td>3.694293</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>-2.347003</td>
+      <td>1.190171</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>0.057831</td>
+      <td>10.376003</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>0.466257</td>
+      <td>12.653086</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>0.849586</td>
+      <td>14.885848</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>3.756879</td>
+      <td>26.213045</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -824,10 +936,47 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Surface elevation</th>
+      <th>Wind speed</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2017-10-27</th>
+      <td>-2.347003</td>
+      <td>1.190171</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span><span class="p">[</span><span class="s2">&quot;Wind speed&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.1901706
 </pre></div>
 </div>
 </div>
@@ -855,12 +1004,25 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mikeio.Dataset&gt;
+dims: (time:1, element:958)
+time: 2017-10-27 00:00:00 (time-invariant)
+geometry: Dfsu2D (958 elements, 570 nodes)
+items:
+  0:  Wind speed &lt;Wind speed&gt; (meter per sec)
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span><span class="p">[</span><span class="s2">&quot;Wind speed&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Mean wind speed&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/statistics_28_0.png" src="_images/statistics_28_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -898,6 +1060,9 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="_images/statistics_35_0.png" src="_images/statistics_35_0.png" />
+</div>
 </div>
 </section>
 <section id="exceedance-probability">
@@ -929,6 +1094,9 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="_images/statistics_39_0.png" src="_images/statistics_39_0.png" />
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -939,6 +1107,9 @@ title="Print to PDF"
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Wind speed exceedance in element 0&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/statistics_40_0.png" src="_images/statistics_40_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -970,6 +1141,9 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="_images/statistics_43_0.png" src="_images/statistics_43_0.png" />
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -979,6 +1153,9 @@ title="Print to PDF"
     <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Exceedance [Hours]&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;YlOrRd&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/statistics_44_0.png" src="_images/statistics_44_0.png" />
 </div>
 </div>
 </section>
