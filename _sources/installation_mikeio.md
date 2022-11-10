@@ -20,12 +20,12 @@ import mikeio
 print("MIKE IO: " + mikeio.__version__)
 ```
 
-Can you say yes to the following questions? 
+Can you say yes to the following question? 
 
 * My MIKE IO version is 1.2 or greater
 
 ## FAQ
-### When I try to load mikeio I get this error:
+### When I try to import mikeio I get this error:
 
  > **FileNotFoundError:** Could not find module 'C:\ProgramData\mambaforge\lib\site-packages\mikecore\bin\windows\eum'
 
