@@ -28,5 +28,9 @@ chapters:
 - file: dfs1
 - file: dfs2
 - file: mesh
+  sections:
+    - file: exercises/exercise_mesh
 - file: dfsu
+  sections:
+    - file: exercises/exercise_dfsu
 

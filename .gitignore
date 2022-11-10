@@ -130,5 +130,7 @@ dmypy.json
 
 _build
 mini_book/output
+mini_book/*.mesh
+mini_book/*.dfs*
 
 /tmp/
