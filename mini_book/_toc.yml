@@ -23,6 +23,7 @@ parts:
   #- file: datetime_timedelta
 - caption: MIKE IO
   chapters:
+  - file: installation_mikeio
   - file: datastructures
   - file: dfs0
     sections:
