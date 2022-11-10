@@ -511,6 +511,11 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#visualisation">
+   Visualisation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#more-examples">
    More examples
   </a>
@@ -552,6 +557,11 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#visualisation">
+   Visualisation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#more-examples">
    More examples
   </a>
@@ -574,6 +584,7 @@ title="Print to PDF"
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">mikeio</span>
 </pre></div>
 </div>
@@ -800,6 +811,113 @@ geometry: Dfsu2D (2 elements, 4 nodes)
 values: [36.5, 36.5]
 </pre></div>
 </div>
+</div>
+</div>
+</section>
+<section id="visualisation">
+<h2>Visualisation<a class="headerlink" href="#visualisation" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dfs</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;data/oresundHD_run1.dfsu&quot;</span><span class="p">)</span>
+<span class="n">dfs</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dfsu2D
+number of elements: 3612
+number of nodes: 2046
+projection: UTM-33
+items:
+  0:  Surface elevation &lt;Surface Elevation&gt; (meter)
+  1:  Total water depth &lt;Water Depth&gt; (meter)
+  2:  U velocity &lt;u velocity component&gt; (meter per sec)
+  3:  V velocity &lt;v velocity component&gt; (meter per sec)
+time: 5 steps with dt=86400.0s
+      2018-03-07 00:00:00 -- 2018-03-11 00:00:00
+</pre></div>
+</div>
+</div>
+</div>
+<p>The Dfsu geometry plot the same as the mesh. (plot the elements and color them according to the bathymetry).</p>
+<p>The DataArray can be used to plot other data, such as surface elevation.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dfs</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">plot</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/dfsu_25_0.png" src="_images/dfsu_25_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span> <span class="o">=</span> <span class="n">dfs</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="n">ds</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mikeio.Dataset&gt;
+dims: (time:5, element:3612)
+time: 2018-03-07 00:00:00 - 2018-03-11 00:00:00 (5 records)
+geometry: Dfsu2D (3612 elements, 2046 nodes)
+items:
+  0:  Surface elevation &lt;Surface Elevation&gt; (meter)
+  1:  Total water depth &lt;Water Depth&gt; (meter)
+  2:  U velocity &lt;u velocity component&gt; (meter per sec)
+  3:  V velocity &lt;v velocity component&gt; (meter per sec)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wl_laststep</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[</span><span class="s2">&quot;Surface elevation&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">time</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>   <span class="c1"># DataArray</span>
+<span class="n">wl_laststep</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mikeio.DataArray&gt;
+name: Surface elevation
+dims: (element:3612)
+time: 2018-03-11 00:00:00 (time-invariant)
+geometry: Dfsu2D (3612 elements, 2046 nodes)
+values: [0.08848, 0.1241, ..., 0.08814]
+</pre></div>
+</div>
+</div>
+</div>
+<p>In order to customize the plot we can take return the axis and add additional things, like markers and a legend.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">wl_laststep</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;winter&quot;</span><span class="p">,</span> <span class="n">show_mesh</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">12</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">350000</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">6.15e6</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Location of bouy&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/dfsu_29_0.png" src="_images/dfsu_29_0.png" />
+</div>
+</div>
+<p>In order to create subplots, we can supply the axis as an argument to plot.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
+
+<span class="n">da</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[</span><span class="s2">&quot;Surface elevation&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">time</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">da</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax1</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;ax=ax1&quot;</span><span class="p">)</span>
+
+<span class="n">da</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[</span><span class="s2">&quot;V velocity&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">time</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">da</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax2</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;ax=ax2&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Northward velocity [m/s]&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/dfsu_31_0.png" src="_images/dfsu_31_0.png" />
 </div>
 </div>
 </section>

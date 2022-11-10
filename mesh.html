@@ -525,6 +525,11 @@ title="Print to PDF"
    Change depth
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#visualisation">
+   Visualisation
+  </a>
+ </li>
 </ul>
 
     </nav>
@@ -574,6 +579,11 @@ title="Print to PDF"
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#change-depth">
    Change depth
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#visualisation">
+   Visualisation
   </a>
  </li>
 </ul>
@@ -723,7 +733,7 @@ projection: UTM-31
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f1b20b92070&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f9041386220&gt;]
 </pre></div>
 </div>
 <img alt="_images/mesh_13_1.png" src="_images/mesh_13_1.png" />
@@ -984,6 +994,80 @@ projection: UTM-31
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">msh</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;Fake_lake_clip15.mesh&#39;</span><span class="p">)</span>   <span class="c1"># save to a new file</span>
 </pre></div>
 </div>
+</div>
+</div>
+</section>
+<section id="visualisation">
+<h2>Visualisation<a class="headerlink" href="#visualisation" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">msh</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;data/southern_north_sea.mesh&quot;</span><span class="p">)</span>
+<span class="n">msh</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Flexible Mesh
+number of elements: 958
+number of nodes: 570
+projection: LONG/LAT
+</pre></div>
+</div>
+</div>
+</div>
+<p>The default is to plot the elements and color them according to the bathymetry.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">msh</span><span class="o">.</span><span class="n">plot</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/mesh_43_0.png" src="_images/mesh_43_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">msh</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">outline</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/mesh_44_0.png" src="_images/mesh_44_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">msh</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">mesh</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/mesh_45_0.png" src="_images/mesh_45_0.png" />
+</div>
+</div>
+<p>Maybe we would like to higlight the bathymetric variations in some range, in this case in the -40, -20m range.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">msh</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">vmin</span><span class="o">=-</span><span class="mi">40</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=-</span><span class="mi">20</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/mesh_47_0.png" src="_images/mesh_47_0.png" />
+</div>
+</div>
+<p>There are other options as well, such as explicit specification of which contour lines to show or choosing a specific colormap (<a class="reference external" href="https://matplotlib.org/stable/tutorials/colors/colormaps.html">matplotlib colormaps</a>)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">msh</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">show_mesh</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+         <span class="n">levels</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">50</span><span class="p">,</span><span class="o">-</span><span class="mi">30</span><span class="p">,</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;tab10&quot;</span><span class="p">,</span>
+         <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">12</span><span class="p">),</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Coarse North Sea model&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/mesh_49_0.png" src="_images/mesh_49_0.png" />
 </div>
 </div>
 <p>See the <a class="reference external" href="https://nbviewer.jupyter.org/github/DHI/mikeio/blob/main/notebooks/Mesh.ipynb">MIKE IO Mesh Example notebook</a> for more Mesh operations (including shapely operations).</p>
