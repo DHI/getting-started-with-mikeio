@@ -616,7 +616,7 @@ items:
 </div>
 </div>
 <p>The MIKE IO <code class="docutils literal notranslate"><span class="pre">Dataset</span></code> are used by all Dfs classes (Dfs0,Dfs1,Dfs2,Dfs3, Dfsu).
-A simple timeseries dataset can be easily be converted to a Pandas DataFrame.</p>
+A simple timeseries dataset can easily be converted to a Pandas DataFrame.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span> <span class="c1"># convert dataset to dataframe</span>
@@ -1582,22 +1582,6 @@ time: 2001-01-01 00:00:00 - 2001-01-31 00:00:00 (31 records)
 items:
   0:  Station_E &lt;Precipitation Rate&gt; (mm per hour) - 3
   1:  Station_B &lt;Precipitation Rate&gt; (mm per hour) - 3
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span><span class="p">[</span><span class="s2">&quot;Station_E&quot;</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mikeio.DataArray&gt;
-name: Station_E
-dims: (time:31)
-time: 2001-01-01 00:00:00 - 2001-01-31 00:00:00 (31 records)
-values: [0, 0.004, ..., 0]
 </pre></div>
 </div>
 </div>
