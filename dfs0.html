@@ -236,15 +236,39 @@ const thebe_selector_output = ".output, .cell_output"
    Dfs2
   </a>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="mesh.html">
    Mesh
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="exercises/exercise_mesh.html">
+     Exercise A: Mesh
+    </a>
+   </li>
+  </ul>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="dfsu.html">
    Dfsu 2D
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="exercises/exercise_dfsu.html">
+     Exercise B: Dfsu 2D
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -547,7 +571,8 @@ items:
 </div>
 </div>
 </div>
-<p>The MIKE IO <code class="docutils literal notranslate"><span class="pre">Dataset</span></code> are used by all Dfs classes (Dfs0,Dfs1,Dfs2,Dfs3, Dfsu) but Dfs0 data are best handled by a Pandas DataFrame.</p>
+<p>The MIKE IO <code class="docutils literal notranslate"><span class="pre">Dataset</span></code> are used by all Dfs classes (Dfs0,Dfs1,Dfs2,Dfs3, Dfsu).
+A simple timeseries dataset can be easily be converted to a Pandas DataFrame.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span> <span class="c1"># convert dataset to dataframe</span>

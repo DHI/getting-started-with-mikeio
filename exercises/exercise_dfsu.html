@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Exercise H: Generic dfs &#8212; Getting started with Dfs files in Python using MIKE IO</title>
+    <title>Exercise B: Dfsu 2D &#8212; Getting started with Dfs files in Python using MIKE IO</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -52,8 +52,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Dfs1" href="../dfs1.html" />
-    <link rel="prev" title="Generic dfs processing" href="../generic.html" />
+    <link rel="prev" title="Dfsu 2D" href="../dfsu.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -209,18 +208,18 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1 current active has-children">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../generic.html">
    Generic dfs processing
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
   <label for="toctree-checkbox-6">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul class="current">
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="exercise_H_generic_dfs.html">
      Exercise H: Generic dfs
     </a>
    </li>
@@ -253,18 +252,18 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1 has-children">
+ <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="../dfsu.html">
    Dfsu 2D
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
   <label for="toctree-checkbox-8">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="exercise_dfsu.html">
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      Exercise B: Dfsu 2D
     </a>
    </li>
@@ -329,7 +328,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/DHI/getting-started-with-mikeio/main?urlpath=lab/tree/mini_book/exercises/exercise_H_generic_dfs.ipynb"
+        <a href="https://mybinder.org/v2/gh/DHI/getting-started-with-mikeio/main?urlpath=lab/tree/mini_book/exercises/exercise_dfsu.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -347,7 +346,7 @@ title="Launch on Binder"
       </li>
       
       <li>
-        <a href="https://colab.research.google.com/github/DHI/getting-started-with-mikeio/blob/main/mini_book/exercises/exercise_H_generic_dfs.ipynb"
+        <a href="https://colab.research.google.com/github/DHI/getting-started-with-mikeio/blob/main/mini_book/exercises/exercise_dfsu.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -390,7 +389,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../_sources/exercises/exercise_H_generic_dfs.ipynb"
+        <a href="../_sources/exercises/exercise_dfsu.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -451,17 +450,12 @@ title="Print to PDF"
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#read">
-   read()
+   Read
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#concat">
-   concat()
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#diff">
-   diff()
+  <a class="reference internal nav-link" href="#write">
+   Write
   </a>
  </li>
 </ul>
@@ -473,7 +467,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Exercise H: Generic dfs</h1>
+                <h1>Exercise B: Dfsu 2D</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -485,17 +479,12 @@ title="Print to PDF"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#read">
-   read()
+   Read
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#concat">
-   concat()
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#diff">
-   diff()
+  <a class="reference internal nav-link" href="#write">
+   Write
   </a>
  </li>
 </ul>
@@ -508,89 +497,105 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="exercise-h-generic-dfs">
-<h1>Exercise H: Generic dfs<a class="headerlink" href="#exercise-h-generic-dfs" title="Permalink to this headline">#</a></h1>
-<p>Test your skills in processing of generic dfs files.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="exercise-b-dfsu-2d">
+<h1>Exercise B: Dfsu 2D<a class="headerlink" href="#exercise-b-dfsu-2d" title="Permalink to this headline">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">mikeio</span>
-<span class="kn">import</span> <span class="nn">mikeio.generic</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import the Dfsu class </span>
 </pre></div>
 </div>
 </div>
 </div>
 <section id="read">
-<h2>read()<a class="headerlink" href="#read" title="Permalink to this headline">#</a></h2>
-<p>read returns a mikeio <a class="reference external" href="https://dhi.github.io/mikeio/understanding_dataset.html">Dataset</a> for any dfs file</p>
+<h2>Read<a class="headerlink" href="#read" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fn</span> <span class="o">=</span> <span class="s1">&#39;../data/wind_20050501.dfs2&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fn</span> <span class="o">=</span> <span class="s2">&quot;../data/NorthSea_HD_and_windspeed.dfsu&quot;</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># read fn to a variable ds and determine:</span>
-<span class="c1"># a) the number of items</span>
-<span class="c1"># b) the start and end of the file</span>
-<span class="c1"># a) the minimum value for each timestep of the first item </span>
-<span class="c1"># (hint: use the .min(axis=&#39;space&#39;) on the dataarray</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create Dfsu object &quot;dfs&quot; from fn</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># print the list of items</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># does the mesh have any quad elements? </span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># read the Wind speed item to a variable ds</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot the wind speed at the time &quot;2017-10-28 20:00&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get an array of max wind speed per timestep (hint: use the max(axis=1) on ds) </span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot this array as a time series and determine the time with the largest wind speed </span>
+<span class="c1"># (hint: use to_dataframe() on the output of max(axis=1))</span>
 </pre></div>
 </div>
 </div>
 </div>
 </section>
-<section id="concat">
-<h2>concat()<a class="headerlink" href="#concat" title="Permalink to this headline">#</a></h2>
-<p>concat belongs to the submodule mikeio.generic</p>
+<section id="write">
+<h2>Write<a class="headerlink" href="#write" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fn1</span> <span class="o">=</span> <span class="s1">&#39;../data/wind_20050501.dfs2&#39;</span>
-<span class="n">fn2</span> <span class="o">=</span> <span class="s1">&#39;../data/wind_20050502.dfs2&#39;</span>
-<span class="n">fn3</span> <span class="o">=</span> <span class="s1">&#39;../data/wind_20050503.dfs2&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># read the Surface elevation item into a new dataset `ds`</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># use concat and the above files to create a </span>
-<span class="c1"># new file &quot;wind_200505_3days.dfs2&quot;b</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># rename the first and only item of this dataset (Surface elevation) to `Sea Level`</span>
+<span class="c1"># ds.items[0].name = &quot;new name&quot;</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fn4</span> <span class="o">=</span> <span class="s1">&#39;../data/wind_20050504.dfs2&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create new directories project_X and project_X/HD</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="s2">&quot;project_X/HD&quot;</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># add also fn4 and see what happens. Why does it fail? </span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="diff">
-<h2>diff()<a class="headerlink" href="#diff" title="Permalink to this headline">#</a></h2>
-<p>diff() belongs to the submodule mikeio.generic</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fnA</span> <span class="o">=</span> <span class="s1">&#39;../data/wind_20050501.dfs2&#39;</span>
-<span class="n">fnB</span> <span class="o">=</span> <span class="s1">&#39;../data/wind_20050501_v2.dfs2&#39;</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># use diff to produce a new file wind_20050501_diff.dfs2 </span>
-<span class="c1"># with the difference between the two above files</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># write this dataset to a new Dfsu file project_X/HD/NorthSea_SLEV.dfsu</span>
 </pre></div>
 </div>
 </div>
@@ -625,19 +630,12 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="../generic.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="../dfsu.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Generic dfs processing</p>
+            <p class="prev-next-title">Dfsu 2D</p>
         </div>
-    </a>
-    <a class='right-next' id="next-link" href="../dfs1.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Dfs1</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
     </a>
 </div>
             </footer>

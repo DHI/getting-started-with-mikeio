@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Final assignment: Data processing &#8212; Getting started with Dfs files in Python using MIKE IO</title>
+    <title>Exercise A: Mesh &#8212; Getting started with Dfs files in Python using MIKE IO</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -52,6 +52,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Dfsu 2D" href="../dfsu.html" />
+    <link rel="prev" title="Mesh" href="../mesh.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -111,7 +113,7 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../installation.html">
    Installing Python and MIKE IO
@@ -234,15 +236,39 @@ const thebe_selector_output = ".output, .cell_output"
    Dfs2
   </a>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="../mesh.html">
    Mesh
   </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Exercise A: Mesh
+    </a>
+   </li>
+  </ul>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../dfsu.html">
    Dfsu 2D
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="exercise_dfsu.html">
+     Exercise B: Dfsu 2D
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -303,7 +329,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/DHI/getting-started-with-mikeio/main?urlpath=lab/tree/mini_book/exercises/final_assignment.ipynb"
+        <a href="https://mybinder.org/v2/gh/DHI/getting-started-with-mikeio/main?urlpath=lab/tree/mini_book/exercises/exercise_mesh.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -321,7 +347,7 @@ title="Launch on Binder"
       </li>
       
       <li>
-        <a href="https://colab.research.google.com/github/DHI/getting-started-with-mikeio/blob/main/mini_book/exercises/final_assignment.ipynb"
+        <a href="https://colab.research.google.com/github/DHI/getting-started-with-mikeio/blob/main/mini_book/exercises/exercise_mesh.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -364,7 +390,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../_sources/exercises/final_assignment.ipynb"
+        <a href="../_sources/exercises/exercise_mesh.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -424,23 +450,13 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#fa-1-convert-all-timeseries-to-dfs0">
-   FA.1 Convert all timeseries to Dfs0
+  <a class="reference internal nav-link" href="#a-simple-mesh">
+   A simple mesh
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#fa-2-add-region-specific-info-to-normalize-timeseries-with-surface-area">
-   FA.2 Add region specific info to normalize timeseries with surface area
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#fa-3-gridded-weather-forcing-data">
-   FA.3 Gridded weather forcing data
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#submission-of-solution">
-   Submission of solution
+  <a class="reference internal nav-link" href="#a-bigger-mesh">
+   A bigger mesh
   </a>
  </li>
 </ul>
@@ -452,7 +468,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Final assignment: Data processing</h1>
+                <h1>Exercise A: Mesh</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -463,23 +479,13 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#fa-1-convert-all-timeseries-to-dfs0">
-   FA.1 Convert all timeseries to Dfs0
+  <a class="reference internal nav-link" href="#a-simple-mesh">
+   A simple mesh
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#fa-2-add-region-specific-info-to-normalize-timeseries-with-surface-area">
-   FA.2 Add region specific info to normalize timeseries with surface area
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#fa-3-gridded-weather-forcing-data">
-   FA.3 Gridded weather forcing data
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#submission-of-solution">
-   Submission of solution
+  <a class="reference internal nav-link" href="#a-bigger-mesh">
+   A bigger mesh
   </a>
  </li>
 </ul>
@@ -492,135 +498,98 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="final-assignment-data-processing">
-<h1>Final assignment: Data processing<a class="headerlink" href="#final-assignment-data-processing" title="Permalink to this headline">#</a></h1>
-<p>2021-9-14</p>
-<p>The final exercise involves converting data from one or more providers.</p>
-<p>Since this exercise is designed to prepare you for real project work, the information you need to solve it might be slightly incomplete or not provided in context. Use your best judgment and most likely your client and your colleagues will be happy ;-)</p>
-<p>Parts of this assignment can be solved in several ways. Use descriptive variable names and comments or descriptive text if necessary to clarify.
-The final solution should be clear to your colleagues and will be shared with some of your fellow students for review.</p>
-<p>The data will be used for MIKE modelling and must be converted to Dfs with <strong>apppropriate EUM types/units</strong> in order to be used by the MIKE software.</p>
-<p>The data is provided as a <a class="reference external" href="https://github.com/DHI/getting-started-with-mikeio/raw/main/mini_book/data/stream_data.zip">zip file</a> and two binary files (in the data folder - see FA.3 below).</p>
-<p>Inside the zip file, there are a many timeseries (ASCII format) of discharge data from streams located across several regions (<code class="docutils literal notranslate"><span class="pre">*.dat</span></code>).</p>
-<p>Static data for each region is found in a separate file (<code class="docutils literal notranslate"><span class="pre">region_info.csv</span></code>)</p>
-<p><img alt="" src="../_images/region_info.png" /></p>
-<p>Pandas <code class="docutils literal notranslate"><span class="pre">read_csv</span></code> is very powerful, but here are a few things to keep in mind</p>
-<ul class="simple">
-<li><p>Column separator e.g. comma (,)</p></li>
-<li><p>Blank lines</p></li>
-<li><p>Comments</p></li>
-<li><p>Missing values</p></li>
-<li><p>Date format</p></li>
-</ul>
-<p>The MIKE engine can not handle missing values / delete values, <strong>fill in missing values</strong> with interpolated values.</p>
-<p>In order to save diskspace, <strong>crop the timeseries</strong> to simulation period Feb 1 - June 30.</p>
-<section id="fa-1-convert-all-timeseries-to-dfs0">
-<h2>FA.1 Convert all timeseries to Dfs0<a class="headerlink" href="#fa-1-convert-all-timeseries-to-dfs0" title="Permalink to this headline">#</a></h2>
+  <section class="tex2jax_ignore mathjax_ignore" id="exercise-a-mesh">
+<h1>Exercise A: Mesh<a class="headerlink" href="#exercise-a-mesh" title="Permalink to this headline">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">mikeio</span>
-
-<span class="kn">from</span> <span class="nn">mikeio</span> <span class="kn">import</span> <span class="n">Dataset</span>
-<span class="kn">from</span> <span class="nn">mikeio.eum</span> <span class="kn">import</span> <span class="n">EUMType</span><span class="p">,</span> <span class="n">ItemInfo</span><span class="p">,</span> <span class="n">EUMUnit</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import the Mesh class</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="a-simple-mesh">
+<h2>A simple mesh<a class="headerlink" href="#a-simple-mesh" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fn</span> <span class="o">=</span> <span class="s2">&quot;../data/three_elements.mesh&quot;</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This is one way to find and filter filenames in a directory</span>
-<span class="c1"># [x for x in os.listdir(&quot;datafolder&quot;) if &quot;some_str&quot; in x]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># load the mesh to a variable msh</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This is useful!</span>
-<span class="c1"># help(pd.read_csv)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># determine the number of nodes</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># example of reading csv</span>
-<span class="c1"># df = pd.read_csv(&quot;../data/oceandata.csv&quot;, comment=&#39;#&#39;, index_col=0, sep=&#39;,&#39;, parse_dates=True)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># determine the cell center coordinates for the three elements</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>a) Convert all timeseries to dfs0 (remember that the notebook should be runnable for your peers so put the files somewhere reasonable).</p>
-<p>b) Read s15_east_novayork_river.dfs0, print the “header”, plot, and show that the number of missing values is 0.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot the mesh</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
-<section id="fa-2-add-region-specific-info-to-normalize-timeseries-with-surface-area">
-<h2>FA.2 Add region specific info to normalize timeseries with surface area<a class="headerlink" href="#fa-2-add-region-specific-info-to-normalize-timeseries-with-surface-area" title="Permalink to this headline">#</a></h2>
-<p>Each timeseries belongs to a region identified in the filename, e.g. <code class="docutils literal notranslate"><span class="pre">s15_east_novayork_river.dat</span></code> is located in the <code class="docutils literal notranslate"><span class="pre">novayork</span></code> region.</p>
-<p>a) Convert all timeseries to dfs0 with specific discharge, by doing:</p>
-<p>For each timeseries in the dataset:</p>
-<ul class="simple">
-<li><p>Find out which region it belongs to (hint: the string method <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str.split">split()</a> will be useful)</p></li>
-<li><p>Divide the timeseries values with the surface area for the region (take into account units)</p></li>
-<li><p>Create a dfs0 file with specific discharge <em>(discharge / area)</em> (like the one with discharge from FA.1)</p></li>
-</ul>
-<p>b) Determine which station has the largest max specific discharge (in the simulation period).</p>
-</section>
-<section id="fa-3-gridded-weather-forcing-data">
-<h2>FA.3 Gridded weather forcing data<a class="headerlink" href="#fa-3-gridded-weather-forcing-data" title="Permalink to this headline">#</a></h2>
-<p>The dataset is provided in NumPy binary format and consists of</p>
-<ul class="simple">
-<li><p>Temperature 2m (degree Kelvin)</p></li>
-<li><p>Relative humidity 2m (%)</p></li>
-</ul>
-<p>The spatial grid is: 40°N - 50°N, 10°E-15°E with a grid spacing of 1 degree in each direction.</p>
-<p>The time axis consists of two timesteps ‘2005-01-31’, ‘2005-07-31’ which is sufficent to cover the simulation period.</p>
+<section id="a-bigger-mesh">
+<h2>A bigger mesh<a class="headerlink" href="#a-bigger-mesh" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Note: these files are in the data folder</span>
-<span class="n">tmp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;../data/temperature_2m.npy&quot;</span><span class="p">)</span>
-<span class="n">rh</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;../data/rel_hum_2m.npy&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fn</span> <span class="o">=</span> <span class="s2">&quot;../data/southern_north_sea.mesh&quot;</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dy</span> <span class="o">=</span> <span class="mf">1.0</span>
-<span class="n">dx</span> <span class="o">=</span> <span class="mf">1.0</span>
-<span class="n">time</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s2">&quot;2005-01-01&quot;</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;6M&#39;</span><span class="p">,</span> <span class="n">periods</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># load the mesh to a variable msh</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="n">tmp</span><span class="p">,</span> <span class="n">rh</span><span class="p">]</span>
-<span class="c1"># ds = Dataset(data,...</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot the mesh boundary</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># geometry = mikeio.Grid2D(x,...)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># check if the point p1 is inside the mesh</span>
+<span class="n">p1</span> <span class="o">=</span> <span class="p">[</span><span class="mf">4.8674</span><span class="p">,</span> <span class="mf">53.2126</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>a) Create the Dataset as indicated and write it to a new dfs2 file (check that file appears as the one shown below when opening in MIKE Zero)</p>
-<p>b) Open the file again and print the header and the longitude, latitude (of the origin)</p>
-<p>c) Read the data from the file and document that the mean of the relative humidity is the same as the mean of the rh variable above (note: due to rounding errors the may not be exactly the same)</p>
-<p>The expected outcome when opening the file in MIKE Zero</p>
-<p><img alt="" src="../_images/weather_dfs2.png" /></p>
-</section>
-<section id="submission-of-solution">
-<h2>Submission of solution<a class="headerlink" href="#submission-of-solution" title="Permalink to this headline">#</a></h2>
-<p>Your solution to the above tasks is to be delivered in the format of a single Jupyter notebook file. Please create a new and name it final_assignment_xyz.ipynb where xyz is your initials. It should be easy to understand and runnable by your peers.</p>
-<p>The solution will be reviewed by three of your fellow students, which will provide feedback on both the correctnes and clarity of your solution.</p>
-<p>The submission and review process is handled by Campus + Eduflow.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># find the nearest element to p1 (both id and coordinates)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># offset the z values by 0.45 and save the mesh to a new file (hint: msh.zn = znew)</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 
@@ -651,6 +620,20 @@ The final solution should be clear to your colleagues and will be shared with so
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../mesh.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Mesh</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../dfsu.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Dfsu 2D</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
             </footer>
         </div>
