@@ -2,4 +2,6 @@ jupyter-book
 matplotlib
 numpy
 pandas
-mikeio==1.2.2
+mikeio
+netcdf4
+xarray
