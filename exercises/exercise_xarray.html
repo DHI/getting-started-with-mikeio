@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Exercise E: Pandas timeseries &#8212; Getting started with Dfs files in Python using MIKE IO</title>
+    <title>Exercise C: Input data &#8212; Getting started with Dfs files in Python using MIKE IO</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -52,8 +52,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Data Structures" href="../datastructures.html" />
-    <link rel="prev" title="Exercise D: Pandas basics" href="exercise_D_pandas_basics.html" />
+    <link rel="next" title="Mesh" href="../mesh.html" />
+    <link rel="prev" title="Input data" href="../netcdf.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -118,7 +118,7 @@ const thebe_selector_output = ".output, .cell_output"
   Python for data analysis
  </span>
 </p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../installation.html">
    Installing Python and MIKE IO
@@ -175,23 +175,23 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1 current active has-children">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../pandas.html">
    Pandas
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
   <label for="toctree-checkbox-4">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul class="current">
+  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="exercise_D_pandas_basics.html">
      Exercise D: Pandas basics
     </a>
    </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
+   <li class="toctree-l2">
+    <a class="reference internal" href="exercise_E_pandas_timeseries.html">
      Exercise E: Pandas timeseries
     </a>
    </li>
@@ -203,7 +203,7 @@ const thebe_selector_output = ".output, .cell_output"
   MIKE IO
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../datastructures.html">
    Data Structures
@@ -253,18 +253,18 @@ const thebe_selector_output = ".output, .cell_output"
    Dfs2
   </a>
  </li>
- <li class="toctree-l1 has-children">
+ <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="../netcdf.html">
    Input data
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
   <label for="toctree-checkbox-7">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="exercise_xarray.html">
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      Exercise C: Input data
     </a>
    </li>
@@ -368,7 +368,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/DHI/getting-started-with-mikeio/main?urlpath=lab/tree/mini_book/exercises/exercise_E_pandas_timeseries.ipynb"
+        <a href="https://mybinder.org/v2/gh/DHI/getting-started-with-mikeio/main?urlpath=lab/tree/mini_book/exercises/exercise_xarray.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -386,7 +386,7 @@ title="Launch on Binder"
       </li>
       
       <li>
-        <a href="https://colab.research.google.com/github/DHI/getting-started-with-mikeio/blob/main/mini_book/exercises/exercise_E_pandas_timeseries.ipynb"
+        <a href="https://colab.research.google.com/github/DHI/getting-started-with-mikeio/blob/main/mini_book/exercises/exercise_xarray.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -429,7 +429,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../_sources/exercises/exercise_E_pandas_timeseries.ipynb"
+        <a href="../_sources/exercises/exercise_xarray.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -489,13 +489,8 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#e-1-read-time-series-from-csv">
-   E.1 Read time series from csv
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#e-2-create-new-time-series">
-   E.2 Create new time series
+  <a class="reference internal nav-link" href="#external-formats">
+   External formats
   </a>
  </li>
 </ul>
@@ -507,7 +502,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Exercise E: Pandas timeseries</h1>
+                <h1>Exercise C: Input data</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -518,13 +513,8 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#e-1-read-time-series-from-csv">
-   E.1 Read time series from csv
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#e-2-create-new-time-series">
-   E.2 Create new time series
+  <a class="reference internal nav-link" href="#external-formats">
+   External formats
   </a>
  </li>
 </ul>
@@ -537,121 +527,112 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="exercise-e-pandas-timeseries">
-<h1>Exercise E: Pandas timeseries<a class="headerlink" href="#exercise-e-pandas-timeseries" title="Permalink to this headline">#</a></h1>
-<p>2021-8-24</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="exercise-c-input-data">
+<h1>Exercise C: Input data<a class="headerlink" href="#exercise-c-input-data" title="Permalink to this headline">#</a></h1>
+<section id="external-formats">
+<h2>External formats<a class="headerlink" href="#external-formats" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-</pre></div>
-</div>
-</div>
-</div>
-<section id="e-1-read-time-series-from-csv">
-<h2>E.1 Read time series from csv<a class="headerlink" href="#e-1-read-time-series-from-csv" title="Permalink to this headline">#</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># read Klagshamn_water_level.csv with to a DataFrame df using pd.read_csv</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import the xarray library</span>
+<span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># print first 5 rows of df and check the type of the index</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Open the NetCdf file ../data/gfs_example.nc using the Xarray open_dataset method</span>
+<span class="n">ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="s2">&quot;../data/gfs_example.nc&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Open the NetCdf file ../data/gfs_example.nc using the Xarray open_dataset method</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="s2">&quot;../data/gfs_example.nc&quot;</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.15/x64/lib/python3.9/site-packages/xarray/backends/api.py:523,</span> in <span class="ni">open_dataset</span><span class="nt">(filename_or_obj, engine, chunks, cache, decode_cf, mask_and_scale, decode_times, decode_timedelta, use_cftime, concat_characters, decode_coords, drop_variables, inline_array, backend_kwargs, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">520</span>     <span class="n">kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">backend_kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">522</span> <span class="k">if</span> <span class="n">engine</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">523</span>     <span class="n">engine</span> <span class="o">=</span> <span class="n">plugins</span><span class="o">.</span><span class="n">guess_engine</span><span class="p">(</span><span class="n">filename_or_obj</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">525</span> <span class="n">backend</span> <span class="o">=</span> <span class="n">plugins</span><span class="o">.</span><span class="n">get_backend</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">527</span> <span class="n">decoders</span> <span class="o">=</span> <span class="n">_resolve_decoders_kwargs</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">528</span>     <span class="n">decode_cf</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">529</span>     <span class="n">open_backend_dataset_parameters</span><span class="o">=</span><span class="n">backend</span><span class="o">.</span><span class="n">open_dataset_parameters</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">535</span>     <span class="n">decode_coords</span><span class="o">=</span><span class="n">decode_coords</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">536</span> <span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.15/x64/lib/python3.9/site-packages/xarray/backends/plugins.py:177,</span> in <span class="ni">guess_engine</span><span class="nt">(store_spec)</span>
+<span class="g g-Whitespace">    </span><span class="mi">169</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">170</span>     <span class="n">error_msg</span> <span class="o">=</span> <span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">171</span>         <span class="s2">&quot;found the following matches with the input file in xarray&#39;s IO &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">172</span>         <span class="sa">f</span><span class="s2">&quot;backends: </span><span class="si">{</span><span class="n">compatible_engines</span><span class="si">}</span><span class="s2">. But their dependencies may not be installed, see:</span><span class="se">\n</span><span class="s2">&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">173</span>         <span class="s2">&quot;https://docs.xarray.dev/en/stable/user-guide/io.html </span><span class="se">\n</span><span class="s2">&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">174</span>         <span class="s2">&quot;https://docs.xarray.dev/en/stable/getting-started-guide/installing.html&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">175</span>     <span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">177</span> <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">error_msg</span><span class="p">)</span>
+
+<span class="ne">ValueError</span>: found the following matches with the input file in xarray&#39;s IO backends: [&#39;netcdf4&#39;, &#39;h5netcdf&#39;]. But their dependencies may not be installed, see:
+<span class="ne">https</span>://docs.xarray.dev/en/stable/user-guide/io.html 
+<span class="ne">https</span>://docs.xarray.dev/en/stable/getting-started-guide/installing.html
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># read Klagshamn_water_level.csv again to df </span>
-<span class="c1"># now with the arguments index_col=0, parse_dates=True</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Inspect the rich set of information about this dataset</span>
+<span class="c1"># ds</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># print first 5 rows of df and check the type of the index </span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Which coordinates are in this dataset?</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot df using df.plot()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Which convention is used for the latitude dimension, are the values sorted North-South or South-North?</span>
+<span class="c1"># Why is this relevant when converting a file to Dfs2?</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># find the min and max value of the time series</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Which data variables are in this dataset?</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># check if there are any NaN values in the series (hist: .isna() )</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># What time period does it cover?</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># use .resample(&#39;D&#39;) to get daily values max() values</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># What is the long name of the first data variable?</span>
+<span class="c1"># Hint: ds.name_of_item.attrs</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># use .plot.bar() to to plot the daily max values as a bar chart</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="e-2-create-new-time-series">
-<h2>E.2 Create new time series<a class="headerlink" href="#e-2-create-new-time-series" title="Permalink to this headline">#</a></h2>
-<p>Read <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.date_range.html">pandas.date_range</a></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create a DateTimeIndex using pd.date_range. Check the documentation for help.</span>
-<span class="c1"># It should be hourly starting at &#39;2015-01-01&#39; and ending at &#39;2015-01-15&#39;</span>
-<span class="c1"># Call the new index &quot;idx&quot;</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create an empty DataFrame df2 with this index pd.DataFrame(index=...)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add a column called &quot;ones&quot; with the value 1.0</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add a column &quot;sin&quot; by taking np.sin() of pi*hour/12</span>
-<span class="c1"># Hint: you get the hour value of idx by taking idx.hour</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot the time series</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># To get the relative humidity at 40N, 10E @ &#39;2021-08-24 02:00&#39; we can use the .sel method like this:</span>
+<span class="c1"># ds.rh2m.sel(lon=10, lat=40, time=&#39;2021-08-24 03:00&#39;)</span>
+
+<span class="c1"># What is the surface temperature at 45N, 12E at 2021-08-24 00:00?</span>
 </pre></div>
 </div>
 </div>
@@ -686,17 +667,17 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="exercise_D_pandas_basics.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="../netcdf.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Exercise D: Pandas basics</p>
+            <p class="prev-next-title">Input data</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="../datastructures.html" title="next page">
+    <a class='right-next' id="next-link" href="../mesh.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Data Structures</p>
+        <p class="prev-next-title">Mesh</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
