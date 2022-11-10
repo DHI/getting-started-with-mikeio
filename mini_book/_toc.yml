@@ -32,10 +32,13 @@ parts:
     - file: exercises/exercise_H_generic_dfs
   - file: dfs1
   - file: dfs2
+  - file: netcdf
+    sections:
+      - file: exercises/exercise_xarray
   - file: mesh
     sections:
       - file: exercises/exercise_mesh
   - file: dfsu
     sections:
       - file: exercises/exercise_dfsu
-
+  - file: statistics
