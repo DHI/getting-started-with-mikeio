@@ -3,34 +3,39 @@
 
 format: jb-book
 root: intro
-chapters:
-- file: installation
-- file: basic
-  sections:
-  - file: exercises/exercise_A_basic_python 
-- file: numpy
-  sections:
-  - file: exercises/exercise_B_NumPy
-- file: matplotlib
-  sections:
-  - file: exercises/exercise_C_matplotlib
-- file: pandas
-  sections:
-  - file: exercises/exercise_D_pandas_basics
-  - file: exercises/exercise_E_pandas_timeseries
-#- file: datetime_timedelta
-- file: dfs0
-  sections:
-  - file: exercises/exercise_F_Dfs0
-- file: generic
-  sections:
-  - file: exercises/exercise_H_generic_dfs
-- file: dfs1
-- file: dfs2
-- file: mesh
-  sections:
-    - file: exercises/exercise_mesh
-- file: dfsu
-  sections:
-    - file: exercises/exercise_dfsu
+parts:
+- caption: Python for data analysis
+  chapters:
+  - file: installation
+  - file: basic
+    sections:
+    - file: exercises/exercise_A_basic_python 
+  - file: numpy
+    sections:
+    - file: exercises/exercise_B_NumPy
+  - file: matplotlib
+    sections:
+    - file: exercises/exercise_C_matplotlib
+  - file: pandas
+    sections:
+    - file: exercises/exercise_D_pandas_basics
+    - file: exercises/exercise_E_pandas_timeseries
+  #- file: datetime_timedelta
+- caption: MIKE IO
+  chapters:
+  - file: datastructures
+  - file: dfs0
+    sections:
+    - file: exercises/exercise_F_Dfs0
+  - file: generic
+    sections:
+    - file: exercises/exercise_H_generic_dfs
+  - file: dfs1
+  - file: dfs2
+  - file: mesh
+    sections:
+      - file: exercises/exercise_mesh
+  - file: dfsu
+    sections:
+      - file: exercises/exercise_dfsu
 
