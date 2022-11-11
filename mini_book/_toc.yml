@@ -39,7 +39,7 @@ parts:
   - file: mesh
     sections:
       - file: exercises/exercise_mesh
-  - file: dfsu
+  - file: dfsu2d
     sections:
       - file: exercises/exercise_dfsu
   - file: statistics
