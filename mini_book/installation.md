@@ -2,15 +2,14 @@
 
 There are several ways to install Python, for scientific applications we recommend to use the Mambaforge distribution.
 
-1. Download Mamba installer from <https://github.com/conda-forge/miniforge#mambaforge>
-2. Install Python (<https://mamba.readthedocs.io/en/latest/installation.html>)
-3. Open miniforge prompt
+1. Download and install Python using the [Mamba installer for Windows](https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-Windows-x86_64.exe) from [Mambaforge](https://github.com/conda-forge/miniforge#mambaforge) 
+2. Open miniforge prompt
 
 ![](images/prompt.png)
 
-4. Install common libraries (`mamba install pandas matplotlib jupyterlab`)
-5. Start Jupyter lab (`jupyter lab`)
-6. You are now ready to start working with Python
+3. Install common libraries (`mamba install pandas matplotlib jupyterlab`)
+4. Start Jupyter lab (`jupyter lab`)
+5. You are now ready to start working with Python
 
 ## Test your installation
 
