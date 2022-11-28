@@ -43,6 +43,7 @@ parts:
     sections:
       - file: exercises/exercise_dfsu
   - file: statistics
+  - file: exercises/final_assignment
 - caption: Appendix
   chapters:
     - file: appendix/datetime_timedelta
