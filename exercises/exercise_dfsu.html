@@ -314,6 +314,11 @@ const thebe_selector_output = ".output, .cell_output"
    Statistics
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="final_assignment.html">
+   Final assignment
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -558,7 +563,7 @@ title="Print to PDF"
 <h1>Exercise: Dfsu 2D<a class="headerlink" href="#exercise-dfsu-2d" title="Permalink to this headline">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import the Dfsu class </span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># import the Dfsu class 
 </pre></div>
 </div>
 </div>
@@ -567,57 +572,57 @@ title="Print to PDF"
 <h2>Read<a class="headerlink" href="#read" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fn</span> <span class="o">=</span> <span class="s2">&quot;../data/NorthSea_HD_and_windspeed.dfsu&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>fn = &quot;../data/NorthSea_HD_and_windspeed.dfsu&quot;
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create Dfsu object &quot;dfs&quot; from fn</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># create Dfsu object &quot;dfs&quot; from fn
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># print the list of items</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># print the list of items
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># does the mesh have any quad elements? </span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># does the mesh have any quad elements? 
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># read the Wind speed item to a variable ds</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># read the Wind speed item to a variable ds
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot the wind speed at the time &quot;2017-10-28 20:00&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># plot the wind speed at the time &quot;2017-10-28 20:00&quot;
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get an array of max wind speed per timestep (hint: use the max(axis=1) on ds) </span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># get an array of max wind speed per timestep (hint: use the max(axis=1) on ds) 
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot this array as a time series and determine the time with the largest wind speed </span>
-<span class="c1"># (hint: use to_dataframe() on the output of max(axis=1))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># plot this array as a time series and determine the time with the largest wind speed 
+# (hint: use to_dataframe() on the output of max(axis=1))
 </pre></div>
 </div>
 </div>
@@ -627,32 +632,32 @@ title="Print to PDF"
 <h2>Write<a class="headerlink" href="#write" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># read the Surface elevation item into a new dataset `ds`</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># read the Surface elevation item into a new dataset `ds`
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># rename the first and only item of this dataset (Surface elevation) to `Sea Level`</span>
-<span class="c1"># ds.items[0].name = &quot;new name&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># rename the first and only item of this dataset (Surface elevation) to `Sea Level`
+# ds.items[0].name = &quot;new name&quot;
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create new directories project_X and project_X/HD</span>
-<span class="kn">import</span> <span class="nn">os</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Create new directories project_X and project_X/HD
+import os
 
-<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="s2">&quot;project_X/HD&quot;</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+os.makedirs(&quot;project_X/HD&quot;, exist_ok=True)
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># write this dataset to a new Dfsu file project_X/HD/NorthSea_SLEV.dfsu</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># write this dataset to a new Dfsu file project_X/HD/NorthSea_SLEV.dfsu
 </pre></div>
 </div>
 </div>

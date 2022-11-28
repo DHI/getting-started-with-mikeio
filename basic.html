@@ -314,6 +314,11 @@ const thebe_selector_output = ".output, .cell_output"
    Statistics
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="exercises/final_assignment.html">
+   Final assignment
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -670,8 +675,8 @@ title="Print to PDF"
 <p>Jupyter lab can help you complete Python code, if you press “tab”. If you have your cursor on a function, you can get the function signature by pressing “shift”+”tab”.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You can get help by writting ? before or after a function/variable</span>
-pwd<span class="o">?</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># You can get help by writting ? before or after a function/variable
+pwd?
 </pre></div>
 </div>
 </div>
@@ -682,7 +687,7 @@ pwd<span class="o">?</span>
 <p>When reading (or writing) files from the local file system, it is important to know your current path. You you print the current path by the command pwd:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pwd</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>pwd
 </pre></div>
 </div>
 </div>
@@ -709,8 +714,8 @@ pwd<span class="o">?</span>
 <h2>Variables<a class="headerlink" href="#variables" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">var1</span> <span class="o">=</span> <span class="mf">2.2</span>
-<span class="n">var1</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>var1 = 2.2
+var1
 </pre></div>
 </div>
 </div>
@@ -722,15 +727,15 @@ pwd<span class="o">?</span>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">var2</span> <span class="o">=</span> <span class="n">var1</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>var2 = var1
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">var2</span> <span class="o">=</span> <span class="s2">&quot;3.3&quot;</span>    <span class="c1"># now changed type</span>
-<span class="n">var2</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>var2 = &quot;3.3&quot;    # now changed type
+var2
 </pre></div>
 </div>
 </div>
@@ -742,7 +747,7 @@ pwd<span class="o">?</span>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">var1</span>     <span class="c1"># var1 stays the same, when we change var2 (numeric type)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>var1     # var1 stays the same, when we change var2 (numeric type)
 </pre></div>
 </div>
 </div>
@@ -754,7 +759,7 @@ pwd<span class="o">?</span>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">var1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>type(var1)
 </pre></div>
 </div>
 </div>
@@ -769,9 +774,9 @@ pwd<span class="o">?</span>
 <h2>Lists<a class="headerlink" href="#lists" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># A list is created with [..,..]</span>
-<span class="n">myvals</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">]</span>
-<span class="n">myvals</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># A list is created with [..,..]
+myvals = [1.0, 2.0, 1.5]
+myvals
 </pre></div>
 </div>
 </div>
@@ -783,7 +788,7 @@ pwd<span class="o">?</span>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">myvals</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>myvals[0]
 </pre></div>
 </div>
 </div>
@@ -795,21 +800,21 @@ pwd<span class="o">?</span>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">myvals2</span> <span class="o">=</span> <span class="n">myvals</span>     <span class="c1"># this is *not* a copy!</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>myvals2 = myvals     # this is *not* a copy!
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">myvals2</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mf">3.3</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>myvals2[1] = 3.3
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">myvals</span>     <span class="c1"># myvals has also changed! (myvals and myvals2 reference the same object)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>myvals     # myvals has also changed! (myvals and myvals2 reference the same object)
 </pre></div>
 </div>
 </div>
@@ -821,7 +826,7 @@ pwd<span class="o">?</span>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">id</span><span class="p">(</span><span class="n">myvals</span><span class="p">)</span> <span class="o">==</span> <span class="nb">id</span><span class="p">(</span><span class="n">myvals2</span><span class="p">)</span>     
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>id(myvals) == id(myvals2)     
 </pre></div>
 </div>
 </div>
@@ -833,15 +838,15 @@ pwd<span class="o">?</span>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># lists can contain all sorts of different variables</span>
-<span class="n">stuff</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="s2">&quot;MIKE ZERO&quot;</span><span class="p">,</span> <span class="sa">b</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># lists can contain all sorts of different variables
+stuff = [5, 3.0, &quot;MIKE ZERO&quot;, b&#39;a&#39;, [1,2]]
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">stuff</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>type(stuff[0])
 </pre></div>
 </div>
 </div>
@@ -857,8 +862,8 @@ pwd<span class="o">?</span>
 <p>Tuples are similar to lists but immutable (once they are created they cannot be changed).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_tuple</span> <span class="o">=</span> <span class="p">(</span><span class="mi">34</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="s2">&quot;txt&quot;</span><span class="p">)</span>
-<span class="n">my_tuple</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>my_tuple = (34, 0.2, &quot;txt&quot;)
+my_tuple
 </pre></div>
 </div>
 </div>
@@ -870,7 +875,7 @@ pwd<span class="o">?</span>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_tuple</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>my_tuple[2]
 </pre></div>
 </div>
 </div>
@@ -882,14 +887,14 @@ pwd<span class="o">?</span>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_tuple</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;new_txt&#39;</span>   <span class="c1"># this will fail</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>my_tuple[2] = &#39;new_txt&#39;   # this will fail
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">18</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">18</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">my_tuple</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;new_txt&#39;</span>   <span class="c1"># this will fail</span>
 
 <span class="ne">TypeError</span>: &#39;tuple&#39; object does not support item assignment
@@ -902,44 +907,44 @@ pwd<span class="o">?</span>
 <h2>Dictionary<a class="headerlink" href="#dictionary" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fruits</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;banana&#39;</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;apple&#39;</span><span class="p">:</span><span class="mi">7</span><span class="p">}</span>
-<span class="n">fruits</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>fruits = {&#39;banana&#39;:4, &#39;apple&#39;:7}
+fruits
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fruits</span><span class="p">[</span><span class="s1">&#39;orange&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">9</span>
-<span class="n">fruits</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>fruits[&#39;orange&#39;] = 9
+fruits
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fruits</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>fruits.keys()
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fruits</span><span class="p">[</span><span class="s1">&#39;banana&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>fruits[&#39;banana&#39;]
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fruits</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>fruits.values()
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fruits</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>fruits.items()
 </pre></div>
 </div>
 </div>
@@ -954,30 +959,30 @@ pwd<span class="o">?</span>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">i_am</span> <span class="o">=</span> <span class="s1">&#39;ok&#39;</span>
-<span class="k">if</span> <span class="n">i_am</span> <span class="o">==</span> <span class="s1">&#39;ok&#39;</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;You are ok&#39;</span><span class="p">)</span>
-<span class="k">elif</span> <span class="n">i_am</span> <span class="o">==</span> <span class="s1">&#39;great&#39;</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;You are great&#39;</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;I don&#39;t know how you are!&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>i_am = &#39;ok&#39;
+if i_am == &#39;ok&#39;:
+    print(&#39;You are ok&#39;)
+elif i_am == &#39;great&#39;:
+    print(&#39;You are great&#39;)
+else:
+    print(&quot;I don&#39;t know how you are!&quot;)
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>for j in range(3):
+    print(j)
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Carl&#39;</span><span class="p">,</span><span class="s1">&#39;Chan&#39;</span><span class="p">,</span><span class="s1">&#39;Clarice&#39;</span><span class="p">]</span>
-<span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Hi </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">!&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>names = [&#39;Carl&#39;,&#39;Chan&#39;,&#39;Clarice&#39;]
+for name in names:
+    print(f&#39;Hi {name}!&#39;)
 </pre></div>
 </div>
 </div>
@@ -985,8 +990,8 @@ pwd<span class="o">?</span>
 <p>A loop can also be expressed using special syntax known as a list comprehension.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lnames</span> <span class="o">=</span> <span class="p">[</span><span class="n">name</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span><span class="p">]</span>
-<span class="n">lnames</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>lnames = [name.lower() for name in names]
+lnames
 </pre></div>
 </div>
 </div>
@@ -997,35 +1002,35 @@ pwd<span class="o">?</span>
 <p>It is very useful to create your own functions to collect code that belongs together in a function, which can be reused in several places in your code without copying and pasting the entire snippet.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import re
 
-<span class="k">def</span> <span class="nf">clean_name</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
-    <span class="s2">&quot;Clean and short name&quot;</span>
-    <span class="n">clean</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s1">&#39;[^A-Za-z0-9]+&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
-    <span class="n">short</span> <span class="o">=</span> <span class="n">clean</span><span class="p">[:</span><span class="mi">15</span><span class="p">]</span>
-    <span class="n">lower</span> <span class="o">=</span> <span class="n">short</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
-    <span class="k">return</span> <span class="n">lower</span>
+def clean_name(name):
+    &quot;Clean and short name&quot;
+    clean = re.sub(&#39;[^A-Za-z0-9]+&#39;, &#39;&#39;, name)
+    short = clean[:15]
+    lower = short.lower()
+    return lower
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clean_name</span><span class="p">(</span><span class="s2">&quot;#What a lousy &amp; long name&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>clean_name(&quot;#What a lousy &amp; long name&quot;)
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clean_name</span><span class="p">(</span><span class="s2">&quot;goodname&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>clean_name(&quot;goodname&quot;)
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">long_and_ugly_names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Wave Height # Modelled&quot;</span><span class="p">,</span> <span class="s2">&quot;Wave Period # Modelled&quot;</span><span class="p">,</span> <span class="s2">&quot;Wave Direction # Modelled&quot;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>long_and_ugly_names = [&quot;Wave Height # Modelled&quot;, &quot;Wave Period # Modelled&quot;, &quot;Wave Direction # Modelled&quot;]
 </pre></div>
 </div>
 </div>
@@ -1033,7 +1038,7 @@ pwd<span class="o">?</span>
 <p>Combine a list comprehension with your own function</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">clean_name</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">long_and_ugly_names</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>[clean_name(x) for x in long_and_ugly_names]
 </pre></div>
 </div>
 </div>

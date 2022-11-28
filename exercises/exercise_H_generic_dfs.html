@@ -314,6 +314,11 @@ const thebe_selector_output = ".output, .cell_output"
    Statistics
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="final_assignment.html">
+   Final assignment
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -569,8 +574,8 @@ title="Print to PDF"
 <p>Test your skills in processing of generic dfs files.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">mikeio</span>
-<span class="kn">import</span> <span class="nn">mikeio.generic</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import mikeio
+import mikeio.generic
 </pre></div>
 </div>
 </div>
@@ -580,18 +585,18 @@ title="Print to PDF"
 <p>read returns a mikeio <a class="reference external" href="https://dhi.github.io/mikeio/understanding_dataset.html">Dataset</a> for any dfs file</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fn</span> <span class="o">=</span> <span class="s1">&#39;../data/wind_20050501.dfs2&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>fn = &#39;../data/wind_20050501.dfs2&#39;
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># read fn to a variable ds and determine:</span>
-<span class="c1"># a) the number of items</span>
-<span class="c1"># b) the start and end of the file</span>
-<span class="c1"># a) the minimum value for each timestep of the first item </span>
-<span class="c1"># (hint: use the .min(axis=&#39;space&#39;) on the dataarray</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># read fn to a variable ds and determine:
+# a) the number of items
+# b) the start and end of the file
+# a) the minimum value for each timestep of the first item 
+# (hint: use the .min(axis=&#39;space&#39;) on the dataarray
 </pre></div>
 </div>
 </div>
@@ -602,31 +607,31 @@ title="Print to PDF"
 <p>concat belongs to the submodule mikeio.generic</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fn1</span> <span class="o">=</span> <span class="s1">&#39;../data/wind_20050501.dfs2&#39;</span>
-<span class="n">fn2</span> <span class="o">=</span> <span class="s1">&#39;../data/wind_20050502.dfs2&#39;</span>
-<span class="n">fn3</span> <span class="o">=</span> <span class="s1">&#39;../data/wind_20050503.dfs2&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>fn1 = &#39;../data/wind_20050501.dfs2&#39;
+fn2 = &#39;../data/wind_20050502.dfs2&#39;
+fn3 = &#39;../data/wind_20050503.dfs2&#39;
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># use concat and the above files to create a </span>
-<span class="c1"># new file &quot;wind_200505_3days.dfs2&quot;b</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># use concat and the above files to create a 
+# new file &quot;wind_200505_3days.dfs2&quot;b
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fn4</span> <span class="o">=</span> <span class="s1">&#39;../data/wind_20050504.dfs2&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>fn4 = &#39;../data/wind_20050504.dfs2&#39;
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># add also fn4 and see what happens. Why does it fail? </span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># add also fn4 and see what happens. Why does it fail? 
 </pre></div>
 </div>
 </div>
@@ -637,16 +642,16 @@ title="Print to PDF"
 <p>diff() belongs to the submodule mikeio.generic</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fnA</span> <span class="o">=</span> <span class="s1">&#39;../data/wind_20050501.dfs2&#39;</span>
-<span class="n">fnB</span> <span class="o">=</span> <span class="s1">&#39;../data/wind_20050501_v2.dfs2&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>fnA = &#39;../data/wind_20050501.dfs2&#39;
+fnB = &#39;../data/wind_20050501_v2.dfs2&#39;
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># use diff to produce a new file wind_20050501_diff.dfs2 </span>
-<span class="c1"># with the difference between the two above files</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># use diff to produce a new file wind_20050501_diff.dfs2 
+# with the difference between the two above files
 </pre></div>
 </div>
 </div>

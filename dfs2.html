@@ -314,6 +314,11 @@ const thebe_selector_output = ".output, .cell_output"
    Statistics
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="exercises/final_assignment.html">
+   Final assignment
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -615,9 +620,10 @@ title="Print to PDF"
 <p>See <a class="reference external" href="https://docs.mikepoweredbydhi.com/core_libraries/dfs/dfs-file-system/">DFS - Reference manual</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">mikeio</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
+import numpy as np
+import matplotlib.pyplot as plt
+import mikeio
 </pre></div>
 </div>
 </div>
@@ -626,8 +632,8 @@ title="Print to PDF"
 <h2>Reading data<a class="headerlink" href="#reading-data" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">&quot;data/gebco_sound.dfs2&quot;</span><span class="p">)</span>
-<span class="n">ds</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>ds = mikeio.read(&quot;data/gebco_sound.dfs2&quot;)
+ds
 </pre></div>
 </div>
 </div>
@@ -644,7 +650,7 @@ items:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">ds</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>type(ds)
 </pre></div>
 </div>
 </div>
@@ -656,7 +662,7 @@ items:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span><span class="o">.</span><span class="n">shape</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>ds.shape
 </pre></div>
 </div>
 </div>
@@ -668,8 +674,8 @@ items:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">elevation</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[</span><span class="s1">&#39;Elevation&#39;</span><span class="p">]</span>
-<span class="nb">type</span><span class="p">(</span><span class="n">elevation</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>elevation = ds[&#39;Elevation&#39;]
+type(elevation)
 </pre></div>
 </div>
 </div>
@@ -681,7 +687,7 @@ items:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">elevation</span><span class="o">.</span><span class="n">shape</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>elevation.shape
 </pre></div>
 </div>
 </div>
@@ -693,7 +699,7 @@ items:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">elevation</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>elevation.plot()
 </pre></div>
 </div>
 </div>
@@ -709,7 +715,7 @@ items:
 <h2>Spatial axes<a class="headerlink" href="#spatial-axes" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span><span class="o">.</span><span class="n">geometry</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>ds.geometry
 </pre></div>
 </div>
 </div>
@@ -727,9 +733,9 @@ projection: LONG/LAT
 <h2>Extract data at location<a class="headerlink" href="#extract-data-at-location" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stn</span> <span class="o">=</span> <span class="mf">12.74792</span><span class="p">,</span> <span class="mf">55.865</span>
-<span class="n">da_stn</span> <span class="o">=</span> <span class="n">elevation</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">stn</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">stn</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-<span class="n">da_stn</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>stn = 12.74792, 55.865
+da_stn = elevation.interp(x=stn[0], y=stn[1])
+da_stn
 </pre></div>
 </div>
 </div>
@@ -746,7 +752,7 @@ values: [-42.69764539]
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">da_stn</span><span class="o">.</span><span class="n">values</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>da_stn.values
 </pre></div>
 </div>
 </div>
@@ -758,10 +764,10 @@ values: [-42.69764539]
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">elevation</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">stn</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">stn</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">marker</span><span class="o">=</span><span class="s1">&#39;*&#39;</span><span class="p">,</span><span class="n">s</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">12.85</span><span class="p">,</span> <span class="mf">56.0</span><span class="p">,</span> <span class="s2">&quot;Sweden&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">12.3</span><span class="p">,</span> <span class="mf">55.8</span><span class="p">,</span> <span class="s2">&quot;Denmark&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>elevation.plot()
+plt.scatter(stn[0],stn[1],marker=&#39;*&#39;,s=500,c=&#39;black&#39;)
+plt.text(12.85, 56.0, &quot;Sweden&quot;)
+plt.text(12.3, 55.8, &quot;Denmark&quot;)
 </pre></div>
 </div>
 </div>
@@ -777,14 +783,14 @@ values: [-42.69764539]
 <h2>Slicing<a class="headerlink" href="#slicing" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">elevation</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">stn</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">stn</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>elevation.plot()
+plt.axvline(stn[0])
+plt.axhline(stn[1])
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.lines.Line2D at 0x7f9ae50b1df0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.lines.Line2D at 0x7f76d0626ee0&gt;
 </pre></div>
 </div>
 <img alt="_images/dfs2_16_1.png" src="_images/dfs2_16_1.png" />
@@ -792,7 +798,7 @@ values: [-42.69764539]
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">elevation</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">stn</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;West-East&quot;</span><span class="p">);</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>elevation.sel(y=stn[1]).plot(title=&quot;West-East&quot;);
 </pre></div>
 </div>
 </div>
@@ -802,7 +808,7 @@ values: [-42.69764539]
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">elevation</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">stn</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;South-North&quot;</span><span class="p">);</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>elevation.sel(x=stn[0]).plot(title=&quot;South-North&quot;);
 </pre></div>
 </div>
 </div>
@@ -817,8 +823,8 @@ values: [-42.69764539]
 <h3>Geographical coordinates<a class="headerlink" href="#geographical-coordinates" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_i</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">24</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">data_i</span><span class="o">.</span><span class="n">shape</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>data_i = np.arange(24).reshape(2,4,3)
+data_i.shape
 </pre></div>
 </div>
 </div>
@@ -830,13 +836,13 @@ values: [-42.69764539]
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">data_i</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="c1"># first timestep</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>plt.imshow(data_i[0]) # first timestep
+plt.colorbar()
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x7f9ae4f98cd0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x7f76d0419af0&gt;
 </pre></div>
 </div>
 <img alt="_images/dfs2_21_1.png" src="_images/dfs2_21_1.png" />
@@ -844,8 +850,8 @@ values: [-42.69764539]
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grid</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">Grid2D</span><span class="p">(</span><span class="n">x0</span> <span class="o">=</span> <span class="mf">12.0</span><span class="p">,</span> <span class="n">dx</span><span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">y0</span><span class="o">=</span> <span class="mf">55.0</span><span class="p">,</span> <span class="n">dy</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">nx</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">ny</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s2">&quot;LONG/LAT&quot;</span><span class="p">)</span>
-<span class="n">grid</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>grid = mikeio.Grid2D(x0 = 12.0, dx= 1.0, y0= 55.0, dy=1.0, nx=3, ny=4, projection=&quot;LONG/LAT&quot;)
+grid
 </pre></div>
 </div>
 </div>
@@ -860,16 +866,16 @@ projection: LONG/LAT
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import pandas as pd
 
-<span class="n">nt</span> <span class="o">=</span> <span class="n">data_i</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+nt = data_i.shape[0]
 
-<span class="n">da</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">data_i</span><span class="p">,</span>
-                      <span class="n">geometry</span><span class="o">=</span><span class="n">grid</span><span class="p">,</span>
-                      <span class="n">time</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s2">&quot;2020&quot;</span><span class="p">,</span><span class="n">periods</span><span class="o">=</span><span class="n">nt</span><span class="p">,</span><span class="n">freq</span><span class="o">=</span><span class="s1">&#39;D&#39;</span><span class="p">),</span>
-                      <span class="n">item</span><span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">ItemInfo</span><span class="p">(</span><span class="s2">&quot;Example&quot;</span><span class="p">,</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">EUMType</span><span class="o">.</span><span class="n">Elevation</span><span class="p">))</span>
+da = mikeio.DataArray(data = data_i,
+                      geometry=grid,
+                      time = pd.date_range(&quot;2020&quot;,periods=nt,freq=&#39;D&#39;),
+                      item= mikeio.ItemInfo(&quot;Example&quot;, mikeio.EUMType.Elevation))
 
-<span class="n">da</span>
+da
 </pre></div>
 </div>
 </div>
@@ -885,8 +891,8 @@ geometry: Grid2D (ny=4, nx=3)
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">Dataset</span><span class="p">([</span><span class="n">da</span><span class="p">])</span>
-<span class="n">ds</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>ds = mikeio.Dataset([da])
+ds
 </pre></div>
 </div>
 </div>
@@ -903,7 +909,7 @@ items:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span><span class="o">.</span><span class="n">to_dfs</span><span class="p">(</span><span class="s2">&quot;example_geo.dfs2&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>ds.to_dfs(&quot;example_geo.dfs2&quot;)
 </pre></div>
 </div>
 </div>
@@ -914,8 +920,8 @@ items:
 <p>Projection string in WKT format. Use MIKE Zero for formatting. Some shorthands are available for UTM zones, e.g. UTM-32.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pgrid</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">Grid2D</span><span class="p">(</span><span class="n">x0</span> <span class="o">=</span> <span class="mf">337100.0</span><span class="p">,</span> <span class="n">dx</span><span class="o">=</span> <span class="mf">10000.0</span><span class="p">,</span> <span class="n">y0</span><span class="o">=</span> <span class="mf">6122900.0</span><span class="p">,</span> <span class="n">dy</span><span class="o">=</span><span class="mf">10000.0</span><span class="p">,</span> <span class="n">nx</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">ny</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s2">&quot;UTM-32&quot;</span><span class="p">)</span>
-<span class="n">pgrid</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>pgrid = mikeio.Grid2D(x0 = 337100.0, dx= 10000.0, y0= 6122900.0, dy=10000.0, nx=3, ny=4, projection=&quot;UTM-32&quot;)
+pgrid
 </pre></div>
 </div>
 </div>
@@ -930,12 +936,12 @@ projection: UTM-32
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pda</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">data_i</span><span class="p">,</span>
-                       <span class="n">geometry</span><span class="o">=</span><span class="n">pgrid</span><span class="p">,</span>
-                       <span class="n">time</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s2">&quot;2020&quot;</span><span class="p">,</span><span class="n">periods</span><span class="o">=</span><span class="n">nt</span><span class="p">,</span><span class="n">freq</span><span class="o">=</span><span class="s1">&#39;D&#39;</span><span class="p">),</span>
-                       <span class="n">item</span><span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">ItemInfo</span><span class="p">(</span><span class="s2">&quot;Example&quot;</span><span class="p">,</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">EUMType</span><span class="o">.</span><span class="n">Elevation</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>pda = mikeio.DataArray(data = data_i,
+                       geometry=pgrid,
+                       time = pd.date_range(&quot;2020&quot;,periods=nt,freq=&#39;D&#39;),
+                       item= mikeio.ItemInfo(&quot;Example&quot;, mikeio.EUMType.Elevation))
 
-<span class="n">pda</span>
+pda
 </pre></div>
 </div>
 </div>
@@ -951,7 +957,7 @@ geometry: Grid2D (ny=4, nx=3)
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pda</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>pda.plot()
 </pre></div>
 </div>
 </div>
@@ -964,7 +970,7 @@ geometry: Grid2D (ny=4, nx=3)
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pda</span><span class="o">.</span><span class="n">to_dfs</span><span class="p">(</span><span class="s2">&quot;example_proj.dfs2&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>pda.to_dfs(&quot;example_proj.dfs2&quot;)
 </pre></div>
 </div>
 </div>

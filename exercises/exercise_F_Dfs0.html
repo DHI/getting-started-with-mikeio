@@ -314,6 +314,11 @@ const thebe_selector_output = ".output, .cell_output"
    Statistics
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="final_assignment.html">
+   Final assignment
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -559,7 +564,7 @@ title="Print to PDF"
 <p>2021-8-24</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">mikeio</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import mikeio
 </pre></div>
 </div>
 </div>
@@ -568,70 +573,70 @@ title="Print to PDF"
 <h2>F.1 Read dfs0<a class="headerlink" href="#f-1-read-dfs0" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read the file Oresund_ts.dfs0 mikeio.read - call the object ds</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Read the file Oresund_ts.dfs0 mikeio.read - call the object ds
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># print the number of items</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># print the number of items
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get the data from the first item to a variable da </span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># get the data from the first item to a variable da 
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># print da</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># print da
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Change the name to &quot;Viken&quot; by setting the .name property of the data array (da) da.name = &quot;New name&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Change the name to &quot;Viken&quot; by setting the .name property of the data array (da) da.name = &quot;New name&quot;
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot the datarray to check that the new name is indeed &quot;Viken&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># plot the datarray to check that the new name is indeed &quot;Viken&quot;
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># convert the dataset (ds) to a dataframe called df</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># convert the dataset (ds) to a dataframe called df
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot df</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># plot df
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>ds.plot()
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">ds</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 
 <span class="ne">NameError</span>: name &#39;ds&#39; is not defined
@@ -644,42 +649,42 @@ title="Print to PDF"
 <h2>F.2 Write modified dfs0<a class="headerlink" href="#f-2-write-modified-dfs0" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#print(ds)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>#print(ds)
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#da.mean()     # mean before correction</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>#da.mean()     # mean before correction
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#da.plot()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>#da.plot()
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># add 0.5m to the data</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># add 0.5m to the data
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#da.mean()     # mean after correction</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>#da.mean()     # mean after correction
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># write the ds to a new file called &quot;Viken_ts_corrected.dfs0&quot; with da.to_dfs</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># write the ds to a new file called &quot;Viken_ts_corrected.dfs0&quot; with da.to_dfs
 </pre></div>
 </div>
 </div>

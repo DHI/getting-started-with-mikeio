@@ -314,6 +314,11 @@ const thebe_selector_output = ".output, .cell_output"
    Statistics
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="exercises/final_assignment.html">
+   Final assignment
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -617,9 +622,9 @@ title="Print to PDF"
 <p>See <a class="reference external" href="https://dhi.github.io/mikeio/dfs0.html">Dfs0 in MIKE IO Documentation</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">mikeio</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import numpy as np
+import pandas as pd
+import mikeio
 </pre></div>
 </div>
 </div>
@@ -628,8 +633,8 @@ title="Print to PDF"
 <h2>Reading data<a class="headerlink" href="#reading-data" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">&quot;data/TemporalEqTime.dfs0&quot;</span><span class="p">)</span>
-<span class="n">ds</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>ds = mikeio.read(&quot;data/TemporalEqTime.dfs0&quot;)
+ds
 </pre></div>
 </div>
 </div>
@@ -646,7 +651,7 @@ items:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">ds</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>type(ds)
 </pre></div>
 </div>
 </div>
@@ -660,8 +665,8 @@ items:
 A simple timeseries dataset can easily be converted to a Pandas DataFrame.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span> <span class="c1"># convert dataset to dataframe</span>
-<span class="n">df</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df = ds.to_dataframe() # convert dataset to dataframe
+df
 </pre></div>
 </div>
 </div>
@@ -748,8 +753,8 @@ A simple timeseries dataset can easily be converted to a Pandas DataFrame.</p>
 <h2>Writing data<a class="headerlink" href="#writing-data" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/naples_fl.csv&quot;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">df</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df = pd.read_csv(&quot;data/naples_fl.csv&quot;, skiprows=1, parse_dates=True, index_col=0)
+df
 </pre></div>
 </div>
 </div>
@@ -897,7 +902,7 @@ A simple timeseries dataset can easily be converted to a Pandas DataFrame.</p>
 <p>Writing a Dfs0 from a dataframe can be done like this (after importing mikeio).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_dfs0</span><span class="p">(</span><span class="s2">&quot;raw.dfs0&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df.to_dfs0(&quot;raw.dfs0&quot;)
 </pre></div>
 </div>
 </div>
@@ -905,26 +910,26 @@ A simple timeseries dataset can easily be converted to a Pandas DataFrame.</p>
 <p>You will probably have the need to parse certain a specific data formats many times, then it is a good idea to create a function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">read_ncei_obs</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Parse Meteo observations from NCEI&quot;&quot;&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def read_ncei_obs(filename):
+    &quot;&quot;&quot;Parse Meteo observations from NCEI&quot;&quot;&quot;
     
-    <span class="n">sel_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;temperature_avg_f&#39;</span><span class="p">,</span><span class="s1">&#39;temperature_max_f&#39;</span><span class="p">,</span><span class="s1">&#39;temperature_min_f&#39;</span><span class="p">,</span> <span class="s1">&#39;prec_in&#39;</span><span class="p">]</span>
-    <span class="n">df</span> <span class="o">=</span> <span class="p">(</span>
-        <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/naples_fl.csv&quot;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-           <span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;TAVG (Degrees Fahrenheit)&#39;</span><span class="p">:</span> <span class="s1">&#39;temperature_avg_f&#39;</span><span class="p">,</span>
-                            <span class="s1">&#39;TMAX (Degrees Fahrenheit)&#39;</span><span class="p">:</span> <span class="s1">&#39;temperature_max_f&#39;</span><span class="p">,</span>
-                            <span class="s1">&#39;TMIN (Degrees Fahrenheit)&#39;</span><span class="p">:</span> <span class="s1">&#39;temperature_min_f&#39;</span><span class="p">,</span>
-                            <span class="s1">&#39;PRCP (Inches)&#39;</span><span class="p">:</span> <span class="s1">&#39;prec_in&#39;</span><span class="p">})</span>
-    <span class="p">)[</span><span class="n">sel_cols</span><span class="p">]</span>
-    <span class="k">return</span> <span class="n">df</span>
+    sel_cols = [&#39;temperature_avg_f&#39;,&#39;temperature_max_f&#39;,&#39;temperature_min_f&#39;, &#39;prec_in&#39;]
+    df = (
+        pd.read_csv(&quot;data/naples_fl.csv&quot;, skiprows=1, parse_dates=True, index_col=0)
+           .rename(columns={&#39;TAVG (Degrees Fahrenheit)&#39;: &#39;temperature_avg_f&#39;,
+                            &#39;TMAX (Degrees Fahrenheit)&#39;: &#39;temperature_max_f&#39;,
+                            &#39;TMIN (Degrees Fahrenheit)&#39;: &#39;temperature_min_f&#39;,
+                            &#39;PRCP (Inches)&#39;: &#39;prec_in&#39;})
+    )[sel_cols]
+    return df
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">read_ncei_obs</span><span class="p">(</span><span class="s2">&quot;data/naples_fl.csv&quot;</span><span class="p">)</span>
-<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df = read_ncei_obs(&quot;data/naples_fl.csv&quot;)
+df.head()
 </pre></div>
 </div>
 </div>
@@ -1002,7 +1007,7 @@ A simple timeseries dataset can easily be converted to a Pandas DataFrame.</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df.tail()
 </pre></div>
 </div>
 </div>
@@ -1080,7 +1085,7 @@ A simple timeseries dataset can easily be converted to a Pandas DataFrame.</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">shape</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df.shape
 </pre></div>
 </div>
 </div>
@@ -1092,9 +1097,9 @@ A simple timeseries dataset can easily be converted to a Pandas DataFrame.</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;temperature_max_c&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;temperature_max_f&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="mi">32</span><span class="p">)</span><span class="o">/</span><span class="mf">1.8</span>
-<span class="n">df</span><span class="p">[</span><span class="s1">&#39;prec_mm&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;prec_in&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mf">25.4</span>
-<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df[&#39;temperature_max_c&#39;] = (df[&#39;temperature_max_f&#39;] - 32)/1.8
+df[&#39;prec_mm&#39;] = df[&#39;prec_in&#39;] * 25.4
+df.head()
 </pre></div>
 </div>
 </div>
@@ -1186,7 +1191,7 @@ A simple timeseries dataset can easily be converted to a Pandas DataFrame.</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;2021&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df.loc[&#39;2021&#39;].plot()
 </pre></div>
 </div>
 </div>
@@ -1200,7 +1205,7 @@ A simple timeseries dataset can easily be converted to a Pandas DataFrame.</p>
 <p>The simplest way to create a dfs0 file is to use the <code class="docutils literal notranslate"><span class="pre">to_dfs0</span></code> method on a Pandas dataframe.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_dfs0</span><span class="p">(</span><span class="s2">&quot;output/naples_fl.dfs0&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df.to_dfs0(&quot;output/naples_fl.dfs0&quot;)
 </pre></div>
 </div>
 </div>
@@ -1208,8 +1213,8 @@ A simple timeseries dataset can easily be converted to a Pandas DataFrame.</p>
 <p>Let’s read it back in again…</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">saved_ds</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">&quot;output/naples_fl.dfs0&quot;</span><span class="p">)</span>
-<span class="n">saved_ds</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>saved_ds = mikeio.read(&quot;output/naples_fl.dfs0&quot;)
+saved_ds
 </pre></div>
 </div>
 </div>
@@ -1231,8 +1236,8 @@ items:
 <p>By default, EUM types are undefined. But it can be specified.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df2</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;temperature_max_c&#39;</span><span class="p">,</span> <span class="s1">&#39;prec_in&#39;</span><span class="p">]]</span>
-<span class="n">df2</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df2 = df[[&#39;temperature_max_c&#39;, &#39;prec_in&#39;]]
+df2.head()
 </pre></div>
 </div>
 </div>
@@ -1296,20 +1301,20 @@ items:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">mikeio</span> <span class="kn">import</span> <span class="n">ItemInfo</span><span class="p">,</span> <span class="n">EUMType</span><span class="p">,</span> <span class="n">EUMUnit</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from mikeio import ItemInfo, EUMType, EUMUnit
 
-<span class="n">df2</span><span class="o">.</span><span class="n">to_dfs0</span><span class="p">(</span><span class="s2">&quot;output/naples_fl_eum.dfs0&quot;</span><span class="p">,</span>
-            <span class="n">items</span><span class="o">=</span><span class="p">[</span>
-                   <span class="n">ItemInfo</span><span class="p">(</span><span class="n">EUMType</span><span class="o">.</span><span class="n">Temperature</span><span class="p">),</span>
-                   <span class="n">ItemInfo</span><span class="p">(</span><span class="n">EUMType</span><span class="o">.</span><span class="n">Precipitation_Rate</span><span class="p">,</span> <span class="n">EUMUnit</span><span class="o">.</span><span class="n">inch_per_day</span><span class="p">)]</span>
-           <span class="p">)</span>
+df2.to_dfs0(&quot;output/naples_fl_eum.dfs0&quot;,
+            items=[
+                   ItemInfo(EUMType.Temperature),
+                   ItemInfo(EUMType.Precipitation_Rate, EUMUnit.inch_per_day)]
+           )
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mikeio</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">&quot;output/naples_fl_eum.dfs0&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>mikeio.read(&quot;output/naples_fl_eum.dfs0&quot;)
 </pre></div>
 </div>
 </div>
@@ -1329,9 +1334,9 @@ items:
 <h2>EUM<a class="headerlink" href="#eum" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">mikeio.eum</span> <span class="kn">import</span> <span class="n">ItemInfo</span><span class="p">,</span> <span class="n">EUMType</span><span class="p">,</span> <span class="n">EUMUnit</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from mikeio.eum import ItemInfo, EUMType, EUMUnit
 
-<span class="n">EUMType</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">&quot;wind&quot;</span><span class="p">)</span>
+EUMType.search(&quot;wind&quot;)
 </pre></div>
 </div>
 </div>
@@ -1348,7 +1353,7 @@ items:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">EUMType</span><span class="o">.</span><span class="n">Wind_speed</span><span class="o">.</span><span class="n">units</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>EUMType.Wind_speed.units
 </pre></div>
 </div>
 </div>
@@ -1363,7 +1368,7 @@ items:
 <p>What is the best EUM Type for “peak wave direction”? What is the default unit?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># insert your code here</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># insert your code here
 </pre></div>
 </div>
 </div>
@@ -1374,8 +1379,8 @@ items:
 <h2>Precipitation data<a class="headerlink" href="#precipitation-data" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/precipitation.csv&quot;</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df = pd.read_csv(&quot;data/precipitation.csv&quot;, parse_dates=True, index_col=0)
+df.head()
 </pre></div>
 </div>
 </div>
@@ -1489,8 +1494,8 @@ items:
 <p>Using a <a class="reference external" href="https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions">list comprehension</a> is a compact way to manipulate data similar to using a for loop.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">squares</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
-<span class="n">squares</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>squares = [x**2 for x in range(10)]
+squares
 </pre></div>
 </div>
 </div>
@@ -1502,11 +1507,11 @@ items:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">mikecore.DfsFile</span> <span class="kn">import</span> <span class="n">DataValueType</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from mikecore.DfsFile import DataValueType
 
-<span class="n">items</span> <span class="o">=</span> <span class="p">[</span><span class="n">ItemInfo</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">EUMType</span><span class="o">.</span><span class="n">Precipitation_Rate</span><span class="p">,</span> <span class="n">EUMUnit</span><span class="o">.</span><span class="n">mm_per_hour</span><span class="p">,</span> <span class="n">data_value_type</span><span class="o">=</span><span class="n">DataValueType</span><span class="o">.</span><span class="n">MeanStepBackward</span><span class="p">)</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span>
+items = [ItemInfo(name, EUMType.Precipitation_Rate, EUMUnit.mm_per_hour, data_value_type=DataValueType.MeanStepBackward) for name in df.columns]
 
-<span class="n">items</span>
+items
 </pre></div>
 </div>
 </div>
@@ -1526,21 +1531,21 @@ items:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">string</span> <span class="kn">import</span> <span class="n">ascii_uppercase</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from string import ascii_uppercase
 
-<span class="k">def</span> <span class="nf">create_prec_item</span><span class="p">(</span><span class="n">raw_name</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Create a item info with clean short name and correct EUM&quot;&quot;&quot;</span>
+def create_prec_item(raw_name):
+    &quot;&quot;&quot;Create a item info with clean short name and correct EUM&quot;&quot;&quot;
     
-    <span class="n">idx</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">raw_name</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">-</span> <span class="mi">1</span>
+    idx = int(raw_name[-1]) - 1
     
-    <span class="n">name</span> <span class="o">=</span> <span class="p">(</span><span class="n">raw_name</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;Precipitation &quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-                     <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="s2">&quot;_&quot;</span><span class="p">)</span>
-                     <span class="o">.</span><span class="n">capitalize</span><span class="p">()</span>
-                     <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">raw_name</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">ascii_uppercase</span><span class="p">[</span><span class="n">idx</span><span class="p">])</span>
-           <span class="p">)</span>
+    name = (raw_name.replace(&quot;Precipitation &quot;,&quot;&quot;)
+                     .replace(&quot; &quot;, &quot;_&quot;)
+                     .capitalize()
+                     .replace(raw_name[-1], ascii_uppercase[idx])
+           )
     
-    <span class="n">iteminfo</span> <span class="o">=</span> <span class="n">ItemInfo</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">EUMType</span><span class="o">.</span><span class="n">Precipitation_Rate</span><span class="p">,</span> <span class="n">EUMUnit</span><span class="o">.</span><span class="n">mm_per_hour</span><span class="p">,</span> <span class="n">data_value_type</span><span class="o">=</span><span class="n">DataValueType</span><span class="o">.</span><span class="n">MeanStepBackward</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">iteminfo</span>
+    iteminfo = ItemInfo(name, EUMType.Precipitation_Rate, EUMUnit.mm_per_hour, data_value_type=DataValueType.MeanStepBackward)
+    return iteminfo
     
 </pre></div>
 </div>
@@ -1548,7 +1553,7 @@ items:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">create_prec_item</span><span class="p">(</span><span class="s2">&quot;Precipitation station 9&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>create_prec_item(&quot;Precipitation station 9&quot;)
 </pre></div>
 </div>
 </div>
@@ -1560,9 +1565,9 @@ items:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">items</span> <span class="o">=</span> <span class="p">[</span><span class="n">create_prec_item</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>items = [create_prec_item(name) for name in df.columns]
 
-<span class="n">items</span>
+items
 </pre></div>
 </div>
 </div>
@@ -1582,7 +1587,7 @@ items:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">items</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">data_value_type</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>items[0].data_value_type
 </pre></div>
 </div>
 </div>
@@ -1594,7 +1599,7 @@ items:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_dfs0</span><span class="p">(</span><span class="s2">&quot;output/precipitation.dfs0&quot;</span><span class="p">,</span> <span class="n">items</span><span class="o">=</span><span class="n">items</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df.to_dfs0(&quot;output/precipitation.dfs0&quot;, items=items)
 </pre></div>
 </div>
 </div>
@@ -1604,8 +1609,8 @@ items:
 <h2>Selecting items<a class="headerlink" href="#selecting-items" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">&quot;output/precipitation.dfs0&quot;</span><span class="p">,</span> <span class="n">items</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span> <span class="c1"># select item by item number (starting from zero)</span>
-<span class="n">ds</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>ds = mikeio.read(&quot;output/precipitation.dfs0&quot;, items=[1,4]) # select item by item number (starting from zero)
+ds
 </pre></div>
 </div>
 </div>
@@ -1622,8 +1627,8 @@ items:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">&quot;output/precipitation.dfs0&quot;</span><span class="p">,</span> <span class="n">items</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Station_E&quot;</span><span class="p">,</span><span class="s2">&quot;Station_B&quot;</span><span class="p">])</span> <span class="c1"># or by name (in the order you like it)</span>
-<span class="n">ds</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>ds = mikeio.read(&quot;output/precipitation.dfs0&quot;, items=[&quot;Station_E&quot;,&quot;Station_B&quot;]) # or by name (in the order you like it)
+ds
 </pre></div>
 </div>
 </div>
@@ -1643,7 +1648,7 @@ items:
 <p>Read all items to a variable ds. Select “Station_C” - which different ways can you select this item?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># insert your code here</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># insert your code here
 </pre></div>
 </div>
 </div>

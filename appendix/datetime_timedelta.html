@@ -52,7 +52,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="Statistics" href="../statistics.html" />
+    <link rel="prev" title="Final assignment" href="../exercises/final_assignment.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -311,6 +311,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="../statistics.html">
    Statistics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../exercises/final_assignment.html">
+   Final assignment
   </a>
  </li>
 </ul>
@@ -651,9 +656,9 @@ title="Print to PDF"
 <p>Our general advice: <em>use pandas whenever you can</em>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timedelta</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from datetime import datetime, timedelta
+import numpy as np
+import pandas as pd
 </pre></div>
 </div>
 </div>
@@ -673,8 +678,8 @@ title="Print to PDF"
 <p>The build-in datetime representation is quite simple.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dt_dt</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2018</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">19</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">dt_dt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>dt_dt = datetime(2018,1,1,19,3,1)
+dt_dt
 </pre></div>
 </div>
 </div>
@@ -690,8 +695,8 @@ title="Print to PDF"
 <p>np.datetime64 is essentially an integer (np.int64) representing the time since <a class="reference external" href="https://en.wikipedia.org/wiki/Unix_time">epoch time</a> 1970-01-01 00:00:00 in a specified <strong>unit</strong> e.g. days, seconds or nano-seconds.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dt_np</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">datetime64</span><span class="p">(</span><span class="s1">&#39;2018-01-01 19:03:01&#39;</span><span class="p">)</span>  <span class="c1"># implicitly [s]</span>
-<span class="n">dt_np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>dt_np = np.datetime64(&#39;2018-01-01 19:03:01&#39;)  # implicitly [s]
+dt_np
 </pre></div>
 </div>
 </div>
@@ -703,7 +708,7 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">(</span><span class="n">dt_np</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>np.int64(dt_np)
 </pre></div>
 </div>
 </div>
@@ -715,7 +720,7 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">datetime64</span><span class="p">(</span><span class="s1">&#39;1970-01-01 00:00:00&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">(</span><span class="n">dt_np</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>np.datetime64(&#39;1970-01-01 00:00:00&#39;) + np.int64(dt_np)
 </pre></div>
 </div>
 </div>
@@ -727,7 +732,7 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dt_np</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">name</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>dt_np.dtype.name
 </pre></div>
 </div>
 </div>
@@ -739,7 +744,7 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dt_np</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">datetime</span><span class="p">)</span>   <span class="c1"># np.datetime64 -&gt; datetime.datetime</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>dt_np.astype(datetime)   # np.datetime64 -&gt; datetime.datetime
 </pre></div>
 </div>
 </div>
@@ -755,8 +760,8 @@ title="Print to PDF"
 <p>pd.Timestamp uses np.datetime64[ns] under the hood. Pandas is good at recognizing various string representations of datetimes:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dt_pd</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s2">&quot;2018/8/1&quot;</span><span class="p">)</span>    <span class="c1"># equivalent to pd.to_datetime()</span>
-<span class="n">dt_pd</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>dt_pd = pd.Timestamp(&quot;2018/8/1&quot;)    # equivalent to pd.to_datetime()
+dt_pd
 </pre></div>
 </div>
 </div>
@@ -768,7 +773,7 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dt_pd</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>         <span class="c1"># pd.Timestamp -&gt; np.datetime64</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>dt_pd.to_numpy()         # pd.Timestamp -&gt; np.datetime64
 </pre></div>
 </div>
 </div>
@@ -780,7 +785,7 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dt_pd</span><span class="o">.</span><span class="n">to_pydatetime</span><span class="p">()</span>    <span class="c1"># pd.Timestamp -&gt; datetime.datetime</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>dt_pd.to_pydatetime()    # pd.Timestamp -&gt; datetime.datetime
 </pre></div>
 </div>
 </div>
@@ -792,7 +797,7 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="n">dt_np</span><span class="p">)</span>      <span class="c1"># np.datetime64 -&gt; pd.Timestamp</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>pd.Timestamp(dt_np)      # np.datetime64 -&gt; pd.Timestamp
 </pre></div>
 </div>
 </div>
@@ -804,7 +809,7 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="n">dt_dt</span><span class="p">)</span>      <span class="c1"># datetime.datetime -&gt; pd.Timestamp</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>pd.Timestamp(dt_dt)      # datetime.datetime -&gt; pd.Timestamp
 </pre></div>
 </div>
 </div>
@@ -830,8 +835,8 @@ title="Print to PDF"
 <p>The Python build-in way of working with differences between two datetimes.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">del_dt</span> <span class="o">=</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
-<span class="n">del_dt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>del_dt = timedelta(days=6)
+del_dt
 </pre></div>
 </div>
 </div>
@@ -843,7 +848,7 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dt_dt</span> <span class="o">+</span> <span class="n">del_dt</span>    <span class="c1"># datetime.datetime + datetime.timedelta</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>dt_dt + del_dt    # datetime.datetime + datetime.timedelta
 </pre></div>
 </div>
 </div>
@@ -855,8 +860,8 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dt_dt2</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2018</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">dt_dt2</span> <span class="o">-</span> <span class="n">dt_dt</span>    <span class="c1"># datetime.datetime - datetime.datetime  </span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>dt_dt2 = datetime(2018,2,3,11,3,1)
+dt_dt2 - dt_dt    # datetime.datetime - datetime.datetime  
 </pre></div>
 </div>
 </div>
@@ -872,9 +877,9 @@ title="Print to PDF"
 <p>np.timedelta64 is an int64 in a specific unit e.g. seconds or nanoseconds.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dt_np2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">datetime64</span><span class="p">(</span><span class="s1">&#39;2018-02-02 16:21:11&#39;</span><span class="p">)</span>
-<span class="n">del_np</span> <span class="o">=</span> <span class="n">dt_np2</span> <span class="o">-</span> <span class="n">dt_np</span>     <span class="c1"># np.datetime64 - np.datetime64</span>
-<span class="n">del_np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>dt_np2 = np.datetime64(&#39;2018-02-02 16:21:11&#39;)
+del_np = dt_np2 - dt_np     # np.datetime64 - np.datetime64
+del_np
 </pre></div>
 </div>
 </div>
@@ -886,7 +891,7 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dt_np</span> <span class="o">+</span> <span class="n">del_np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>dt_np + del_np
 </pre></div>
 </div>
 </div>
@@ -898,7 +903,7 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">(</span><span class="n">del_np</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">dtype</span><span class="p">(</span><span class="n">del_np</span><span class="p">)</span><span class="o">.</span><span class="n">name</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>np.int64(del_np), np.dtype(del_np).name
 </pre></div>
 </div>
 </div>
@@ -910,7 +915,7 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">del_np</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">timedelta</span><span class="p">)</span>    <span class="c1"># np.timedelta64 -&gt; datetime.timedelta</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>del_np.astype(timedelta)    # np.timedelta64 -&gt; datetime.timedelta
 </pre></div>
 </div>
 </div>
@@ -925,9 +930,9 @@ title="Print to PDF"
 <h3>Pandas: pd.Timedelta<a class="headerlink" href="#pandas-pd-timedelta" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dt_pd2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s2">&quot;2018/8/4 23:01:03&quot;</span><span class="p">)</span>
-<span class="n">del_pd</span> <span class="o">=</span> <span class="n">dt_pd2</span> <span class="o">-</span> <span class="n">dt_pd</span>     <span class="c1"># pd.Timedelta - pd.Timedelta</span>
-<span class="n">del_pd</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>dt_pd2 = pd.Timestamp(&quot;2018/8/4 23:01:03&quot;)
+del_pd = dt_pd2 - dt_pd     # pd.Timedelta - pd.Timedelta
+del_pd
 </pre></div>
 </div>
 </div>
@@ -939,7 +944,7 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dt_pd</span> <span class="o">+</span> <span class="n">del_pd</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>dt_pd + del_pd
 </pre></div>
 </div>
 </div>
@@ -951,7 +956,7 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">del_pd</span><span class="o">.</span><span class="n">total_seconds</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>del_pd.total_seconds()
 </pre></div>
 </div>
 </div>
@@ -963,8 +968,8 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Timedelta</span><span class="p">(</span><span class="n">del_dt</span><span class="p">))</span>     <span class="c1"># datetime.timedelta -&gt; pd.Timedelta</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Timedelta</span><span class="p">(</span><span class="n">del_np</span><span class="p">))</span>     <span class="c1"># np.datetime64 -&gt; pd.Timedelta</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(pd.Timedelta(del_dt))     # datetime.timedelta -&gt; pd.Timedelta
+print(pd.Timedelta(del_np))     # np.datetime64 -&gt; pd.Timedelta
 </pre></div>
 </div>
 </div>
@@ -977,8 +982,8 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">del_pd</span><span class="o">.</span><span class="n">to_pytimedelta</span><span class="p">())</span>  <span class="c1"># pd.Timedelta -&gt; datetime.timedelta</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">del_pd</span><span class="o">.</span><span class="n">to_timedelta64</span><span class="p">())</span>  <span class="c1"># pd.Timedelta -&gt; np.timedelta64</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(del_pd.to_pytimedelta())  # pd.Timedelta -&gt; datetime.timedelta
+print(del_pd.to_timedelta64())  # pd.Timedelta -&gt; np.timedelta64
 </pre></div>
 </div>
 </div>
@@ -996,8 +1001,8 @@ title="Print to PDF"
 <p>Pandas is very powerful for vectors of datetimes. Use the pd.date_range() method for creating a pd.DatetimeIndex</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dti</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s1">&#39;2018&#39;</span><span class="p">,</span> <span class="n">periods</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;5D&#39;</span><span class="p">)</span>
-<span class="n">dti</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>dti = pd.date_range(&#39;2018&#39;, periods=8, freq=&#39;5D&#39;)
+dti
 </pre></div>
 </div>
 </div>
@@ -1011,8 +1016,8 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tdi</span> <span class="o">=</span> <span class="n">dti</span> <span class="o">-</span> <span class="n">dti</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">tdi</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>tdi = dti - dti[0]
+tdi
 </pre></div>
 </div>
 </div>
@@ -1026,7 +1031,7 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tdi</span><span class="o">.</span><span class="n">total_seconds</span><span class="p">()</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>tdi.total_seconds().to_numpy()
 </pre></div>
 </div>
 </div>
@@ -1041,8 +1046,8 @@ title="Print to PDF"
 <h3>Slicing with DatetimeIndex<a class="headerlink" href="#slicing-with-datetimeindex" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="n">dti</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;one&#39;</span><span class="p">])</span>
-<span class="n">df</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df = pd.DataFrame(np.ones(8), index=dti, columns=[&#39;one&#39;])
+df
 </pre></div>
 </div>
 </div>
@@ -1107,7 +1112,7 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;2018-01-05&quot;</span><span class="p">:</span><span class="s2">&quot;2018-01-21&quot;</span><span class="p">]</span>  <span class="c1"># notice that end of slice is included!!!</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df.loc[&quot;2018-01-05&quot;:&quot;2018-01-21&quot;]  # notice that end of slice is included!!!
 </pre></div>
 </div>
 </div>
@@ -1156,7 +1161,7 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;2018-01-26&quot;</span><span class="p">:]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df.loc[&quot;2018-01-26&quot;:]
 </pre></div>
 </div>
 </div>
@@ -1201,7 +1206,7 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;2018-02&quot;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df.loc[&quot;2018-02&quot;]
 </pre></div>
 </div>
 </div>
@@ -1267,11 +1272,11 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="../statistics.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="../exercises/final_assignment.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Statistics</p>
+            <p class="prev-next-title">Final assignment</p>
         </div>
     </a>
 </div>

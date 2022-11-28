@@ -314,6 +314,11 @@ const thebe_selector_output = ".output, .cell_output"
    Statistics
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="final_assignment.html">
+   Final assignment
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -559,8 +564,8 @@ title="Print to PDF"
 <p>2021-8-24</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import pandas as pd
+import numpy as np
 </pre></div>
 </div>
 </div>
@@ -569,46 +574,46 @@ title="Print to PDF"
 <h2>D.1 Create DataFrame from dict<a class="headerlink" href="#d-1-create-dataframe-from-dict" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">medals</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Country&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;China&#39;</span><span class="p">,</span><span class="s1">&#39;New Zealand&#39;</span><span class="p">,</span><span class="s1">&#39;France&#39;</span><span class="p">],</span>
-          <span class="s1">&#39;Gold&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">38</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span>
-          <span class="s1">&#39;Silver&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">32</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">12</span><span class="p">],</span>
-          <span class="s1">&#39;Bronze&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">18</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">11</span><span class="p">],</span>
-          <span class="s1">&#39;Population&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1_439_323_776</span><span class="p">,</span> <span class="mi">4_822_233</span><span class="p">,</span> <span class="mi">65_273_511</span><span class="p">]}</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>medals = {&#39;Country&#39;: [&#39;China&#39;,&#39;New Zealand&#39;,&#39;France&#39;],
+          &#39;Gold&#39;: [38, 7, 10],
+          &#39;Silver&#39;: [32, 6, 12],
+          &#39;Bronze&#39;: [18, 7, 11],
+          &#39;Population&#39;: [1_439_323_776, 4_822_233, 65_273_511]}
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create a DataFrame df from the medals dict, print it</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># create a DataFrame df from the medals dict, print it
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># set the index to &#39;Country&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># set the index to &#39;Country&#39;
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># add a new column &#39;Total&#39; with total number of medals per country</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># add a new column &#39;Total&#39; with total number of medals per country
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># add a new column &#39;Population_per_medal&#39; (convert to np.int32)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># add a new column &#39;Population_per_medal&#39; (convert to np.int32)
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># sort the DataFrame by &quot;Population_per_medal&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># sort the DataFrame by &quot;Population_per_medal&quot;
 </pre></div>
 </div>
 </div>
@@ -618,36 +623,36 @@ title="Print to PDF"
 <h2>D.2 Read DataFrame from csv/xlsx<a class="headerlink" href="#d-2-read-dataframe-from-csv-xlsx" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># read olympic-medals.csv with pd.read_csv() using index_col=0 as argument</span>
-<span class="c1"># call the new DataFrame df2</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># read olympic-medals.csv with pd.read_csv() using index_col=0 as argument
+# call the new DataFrame df2
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># print the first 4 rows</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># print the first 4 rows
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get the row of &quot;Denmark&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># get the row of &quot;Denmark&quot;
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># sort the teams alphabetically</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># sort the teams alphabetically
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get the total number of Silver medals</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># get the total number of Silver medals
 </pre></div>
 </div>
 </div>

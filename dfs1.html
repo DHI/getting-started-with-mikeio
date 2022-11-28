@@ -314,6 +314,11 @@ const thebe_selector_output = ".output, .cell_output"
    Statistics
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="exercises/final_assignment.html">
+   Final assignment
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -582,15 +587,15 @@ title="Print to PDF"
 <p>See <a class="reference external" href="https://docs.mikepoweredbydhi.com/core_libraries/dfs/dfs-file-system/">DFS - Reference manual</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">mikeio</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import mikeio
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">&quot;data/waterlevel_north.dfs1&quot;</span><span class="p">)</span>
-<span class="n">ds</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>ds = mikeio.read(&quot;data/waterlevel_north.dfs1&quot;)
+ds
 </pre></div>
 </div>
 </div>
@@ -607,7 +612,7 @@ items:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span><span class="o">.</span><span class="n">geometry</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>ds.geometry
 </pre></div>
 </div>
 </div>
@@ -627,8 +632,8 @@ x: [0, 8800] (nx=2, dx=8800)
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">da</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">North_WL</span>
-<span class="n">da</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>da = ds.North_WL
+da
 </pre></div>
 </div>
 </div>
@@ -649,7 +654,7 @@ geometry: Grid1D (n=2, dx=8800)
 <p>The default plot show time on the vertical axis and space on the horizontal axis since dfs1 are often used to represent horizontal variations along an open boundary.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">da</span><span class="o">.</span><span class="n">plot</span><span class="p">();</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>da.plot();
 </pre></div>
 </div>
 </div>
@@ -660,7 +665,7 @@ geometry: Grid1D (n=2, dx=8800)
 <p>Fort this example, with only a few nodes on the spatial axis, it makes more sense to visualize the data as individual lines in a timeseries plot.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">da</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">timeseries</span><span class="p">();</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>da.plot.timeseries();
 </pre></div>
 </div>
 </div>
@@ -680,7 +685,7 @@ geometry: Grid1D (n=2, dx=8800)
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">da</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;First&quot;</span><span class="p">);</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>da.isel(x=0).plot(title=&quot;First&quot;);
 </pre></div>
 </div>
 </div>
@@ -690,7 +695,7 @@ geometry: Grid1D (n=2, dx=8800)
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">da</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">x</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Last&quot;</span><span class="p">);</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>da.isel(x=-1).plot(title=&quot;Last&quot;);
 </pre></div>
 </div>
 </div>
@@ -700,7 +705,7 @@ geometry: Grid1D (n=2, dx=8800)
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">da</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">8800</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Last (x=8800)&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>da.sel(x=8800).plot(title=&quot;Last (x=8800)&quot;)
 </pre></div>
 </div>
 </div>
@@ -717,7 +722,7 @@ geometry: Grid1D (n=2, dx=8800)
 <p>Creating a new dataarray in the dataset based on an existing dataarray is easy.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span><span class="p">[</span><span class="s2">&quot;North WL calibrated&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">da</span> <span class="o">+</span> <span class="mf">0.1</span> <span class="c1"># add 0.1 m to the original data</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>ds[&quot;North WL calibrated&quot;] = da + 0.1 # add 0.1 m to the original data
 </pre></div>
 </div>
 </div>
@@ -728,7 +733,7 @@ geometry: Grid1D (n=2, dx=8800)
 <p>After subsetting into a single spatial point the result no longer has any spatial dimension and has become a simple timeseries which can be saved as a dfs0 file.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>ds.isel(x=0)
 </pre></div>
 </div>
 </div>
@@ -745,7 +750,7 @@ items:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">geometry</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>ds.isel(x=0).geometry
 </pre></div>
 </div>
 </div>
@@ -757,14 +762,14 @@ items:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">to_dfs</span><span class="p">(</span><span class="s2">&quot;random_0.dfs0&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>ds.isel(x=0).to_dfs(&quot;random_0.dfs0&quot;)
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mikeio</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">&quot;random_0.dfs0&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">();</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>mikeio.read(&quot;random_0.dfs0&quot;).plot();
 </pre></div>
 </div>
 </div>

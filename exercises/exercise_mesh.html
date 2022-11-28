@@ -314,6 +314,11 @@ const thebe_selector_output = ".output, .cell_output"
    Statistics
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="final_assignment.html">
+   Final assignment
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -558,7 +563,7 @@ title="Print to PDF"
 <h1>Exercise: Mesh<a class="headerlink" href="#exercise-mesh" title="Permalink to this headline">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import the Mesh class</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># import the Mesh class
 </pre></div>
 </div>
 </div>
@@ -567,35 +572,35 @@ title="Print to PDF"
 <h2>A simple mesh<a class="headerlink" href="#a-simple-mesh" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fn</span> <span class="o">=</span> <span class="s2">&quot;../data/three_elements.mesh&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>fn = &quot;../data/three_elements.mesh&quot;
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># load the mesh to a variable msh</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># load the mesh to a variable msh
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># determine the number of nodes</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># determine the number of nodes
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># determine the cell center coordinates for the three elements</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># determine the cell center coordinates for the three elements
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot the mesh</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># plot the mesh
 </pre></div>
 </div>
 </div>
@@ -605,43 +610,43 @@ title="Print to PDF"
 <h2>A bigger mesh<a class="headerlink" href="#a-bigger-mesh" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fn</span> <span class="o">=</span> <span class="s2">&quot;../data/southern_north_sea.mesh&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>fn = &quot;../data/southern_north_sea.mesh&quot;
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># load the mesh to a variable msh</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># load the mesh to a variable msh
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot the mesh boundary</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># plot the mesh boundary
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># check if the point p1 is inside the mesh</span>
-<span class="n">p1</span> <span class="o">=</span> <span class="p">[</span><span class="mf">4.8674</span><span class="p">,</span> <span class="mf">53.2126</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># check if the point p1 is inside the mesh
+p1 = [4.8674, 53.2126]
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># find the nearest element to p1 (both id and coordinates)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># find the nearest element to p1 (both id and coordinates)
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># offset the z values by 0.45 and save the mesh to a new file (hint: msh.zn = znew)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># offset the z values by 0.45 and save the mesh to a new file (hint: msh.zn = znew)
 </pre></div>
 </div>
 </div>

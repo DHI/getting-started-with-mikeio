@@ -314,6 +314,11 @@ const thebe_selector_output = ".output, .cell_output"
    Statistics
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="exercises/final_assignment.html">
+   Final assignment
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -612,24 +617,24 @@ title="Print to PDF"
 <h1>Pandas<a class="headerlink" href="#pandas" title="Permalink to this headline">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import pandas as pd
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cities</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Copenhagen&quot;</span><span class="p">,</span> <span class="s2">&quot;London&quot;</span><span class="p">],</span>
-          <span class="s1">&#39;population&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">11.2</span><span class="p">],</span>
-          <span class="s1">&#39;dist_to_coast&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">2.3</span><span class="p">]}</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>cities = {&#39;name&#39;: [&quot;Copenhagen&quot;, &quot;London&quot;],
+          &#39;population&#39;: [1.5, 11.2],
+          &#39;dist_to_coast&#39;: [0.0, 2.3]}
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">cities</span><span class="p">)</span>
-<span class="n">df</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df = pd.DataFrame(cities)
+df
 </pre></div>
 </div>
 </div>
@@ -676,7 +681,7 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">name</span><span class="o">==</span><span class="s1">&#39;London&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df[df.name==&#39;London&#39;]
 </pre></div>
 </div>
 </div>
@@ -717,7 +722,7 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">population</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df.population.mean()
 </pre></div>
 </div>
 </div>
@@ -731,7 +736,7 @@ title="Print to PDF"
 <h2>Get row by number<a class="headerlink" href="#get-row-by-number" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df.iloc[0]
 </pre></div>
 </div>
 </div>
@@ -746,7 +751,7 @@ Name: 0, dtype: object
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df.iloc[1]
 </pre></div>
 </div>
 </div>
@@ -764,8 +769,8 @@ Name: 1, dtype: object
 <h2>Get row by name (named index)<a class="headerlink" href="#get-row-by-name-named-index" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)</span>
-<span class="n">df</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df = df.set_index(&#39;name&#39;)
+df
 </pre></div>
 </div>
 </div>
@@ -814,7 +819,7 @@ Name: 1, dtype: object
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;London&quot;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df.loc[&quot;London&quot;]
 </pre></div>
 </div>
 </div>
@@ -828,7 +833,7 @@ Name: London, dtype: float64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">index</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df.index
 </pre></div>
 </div>
 </div>
@@ -840,7 +845,7 @@ Name: London, dtype: float64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">columns</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df.columns
 </pre></div>
 </div>
 </div>
@@ -853,7 +858,7 @@ Name: London, dtype: float64
 <p>We can transpose the dataframe, (rows -&gt; columns)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">T</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df.T
 </pre></div>
 </div>
 </div>
@@ -897,7 +902,7 @@ Name: London, dtype: float64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;London&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">population</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df.loc[&quot;London&quot;].population
 </pre></div>
 </div>
 </div>
@@ -923,13 +928,13 @@ Name: London, dtype: float64
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/boogus.csv&quot;</span><span class="p">,</span> 
-                 <span class="n">comment</span><span class="o">=</span><span class="s2">&quot;%&quot;</span><span class="p">,</span>
-                 <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;;&quot;</span><span class="p">,</span>
-                 <span class="n">decimal</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">,</span>
-                 <span class="n">parse_dates</span><span class="o">=</span><span class="p">[[</span><span class="s2">&quot;dato&quot;</span><span class="p">,</span><span class="s2">&quot;tid&quot;</span><span class="p">]],</span>
-                 <span class="n">usecols</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
-<span class="n">df</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df = pd.read_csv(&quot;data/boogus.csv&quot;, 
+                 comment=&quot;%&quot;,
+                 sep=&quot;;&quot;,
+                 decimal=&quot;,&quot;,
+                 parse_dates=[[&quot;dato&quot;,&quot;tid&quot;]],
+                 usecols=[1,2,3])
+df
 </pre></div>
 </div>
 </div>
@@ -984,7 +989,7 @@ Name: London, dtype: float64
 <p>Most functions in Pandas returns a copy, so even though the below line, looks like it changes the name, since it is printed to the screen, the <code class="docutils literal notranslate"><span class="pre">df</span></code> variable is not changed.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;temperatur&quot;</span><span class="p">:</span> <span class="s2">&quot;air_temperature&quot;</span><span class="p">})</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df.rename(columns={&quot;temperatur&quot;: &quot;air_temperature&quot;})
 </pre></div>
 </div>
 </div>
@@ -1038,7 +1043,7 @@ Name: London, dtype: float64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="c1"># not modfied</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df # not modfied
 </pre></div>
 </div>
 </div>
@@ -1092,8 +1097,8 @@ Name: London, dtype: float64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_new_name</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;temperatur&quot;</span><span class="p">:</span> <span class="s2">&quot;air_temperature&quot;</span><span class="p">})</span>
-<span class="n">df_new_name</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df_new_name = df.rename(columns={&quot;temperatur&quot;: &quot;air_temperature&quot;})
+df_new_name
 </pre></div>
 </div>
 </div>
@@ -1156,14 +1161,14 @@ Name: London, dtype: float64
 <h2>Timeseries<a class="headerlink" href="#timeseries" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/oceandata.csv&quot;</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="s1">&#39;datetime&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df = pd.read_csv(&quot;data/oceandata.csv&quot;, parse_dates=True, index_col=&#39;datetime&#39;)
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df.head()
 </pre></div>
 </div>
 </div>
@@ -1234,7 +1239,7 @@ Name: London, dtype: float64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>type(df)
 </pre></div>
 </div>
 </div>
@@ -1246,7 +1251,7 @@ Name: London, dtype: float64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">waterlevel</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>type(df.waterlevel)
 </pre></div>
 </div>
 </div>
@@ -1258,7 +1263,7 @@ Name: London, dtype: float64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df.plot()
 </pre></div>
 </div>
 </div>
@@ -1271,7 +1276,7 @@ Name: London, dtype: float64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">waterlevel</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df.waterlevel.plot()
 </pre></div>
 </div>
 </div>
@@ -1284,7 +1289,7 @@ Name: London, dtype: float64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">index</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df.index
 </pre></div>
 </div>
 </div>
@@ -1307,7 +1312,7 @@ Name: London, dtype: float64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df.describe()
 </pre></div>
 </div>
 </div>
@@ -1390,7 +1395,7 @@ Name: London, dtype: float64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;2015-02-18&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df.loc[&#39;2015-02-18&#39;].plot()
 </pre></div>
 </div>
 </div>
@@ -1403,7 +1408,7 @@ Name: London, dtype: float64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;2015-02-18&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">interpolate</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df.loc[&#39;2015-02-18&#39;].interpolate().plot()
 </pre></div>
 </div>
 </div>
@@ -1416,7 +1421,7 @@ Name: London, dtype: float64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;2015-02-18 14:00&#39;</span><span class="p">:</span><span class="s1">&#39;2015-02-18 15:20&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df.loc[&#39;2015-02-18 14:00&#39;:&#39;2015-02-18 15:20&#39;]
 </pre></div>
 </div>
 </div>
@@ -1499,14 +1504,14 @@ Name: London, dtype: float64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_interp</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">interpolate</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df_interp = df.interpolate()
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_interp</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;2015-02-18 14:00&#39;</span><span class="p">:</span><span class="s1">&#39;2015-02-18 15:20&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df_interp.loc[&#39;2015-02-18 14:00&#39;:&#39;2015-02-18 15:20&#39;]
 </pre></div>
 </div>
 </div>
@@ -1593,12 +1598,12 @@ Name: London, dtype: float64
 <p>Aggregate temporal data</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;H&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df.resample(&#39;H&#39;)
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;pandas.core.resample.DatetimeIndexResampler object at 0x7f58b9d9b400&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;pandas.core.resample.DatetimeIndexResampler object at 0x7f28a45921f0&gt;
 </pre></div>
 </div>
 </div>
@@ -1606,7 +1611,7 @@ Name: London, dtype: float64
 <p>Resampling requires an aggregation function, e.g., sum, mean, median,…</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;D&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df.resample(&#39;D&#39;).sum().head()
 </pre></div>
 </div>
 </div>
@@ -1660,7 +1665,7 @@ Name: London, dtype: float64
 <p>The <code class="docutils literal notranslate"><span class="pre">sum</span></code> function doesn’t make sense in this example. Better to use <code class="docutils literal notranslate"><span class="pre">mean</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;H&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df.resample(&#39;H&#39;).mean().head()
 </pre></div>
 </div>
 </div>
@@ -1731,7 +1736,7 @@ Name: London, dtype: float64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;H&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df.resample(&#39;H&#39;).first().head()
 </pre></div>
 </div>
 </div>
@@ -1802,7 +1807,7 @@ Name: London, dtype: float64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;H&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">median</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df.resample(&#39;H&#39;).median().head()
 </pre></div>
 </div>
 </div>
@@ -1873,8 +1878,8 @@ Name: London, dtype: float64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_h</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;H&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">interpolate</span><span class="p">()</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
-<span class="n">df_h</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df_h = df.resample(&#39;H&#39;).interpolate().dropna()
+df_h.head()
 </pre></div>
 </div>
 </div>
@@ -1949,7 +1954,7 @@ Name: London, dtype: float64
 <p>Please find the maximum value for every 6 hour period.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># insert your code here</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># insert your code here
 </pre></div>
 </div>
 </div>
@@ -1960,10 +1965,10 @@ Name: London, dtype: float64
 <h2>Extrapolation<a class="headerlink" href="#extrapolation" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rng</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s2">&quot;2015-02-17&quot;</span><span class="p">,</span><span class="s2">&quot;2015-02-20&quot;</span><span class="p">,</span><span class="n">freq</span><span class="o">=</span><span class="s1">&#39;H&#39;</span><span class="p">)</span>
-<span class="n">ix</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DatetimeIndex</span><span class="p">(</span><span class="n">rng</span><span class="p">)</span>
-<span class="n">dfr</span> <span class="o">=</span> <span class="n">df_interp</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">ix</span><span class="p">)</span>
-<span class="n">dfr</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>rng = pd.date_range(&quot;2015-02-17&quot;,&quot;2015-02-20&quot;,freq=&#39;H&#39;)
+ix = pd.DatetimeIndex(rng)
+dfr = df_interp.reindex(ix)
+dfr.plot()
 </pre></div>
 </div>
 </div>
@@ -1976,7 +1981,7 @@ Name: London, dtype: float64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dfr</span><span class="o">.</span><span class="n">ffill</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>dfr.ffill().plot()
 </pre></div>
 </div>
 </div>
@@ -1989,8 +1994,8 @@ Name: London, dtype: float64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_extra</span> <span class="o">=</span> <span class="n">dfr</span><span class="o">.</span><span class="n">bfill</span><span class="p">()</span><span class="o">.</span><span class="n">ffill</span><span class="p">()</span>
-<span class="n">df_extra</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df_extra = dfr.bfill().ffill()
+df_extra.plot()
 </pre></div>
 </div>
 </div>
@@ -2003,7 +2008,7 @@ Name: London, dtype: float64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_extra</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df_extra
 </pre></div>
 </div>
 </div>
@@ -2105,9 +2110,9 @@ Name: London, dtype: float64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">YouTubeVideo</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from IPython.display import YouTubeVideo
 
-<span class="n">YouTubeVideo</span><span class="p">(</span><span class="s2">&quot;8upGdZMlkYM&quot;</span><span class="p">)</span>
+YouTubeVideo(&quot;8upGdZMlkYM&quot;)
 </pre></div>
 </div>
 </div>

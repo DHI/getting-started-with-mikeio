@@ -314,6 +314,11 @@ const thebe_selector_output = ".output, .cell_output"
    Statistics
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="final_assignment.html">
+   Final assignment
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -570,7 +575,7 @@ title="Print to PDF"
 <p><a class="reference external" href="https://matplotlib.org/stable/tutorials/index.html">Matplotlib tutorials</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import numpy and matplotlib.pyplot using aliases np and plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># import numpy and matplotlib.pyplot using aliases np and plt
 </pre></div>
 </div>
 </div>
@@ -579,22 +584,22 @@ title="Print to PDF"
 <h2>C.1 Basic plot<a class="headerlink" href="#c-1-basic-plot" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create an array x with 100 values between 0 and 2*np.pi</span>
-<span class="c1"># create an array y=cos(x) using np.cos()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># create an array x with 100 values between 0 and 2*np.pi
+# create an array y=cos(x) using np.cos()
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot x, y using plt.plot()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># plot x, y using plt.plot()
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># add a legend &quot;cos(x)&quot; to the plot </span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># add a legend &quot;cos(x)&quot; to the plot 
 </pre></div>
 </div>
 </div>
@@ -604,34 +609,34 @@ title="Print to PDF"
 <h2>C.2 Scatter plot<a class="headerlink" href="#c-2-scatter-plot" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
-<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">multivariate_normal</span><span class="p">(</span><span class="n">mean</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> 
-                                  <span class="n">cov</span><span class="o">=</span><span class="p">[[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">],[</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]],</span>
-                                  <span class="n">size</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">X</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">X</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import numpy as np
+np.random.seed(42)
+X = np.random.multivariate_normal(mean=[0,0], 
+                                  cov=[[1.0, 0.8],[0.8, 1.0]],
+                                  size=200)
+x = X[:,0]
+y = X[:,1]
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make a scatter plot of x and y using plt.scatter()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Make a scatter plot of x and y using plt.scatter()
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add a legend, title, xlabel and ylabel to the plot</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Add a legend, title, xlabel and ylabel to the plot
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Change the color of the markers to green and the marker size to 2</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Change the color of the markers to green and the marker size to 2
 </pre></div>
 </div>
 </div>
@@ -641,7 +646,7 @@ title="Print to PDF"
 <h2>C.3 Histogram<a class="headerlink" href="#c-3-histogram" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot a histogram of y with 20 bins using plt.hist()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># plot a histogram of y with 20 bins using plt.hist()
 </pre></div>
 </div>
 </div>

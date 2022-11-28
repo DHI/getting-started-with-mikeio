@@ -314,6 +314,11 @@ const thebe_selector_output = ".output, .cell_output"
    Statistics
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="exercises/final_assignment.html">
+   Final assignment
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -616,11 +621,11 @@ title="Print to PDF"
 <p>See <a class="reference external" href="https://dhi.github.io/mikeio/generic.html">Generic in MIKE IO Documentation</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import numpy as np
+import matplotlib.pyplot as plt
 
-<span class="kn">import</span> <span class="nn">mikeio</span>
-<span class="kn">import</span> <span class="nn">mikeio.generic</span>
+import mikeio
+import mikeio.generic
 </pre></div>
 </div>
 </div>
@@ -630,8 +635,8 @@ title="Print to PDF"
 <p>Take a look at these two files with overlapping timesteps.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t1</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">&quot;data/tide1.dfs1&quot;</span><span class="p">)</span>
-<span class="n">t1</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>t1 = mikeio.read(&quot;data/tide1.dfs1&quot;)
+t1
 </pre></div>
 </div>
 </div>
@@ -648,8 +653,8 @@ items:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t2</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">&quot;data/tide2.dfs1&quot;</span><span class="p">)</span>
-<span class="n">t2</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>t2 = mikeio.read(&quot;data/tide2.dfs1&quot;)
+t2
 </pre></div>
 </div>
 </div>
@@ -667,14 +672,14 @@ items:
 <p>Plot one of the points along the line.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t1</span><span class="o">.</span><span class="n">time</span><span class="p">,</span><span class="n">t1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;File 1&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t2</span><span class="o">.</span><span class="n">time</span><span class="p">,</span><span class="n">t2</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">,</span><span class="s1">&#39;k+&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;File 2&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>plt.plot(t1.time,t1[0].isel(x=1).values, label=&quot;File 1&quot;)
+plt.plot(t2.time,t2[0].isel(x=1).values,&#39;k+&#39;, label=&quot;File 2&quot;)
+plt.legend()
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fe37e78ffd0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f26a4945520&gt;
 </pre></div>
 </div>
 <img alt="_images/generic_7_1.png" src="_images/generic_7_1.png" />
@@ -682,18 +687,18 @@ items:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mikeio</span><span class="o">.</span><span class="n">generic</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">infilenames</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;data/tide1.dfs1&quot;</span><span class="p">,</span>
-                                   <span class="s2">&quot;data/tide2.dfs1&quot;</span><span class="p">],</span>
-                      <span class="n">outfilename</span><span class="o">=</span><span class="s2">&quot;concat.dfs1&quot;</span><span class="p">,</span> <span class="n">keep</span><span class="o">=</span><span class="s2">&quot;last&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>mikeio.generic.concat(infilenames=[&quot;data/tide1.dfs1&quot;,
+                                   &quot;data/tide2.dfs1&quot;],
+                      outfilename=&quot;concat.dfs1&quot;, keep=&quot;last&quot;)
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">&quot;concat.dfs1&quot;</span><span class="p">)</span>
-<span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
-<span class="n">c</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>c = mikeio.read(&quot;concat.dfs1&quot;)
+c[0].isel(x=1).plot()
+c
 </pre></div>
 </div>
 </div>
@@ -719,16 +724,16 @@ items:
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">infile</span> <span class="o">=</span> <span class="s2">&quot;data/tide1.dfs1&quot;</span>
-<span class="n">mikeio</span><span class="o">.</span><span class="n">generic</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="n">infile</span><span class="p">,</span> <span class="s2">&quot;extracted.dfs1&quot;</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="s1">&#39;2019-01-02&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>infile = &quot;data/tide1.dfs1&quot;
+mikeio.generic.extract(infile, &quot;extracted.dfs1&quot;, start=&#39;2019-01-02&#39;)
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">e</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">&quot;extracted.dfs1&quot;</span><span class="p">)</span>
-<span class="n">e</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>e = mikeio.read(&quot;extracted.dfs1&quot;)
+e
 </pre></div>
 </div>
 </div>
@@ -745,16 +750,16 @@ items:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">infile</span> <span class="o">=</span> <span class="s2">&quot;data/oresund_vertical_slice.dfsu&quot;</span>
-<span class="n">mikeio</span><span class="o">.</span><span class="n">generic</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="n">infile</span><span class="p">,</span> <span class="s2">&quot;extracted.dfsu&quot;</span><span class="p">,</span> <span class="n">items</span><span class="o">=</span><span class="s1">&#39;Salinity&#39;</span><span class="p">,</span> <span class="n">end</span><span class="o">=-</span><span class="mi">2</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>infile = &quot;data/oresund_vertical_slice.dfsu&quot;
+mikeio.generic.extract(infile, &quot;extracted.dfsu&quot;, items=&#39;Salinity&#39;, end=-2)
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">e</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">&quot;extracted.dfsu&quot;</span><span class="p">)</span>
-<span class="n">e</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>e = mikeio.read(&quot;extracted.dfsu&quot;)
+e
 </pre></div>
 </div>
 </div>
@@ -775,10 +780,10 @@ items:
 <p>Take difference between two dfs files with same structure - e.g. to see the difference in result between two calibration runs</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fn1</span> <span class="o">=</span> <span class="s2">&quot;data/oresundHD_run1.dfsu&quot;</span>
-<span class="n">fn2</span> <span class="o">=</span> <span class="s2">&quot;data/oresundHD_run2.dfsu&quot;</span>
-<span class="n">fn_diff</span> <span class="o">=</span> <span class="s2">&quot;oresundHD_difference.dfsu&quot;</span>
-<span class="n">mikeio</span><span class="o">.</span><span class="n">generic</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">fn1</span><span class="p">,</span> <span class="n">fn2</span><span class="p">,</span> <span class="n">fn_diff</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>fn1 = &quot;data/oresundHD_run1.dfsu&quot;
+fn2 = &quot;data/oresundHD_run2.dfsu&quot;
+fn_diff = &quot;oresundHD_difference.dfsu&quot;
+mikeio.generic.diff(fn1, fn2, fn_diff)
 </pre></div>
 </div>
 </div>
@@ -786,7 +791,7 @@ items:
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0%|          | 0/5 [00:00&lt;?, ?it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 5/5 [00:00&lt;00:00, 1708.75it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 5/5 [00:00&lt;00:00, 2549.11it/s]
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -797,13 +802,13 @@ items:
 <p>Let’s open the files and visualize the last time step of the first item (water level)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">_</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
-<span class="n">da</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">fn1</span><span class="p">,</span> <span class="n">time</span><span class="o">=-</span><span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">da</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">vmin</span><span class="o">=</span><span class="mf">0.06</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mf">0.27</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;run 1&#39;</span><span class="p">)</span>
-<span class="n">da</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">fn2</span><span class="p">,</span> <span class="n">time</span><span class="o">=-</span><span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">da</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">vmin</span><span class="o">=</span><span class="mf">0.06</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mf">0.27</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;run 2&#39;</span><span class="p">)</span>
-<span class="n">da</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">fn_diff</span><span class="p">,</span> <span class="n">time</span><span class="o">=-</span><span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">da</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">vmin</span><span class="o">=-</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;coolwarm&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;difference&#39;</span><span class="p">);</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>_, ax = plt.subplots(1,3, sharey=True, figsize=(12,5))
+da = mikeio.read(fn1, time=-1)[0]
+da.plot(vmin=0.06, vmax=0.27, ax=ax[0], title=&#39;run 1&#39;)
+da = mikeio.read(fn2, time=-1)[0]
+da.plot(vmin=0.06, vmax=0.27, ax=ax[1], title=&#39;run 2&#39;)
+da = mikeio.read(fn_diff, time=-1)[0]
+da.plot(vmin=-0.1, vmax=0.1, cmap=&#39;coolwarm&#39;, ax=ax[2], title=&#39;difference&#39;);
 </pre></div>
 </div>
 </div>
@@ -817,8 +822,8 @@ items:
 <p>Adding a constant e.g to adjust datum</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">&quot;data/gebco_sound.dfs2&quot;</span><span class="p">)</span>
-<span class="n">ds</span><span class="o">.</span><span class="n">Elevation</span><span class="o">.</span><span class="n">plot</span><span class="p">();</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>ds = mikeio.read(&quot;data/gebco_sound.dfs2&quot;)
+ds.Elevation.plot();
 </pre></div>
 </div>
 </div>
@@ -828,7 +833,7 @@ items:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span><span class="p">[</span><span class="s1">&#39;Elevation&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">,</span><span class="mi">104</span><span class="p">,</span><span class="mi">131</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>ds[&#39;Elevation&#39;][0,104,131]
 </pre></div>
 </div>
 </div>
@@ -846,15 +851,15 @@ values: -1.0
 <p>This is the processing step.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mikeio</span><span class="o">.</span><span class="n">generic</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="s2">&quot;data/gebco_sound.dfs2&quot;</span><span class="p">,</span><span class="s2">&quot;gebco_sound_local_datum.dfs2&quot;</span><span class="p">,</span><span class="n">offset</span><span class="o">=-</span><span class="mf">2.1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>mikeio.generic.scale(&quot;data/gebco_sound.dfs2&quot;,&quot;gebco_sound_local_datum.dfs2&quot;,offset=-2.1)
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds2</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">&quot;gebco_sound_local_datum.dfs2&quot;</span><span class="p">)</span>
-<span class="n">ds</span><span class="o">.</span><span class="n">Elevation</span><span class="o">.</span><span class="n">plot</span><span class="p">();</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>ds2 = mikeio.read(&quot;gebco_sound_local_datum.dfs2&quot;)
+ds.Elevation.plot();
 </pre></div>
 </div>
 </div>
@@ -864,7 +869,7 @@ values: -1.0
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds2</span><span class="p">[</span><span class="s1">&#39;Elevation&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">,</span><span class="mi">104</span><span class="p">,</span><span class="mi">131</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>ds2[&#39;Elevation&#39;][0,104,131]
 </pre></div>
 </div>
 </div>
@@ -883,9 +888,9 @@ values: -3.0999999046325684
 <h3>Spatially varying correction<a class="headerlink" href="#spatially-varying-correction" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="n">factor</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">ds</span><span class="p">[</span><span class="s1">&#39;Elevation&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">())</span>
-<span class="n">factor</span><span class="o">.</span><span class="n">shape</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import numpy as np
+factor = np.ones_like(ds[&#39;Elevation&#39;][0].to_numpy())
+factor.shape
 </pre></div>
 </div>
 </div>
@@ -898,11 +903,11 @@ values: -3.0999999046325684
 <p>Add some spatially varying factors, exaggerated values for educational purpose.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">factor</span><span class="p">[:,</span><span class="mi">0</span><span class="p">:</span><span class="mi">100</span><span class="p">]</span> <span class="o">=</span> <span class="mf">5.3</span>
-<span class="n">factor</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">40</span><span class="p">,]</span> <span class="o">=</span> <span class="mf">0.1</span>
-<span class="n">factor</span><span class="p">[</span><span class="mi">150</span><span class="p">:,</span><span class="mi">150</span><span class="p">:]</span> <span class="o">=</span> <span class="mf">10.7</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">factor</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">();</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>factor[:,0:100] = 5.3
+factor[0:40,] = 0.1
+factor[150:,150:] = 10.7
+plt.imshow(factor)
+plt.colorbar();
 </pre></div>
 </div>
 </div>
@@ -913,18 +918,18 @@ values: -3.0999999046325684
 <p>The 2d array must first be flipped upside down and then converted to a 1d vector using <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.flatten.html">numpy.ndarray.flatten</a> to match how data is stored in dfs files.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">factor_ud</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">flipud</span><span class="p">(</span><span class="n">factor</span><span class="p">)</span>
-<span class="n">factor_vec</span>  <span class="o">=</span> <span class="n">factor_ud</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
-<span class="n">mikeio</span><span class="o">.</span><span class="n">generic</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="s2">&quot;data/gebco_sound.dfs2&quot;</span><span class="p">,</span><span class="s2">&quot;gebco_sound_spatial.dfs2&quot;</span><span class="p">,</span><span class="n">factor</span><span class="o">=</span><span class="n">factor_vec</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>factor_ud = np.flipud(factor)
+factor_vec  = factor_ud.flatten()
+mikeio.generic.scale(&quot;data/gebco_sound.dfs2&quot;,&quot;gebco_sound_spatial.dfs2&quot;,factor=factor_vec)
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds3</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">&quot;gebco_sound_spatial.dfs2&quot;</span><span class="p">)</span>
-<span class="n">ds3</span><span class="o">.</span><span class="n">Elevation</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Spatial correction applied to dfs2&quot;</span><span class="p">);</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>ds3 = mikeio.read(&quot;gebco_sound_spatial.dfs2&quot;)
+ds3.Elevation.plot()
+plt.title(&quot;Spatial correction applied to dfs2&quot;);
 </pre></div>
 </div>
 </div>
@@ -938,13 +943,13 @@ values: -3.0999999046325684
 <h2>Clean up<a class="headerlink" href="#clean-up" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
-<span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;concat.dfs1&quot;</span><span class="p">)</span>
-<span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;extracted.dfs1&quot;</span><span class="p">)</span>
-<span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;extracted.dfsu&quot;</span><span class="p">)</span>
-<span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;oresundHD_difference.dfsu&quot;</span><span class="p">)</span>
-<span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;gebco_sound_local_datum.dfs2&quot;</span><span class="p">)</span>
-<span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;gebco_sound_spatial.dfs2&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import os
+os.remove(&quot;concat.dfs1&quot;)
+os.remove(&quot;extracted.dfs1&quot;)
+os.remove(&quot;extracted.dfsu&quot;)
+os.remove(&quot;oresundHD_difference.dfsu&quot;)
+os.remove(&quot;gebco_sound_local_datum.dfs2&quot;)
+os.remove(&quot;gebco_sound_spatial.dfs2&quot;)
 </pre></div>
 </div>
 </div>

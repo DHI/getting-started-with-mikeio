@@ -314,6 +314,11 @@ const thebe_selector_output = ".output, .cell_output"
    Statistics
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="exercises/final_assignment.html">
+   Final assignment
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -613,9 +618,9 @@ title="Print to PDF"
 <p>See <a class="reference external" href="https://dhi.github.io/mikeio/mesh.html">Mesh in MIKE IO Documentation</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">mikeio</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import numpy as np
+import matplotlib.pyplot as plt
+import mikeio
 </pre></div>
 </div>
 </div>
@@ -625,15 +630,15 @@ title="Print to PDF"
 <p>Let’s consider a simple mesh consisting of 2 triangular elements.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fn</span> <span class="o">=</span> <span class="s2">&quot;data/two_elements.mesh&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>fn = &quot;data/two_elements.mesh&quot;
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">fn</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>with open(fn, &quot;r&quot;) as f:
+    print(f.read())
 </pre></div>
 </div>
 </div>
@@ -652,8 +657,8 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">msh</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">fn</span><span class="p">)</span>
-<span class="n">msh</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>msh = mikeio.open(fn)
+msh
 </pre></div>
 </div>
 </div>
@@ -668,7 +673,7 @@ projection: UTM-31
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">msh</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">show_mesh</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>msh.plot(show_mesh=True);
 </pre></div>
 </div>
 </div>
@@ -678,7 +683,7 @@ projection: UTM-31
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">msh</span><span class="o">.</span><span class="n">node_coordinates</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>msh.node_coordinates
 </pre></div>
 </div>
 </div>
@@ -693,7 +698,7 @@ projection: UTM-31
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">msh</span><span class="o">.</span><span class="n">element_table</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>msh.element_table
 </pre></div>
 </div>
 </div>
@@ -705,7 +710,7 @@ projection: UTM-31
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">msh</span><span class="o">.</span><span class="n">element_coordinates</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>msh.element_coordinates
 </pre></div>
 </div>
 </div>
@@ -718,7 +723,7 @@ projection: UTM-31
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">msh</span><span class="o">.</span><span class="n">get_element_area</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>msh.get_element_area()
 </pre></div>
 </div>
 </div>
@@ -731,17 +736,17 @@ projection: UTM-31
 <p>Let’s plot the node and element coordinates:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xn</span><span class="p">,</span> <span class="n">yn</span> <span class="o">=</span> <span class="n">msh</span><span class="o">.</span><span class="n">node_coordinates</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">msh</span><span class="o">.</span><span class="n">node_coordinates</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
-<span class="n">xe</span><span class="p">,</span> <span class="n">ye</span> <span class="o">=</span> <span class="n">msh</span><span class="o">.</span><span class="n">element_coordinates</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">msh</span><span class="o">.</span><span class="n">element_coordinates</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>xn, yn = msh.node_coordinates[:,0], msh.node_coordinates[:,1]
+xe, ye = msh.element_coordinates[:,0], msh.element_coordinates[:,1]
 
-<span class="n">ax</span> <span class="o">=</span> <span class="n">msh</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">show_mesh</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xn</span><span class="p">,</span> <span class="n">yn</span><span class="p">,</span> <span class="s1">&#39;ro&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xe</span><span class="p">,</span> <span class="n">ye</span><span class="p">,</span> <span class="s1">&#39;bx&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+ax = msh.plot(show_mesh=True)
+ax.plot(xn, yn, &#39;ro&#39;, markersize=10)
+ax.plot(xe, ye, &#39;bx&#39;, markersize=10)
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fe092d0c580&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7facdd0dfb50&gt;]
 </pre></div>
 </div>
 <img alt="_images/mesh_12_1.png" src="_images/mesh_12_1.png" />
@@ -752,9 +757,9 @@ projection: UTM-31
 <p>It can sometimes be convenient to have mesh boundary as a polyline (or multiple in case of more complex meshes).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bxy</span> <span class="o">=</span> <span class="n">msh</span><span class="o">.</span><span class="n">boundary_polylines</span><span class="o">.</span><span class="n">exteriors</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">xy</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">bxy</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">bxy</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;equal&quot;</span><span class="p">);</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>bxy = msh.boundary_polylines.exteriors[0].xy
+plt.plot(bxy[:,0], bxy[:,1])
+plt.axis(&quot;equal&quot;);
 </pre></div>
 </div>
 </div>
@@ -772,8 +777,8 @@ projection: UTM-31
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pt_1</span> <span class="o">=</span> <span class="p">[</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">]</span>
-<span class="n">msh</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="n">pt_1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>pt_1 = [2.0, 1.2]
+msh.contains(pt_1)[0]
 </pre></div>
 </div>
 </div>
@@ -785,10 +790,10 @@ projection: UTM-31
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># or multiple points at the same time</span>
-<span class="n">pt_2</span> <span class="o">=</span> <span class="p">[</span><span class="mf">4.0</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">]</span>
-<span class="n">pts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">pt_1</span><span class="p">,</span> <span class="n">pt_2</span><span class="p">])</span>
-<span class="n">msh</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="n">pts</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># or multiple points at the same time
+pt_2 = [4.0, 1.2]
+pts = np.array([pt_1, pt_2])
+msh.contains(pts)
 </pre></div>
 </div>
 </div>
@@ -800,13 +805,13 @@ projection: UTM-31
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">bxy</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">bxy</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;boundary&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xe</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">ye</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;b*&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;center, elem 0&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xe</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">ye</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;c*&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;center, elem 1&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="o">*</span><span class="n">pt_1</span><span class="p">,</span> <span class="s1">&#39;go&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;pt_1&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="o">*</span><span class="n">pt_2</span><span class="p">,</span> <span class="s1">&#39;rs&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;pt_2&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;equal&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper right&quot;</span><span class="p">);</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>plt.plot(bxy[:,0], bxy[:,1], label=&#39;boundary&#39;)
+plt.plot(xe[0], ye[0], &#39;b*&#39;, markersize=10, label=&quot;center, elem 0&quot;)
+plt.plot(xe[1], ye[1], &#39;c*&#39;, markersize=10, label=&quot;center, elem 1&quot;)
+plt.plot(*pt_1, &#39;go&#39;, markersize=10, label=&quot;pt_1&quot;)
+plt.plot(*pt_2, &#39;rs&#39;, markersize=10, label=&quot;pt_2&quot;)
+plt.axis(&quot;equal&quot;)
+plt.legend(loc=&quot;upper right&quot;);
 </pre></div>
 </div>
 </div>
@@ -823,8 +828,8 @@ projection: UTM-31
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="o">=</span> <span class="n">msh</span><span class="o">.</span><span class="n">geometry</span>
-<span class="n">g</span><span class="o">.</span><span class="n">find_index</span><span class="p">(</span><span class="n">coords</span><span class="o">=</span><span class="n">pt_1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>g = msh.geometry
+g.find_index(coords=pt_1)[0]
 </pre></div>
 </div>
 </div>
@@ -840,7 +845,7 @@ projection: UTM-31
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g</span><span class="o">.</span><span class="n">find_nearest_elements</span><span class="p">(</span><span class="n">pt_1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>g.find_nearest_elements(pt_1)
 </pre></div>
 </div>
 </div>
@@ -852,7 +857,7 @@ projection: UTM-31
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g</span><span class="o">.</span><span class="n">find_nearest_elements</span><span class="p">(</span><span class="n">pt_1</span><span class="p">,</span> <span class="n">return_distances</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>g.find_nearest_elements(pt_1, return_distances=True)
 </pre></div>
 </div>
 </div>
@@ -864,7 +869,7 @@ projection: UTM-31
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g</span><span class="o">.</span><span class="n">find_nearest_elements</span><span class="p">(</span><span class="n">pt_1</span><span class="p">,</span> <span class="n">n_nearest</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>g.find_nearest_elements(pt_1, n_nearest=2)
 </pre></div>
 </div>
 </div>
@@ -876,8 +881,8 @@ projection: UTM-31
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># for multiple points</span>
-<span class="n">g</span><span class="o">.</span><span class="n">find_nearest_elements</span><span class="p">(</span><span class="n">pts</span><span class="p">,</span> <span class="n">return_distances</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># for multiple points
+g.find_nearest_elements(pts, return_distances=True)
 </pre></div>
 </div>
 </div>
@@ -893,15 +898,15 @@ projection: UTM-31
 <p>A dfsu file can also be loaded as a Mesh object</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fn</span> <span class="o">=</span> <span class="s2">&quot;data/FakeLake.dfsu&quot;</span>
-<span class="n">msh</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">Mesh</span><span class="p">(</span><span class="n">fn</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>fn = &quot;data/FakeLake.dfsu&quot;
+msh = mikeio.Mesh(fn)
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">msh</span><span class="o">.</span><span class="n">plot</span><span class="p">();</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>msh.plot();
 </pre></div>
 </div>
 </div>
@@ -911,7 +916,7 @@ projection: UTM-31
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">msh</span><span class="o">.</span><span class="n">max_nodes_per_element</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>msh.max_nodes_per_element
 </pre></div>
 </div>
 </div>
@@ -923,7 +928,7 @@ projection: UTM-31
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">msh</span><span class="o">.</span><span class="n">plot_boundary_nodes</span><span class="p">();</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>msh.plot_boundary_nodes();
 </pre></div>
 </div>
 </div>
@@ -933,8 +938,8 @@ projection: UTM-31
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bnd</span> <span class="o">=</span> <span class="n">msh</span><span class="o">.</span><span class="n">boundary_polylines</span>
-<span class="n">bnd</span><span class="o">.</span><span class="n">n_exteriors</span><span class="p">,</span> <span class="n">bnd</span><span class="o">.</span><span class="n">n_interiors</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>bnd = msh.boundary_polylines
+bnd.n_exteriors, bnd.n_interiors
 </pre></div>
 </div>
 </div>
@@ -946,11 +951,11 @@ projection: UTM-31
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ext0</span> <span class="o">=</span> <span class="n">bnd</span><span class="o">.</span><span class="n">exteriors</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ext0</span><span class="o">.</span><span class="n">xy</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">ext0</span><span class="o">.</span><span class="n">xy</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;exterior 0&#39;</span><span class="p">)</span>
-<span class="n">int0</span> <span class="o">=</span> <span class="n">bnd</span><span class="o">.</span><span class="n">interiors</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">int0</span><span class="o">.</span><span class="n">xy</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">int0</span><span class="o">.</span><span class="n">xy</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;interior 0&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>ext0 = bnd.exteriors[0]
+plt.plot(ext0.xy[:,0], ext0.xy[:,1], label=&#39;exterior 0&#39;)
+int0 = bnd.interiors[0]
+plt.plot(int0.xy[:,0], int0.xy[:,1], label=&#39;interior 0&#39;)
+plt.legend();
 </pre></div>
 </div>
 </div>
@@ -960,7 +965,7 @@ projection: UTM-31
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># msh.to_shapely()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># msh.to_shapely()
 </pre></div>
 </div>
 </div>
@@ -970,8 +975,8 @@ projection: UTM-31
 <h2>Change depth<a class="headerlink" href="#change-depth" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">msh</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">Mesh</span><span class="p">(</span><span class="n">fn</span><span class="p">)</span>
-<span class="n">msh</span><span class="o">.</span><span class="n">plot</span><span class="p">();</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>msh = mikeio.Mesh(fn)
+msh.plot();
 </pre></div>
 </div>
 </div>
@@ -981,15 +986,15 @@ projection: UTM-31
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># zn == nodes, not elements!</span>
-<span class="n">msh</span><span class="o">.</span><span class="n">zn</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">msh</span><span class="o">.</span><span class="n">zn</span><span class="p">,</span> <span class="o">-</span><span class="mi">15</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="c1"># clip depth to interval [-15,0]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># zn == nodes, not elements!
+msh.zn = np.clip(msh.zn, -15, 0) # clip depth to interval [-15,0]
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">msh</span><span class="o">.</span><span class="n">plot</span><span class="p">();</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>msh.plot();
 </pre></div>
 </div>
 </div>
@@ -999,7 +1004,7 @@ projection: UTM-31
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">msh</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;Fake_lake_clip15.mesh&#39;</span><span class="p">)</span>   <span class="c1"># save to a new file</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>msh.write(&#39;Fake_lake_clip15.mesh&#39;)   # save to a new file
 </pre></div>
 </div>
 </div>
@@ -1009,8 +1014,8 @@ projection: UTM-31
 <h2>Visualisation<a class="headerlink" href="#visualisation" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">msh</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;data/southern_north_sea.mesh&quot;</span><span class="p">)</span>
-<span class="n">msh</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>msh = mikeio.open(&quot;data/southern_north_sea.mesh&quot;)
+msh
 </pre></div>
 </div>
 </div>
@@ -1026,7 +1031,7 @@ projection: LONG/LAT
 <p>The default is to plot the elements and color them according to the bathymetry.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">msh</span><span class="o">.</span><span class="n">plot</span><span class="p">();</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>msh.plot();
 </pre></div>
 </div>
 </div>
@@ -1036,7 +1041,7 @@ projection: LONG/LAT
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">msh</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">outline</span><span class="p">();</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>msh.plot.outline();
 </pre></div>
 </div>
 </div>
@@ -1046,7 +1051,7 @@ projection: LONG/LAT
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">msh</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">mesh</span><span class="p">();</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>msh.plot.mesh();
 </pre></div>
 </div>
 </div>
@@ -1057,7 +1062,7 @@ projection: LONG/LAT
 <p>Maybe we would like to higlight the bathymetric variations in some range, in this case in the -40, -20m range.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">msh</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">vmin</span><span class="o">=-</span><span class="mi">40</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=-</span><span class="mi">20</span><span class="p">);</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>msh.plot(vmin=-40, vmax=-20);
 </pre></div>
 </div>
 </div>
@@ -1068,9 +1073,9 @@ projection: LONG/LAT
 <p>There are other options as well, such as explicit specification of which contour lines to show or choosing a specific colormap (<a class="reference external" href="https://matplotlib.org/stable/tutorials/colors/colormaps.html">matplotlib colormaps</a>)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">msh</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">show_mesh</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
-         <span class="n">levels</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">50</span><span class="p">,</span><span class="o">-</span><span class="mi">30</span><span class="p">,</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;tab10&quot;</span><span class="p">,</span>
-         <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">12</span><span class="p">),</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Coarse North Sea model&quot;</span><span class="p">);</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>msh.plot.contour(show_mesh=True, 
+         levels=[-50,-30,-20,-10,-5], cmap=&quot;tab10&quot;,
+         figsize=(12,12), title=&quot;Coarse North Sea model&quot;);
 </pre></div>
 </div>
 </div>

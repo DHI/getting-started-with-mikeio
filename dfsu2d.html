@@ -314,6 +314,11 @@ const thebe_selector_output = ".output, .cell_output"
    Statistics
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="exercises/final_assignment.html">
+   Final assignment
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -594,10 +599,10 @@ title="Print to PDF"
 <p>See <a class="reference external" href="https://dhi.github.io/mikeio/dfsu-mesh-overview.html">Dfsu in MIKE IO Documentation</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">mikeio</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import mikeio
 </pre></div>
 </div>
 </div>
@@ -610,9 +615,9 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fn</span> <span class="o">=</span> <span class="s2">&quot;data/oresundHD_run1.dfsu&quot;</span>
-<span class="n">dfs</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">fn</span><span class="p">)</span>
-<span class="n">dfs</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>fn = &quot;data/oresundHD_run1.dfsu&quot;
+dfs = mikeio.open(fn)
+dfs
 </pre></div>
 </div>
 </div>
@@ -634,7 +639,7 @@ time: 5 steps with dt=86400.0s
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dfs</span><span class="o">.</span><span class="n">geometry</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>dfs.geometry
 </pre></div>
 </div>
 </div>
@@ -649,7 +654,7 @@ projection: UTM-33
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dfs</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">plot</span><span class="p">();</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>dfs.geometry.plot();
 </pre></div>
 </div>
 </div>
@@ -659,7 +664,7 @@ projection: UTM-33
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dfs</span><span class="o">.</span><span class="n">n_items</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>dfs.n_items
 </pre></div>
 </div>
 </div>
@@ -671,7 +676,7 @@ projection: UTM-33
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dfs</span><span class="o">.</span><span class="n">projection_string</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>dfs.projection_string
 </pre></div>
 </div>
 </div>
@@ -683,7 +688,7 @@ projection: UTM-33
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dfs</span><span class="o">.</span><span class="n">timestep</span>    <span class="c1"># in seconds ...</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>dfs.timestep    # in seconds ...
 </pre></div>
 </div>
 </div>
@@ -695,8 +700,8 @@ projection: UTM-33
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span> <span class="o">=</span> <span class="n">dfs</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">items</span><span class="o">=</span><span class="s2">&quot;Surface elevation&quot;</span><span class="p">)</span>
-<span class="n">ds</span><span class="o">.</span><span class="n">shape</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>ds = dfs.read(items=&quot;Surface elevation&quot;)
+ds.shape
 </pre></div>
 </div>
 </div>
@@ -708,8 +713,8 @@ projection: UTM-33
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">da</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[</span><span class="s2">&quot;Surface elevation&quot;</span><span class="p">]</span>   <span class="c1"># =ds[0] = ds.Surface_elevation</span>
-<span class="n">da</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>da = ds[&quot;Surface elevation&quot;]   # =ds[0] = ds.Surface_elevation
+da
 </pre></div>
 </div>
 </div>
@@ -725,7 +730,7 @@ geometry: Dfsu2D (3612 elements, 2046 nodes)
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">da</span><span class="o">.</span><span class="n">plot</span><span class="p">();</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>da.plot();
 </pre></div>
 </div>
 </div>
@@ -737,8 +742,8 @@ geometry: Dfsu2D (3612 elements, 2046 nodes)
 <h3>Subset data<a class="headerlink" href="#subset-data" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ze</span> <span class="o">=</span> <span class="n">dfs</span><span class="o">.</span><span class="n">element_coordinates</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span>    <span class="c1"># third column is depth</span>
-<span class="n">ze</span><span class="o">&lt;-</span><span class="mi">20</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>ze = dfs.element_coordinates[:,2]    # third column is depth
+ze&lt;-20
 </pre></div>
 </div>
 </div>
@@ -750,9 +755,9 @@ geometry: Dfsu2D (3612 elements, 2046 nodes)
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">elems</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">ze</span><span class="o">&lt;-</span><span class="mi">20</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">ds_sub</span> <span class="o">=</span> <span class="n">dfs</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">items</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">time</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">elements</span><span class="o">=</span><span class="n">elems</span><span class="p">)</span>    <span class="c1"># read only data where depth is more than 20m</span>
-<span class="n">ds_sub</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>elems = np.where(ze&lt;-20)[0]
+ds_sub = dfs.read(items=0, time=-1, elements=elems)    # read only data where depth is more than 20m
+ds_sub
 </pre></div>
 </div>
 </div>
@@ -769,8 +774,8 @@ items:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">ds_sub</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
-<span class="n">dfs</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">mesh</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">);</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>ax = ds_sub[0].plot()
+dfs.geometry.plot.mesh(ax=ax);
 </pre></div>
 </div>
 </div>
@@ -781,9 +786,9 @@ items:
 <p>Alternatively, we can use boolean masking directly on the DataArray, like this (see also <a class="reference external" href="https://github.com/DHI/mikeio/blob/main/notebooks/DataArray%20-%20Masking.ipynb">DataArray_Masking.ipynb</a>):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dac</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">time</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="n">dac</span><span class="p">[</span><span class="n">ze</span><span class="o">&gt;=-</span><span class="mi">20</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
-<span class="n">dac</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">show_mesh</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>dac = ds[0].isel(time=-1).copy()
+dac[ze&gt;=-20] = np.nan
+dac.plot(show_mesh=True);
 </pre></div>
 </div>
 </div>
@@ -797,33 +802,33 @@ items:
 <h2>Create new dfsu from mesh<a class="headerlink" href="#create-new-dfsu-from-mesh" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fn</span> <span class="o">=</span> <span class="s2">&quot;data/two_elements.mesh&quot;</span>
-<span class="n">dfs</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">fn</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>fn = &quot;data/two_elements.mesh&quot;
+dfs = mikeio.open(fn)
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="mf">36.5</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">dfs</span><span class="o">.</span><span class="n">n_elements</span><span class="p">)</span>            <span class="c1"># set all elements to 36.5</span>
-<span class="n">time</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s2">&quot;2020-1-1&quot;</span><span class="p">,</span> <span class="n">periods</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>      <span class="c1"># arbitrary date </span>
-<span class="n">item</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">ItemInfo</span><span class="p">(</span><span class="n">mikeio</span><span class="o">.</span><span class="n">EUMType</span><span class="o">.</span><span class="n">Chezy_No</span><span class="p">)</span>
-<span class="n">da</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">time</span><span class="o">=</span><span class="n">time</span><span class="p">,</span> <span class="n">item</span><span class="o">=</span><span class="n">item</span><span class="p">,</span> <span class="n">geometry</span><span class="o">=</span><span class="n">dfs</span><span class="o">.</span><span class="n">geometry</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>data = 36.5 * np.ones(dfs.n_elements)            # set all elements to 36.5
+time = pd.date_range(&quot;2020-1-1&quot;, periods=1)      # arbitrary date 
+item = mikeio.ItemInfo(mikeio.EUMType.Chezy_No)
+da = mikeio.DataArray(data, time=time, item=item, geometry=dfs.geometry)
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">da</span><span class="o">.</span><span class="n">to_dfs</span><span class="p">(</span><span class="s2">&quot;chezy_map.dfsu&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>da.to_dfs(&quot;chezy_map.dfsu&quot;)
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dfs</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;chezy_map.dfsu&quot;</span><span class="p">)</span>
-<span class="n">dfs</span><span class="o">.</span><span class="n">read</span><span class="p">()[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">,:]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>dfs = mikeio.open(&quot;chezy_map.dfsu&quot;)
+dfs.read()[0][0,:]
 </pre></div>
 </div>
 </div>
@@ -843,8 +848,8 @@ values: [36.5, 36.5]
 <h2>Visualisation<a class="headerlink" href="#visualisation" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dfs</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;data/oresundHD_run1.dfsu&quot;</span><span class="p">)</span>
-<span class="n">dfs</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>dfs = mikeio.open(&quot;data/oresundHD_run1.dfsu&quot;)
+dfs
 </pre></div>
 </div>
 </div>
@@ -868,7 +873,7 @@ time: 5 steps with dt=86400.0s
 <p>The DataArray can be used to plot other data, such as surface elevation.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dfs</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">plot</span><span class="p">();</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>dfs.geometry.plot();
 </pre></div>
 </div>
 </div>
@@ -878,8 +883,8 @@ time: 5 steps with dt=86400.0s
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span> <span class="o">=</span> <span class="n">dfs</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-<span class="n">ds</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>ds = dfs.read()
+ds
 </pre></div>
 </div>
 </div>
@@ -899,8 +904,8 @@ items:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wl_laststep</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[</span><span class="s2">&quot;Surface elevation&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">time</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>   <span class="c1"># DataArray</span>
-<span class="n">wl_laststep</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>wl_laststep = ds[&quot;Surface elevation&quot;].isel(time=-1)   # DataArray
+wl_laststep
 </pre></div>
 </div>
 </div>
@@ -918,9 +923,9 @@ values: [0.08848, 0.1241, ..., 0.08814]
 <p>In order to customize the plot we can take return the axis and add additional things, like markers and a legend.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">wl_laststep</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;winter&quot;</span><span class="p">,</span> <span class="n">show_mesh</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">12</span><span class="p">))</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">350000</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">6.15e6</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Location of bouy&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>ax = wl_laststep.plot(cmap=&quot;winter&quot;, show_mesh=True, figsize=(12,12))
+ax.scatter(x=350000, y=6.15e6, marker=&#39;*&#39;, s=200, label=&quot;Location of bouy&quot;)
+ax.legend();
 </pre></div>
 </div>
 </div>
@@ -931,13 +936,13 @@ values: [0.08848, 0.1241, ..., 0.08814]
 <p>In order to create subplots, we can supply the axis as an argument to plot.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>fig, (ax1, ax2) = plt.subplots(ncols=2, figsize = (12,7))
 
-<span class="n">da</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[</span><span class="s2">&quot;Surface elevation&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">time</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">da</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax1</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;ax=ax1&quot;</span><span class="p">)</span>
+da = ds[&quot;Surface elevation&quot;].isel(time=-1)
+da.plot.contourf(ax=ax1, title=&quot;ax=ax1&quot;)
 
-<span class="n">da</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[</span><span class="s2">&quot;V velocity&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">time</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">da</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax2</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;ax=ax2&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Northward velocity [m/s]&quot;</span><span class="p">);</span>
+da = ds[&quot;V velocity&quot;].isel(time=-1)
+da.plot.contourf(ax=ax2, title=&quot;ax=ax2&quot;, label=&quot;Northward velocity [m/s]&quot;);
 </pre></div>
 </div>
 </div>

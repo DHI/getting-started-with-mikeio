@@ -314,6 +314,11 @@ const thebe_selector_output = ".output, .cell_output"
    Statistics
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="final_assignment.html">
+   Final assignment
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -550,71 +555,71 @@ title="Print to PDF"
 <h2>External formats<a class="headerlink" href="#external-formats" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import the xarray library</span>
-<span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># import the xarray library
+import xarray as xr
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Open the NetCdf file ../data/gfs_example.nc using the Xarray open_dataset method</span>
-<span class="n">ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="s2">&quot;../data/gfs_example.nc&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Open the NetCdf file ../data/gfs_example.nc using the Xarray open_dataset method
+ds = xr.open_dataset(&quot;../data/gfs_example.nc&quot;)
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Inspect the rich set of information about this dataset</span>
-<span class="c1"># ds</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Inspect the rich set of information about this dataset
+# ds
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Which coordinates are in this dataset?</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Which coordinates are in this dataset?
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Which convention is used for the latitude dimension, are the values sorted North-South or South-North?</span>
-<span class="c1"># Why is this relevant when converting a file to Dfs2?</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Which convention is used for the latitude dimension, are the values sorted North-South or South-North?
+# Why is this relevant when converting a file to Dfs2?
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Which data variables are in this dataset?</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Which data variables are in this dataset?
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># What time period does it cover?</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># What time period does it cover?
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># What is the long name of the first data variable?</span>
-<span class="c1"># Hint: ds.name_of_item.attrs</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># What is the long name of the first data variable?
+# Hint: ds.name_of_item.attrs
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># To get the relative humidity at 40N, 10E @ &#39;2021-08-24 02:00&#39; we can use the .sel method like this:</span>
-<span class="c1"># ds.rh2m.sel(lon=10, lat=40, time=&#39;2021-08-24 03:00&#39;)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># To get the relative humidity at 40N, 10E @ &#39;2021-08-24 02:00&#39; we can use the .sel method like this:
+# ds.rh2m.sel(lon=10, lat=40, time=&#39;2021-08-24 03:00&#39;)
 
-<span class="c1"># What is the surface temperature at 45N, 12E at 2021-08-24 00:00?</span>
+# What is the surface temperature at 45N, 12E at 2021-08-24 00:00?
 </pre></div>
 </div>
 </div>

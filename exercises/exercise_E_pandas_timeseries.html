@@ -314,6 +314,11 @@ const thebe_selector_output = ".output, .cell_output"
    Statistics
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="final_assignment.html">
+   Final assignment
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -559,8 +564,8 @@ title="Print to PDF"
 <p>2021-8-24</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import numpy as np
+import pandas as pd
 </pre></div>
 </div>
 </div>
@@ -569,64 +574,64 @@ title="Print to PDF"
 <h2>E.1 Read time series from csv<a class="headerlink" href="#e-1-read-time-series-from-csv" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># read Klagshamn_water_level.csv with to a DataFrame df using pd.read_csv</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># read Klagshamn_water_level.csv with to a DataFrame df using pd.read_csv
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># print first 5 rows of df and check the type of the index</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># print first 5 rows of df and check the type of the index
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># read Klagshamn_water_level.csv again to df </span>
-<span class="c1"># now with the arguments index_col=0, parse_dates=True</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># read Klagshamn_water_level.csv again to df 
+# now with the arguments index_col=0, parse_dates=True
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># print first 5 rows of df and check the type of the index </span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># print first 5 rows of df and check the type of the index 
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot df using df.plot()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># plot df using df.plot()
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># find the min and max value of the time series</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># find the min and max value of the time series
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># check if there are any NaN values in the series (hist: .isna() )</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># check if there are any NaN values in the series (hist: .isna() )
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># use .resample(&#39;D&#39;) to get daily values max() values</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># use .resample(&#39;D&#39;) to get daily values max() values
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># use .plot.bar() to to plot the daily max values as a bar chart</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># use .plot.bar() to to plot the daily max values as a bar chart
 </pre></div>
 </div>
 </div>
@@ -637,38 +642,38 @@ title="Print to PDF"
 <p>Read <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.date_range.html">pandas.date_range</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create a DateTimeIndex using pd.date_range. Check the documentation for help.</span>
-<span class="c1"># It should be hourly starting at &#39;2015-01-01&#39; and ending at &#39;2015-01-15&#39;</span>
-<span class="c1"># Call the new index &quot;idx&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># create a DateTimeIndex using pd.date_range. Check the documentation for help.
+# It should be hourly starting at &#39;2015-01-01&#39; and ending at &#39;2015-01-15&#39;
+# Call the new index &quot;idx&quot;
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create an empty DataFrame df2 with this index pd.DataFrame(index=...)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Create an empty DataFrame df2 with this index pd.DataFrame(index=...)
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add a column called &quot;ones&quot; with the value 1.0</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Add a column called &quot;ones&quot; with the value 1.0
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add a column &quot;sin&quot; by taking np.sin() of pi*hour/12</span>
-<span class="c1"># Hint: you get the hour value of idx by taking idx.hour</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Add a column &quot;sin&quot; by taking np.sin() of pi*hour/12
+# Hint: you get the hour value of idx by taking idx.hour
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot the time series</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># plot the time series
 </pre></div>
 </div>
 </div>

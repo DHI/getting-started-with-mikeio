@@ -52,7 +52,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Datetimes and timedeltas" href="appendix/datetime_timedelta.html" />
+    <link rel="next" title="Final assignment" href="exercises/final_assignment.html" />
     <link rel="prev" title="Exercise: Dfsu 2D" href="exercises/exercise_dfsu.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -312,6 +312,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Statistics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="exercises/final_assignment.html">
+   Final assignment
   </a>
  </li>
 </ul>
@@ -656,8 +661,8 @@ title="Print to PDF"
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">mikeio</span>
-<span class="kn">import</span> <span class="nn">mikeio.generic</span> <span class="k">as</span> <span class="nn">generic</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import mikeio
+import mikeio.generic as generic
 </pre></div>
 </div>
 </div>
@@ -667,8 +672,8 @@ title="Print to PDF"
 <p>For smaller dfs files (maybe up to 2GB) it can be convenient to read the data to memory before doing aggregations. The MIKEIO.Dataset class have several <a class="reference external" href="https://dhi.github.io/mikeio/dataset.html#methods">methods</a> for aggregating data along an axis. See the generic section below for larger-than-memory data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">&quot;data/NorthSea_HD_and_windspeed.dfsu&quot;</span><span class="p">)</span>
-<span class="n">ds</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>ds = mikeio.read(&quot;data/NorthSea_HD_and_windspeed.dfsu&quot;)
+ds
 </pre></div>
 </div>
 </div>
@@ -689,9 +694,9 @@ items:
 <p>The default is to aggregate along the time axis - the output will therefore be a map.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dsm</span>  <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-<span class="n">mean_ws</span> <span class="o">=</span> <span class="n">dsm</span><span class="p">[</span><span class="s2">&quot;Wind speed&quot;</span><span class="p">]</span>
-<span class="n">mean_ws</span><span class="o">.</span><span class="n">shape</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>dsm  = ds.mean()
+mean_ws = dsm[&quot;Wind speed&quot;]
+mean_ws.shape
 </pre></div>
 </div>
 </div>
@@ -703,7 +708,7 @@ items:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mean_ws</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Mean wind speed&quot;</span><span class="p">);</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>mean_ws.plot(title=&quot;Mean wind speed&quot;);
 </pre></div>
 </div>
 </div>
@@ -721,8 +726,8 @@ items:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;space&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span>
-<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df = ds.mean(axis=&quot;space&quot;).to_dataframe()
+df.head()
 </pre></div>
 </div>
 </div>
@@ -781,7 +786,7 @@ items:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Wind speed&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">();</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df[&#39;Wind speed&#39;].plot();
 </pre></div>
 </div>
 </div>
@@ -792,7 +797,8 @@ items:
 <p>Dataset has other methods for calculating typical statistics, e.g. max, quantile…</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span><span class="p">[[</span><span class="s2">&quot;Wind speed&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;space&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Max wind speed&quot;</span><span class="p">);</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
+ds[[&quot;Wind speed&quot;]].max(axis=&quot;space&quot;).to_dataframe().plot(title=&quot;Max wind speed&quot;);
 </pre></div>
 </div>
 </div>
@@ -802,7 +808,7 @@ items:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span><span class="p">[[</span><span class="s2">&quot;Wind speed&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="n">q</span><span class="o">=</span><span class="p">[</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.9</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;space&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">();</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>ds[[&quot;Wind speed&quot;]].quantile(q=[0.1,0.5,0.9],axis=&quot;space&quot;).to_dataframe().plot();
 </pre></div>
 </div>
 </div>
@@ -813,11 +819,11 @@ items:
 <p>It’s important to know that the element area is not taking into account when doing the spatial aggregations! Only Dataset.average supports weighted averages.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[[</span><span class="s2">&quot;Wind speed&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;space&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span>
-<span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Simple mean&quot;</span><span class="p">]</span>
-<span class="n">area</span><span class="o">=</span><span class="n">ds</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">get_element_area</span><span class="p">()</span>
-<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Weighted&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[[</span><span class="s2">&quot;Wind speed&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;space&quot;</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="n">area</span><span class="p">)</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span>
-<span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Mean wind speed (simple vs weighted by element area)&quot;</span><span class="p">);</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df = ds[[&quot;Wind speed&quot;]].mean(axis=&quot;space&quot;).to_dataframe()
+df.columns = [&quot;Simple mean&quot;]
+area=ds.geometry.get_element_area()
+df[&#39;Weighted&#39;] = ds[[&quot;Wind speed&quot;]].average(axis=&quot;space&quot;, weights=area).to_dataframe()
+df.plot(title=&quot;Mean wind speed (simple vs weighted by element area)&quot;);
 </pre></div>
 </div>
 </div>
@@ -830,8 +836,8 @@ items:
 <h3>Quantiles to file<a class="headerlink" href="#quantiles-to-file" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dsq</span>  <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="n">q</span><span class="o">=</span><span class="p">[</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.9</span><span class="p">])</span>
-<span class="n">dsq</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>dsq  = ds.quantile(q=[0.1,0.5,0.9])
+dsq
 </pre></div>
 </div>
 </div>
@@ -854,7 +860,7 @@ items:
 <p>Write to a new dfsu file</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dsq</span><span class="o">.</span><span class="n">to_dfs</span><span class="p">(</span><span class="s2">&quot;NorthSea_Quantiles.dfsu&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>dsq.to_dfs(&quot;NorthSea_Quantiles.dfsu&quot;)
 </pre></div>
 </div>
 </div>
@@ -871,7 +877,7 @@ items:
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>ds.describe()
 </pre></div>
 </div>
 </div>
@@ -945,7 +951,7 @@ items:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>ds.min(axis=None).to_dataframe()
 </pre></div>
 </div>
 </div>
@@ -984,7 +990,7 @@ items:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span><span class="p">[</span><span class="s2">&quot;Wind speed&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>ds[&quot;Wind speed&quot;].values.min()
 </pre></div>
 </div>
 </div>
@@ -1005,15 +1011,15 @@ items:
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">generic</span><span class="o">.</span><span class="n">avg_time</span><span class="p">(</span><span class="s2">&quot;data/NorthSea_HD_and_windspeed.dfsu&quot;</span><span class="p">,</span> <span class="s2">&quot;NorthSea_avg.dfsu&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>generic.avg_time(&quot;data/NorthSea_HD_and_windspeed.dfsu&quot;, &quot;NorthSea_avg.dfsu&quot;)
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">&quot;NorthSea_avg.dfsu&quot;</span><span class="p">,</span> <span class="n">items</span><span class="o">=</span><span class="s2">&quot;Wind speed&quot;</span><span class="p">)</span>
-<span class="n">ds</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>ds = mikeio.read(&quot;NorthSea_avg.dfsu&quot;, items=&quot;Wind speed&quot;)
+ds
 </pre></div>
 </div>
 </div>
@@ -1030,7 +1036,7 @@ items:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span><span class="p">[</span><span class="s2">&quot;Wind speed&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Mean wind speed&quot;</span><span class="p">);</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>ds[&quot;Wind speed&quot;].plot(title=&quot;Mean wind speed&quot;);
 </pre></div>
 </div>
 </div>
@@ -1040,7 +1046,7 @@ items:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">generic</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="s2">&quot;data/NorthSea_HD_and_windspeed.dfsu&quot;</span><span class="p">,</span> <span class="s2">&quot;NorthSea_Quantiles2.dfsu&quot;</span><span class="p">,</span> <span class="n">q</span><span class="o">=</span><span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>generic.quantile(&quot;data/NorthSea_HD_and_windspeed.dfsu&quot;, &quot;NorthSea_Quantiles2.dfsu&quot;, q=[0.1, 0.5, 0.9])
 </pre></div>
 </div>
 </div>
@@ -1051,7 +1057,7 @@ items:
 <h2>Custom<a class="headerlink" href="#custom" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">&quot;data/NorthSea_HD_and_windspeed.dfsu&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>ds = mikeio.read(&quot;data/NorthSea_HD_and_windspeed.dfsu&quot;)
 </pre></div>
 </div>
 </div>
@@ -1061,15 +1067,15 @@ items:
 <p>With aggregate we can get Dataset statistics with our “own” function, e.g. standard deviation:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="n">dsa</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">aggregate</span><span class="p">(</span><span class="n">func</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import numpy as np
+dsa = ds.aggregate(func=np.std)
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dsa</span><span class="p">[</span><span class="s2">&quot;Wind speed&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;Std [m/s]&quot;</span><span class="p">);</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>dsa[&quot;Wind speed&quot;].plot(label=&quot;Std [m/s]&quot;);
 </pre></div>
 </div>
 </div>
@@ -1083,27 +1089,27 @@ items:
 <p>Let’s find out how often the wind exceeds 12m/s in our simulation.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import matplotlib.pyplot as plt
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nt</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">n_timesteps</span>
-<span class="n">one_to_zero</span> <span class="o">=</span> <span class="mf">1.</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">1.</span><span class="p">,</span> <span class="n">nt</span> <span class="o">+</span> <span class="mf">1.</span><span class="p">)</span><span class="o">/</span><span class="n">nt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>nt = ds.n_timesteps
+one_to_zero = 1. - np.arange(1., nt + 1.)/nt
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">val</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[</span><span class="s2">&quot;Wind speed&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">element</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ds</span><span class="o">.</span><span class="n">time</span><span class="p">,</span> <span class="n">val</span><span class="p">);</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ds</span><span class="o">.</span><span class="n">time</span><span class="p">[</span><span class="n">val</span><span class="o">&gt;</span><span class="mi">12</span><span class="p">],</span> <span class="n">val</span><span class="p">[</span><span class="n">val</span><span class="o">&gt;</span><span class="mi">12</span><span class="p">],</span><span class="s1">&#39;.r&#39;</span><span class="p">);</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Wind speed [m/s]&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;How often is the wind speed above 12m/s (element 0)?&#39;</span><span class="p">);</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>val = ds[&quot;Wind speed&quot;].isel(element=0).values
+plt.plot(ds.time, val);
+plt.plot(ds.time[val&gt;12], val[val&gt;12],&#39;.r&#39;);
+plt.axhline(y=12,color=&#39;r&#39;)
+plt.ylabel(&#39;Wind speed [m/s]&#39;)
+plt.title(&#39;How often is the wind speed above 12m/s (element 0)?&#39;);
 </pre></div>
 </div>
 </div>
@@ -1113,11 +1119,11 @@ items:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">val</span><span class="p">),</span> <span class="n">one_to_zero</span><span class="p">);</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Wind speed [m/s]&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Probability of exceedance [-]&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Wind speed exceedance in element 0&#39;</span><span class="p">);</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>plt.plot(np.sort(val), one_to_zero);
+plt.xlabel(&#39;Wind speed [m/s]&#39;)
+plt.ylabel(&#39;Probability of exceedance [-]&#39;)
+plt.axvline(x=12,color=&#39;r&#39;)
+plt.title(&#39;Wind speed exceedance in element 0&#39;);
 </pre></div>
 </div>
 </div>
@@ -1127,30 +1133,30 @@ items:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create empty DataArray </span>
-<span class="n">item</span><span class="o">=</span><span class="n">mikeio</span><span class="o">.</span><span class="n">ItemInfo</span><span class="p">(</span><span class="n">mikeio</span><span class="o">.</span><span class="n">EUMType</span><span class="o">.</span><span class="n">Probability</span><span class="p">)</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">ds</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">n_elements</span><span class="p">),</span> <span class="n">fill_value</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
-<span class="n">dae</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">time</span><span class="o">=</span><span class="s2">&quot;2017-10-27&quot;</span><span class="p">,</span> <span class="n">item</span><span class="o">=</span><span class="n">item</span><span class="p">,</span> <span class="n">geometry</span><span class="o">=</span><span class="n">ds</span><span class="o">.</span><span class="n">geometry</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Create empty DataArray 
+item=mikeio.ItemInfo(mikeio.EUMType.Probability)
+data = np.full(shape=(1,ds.geometry.n_elements), fill_value=np.nan)
+dae = mikeio.DataArray(data=data, time=&quot;2017-10-27&quot;, item=item, geometry=ds.geometry)
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">threshold</span> <span class="o">=</span> <span class="mi">12</span>
-<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">ds</span><span class="o">.</span><span class="n">n_elements</span><span class="p">):</span>
-    <span class="c1"># this is a naive and slow way of calculating this!</span>
-    <span class="n">dat</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[</span><span class="s2">&quot;Wind speed&quot;</span><span class="p">][:,</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
-    <span class="n">dae</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="n">threshold</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">dat</span><span class="p">),</span> <span class="n">one_to_zero</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>threshold = 12
+for j in range(ds.n_elements):
+    # this is a naive and slow way of calculating this!
+    dat = ds[&quot;Wind speed&quot;][:,j].values
+    dae[0,j] = np.interp(threshold, np.sort(dat), one_to_zero)
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dae100</span> <span class="o">=</span> <span class="n">dae</span><span class="o">*</span><span class="mi">100</span>
-<span class="n">dae100</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Wind speed exceeding 12 m/s&quot;</span><span class="p">,</span> 
-    <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Time of Exceedance [%]&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;YlOrRd&quot;</span><span class="p">);</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>dae100 = dae*100
+dae100.plot(title=&quot;Wind speed exceeding 12 m/s&quot;, 
+    label=&quot;Time of Exceedance [%]&quot;, cmap=&quot;YlOrRd&quot;);
 </pre></div>
 </div>
 </div>
@@ -1160,10 +1166,10 @@ items:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">total_hours</span> <span class="o">=</span> <span class="p">(</span><span class="n">ds</span><span class="o">.</span><span class="n">time</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">ds</span><span class="o">.</span><span class="n">time</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">total_seconds</span><span class="p">()</span><span class="o">/</span><span class="mi">3600</span>
-<span class="n">dae_hours</span> <span class="o">=</span> <span class="n">dae</span><span class="o">*</span><span class="n">total_hours</span>
-<span class="n">dae_hours</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Wind speed exceeding 12 m/s&quot;</span><span class="p">,</span> 
-    <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Exceedance [Hours]&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;YlOrRd&quot;</span><span class="p">);</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>total_hours = (ds.time[-1]-ds.time[0]).total_seconds()/3600
+dae_hours = dae*total_hours
+dae_hours.plot(title=&quot;Wind speed exceeding 12 m/s&quot;, 
+    label=&quot;Exceedance [Hours]&quot;, cmap=&quot;YlOrRd&quot;);
 </pre></div>
 </div>
 </div>
@@ -1209,10 +1215,10 @@ items:
             <p class="prev-next-title">Exercise: Dfsu 2D</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="appendix/datetime_timedelta.html" title="next page">
+    <a class='right-next' id="next-link" href="exercises/final_assignment.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Datetimes and timedeltas</p>
+        <p class="prev-next-title">Final assignment</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
