@@ -672,24 +672,20 @@ items:
 <p>Plot one of the points along the line.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>plt.plot(t1.time,t1[0].isel(x=1).values, label=&quot;File 1&quot;)
-plt.plot(t2.time,t2[0].isel(x=1).values,&#39;k+&#39;, label=&quot;File 2&quot;)
-plt.legend()
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>ax = t1[0].isel(x=1).plot(lw=5)
+t2[0].isel(x=1).plot(ax=ax);
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f1744ddffd0&gt;
-</pre></div>
-</div>
-<img alt="_images/generic_7_1.png" src="_images/generic_7_1.png" />
+<img alt="_images/generic_7_0.png" src="_images/generic_7_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>mikeio.generic.concat(infilenames=[&quot;data/tide1.dfs1&quot;,
                                    &quot;data/tide2.dfs1&quot;],
-                      outfilename=&quot;concat.dfs1&quot;, keep=&quot;last&quot;)
+                      outfilename=&quot;concat.dfs1&quot;)
 </pre></div>
 </div>
 </div>
@@ -697,7 +693,6 @@ plt.legend()
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>c = mikeio.read(&quot;concat.dfs1&quot;)
-c[0].isel(x=1).plot()
 c
 </pre></div>
 </div>
@@ -711,7 +706,16 @@ items:
   0:  Level &lt;Water Level&gt; (meter)
 </pre></div>
 </div>
-<img alt="_images/generic_9_1.png" src="_images/generic_9_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>c[0].isel(x=1).plot();
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/generic_10_0.png" src="_images/generic_10_0.png" />
 </div>
 </div>
 </section>
@@ -774,6 +778,29 @@ items:
 </div>
 </div>
 </div>
+<p><strong>Inline exercise</strong></p>
+<ol class="simple">
+<li><p>use <code class="docutils literal notranslate"><span class="pre">mikeio.generic.extract</span></code> to extract the data from the beginning of the file ‘data/tide2.dfs1’ until “2019-01-03”, into a new file named ‘tide_start.dfs1’</p></li>
+<li><p>use <code class="docutils literal notranslate"><span class="pre">mikeio.read</span></code> to read the new file ‘tide_start.dfs1’ into a Dataset named ds</p></li>
+<li><p>Check that the end time, <code class="docutils literal notranslate"><span class="pre">ds.end_time</span></code> matches what you specified above</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>mikeio.read(&quot;data/tide2.dfs1&quot;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mikeio.Dataset&gt;
+dims: (time:97, x:10)
+time: 2019-01-02 00:00:00 - 2019-01-04 00:00:00 (97 records)
+geometry: Grid1D (n=10, dx=0.06667)
+items:
+  0:  Level &lt;Water Level&gt; (meter)
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="diff">
 <h2>Diff<a class="headerlink" href="#diff" title="Permalink to this headline">#</a></h2>
@@ -791,7 +818,7 @@ mikeio.generic.diff(fn1, fn2, fn_diff)
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0%|          | 0/5 [00:00&lt;?, ?it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 5/5 [00:00&lt;00:00, 1600.76it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 5/5 [00:00&lt;00:00, 2120.26it/s]
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -813,7 +840,7 @@ da.plot(vmin=-0.1, vmax=0.1, cmap=&#39;coolwarm&#39;, ax=ax[2], title=&#39;diffe
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/generic_18_0.png" src="_images/generic_18_0.png" />
+<img alt="_images/generic_21_0.png" src="_images/generic_21_0.png" />
 </div>
 </div>
 </section>
@@ -828,7 +855,7 @@ ds.Elevation.plot();
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/generic_20_0.png" src="_images/generic_20_0.png" />
+<img alt="_images/generic_23_0.png" src="_images/generic_23_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -864,7 +891,7 @@ ds.Elevation.plot();
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/generic_24_0.png" src="_images/generic_24_0.png" />
+<img alt="_images/generic_27_0.png" src="_images/generic_27_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -912,7 +939,7 @@ plt.colorbar();
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/generic_29_0.png" src="_images/generic_29_0.png" />
+<img alt="_images/generic_32_0.png" src="_images/generic_32_0.png" />
 </div>
 </div>
 <p>The 2d array must first be flipped upside down and then converted to a 1d vector using <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.flatten.html">numpy.ndarray.flatten</a> to match how data is stored in dfs files.</p>
@@ -934,7 +961,7 @@ plt.title(&quot;Spatial correction applied to dfs2&quot;);
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/generic_32_0.png" src="_images/generic_32_0.png" />
+<img alt="_images/generic_35_0.png" src="_images/generic_35_0.png" />
 </div>
 </div>
 </section>
