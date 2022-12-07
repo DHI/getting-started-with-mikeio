@@ -524,11 +524,25 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#extract-data-at-location">
    Extract data at location
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#inline-exercise">
+     Inline exercise
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#slicing">
    Slicing
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Inline exercise
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#writing-data">
@@ -538,6 +552,16 @@ title="Print to PDF"
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#geographical-coordinates">
      Geographical coordinates
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Inline exercise
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-dataarray">
+     Create DataArray
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -580,11 +604,25 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#extract-data-at-location">
    Extract data at location
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#inline-exercise">
+     Inline exercise
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#slicing">
    Slicing
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Inline exercise
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#writing-data">
@@ -594,6 +632,16 @@ title="Print to PDF"
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#geographical-coordinates">
      Geographical coordinates
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Inline exercise
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-dataarray">
+     Create DataArray
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -620,8 +668,7 @@ title="Print to PDF"
 <p>See <a class="reference external" href="https://docs.mikepoweredbydhi.com/core_libraries/dfs/dfs-file-system/">DFS - Reference manual</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
-import numpy as np
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import numpy as np
 import matplotlib.pyplot as plt
 import mikeio
 </pre></div>
@@ -778,6 +825,21 @@ plt.text(12.3, 55.8, &quot;Denmark&quot;)
 <img alt="_images/dfs2_14_1.png" src="_images/dfs2_14_1.png" />
 </div>
 </div>
+<section id="inline-exercise">
+<h3>Inline exercise<a class="headerlink" href="#inline-exercise" title="Permalink to this headline">#</a></h3>
+<p>Find the coordinates of the deepest position.</p>
+<ol class="simple">
+<li><p>Find the index “idx” of smallest value in “elevation” (hint: np.argmin)</p></li>
+<li><p>Find the coordinates of idx (hint: geometry.xy is a list of coordinates)</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># write your code here
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 <section id="slicing">
 <h2>Slicing<a class="headerlink" href="#slicing" title="Permalink to this headline">#</a></h2>
@@ -790,10 +852,10 @@ plt.axhline(stn[1])
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.lines.Line2D at 0x7fc5d0209e50&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.lines.Line2D at 0x7f36f7f6bdf0&gt;
 </pre></div>
 </div>
-<img alt="_images/dfs2_16_1.png" src="_images/dfs2_16_1.png" />
+<img alt="_images/dfs2_18_1.png" src="_images/dfs2_18_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -803,7 +865,7 @@ plt.axhline(stn[1])
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/dfs2_17_0.png" src="_images/dfs2_17_0.png" />
+<img alt="_images/dfs2_19_0.png" src="_images/dfs2_19_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -813,9 +875,23 @@ plt.axhline(stn[1])
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/dfs2_18_0.png" src="_images/dfs2_18_0.png" />
+<img alt="_images/dfs2_20_0.png" src="_images/dfs2_20_0.png" />
 </div>
 </div>
+<section id="id1">
+<h3>Inline exercise<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
+<ol class="simple">
+<li><p>Extract the “first” horizontal line using <code class="docutils literal notranslate"><span class="pre">isel()</span></code></p></li>
+<li><p>Find the mean value along this line (hint: use <code class="docutils literal notranslate"><span class="pre">axis=&quot;x&quot;</span></code>)</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># insert your code here
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 <section id="writing-data">
 <h2>Writing data<a class="headerlink" href="#writing-data" title="Permalink to this headline">#</a></h2>
@@ -842,10 +918,10 @@ plt.colorbar()
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x7fc5d0843f10&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x7f36f7dbd3d0&gt;
 </pre></div>
 </div>
-<img alt="_images/dfs2_21_1.png" src="_images/dfs2_21_1.png" />
+<img alt="_images/dfs2_25_1.png" src="_images/dfs2_25_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -864,6 +940,20 @@ projection: LONG/LAT
 </div>
 </div>
 </div>
+</section>
+<section id="id2">
+<h3>Inline exercise<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h3>
+<p>plot the grid</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># insert your code here
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="create-dataarray">
+<h3>Create DataArray<a class="headerlink" href="#create-dataarray" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import pandas as pd
@@ -965,7 +1055,7 @@ geometry: Grid2D (ny=4, nx=3)
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot: xlabel=&#39;Easting [m]&#39;, ylabel=&#39;Northing [m]&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/dfs2_30_1.png" src="_images/dfs2_30_1.png" />
+<img alt="_images/dfs2_37_1.png" src="_images/dfs2_37_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
