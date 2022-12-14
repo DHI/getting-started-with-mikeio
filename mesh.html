@@ -536,6 +536,13 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#a-larger-mesh">
    A larger mesh
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#inline-exercise">
+     Inline Exercise
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#change-depth">
@@ -592,6 +599,13 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#a-larger-mesh">
    A larger mesh
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#inline-exercise">
+     Inline Exercise
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#change-depth">
@@ -746,7 +760,7 @@ ax.plot(xe, ye, &#39;bx&#39;, markersize=10)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f5597677610&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f5b10471b20&gt;]
 </pre></div>
 </div>
 <img alt="_images/mesh_12_1.png" src="_images/mesh_12_1.png" />
@@ -914,6 +928,20 @@ msh = mikeio.Mesh(fn)
 <img alt="_images/mesh_28_0.png" src="_images/mesh_28_0.png" />
 </div>
 </div>
+<section id="inline-exercise">
+<h3>Inline Exercise<a class="headerlink" href="#inline-exercise" title="Permalink to this headline">#</a></h3>
+<ol class="simple">
+<li><p>please check if the point A: (x,y)=(-0.5, 0.0) is inside the mesh</p></li>
+<li><p>please check if the point B: (x,y)=(-0.5, 0.4) is inside the mesh</p></li>
+<li><p>find index of the 5 closest points to B</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># insert code here
+</pre></div>
+</div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>msh.max_nodes_per_element
@@ -933,7 +961,7 @@ msh = mikeio.Mesh(fn)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/mesh_30_0.png" src="_images/mesh_30_0.png" />
+<img alt="_images/mesh_32_0.png" src="_images/mesh_32_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -960,7 +988,7 @@ plt.legend();
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/mesh_32_0.png" src="_images/mesh_32_0.png" />
+<img alt="_images/mesh_34_0.png" src="_images/mesh_34_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -970,6 +998,7 @@ plt.legend();
 </div>
 </div>
 </div>
+</section>
 </section>
 <section id="change-depth">
 <h2>Change depth<a class="headerlink" href="#change-depth" title="Permalink to this headline">#</a></h2>
@@ -981,7 +1010,7 @@ msh.plot();
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/mesh_35_0.png" src="_images/mesh_35_0.png" />
+<img alt="_images/mesh_37_0.png" src="_images/mesh_37_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -999,7 +1028,7 @@ msh.zn = np.clip(msh.zn, -15, 0) # clip depth to interval [-15,0]
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/mesh_37_0.png" src="_images/mesh_37_0.png" />
+<img alt="_images/mesh_39_0.png" src="_images/mesh_39_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1036,7 +1065,7 @@ projection: LONG/LAT
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/mesh_42_0.png" src="_images/mesh_42_0.png" />
+<img alt="_images/mesh_44_0.png" src="_images/mesh_44_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1046,7 +1075,7 @@ projection: LONG/LAT
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/mesh_43_0.png" src="_images/mesh_43_0.png" />
+<img alt="_images/mesh_45_0.png" src="_images/mesh_45_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1056,7 +1085,7 @@ projection: LONG/LAT
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/mesh_44_0.png" src="_images/mesh_44_0.png" />
+<img alt="_images/mesh_46_0.png" src="_images/mesh_46_0.png" />
 </div>
 </div>
 <p>Maybe we would like to higlight the bathymetric variations in some range, in this case in the -40, -20m range.</p>
@@ -1067,7 +1096,7 @@ projection: LONG/LAT
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/mesh_46_0.png" src="_images/mesh_46_0.png" />
+<img alt="_images/mesh_48_0.png" src="_images/mesh_48_0.png" />
 </div>
 </div>
 <p>There are other options as well, such as explicit specification of which contour lines to show or choosing a specific colormap (<a class="reference external" href="https://matplotlib.org/stable/tutorials/colors/colormaps.html">matplotlib colormaps</a>)</p>
@@ -1080,7 +1109,7 @@ projection: LONG/LAT
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/mesh_48_0.png" src="_images/mesh_48_0.png" />
+<img alt="_images/mesh_50_0.png" src="_images/mesh_50_0.png" />
 </div>
 </div>
 <p>See the <a class="reference external" href="https://nbviewer.jupyter.org/github/DHI/mikeio/blob/main/notebooks/Mesh.ipynb">MIKE IO Mesh Example notebook</a> for more Mesh operations (including shapely operations).</p>
