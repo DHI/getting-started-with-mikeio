@@ -50,6 +50,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Final assignment" href="exercises/final_assignment.html" />
@@ -511,8 +513,8 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#dataset">
-   Dataset
+  <a class="reference internal nav-link" href="#dataset-dataarray">
+   Dataset / DataArray
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -579,8 +581,8 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#dataset">
-   Dataset
+  <a class="reference internal nav-link" href="#dataset-dataarray">
+   Dataset / DataArray
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -667,8 +669,8 @@ import mikeio.generic as generic
 </div>
 </div>
 </div>
-<section id="dataset">
-<h2>Dataset<a class="headerlink" href="#dataset" title="Permalink to this headline">#</a></h2>
+<section id="dataset-dataarray">
+<h2>Dataset / DataArray<a class="headerlink" href="#dataset-dataarray" title="Permalink to this headline">#</a></h2>
 <p>For smaller dfs files (maybe up to 2GB) it can be convenient to read the data to memory before doing aggregations. The MIKEIO.Dataset class have several <a class="reference external" href="https://dhi.github.io/mikeio/dataset.html#methods">methods</a> for aggregating data along an axis. See the generic section below for larger-than-memory data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -726,79 +728,28 @@ mean_ws.shape
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df = ds.mean(axis=&quot;space&quot;).to_dataframe()
-df.head()
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>ds.mean(axis=&quot;space&quot;).plot();
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Surface elevation</th>
-      <th>Wind speed</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>2017-10-27 00:00:00</th>
-      <td>0.256916</td>
-      <td>10.234554</td>
-    </tr>
-    <tr>
-      <th>2017-10-27 01:00:00</th>
-      <td>0.274964</td>
-      <td>10.264292</td>
-    </tr>
-    <tr>
-      <th>2017-10-27 02:00:00</th>
-      <td>0.287414</td>
-      <td>10.531686</td>
-    </tr>
-    <tr>
-      <th>2017-10-27 03:00:00</th>
-      <td>0.290940</td>
-      <td>10.794677</td>
-    </tr>
-    <tr>
-      <th>2017-10-27 04:00:00</th>
-      <td>0.287235</td>
-      <td>10.858319</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
+<img alt="_images/statistics_9_0.png" src="_images/statistics_9_0.png" />
 </div>
+</div>
+<p>Dataset/DataArray has other methods for calculating typical statistics, e.g. max, quantile…</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df[&#39;Wind speed&#39;].plot();
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>ds.Wind_speed.max(axis=&quot;space&quot;).plot(title=&quot;Max wind speed&quot;);
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/statistics_10_0.png" src="_images/statistics_10_0.png" />
+<img alt="_images/statistics_11_0.png" src="_images/statistics_11_0.png" />
 </div>
 </div>
-<p>Dataset has other methods for calculating typical statistics, e.g. max, quantile…</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
-ds[[&quot;Wind speed&quot;]].max(axis=&quot;space&quot;).to_dataframe().plot(title=&quot;Max wind speed&quot;);
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>ds.Wind_speed.quantile(q=[0.1,0.5,0.9],axis=&quot;space&quot;).plot();
 </pre></div>
 </div>
 </div>
@@ -806,29 +757,51 @@ ds[[&quot;Wind speed&quot;]].max(axis=&quot;space&quot;).to_dataframe().plot(tit
 <img alt="_images/statistics_12_0.png" src="_images/statistics_12_0.png" />
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>ds[[&quot;Wind speed&quot;]].quantile(q=[0.1,0.5,0.9],axis=&quot;space&quot;).to_dataframe().plot();
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/statistics_13_0.png" src="_images/statistics_13_0.png" />
-</div>
-</div>
 <p>It’s important to know that the element area is not taking into account when doing the spatial aggregations! Only Dataset.average supports weighted averages.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df = ds[[&quot;Wind speed&quot;]].mean(axis=&quot;space&quot;).to_dataframe()
-df.columns = [&quot;Simple mean&quot;]
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df = ds[[&quot;Wind speed&quot;]].mean(axis=&quot;space&quot;).to_dataframe().rename(columns={&quot;Wind speed&quot;:&quot;Simple mean&quot;})
+
 area=ds.geometry.get_element_area()
 df[&#39;Weighted&#39;] = ds[[&quot;Wind speed&quot;]].average(axis=&quot;space&quot;, weights=area).to_dataframe()
+
 df.plot(title=&quot;Mean wind speed (simple vs weighted by element area)&quot;);
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/statistics_15_0.png" src="_images/statistics_15_0.png" />
+<img alt="_images/statistics_14_0.png" src="_images/statistics_14_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>ds
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mikeio.Dataset&gt;
+dims: (time:67, element:958)
+time: 2017-10-27 00:00:00 - 2017-10-29 18:00:00 (67 records)
+geometry: Dfsu2D (958 elements, 570 nodes)
+items:
+  0:  Surface elevation &lt;Surface Elevation&gt; (meter)
+  1:  Wind speed &lt;Wind speed&gt; (meter per sec)
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Inline exercise</strong></p>
+<ol class="simple">
+<li><p>Create a new DataArray with the temporal mean of the Surface elevation <span class="math notranslate nohighlight">\(\eta\)</span></p></li>
+<li><p>Create a new DataArray with the Surface elevation anomaly, <span class="math notranslate nohighlight">\( \eta - \overline{\eta} \)</span></p></li>
+<li><p>Plot the last time step of the anomaly</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># insert your code here
+</pre></div>
+</div>
 </div>
 </div>
 </section>
@@ -1041,7 +1014,7 @@ items:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/statistics_28_0.png" src="_images/statistics_28_0.png" />
+<img alt="_images/statistics_30_0.png" src="_images/statistics_30_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1080,7 +1053,7 @@ dsa = ds.aggregate(func=np.std)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/statistics_35_0.png" src="_images/statistics_35_0.png" />
+<img alt="_images/statistics_37_0.png" src="_images/statistics_37_0.png" />
 </div>
 </div>
 </section>
@@ -1114,7 +1087,7 @@ plt.title(&#39;How often is the wind speed above 12m/s (element 0)?&#39;);
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/statistics_39_0.png" src="_images/statistics_39_0.png" />
+<img alt="_images/statistics_41_0.png" src="_images/statistics_41_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1128,7 +1101,7 @@ plt.title(&#39;Wind speed exceedance in element 0&#39;);
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/statistics_40_0.png" src="_images/statistics_40_0.png" />
+<img alt="_images/statistics_42_0.png" src="_images/statistics_42_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1161,7 +1134,7 @@ dae100.plot(title=&quot;Wind speed exceeding 12 m/s&quot;,
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/statistics_43_0.png" src="_images/statistics_43_0.png" />
+<img alt="_images/statistics_45_0.png" src="_images/statistics_45_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1174,7 +1147,7 @@ dae_hours.plot(title=&quot;Wind speed exceeding 12 m/s&quot;,
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/statistics_44_0.png" src="_images/statistics_44_0.png" />
+<img alt="_images/statistics_46_0.png" src="_images/statistics_46_0.png" />
 </div>
 </div>
 </section>
