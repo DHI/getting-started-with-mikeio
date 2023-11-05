@@ -1,3 +1,5 @@
+name: Check with dev version of MIKE IO
+
 on: 
     schedule:
         # every monday at 00:00 UTC

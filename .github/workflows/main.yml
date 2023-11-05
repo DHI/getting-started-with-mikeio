@@ -1,3 +1,5 @@
+name: Publish Book
+
 on:
   push:
     branches: 
@@ -5,7 +7,7 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  deploy-book:
+  publish-book:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
