@@ -1,0 +1,25 @@
+on: 
+    schedule:
+        # every monday at 00:00 UTC
+        - cron : '0 0 * * 1'
+    workflow_dispatch:
+
+jobs:
+  check-comliance-with-dev-version:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+    
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.11
+    
+      - name: Install MIKE IO from main
+        run: pip install https://github.com/DHI/mikeio/archive/main.zip
+        
+      - name: Install other dependencies
+        run: pip install -r requirements.txt
+            
+      - name: Build the book
+        run: jupyter-book build mini_book/
