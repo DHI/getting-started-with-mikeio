@@ -7,7 +7,7 @@ on:
     workflow_dispatch:
 
 jobs:
-  check-comliance-with-dev-version:
+  check:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -24,4 +24,4 @@ jobs:
         run: pip install -r requirements.txt
             
       - name: Build the book
-        run: jupyter-book build mini_book/
+        run: jupyter-book build -W mini_book/
