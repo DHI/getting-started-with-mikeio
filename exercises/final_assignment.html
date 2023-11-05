@@ -1,48 +1,60 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Final assignment &#8212; Getting started with Dfs files in Python using MIKE IO</title>
-    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -50,61 +62,103 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'exercises/final_assignment';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Datetimes and timedeltas" href="../appendix/datetime_timedelta.html" />
     <link rel="prev" title="Statistics" href="../statistics.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
 
-    
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../index.html">
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="../_static/logo.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Getting started with Dfs files in Python using MIKE IO</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Getting started with Dfs files in Python using MIKE IO - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Getting started with Dfs files in Python using MIKE IO - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -113,474 +167,253 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Python for data analysis
- </span>
-</p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python for data analysis</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../installation.html">
-   Installing Python
-  </a>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../basic.html">
-   Basic Python
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="exercise_A_basic_python.html">
-     Exercise A: basic python
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../numpy.html">
-   NumPy
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="exercise_B_NumPy.html">
-     Exercise B: NumPy
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../matplotlib.html">
-   Matplotlib
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-  <label for="toctree-checkbox-3">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="exercise_C_matplotlib.html">
-     Exercise C: Matplotlib
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../pandas.html">
-   Pandas
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-  <label for="toctree-checkbox-4">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="exercise_D_pandas_basics.html">
-     Exercise D: Pandas basics
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="exercise_E_pandas_timeseries.html">
-     Exercise E: Pandas timeseries
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installing Python</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../basic.html">Basic Python</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="exercise_A_basic_python.html">Exercise A: basic python</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  MIKE IO
- </span>
-</p>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../numpy.html">NumPy</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="exercise_B_NumPy.html">Exercise B: NumPy</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../matplotlib.html">Matplotlib</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="exercise_C_matplotlib.html">Exercise C: Matplotlib</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../pandas.html">Pandas</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="exercise_D_pandas_basics.html">Exercise D: Pandas basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercise_E_pandas_timeseries.html">Exercise E: Pandas timeseries</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">MIKE IO</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../installation_mikeio.html">
-   Installing MIKE IO
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../datastructures.html">
-   Data Structures
-  </a>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../dfs0.html">
-   Dfs0
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
-  <label for="toctree-checkbox-5">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="exercise_F_Dfs0.html">
-     Exercise F: Dfs0
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../generic.html">
-   Generic dfs processing
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-  <label for="toctree-checkbox-6">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="exercise_H_generic_dfs.html">
-     Exercise H: Generic dfs
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../dfs1.html">
-   Dfs1
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../dfs2.html">
-   Dfs2
-  </a>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../netcdf.html">
-   NetCDF to dfs2
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
-  <label for="toctree-checkbox-7">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="exercise_xarray.html">
-     Exercise: NetCDF and xarray
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../mesh.html">
-   Mesh
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
-  <label for="toctree-checkbox-8">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="exercise_mesh.html">
-     Exercise: Mesh
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../dfsu2d.html">
-   Dfsu 2D
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
-  <label for="toctree-checkbox-9">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="exercise_dfsu.html">
-     Exercise: Dfsu 2D
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../statistics.html">
-   Statistics
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Final assignment
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../installation_mikeio.html">Installing MIKE IO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../datastructures.html">Data Structures</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../dfs0.html">Dfs0</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="exercise_F_Dfs0.html">Exercise F: Dfs0</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Appendix
- </span>
-</p>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../generic.html">Generic dfs processing</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="exercise_H_generic_dfs.html">Exercise H: Generic dfs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../dfs1.html">Dfs1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dfs2.html">Dfs2</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../netcdf.html">NetCDF to dfs2</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="exercise_xarray.html">Exercise: NetCDF and xarray</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../mesh.html">Mesh</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="exercise_mesh.html">Exercise: Mesh</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../dfsu2d.html">Dfsu 2D</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="exercise_dfsu.html">Exercise: Dfsu 2D</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../statistics.html">Statistics</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Final assignment</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../appendix/datetime_timedelta.html">
-   Datetimes and timedeltas
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/datetime_timedelta.html">Datetimes and timedeltas</a></li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
-
-
-          
-
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
-
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
   
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/DHI/getting-started-with-mikeio/main?urlpath=lab/tree/mini_book/exercises/final_assignment.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
->
   
-
-<span class="headerbtn__icon-container">
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
   
-    <img src="../_static/images/logo_binder.svg">
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
+  <div id="rtd-footer-container"></div>
 
-      </li>
+
+      </div>
       
-      <li>
-        <a href="https://colab.research.google.com/github/DHI/getting-started-with-mikeio/blob/main/mini_book/exercises/final_assignment.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Colab"
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/DHI/getting-started-with-mikeio/blob/main/mini_book/exercises/final_assignment.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   
     <img src="../_static/images/logo_colab.png">
   </span>
-<span class="headerbtn__text-container">Colab</span>
+<span class="btn__text-container">Colab</span>
 </a>
-
-      </li>
+</li>
       
-    </ul>
-  </div>
+  </ul>
 </div>
 
-<button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/exercises/final_assignment.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../_sources/exercises/final_assignment.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
+`);
+</script>
 
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
 </label>
-
+</div></div>
+      
     </div>
+  
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#fa-1-convert-all-timeseries-to-dfs0">
-   FA.1 Convert all timeseries to Dfs0
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#fa-2-add-region-specific-info-to-normalize-timeseries-with-surface-area">
-   FA.2 Add region specific info to normalize timeseries with surface area
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#fa-3-gridded-data">
-   FA.3 Gridded data
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#submission-of-solution">
-   Submission of solution
-  </a>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Final assignment</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#fa-1-convert-all-timeseries-to-dfs0">
-   FA.1 Convert all timeseries to Dfs0
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#fa-2-add-region-specific-info-to-normalize-timeseries-with-surface-area">
-   FA.2 Add region specific info to normalize timeseries with surface area
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#fa-3-gridded-data">
-   FA.3 Gridded data
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#submission-of-solution">
-   Submission of solution
-  </a>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Final assignment</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
             </div>
-            <main id="main-content" role="main">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fa-1-convert-all-timeseries-to-dfs0">FA.1 Convert all timeseries to Dfs0</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fa-2-add-region-specific-info-to-normalize-timeseries-with-surface-area">FA.2 Add region specific info to normalize timeseries with surface area</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fa-3-gridded-data">FA.3 Gridded data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submission-of-solution">Submission of solution</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-              <div>
-                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
   <section class="tex2jax_ignore mathjax_ignore" id="final-assignment">
-<h1>Final assignment<a class="headerlink" href="#final-assignment" title="Permalink to this headline">#</a></h1>
+<h1>Final assignment<a class="headerlink" href="#final-assignment" title="Permalink to this heading">#</a></h1>
 <p>The final exercise involves converting data from one or more providers.</p>
 <p>Since this exercise is designed to prepare you for real project work, the information you need to solve it might be slightly incomplete or not provided in context. Use your best judgment!</p>
 <p>Parts of this assignment can be solved in several ways. Use descriptive variable names and comments or descriptive text if necessary to clarify.
@@ -601,40 +434,40 @@ The final solution should be clear to your colleagues and will be shared with so
 <p>The MIKE engine can not handle missing values / delete values, <strong>fill in missing values</strong> with interpolated values.</p>
 <p>In order to save diskspace, <strong>crop the timeseries</strong> to simulation period Feb 1 - June 30.</p>
 <section id="fa-1-convert-all-timeseries-to-dfs0">
-<h2>FA.1 Convert all timeseries to Dfs0<a class="headerlink" href="#fa-1-convert-all-timeseries-to-dfs0" title="Permalink to this headline">#</a></h2>
+<h2>FA.1 Convert all timeseries to Dfs0<a class="headerlink" href="#fa-1-convert-all-timeseries-to-dfs0" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import os
-import numpy as np
-import pandas as pd
-import mikeio
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">mikeio</span>
 
-from mikeio import Dataset
-from mikeio.eum import EUMType, ItemInfo, EUMUnit
+<span class="kn">from</span> <span class="nn">mikeio</span> <span class="kn">import</span> <span class="n">Dataset</span>
+<span class="kn">from</span> <span class="nn">mikeio.eum</span> <span class="kn">import</span> <span class="n">EUMType</span><span class="p">,</span> <span class="n">ItemInfo</span><span class="p">,</span> <span class="n">EUMUnit</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># This is one way to find and filter filenames in a directory
-# [x for x in os.listdir(&quot;datafolder&quot;) if &quot;some_str&quot; in x]
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This is one way to find and filter filenames in a directory</span>
+<span class="c1"># [x for x in os.listdir(&quot;datafolder&quot;) if &quot;some_str&quot; in x]</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># This is useful!
-# help(pd.read_csv)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This is useful!</span>
+<span class="c1"># help(pd.read_csv)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># example of reading csv
-# df = pd.read_csv(&quot;../data/oceandata.csv&quot;, comment=&#39;#&#39;, index_col=0, sep=&#39;,&#39;, parse_dates=True)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># example of reading csv</span>
+<span class="c1"># df = pd.read_csv(&quot;../data/oceandata.csv&quot;, comment=&#39;#&#39;, index_col=0, sep=&#39;,&#39;, parse_dates=True)</span>
 </pre></div>
 </div>
 </div>
@@ -643,7 +476,7 @@ from mikeio.eum import EUMType, ItemInfo, EUMUnit
 <p>b) Read s15_east_novayork_river.dfs0, print the “header”, plot, and show that the number of missing values is 0.</p>
 </section>
 <section id="fa-2-add-region-specific-info-to-normalize-timeseries-with-surface-area">
-<h2>FA.2 Add region specific info to normalize timeseries with surface area<a class="headerlink" href="#fa-2-add-region-specific-info-to-normalize-timeseries-with-surface-area" title="Permalink to this headline">#</a></h2>
+<h2>FA.2 Add region specific info to normalize timeseries with surface area<a class="headerlink" href="#fa-2-add-region-specific-info-to-normalize-timeseries-with-surface-area" title="Permalink to this heading">#</a></h2>
 <p>Each timeseries belongs to a region identified in the filename, e.g. <code class="docutils literal notranslate"><span class="pre">s15_east_novayork_river.dat</span></code> is located in the <code class="docutils literal notranslate"><span class="pre">novayork</span></code> region.</p>
 <p>a) Convert all timeseries to dfs0 with specific discharge, by doing:</p>
 <p>For each timeseries in the dataset:</p>
@@ -655,7 +488,7 @@ from mikeio.eum import EUMType, ItemInfo, EUMUnit
 <p>b) Determine which station has the largest max specific discharge (in the simulation period).</p>
 </section>
 <section id="fa-3-gridded-data">
-<h2>FA.3 Gridded data<a class="headerlink" href="#fa-3-gridded-data" title="Permalink to this headline">#</a></h2>
+<h2>FA.3 Gridded data<a class="headerlink" href="#fa-3-gridded-data" title="Permalink to this heading">#</a></h2>
 <p>ERA5 wave model for a part of the North Sea is available in the file <code class="docutils literal notranslate"><span class="pre">&quot;../data/ERA5_DutchCoast.nc&quot;</span></code></p>
 <p>The dataset is provided in NetCDF</p>
 <p>These are the variables of interest:</p>
@@ -666,13 +499,13 @@ from mikeio.eum import EUMType, ItemInfo, EUMUnit
 <p>Info about spatial and temporal axes can be found in the NetCDF file</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import xarray as xr
-import mikeio
-import numpy as np
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+<span class="kn">import</span> <span class="nn">mikeio</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
-ds = xr.open_dataset(&quot;../data/ERA5_DutchCoast.nc&quot;)
+<span class="n">ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="s2">&quot;../data/ERA5_DutchCoast.nc&quot;</span><span class="p">)</span>
 
-ds
+<span class="n">ds</span>
 </pre></div>
 </div>
 </div>
@@ -1054,9 +887,9 @@ Data variables:
     swh        (time, latitude, longitude) float32 ...
 Attributes:
     Conventions:  CF-1.6
-    history:      2021-06-07 12:25:02 GMT by grib_to_netcdf-2.16.0: /opt/ecmw...</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-93f5a2ab-7adb-4d4f-a85c-a4730a3a4ac5' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-93f5a2ab-7adb-4d4f-a85c-a4730a3a4ac5' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>longitude</span>: 20</li><li><span class='xr-has-index'>latitude</span>: 11</li><li><span class='xr-has-index'>time</span>: 67</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-031e90ec-228f-4089-a298-fb73abe5644e' class='xr-section-summary-in' type='checkbox'  checked><label for='section-031e90ec-228f-4089-a298-fb73abe5644e' class='xr-section-summary' >Coordinates: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>longitude</span></div><div class='xr-var-dims'>(longitude)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>-1.0 -0.5 0.0 0.5 ... 7.5 8.0 8.5</div><input id='attrs-cc12502d-5b69-437a-8487-db7ed9b7902e' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-cc12502d-5b69-437a-8487-db7ed9b7902e' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-62fa4375-cde5-4a78-ab95-a9803d7e8fce' class='xr-var-data-in' type='checkbox'><label for='data-62fa4375-cde5-4a78-ab95-a9803d7e8fce' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>long_name :</span></dt><dd>longitude</dd></dl></div><div class='xr-var-data'><pre>array([-1. , -0.5,  0. ,  0.5,  1. ,  1.5,  2. ,  2.5,  3. ,  3.5,  4. ,  4.5,
-        5. ,  5.5,  6. ,  6.5,  7. ,  7.5,  8. ,  8.5], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>latitude</span></div><div class='xr-var-dims'>(latitude)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>55.0 54.5 54.0 ... 51.0 50.5 50.0</div><input id='attrs-20fe6016-2f80-4c85-be3a-49a3516f54be' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-20fe6016-2f80-4c85-be3a-49a3516f54be' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-feedb12a-db4c-4ac8-8abc-19842cff3212' class='xr-var-data-in' type='checkbox'><label for='data-feedb12a-db4c-4ac8-8abc-19842cff3212' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>long_name :</span></dt><dd>latitude</dd></dl></div><div class='xr-var-data'><pre>array([55. , 54.5, 54. , 53.5, 53. , 52.5, 52. , 51.5, 51. , 50.5, 50. ],
-      dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>2017-10-27 ... 2017-10-29T18:00:00</div><input id='attrs-c182c524-bd4f-4b7c-9591-3a5367a1cbcc' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-c182c524-bd4f-4b7c-9591-3a5367a1cbcc' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-ef0d1351-fae2-4695-9551-bbee0244c83d' class='xr-var-data-in' type='checkbox'><label for='data-ef0d1351-fae2-4695-9551-bbee0244c83d' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>time</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;2017-10-27T00:00:00.000000000&#x27;, &#x27;2017-10-27T01:00:00.000000000&#x27;,
+    history:      2021-06-07 12:25:02 GMT by grib_to_netcdf-2.16.0: /opt/ecmw...</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-980a07d1-e42d-4539-8763-1428cc9af9d1' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-980a07d1-e42d-4539-8763-1428cc9af9d1' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>longitude</span>: 20</li><li><span class='xr-has-index'>latitude</span>: 11</li><li><span class='xr-has-index'>time</span>: 67</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-432296aa-251a-4dc5-b235-d8510029fa64' class='xr-section-summary-in' type='checkbox'  checked><label for='section-432296aa-251a-4dc5-b235-d8510029fa64' class='xr-section-summary' >Coordinates: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>longitude</span></div><div class='xr-var-dims'>(longitude)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>-1.0 -0.5 0.0 0.5 ... 7.5 8.0 8.5</div><input id='attrs-f9ba98f7-5404-48df-a218-765e6f981247' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-f9ba98f7-5404-48df-a218-765e6f981247' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-83b5d4c6-54db-40f6-b19c-0db5073190f9' class='xr-var-data-in' type='checkbox'><label for='data-83b5d4c6-54db-40f6-b19c-0db5073190f9' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>long_name :</span></dt><dd>longitude</dd></dl></div><div class='xr-var-data'><pre>array([-1. , -0.5,  0. ,  0.5,  1. ,  1.5,  2. ,  2.5,  3. ,  3.5,  4. ,  4.5,
+        5. ,  5.5,  6. ,  6.5,  7. ,  7.5,  8. ,  8.5], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>latitude</span></div><div class='xr-var-dims'>(latitude)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>55.0 54.5 54.0 ... 51.0 50.5 50.0</div><input id='attrs-fa498e48-3a54-4047-ad83-2b3552847312' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-fa498e48-3a54-4047-ad83-2b3552847312' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-574383be-1889-49c4-b3aa-8fa810879068' class='xr-var-data-in' type='checkbox'><label for='data-574383be-1889-49c4-b3aa-8fa810879068' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>long_name :</span></dt><dd>latitude</dd></dl></div><div class='xr-var-data'><pre>array([55. , 54.5, 54. , 53.5, 53. , 52.5, 52. , 51.5, 51. , 50.5, 50. ],
+      dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>2017-10-27 ... 2017-10-29T18:00:00</div><input id='attrs-76611b86-6d63-4c8c-8d56-fd26b3ccd80d' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-76611b86-6d63-4c8c-8d56-fd26b3ccd80d' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-0b318257-f2ea-4f86-aca4-2855e2c20823' class='xr-var-data-in' type='checkbox'><label for='data-0b318257-f2ea-4f86-aca4-2855e2c20823' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>time</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;2017-10-27T00:00:00.000000000&#x27;, &#x27;2017-10-27T01:00:00.000000000&#x27;,
        &#x27;2017-10-27T02:00:00.000000000&#x27;, &#x27;2017-10-27T03:00:00.000000000&#x27;,
        &#x27;2017-10-27T04:00:00.000000000&#x27;, &#x27;2017-10-27T05:00:00.000000000&#x27;,
        &#x27;2017-10-27T06:00:00.000000000&#x27;, &#x27;2017-10-27T07:00:00.000000000&#x27;,
@@ -1089,11 +922,9 @@ Attributes:
        &#x27;2017-10-29T12:00:00.000000000&#x27;, &#x27;2017-10-29T13:00:00.000000000&#x27;,
        &#x27;2017-10-29T14:00:00.000000000&#x27;, &#x27;2017-10-29T15:00:00.000000000&#x27;,
        &#x27;2017-10-29T16:00:00.000000000&#x27;, &#x27;2017-10-29T17:00:00.000000000&#x27;,
-       &#x27;2017-10-29T18:00:00.000000000&#x27;], dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-3267693e-590d-415c-8f63-3255055b32bb' class='xr-section-summary-in' type='checkbox'  checked><label for='section-3267693e-590d-415c-8f63-3255055b32bb' class='xr-section-summary' >Data variables: <span>(5)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>mwd</span></div><div class='xr-var-dims'>(time, latitude, longitude)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-1ea9dca5-ddea-4311-a505-e48bd076f19a' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-1ea9dca5-ddea-4311-a505-e48bd076f19a' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-15d4a310-ecff-4e04-b625-b1eb2279baee' class='xr-var-data-in' type='checkbox'><label for='data-15d4a310-ecff-4e04-b625-b1eb2279baee' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>Degree true</dd><dt><span>long_name :</span></dt><dd>Mean wave direction</dd></dl></div><div class='xr-var-data'><pre>[14740 values with dtype=float32]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>mwp</span></div><div class='xr-var-dims'>(time, latitude, longitude)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-8b5ace75-2d0c-4019-9b77-45d56aba5e93' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-8b5ace75-2d0c-4019-9b77-45d56aba5e93' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-cd8293a6-1205-4310-832c-39dbe7df85cb' class='xr-var-data-in' type='checkbox'><label for='data-cd8293a6-1205-4310-832c-39dbe7df85cb' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>s</dd><dt><span>long_name :</span></dt><dd>Mean wave period</dd></dl></div><div class='xr-var-data'><pre>[14740 values with dtype=float32]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>mp2</span></div><div class='xr-var-dims'>(time, latitude, longitude)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-a86ac7f2-5125-4fa0-bf33-c03d1640d596' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-a86ac7f2-5125-4fa0-bf33-c03d1640d596' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-ee4a8689-319c-4142-a649-17409bf1026a' class='xr-var-data-in' type='checkbox'><label for='data-ee4a8689-319c-4142-a649-17409bf1026a' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>s</dd><dt><span>long_name :</span></dt><dd>Mean zero-crossing wave period</dd></dl></div><div class='xr-var-data'><pre>[14740 values with dtype=float32]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>pp1d</span></div><div class='xr-var-dims'>(time, latitude, longitude)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-0901008e-4ad1-49a8-b8d1-e401d3a0ebc6' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-0901008e-4ad1-49a8-b8d1-e401d3a0ebc6' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-5a2c8db0-8a3b-4df5-8e18-2be3b4153fd0' class='xr-var-data-in' type='checkbox'><label for='data-5a2c8db0-8a3b-4df5-8e18-2be3b4153fd0' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>s</dd><dt><span>long_name :</span></dt><dd>Peak wave period</dd></dl></div><div class='xr-var-data'><pre>[14740 values with dtype=float32]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>swh</span></div><div class='xr-var-dims'>(time, latitude, longitude)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-f3ecd8d8-3277-4486-ad73-b0e81cf508d7' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-f3ecd8d8-3277-4486-ad73-b0e81cf508d7' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-d481c1fa-2710-4890-8461-6c077089b008' class='xr-var-data-in' type='checkbox'><label for='data-d481c1fa-2710-4890-8461-6c077089b008' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>m</dd><dt><span>long_name :</span></dt><dd>Significant height of combined wind waves and swell</dd></dl></div><div class='xr-var-data'><pre>[14740 values with dtype=float32]</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-1cea4f6d-502c-4213-8687-f0e777663a3b' class='xr-section-summary-in' type='checkbox'  ><label for='section-1cea4f6d-502c-4213-8687-f0e777663a3b' class='xr-section-summary' >Indexes: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>longitude</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-931a755d-369f-4318-8fba-259cacf7a2eb' class='xr-index-data-in' type='checkbox'/><label for='index-931a755d-369f-4318-8fba-259cacf7a2eb' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Float64Index([-1.0, -0.5,  0.0,  0.5,  1.0,  1.5,  2.0,  2.5,  3.0,  3.5,  4.0,
-               4.5,  5.0,  5.5,  6.0,  6.5,  7.0,  7.5,  8.0,  8.5],
-             dtype=&#x27;float64&#x27;, name=&#x27;longitude&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>latitude</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-5ca74f5a-8343-4d34-9772-ebf695ed3e50' class='xr-index-data-in' type='checkbox'/><label for='index-5ca74f5a-8343-4d34-9772-ebf695ed3e50' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Float64Index([55.0, 54.5, 54.0, 53.5, 53.0, 52.5, 52.0, 51.5, 51.0, 50.5,
-              50.0],
-             dtype=&#x27;float64&#x27;, name=&#x27;latitude&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-120b1fc9-69dc-4bf4-b2dc-d246ff364413' class='xr-index-data-in' type='checkbox'/><label for='index-120b1fc9-69dc-4bf4-b2dc-d246ff364413' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([&#x27;2017-10-27 00:00:00&#x27;, &#x27;2017-10-27 01:00:00&#x27;,
+       &#x27;2017-10-29T18:00:00.000000000&#x27;], dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-ca9642fb-8174-4595-81dc-6dea98b8fb27' class='xr-section-summary-in' type='checkbox'  checked><label for='section-ca9642fb-8174-4595-81dc-6dea98b8fb27' class='xr-section-summary' >Data variables: <span>(5)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>mwd</span></div><div class='xr-var-dims'>(time, latitude, longitude)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-1b6231e2-8bc2-4653-9e28-27e6ee8eef8a' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-1b6231e2-8bc2-4653-9e28-27e6ee8eef8a' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-ae6aa9d0-6fea-46d0-a637-53f28cd0bf8f' class='xr-var-data-in' type='checkbox'><label for='data-ae6aa9d0-6fea-46d0-a637-53f28cd0bf8f' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>Degree true</dd><dt><span>long_name :</span></dt><dd>Mean wave direction</dd></dl></div><div class='xr-var-data'><pre>[14740 values with dtype=float32]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>mwp</span></div><div class='xr-var-dims'>(time, latitude, longitude)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-726791c6-6608-4ec9-9ccf-db8c4cbc4dd5' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-726791c6-6608-4ec9-9ccf-db8c4cbc4dd5' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-9b4f2f25-28ed-4b87-91e8-91285c701438' class='xr-var-data-in' type='checkbox'><label for='data-9b4f2f25-28ed-4b87-91e8-91285c701438' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>s</dd><dt><span>long_name :</span></dt><dd>Mean wave period</dd></dl></div><div class='xr-var-data'><pre>[14740 values with dtype=float32]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>mp2</span></div><div class='xr-var-dims'>(time, latitude, longitude)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-01a00db6-dca6-4a84-9521-fe1a39a06fb7' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-01a00db6-dca6-4a84-9521-fe1a39a06fb7' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-f117f98e-bc72-48cd-95c3-5d94c7374f25' class='xr-var-data-in' type='checkbox'><label for='data-f117f98e-bc72-48cd-95c3-5d94c7374f25' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>s</dd><dt><span>long_name :</span></dt><dd>Mean zero-crossing wave period</dd></dl></div><div class='xr-var-data'><pre>[14740 values with dtype=float32]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>pp1d</span></div><div class='xr-var-dims'>(time, latitude, longitude)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-4c3e5381-d436-4ac0-932a-e8dac7a4ed13' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-4c3e5381-d436-4ac0-932a-e8dac7a4ed13' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-b03f7d04-1786-4e3b-8536-3daa2390b321' class='xr-var-data-in' type='checkbox'><label for='data-b03f7d04-1786-4e3b-8536-3daa2390b321' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>s</dd><dt><span>long_name :</span></dt><dd>Peak wave period</dd></dl></div><div class='xr-var-data'><pre>[14740 values with dtype=float32]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>swh</span></div><div class='xr-var-dims'>(time, latitude, longitude)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-961fae66-686b-4dc7-85af-d5fb49802755' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-961fae66-686b-4dc7-85af-d5fb49802755' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-12aaaab3-70c8-4efb-9a58-9fa3282e31dc' class='xr-var-data-in' type='checkbox'><label for='data-12aaaab3-70c8-4efb-9a58-9fa3282e31dc' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>m</dd><dt><span>long_name :</span></dt><dd>Significant height of combined wind waves and swell</dd></dl></div><div class='xr-var-data'><pre>[14740 values with dtype=float32]</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-538d43fb-eda8-4294-9bc6-b7a7d4c4826c' class='xr-section-summary-in' type='checkbox'  ><label for='section-538d43fb-eda8-4294-9bc6-b7a7d4c4826c' class='xr-section-summary' >Indexes: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>longitude</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-21343183-4dda-4e7c-9d11-4f861d1de838' class='xr-index-data-in' type='checkbox'/><label for='index-21343183-4dda-4e7c-9d11-4f861d1de838' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([-1.0, -0.5,  0.0,  0.5,  1.0,  1.5,  2.0,  2.5,  3.0,  3.5,  4.0,  4.5,
+        5.0,  5.5,  6.0,  6.5,  7.0,  7.5,  8.0,  8.5],
+      dtype=&#x27;float32&#x27;, name=&#x27;longitude&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>latitude</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-90f687a7-c8b8-4296-8844-2926584110ff' class='xr-index-data-in' type='checkbox'/><label for='index-90f687a7-c8b8-4296-8844-2926584110ff' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([55.0, 54.5, 54.0, 53.5, 53.0, 52.5, 52.0, 51.5, 51.0, 50.5, 50.0], dtype=&#x27;float32&#x27;, name=&#x27;latitude&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-55843fbd-509a-4f78-ba12-2c41a3808874' class='xr-index-data-in' type='checkbox'/><label for='index-55843fbd-509a-4f78-ba12-2c41a3808874' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([&#x27;2017-10-27 00:00:00&#x27;, &#x27;2017-10-27 01:00:00&#x27;,
                &#x27;2017-10-27 02:00:00&#x27;, &#x27;2017-10-27 03:00:00&#x27;,
                &#x27;2017-10-27 04:00:00&#x27;, &#x27;2017-10-27 05:00:00&#x27;,
                &#x27;2017-10-27 06:00:00&#x27;, &#x27;2017-10-27 07:00:00&#x27;,
@@ -1127,22 +958,22 @@ Attributes:
                &#x27;2017-10-29 14:00:00&#x27;, &#x27;2017-10-29 15:00:00&#x27;,
                &#x27;2017-10-29 16:00:00&#x27;, &#x27;2017-10-29 17:00:00&#x27;,
                &#x27;2017-10-29 18:00:00&#x27;],
-              dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;time&#x27;, freq=None))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-20a8383b-3ab3-424e-ab25-b5f36e22b524' class='xr-section-summary-in' type='checkbox'  checked><label for='section-20a8383b-3ab3-424e-ab25-b5f36e22b524' class='xr-section-summary' >Attributes: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>Conventions :</span></dt><dd>CF-1.6</dd><dt><span>history :</span></dt><dd>2021-06-07 12:25:02 GMT by grib_to_netcdf-2.16.0: /opt/ecmwf/eccodes/bin/grib_to_netcdf -S param -o /cache/data8/adaptor.mars.internal-1623068689.815175-27387-9-f370172c-9b84-4760-b5e5-32e00e3964bd.nc /cache/tmp/f370172c-9b84-4760-b5e5-32e00e3964bd-adaptor.mars.internal-1623068689.81571-27387-2-tmp.grib</dd></dl></div></li></ul></div></div></div></div>
+              dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;time&#x27;, freq=None))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-67320524-9bce-4f5f-bd6d-467f643bccbb' class='xr-section-summary-in' type='checkbox'  checked><label for='section-67320524-9bce-4f5f-bd6d-467f643bccbb' class='xr-section-summary' >Attributes: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>Conventions :</span></dt><dd>CF-1.6</dd><dt><span>history :</span></dt><dd>2021-06-07 12:25:02 GMT by grib_to_netcdf-2.16.0: /opt/ecmwf/eccodes/bin/grib_to_netcdf -S param -o /cache/data8/adaptor.mars.internal-1623068689.815175-27387-9-f370172c-9b84-4760-b5e5-32e00e3964bd.nc /cache/tmp/f370172c-9b84-4760-b5e5-32e00e3964bd-adaptor.mars.internal-1623068689.81571-27387-2-tmp.grib</dd></dl></div></li></ul></div></div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>lons = ds.longitude
-lats_rev = ds.latitude[::-1] # reversed
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lons</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">longitude</span>
+<span class="n">lats_rev</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">latitude</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># reversed</span>
 
-# geometry = mikeio.Grid2D(x=...,y=..., projection=&quot;LONG/LAT&quot;)
-#hm0 = mikeio.DataArray(np.flip(...,axis=1),geometry=geometry, time=ds.time, item=mikeio.ItemInfo(...)))
+<span class="c1"># geometry = mikeio.Grid2D(x=...,y=..., projection=&quot;LONG/LAT&quot;)</span>
+<span class="c1">#hm0 = mikeio.DataArray(np.flip(...,axis=1),geometry=geometry, time=ds.time, item=mikeio.ItemInfo(...)))</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># mds = mikeio.Dataset([...])
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># mds = mikeio.Dataset([...])</span>
 </pre></div>
 </div>
 </div>
@@ -1155,7 +986,7 @@ lats_rev = ds.latitude[::-1] # reversed
 <img alt="" src="../_images/waves.png" /></p>
 </section>
 <section id="submission-of-solution">
-<h2>Submission of solution<a class="headerlink" href="#submission-of-solution" title="Permalink to this headline">#</a></h2>
+<h2>Submission of solution<a class="headerlink" href="#submission-of-solution" title="Permalink to this heading">#</a></h2>
 <p>Your solution to the above tasks is to be delivered in the format of a single Jupyter notebook file. Please create a new and name it final_assignment_xyz.ipynb where xyz is your initials. It should be easy to understand and runnable by your peers.</p>
 <p>The solution will be reviewed by some of your fellow students as well as an instructor, which will provide feedback on both the correctnes and clarity of your solution.</p>
 <p>The submission and review process is handled by Academy + Eduflow.</p>
@@ -1174,7 +1005,7 @@ lats_rev = ds.latitude[::-1] # reversed
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./exercises"
         },
         predefinedOutput: true
@@ -1182,50 +1013,104 @@ lats_rev = ds.latitude[::-1] # reversed
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="../statistics.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Statistics</p>
-        </div>
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../statistics.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Statistics</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="../appendix/datetime_timedelta.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="../appendix/datetime_timedelta.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Datetimes and timedeltas</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fa-1-convert-all-timeseries-to-dfs0">FA.1 Convert all timeseries to Dfs0</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fa-2-add-region-specific-info-to-normalize-timeseries-with-surface-area">FA.2 Add region specific info to normalize timeseries with surface area</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fa-3-gridded-data">FA.3 Gridded data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submission-of-solution">Submission of solution</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
-    By Henrik Andersson and Jesper Mariegaard<br/>
-  
-      &copy; Copyright 2022.<br/>
-</p>
-        </footer>
-    </div>
+  <div class="footer-item">
     
+<p class="component-author">
+By Henrik Andersson and Jesper Mariegaard
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
 </div>
+          </footer>
+        
 
-
-      </div>
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>
