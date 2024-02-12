@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Mesh &#8212; Getting started with Dfs files in Python using MIKE IO</title>
   
@@ -19,49 +18,45 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
-  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'mesh';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -76,10 +71,9 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>
@@ -120,11 +114,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -139,6 +136,7 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="intro.html">
@@ -157,7 +155,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -357,6 +366,7 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
@@ -366,6 +376,7 @@ document.write(`
   </button>
 `);
 </script>
+
 
 <script>
 document.write(`
@@ -418,10 +429,10 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="mesh">
-<h1>Mesh<a class="headerlink" href="#mesh" title="Permalink to this heading">#</a></h1>
+<h1>Mesh<a class="headerlink" href="#mesh" title="Link to this heading">#</a></h1>
 <p>See <a class="reference external" href="https://dhi.github.io/mikeio/mesh.html">Mesh in MIKE IO Documentation</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -433,7 +444,7 @@ document.write(`
 </div>
 </div>
 <section id="a-simple-mesh">
-<h2>A simple mesh<a class="headerlink" href="#a-simple-mesh" title="Permalink to this heading">#</a></h2>
+<h2>A simple mesh<a class="headerlink" href="#a-simple-mesh" title="Link to this heading">#</a></h2>
 <p>Let’s consider a simple mesh consisting of 2 triangular elements.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -485,7 +496,7 @@ projection: UTM-31
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/244ed42ab3750decc6c8258348b1ce497a0ac8160be50b1c8c0c572e7147911d.png" src="_images/244ed42ab3750decc6c8258348b1ce497a0ac8160be50b1c8c0c572e7147911d.png" />
+<img alt="_images/4e54521121aeb6b7dcd36767eb5c5f72f107542dcad7fabf1da1ddc0a8398ae3.png" src="_images/4e54521121aeb6b7dcd36767eb5c5f72f107542dcad7fabf1da1ddc0a8398ae3.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -553,14 +564,14 @@ projection: UTM-31
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f9d8e0b2e10&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f99d494f550&gt;]
 </pre></div>
 </div>
-<img alt="_images/aed594657b765ac26557faac913dc830a8bfa9d3cffd54cc2976252fd8befe25.png" src="_images/aed594657b765ac26557faac913dc830a8bfa9d3cffd54cc2976252fd8befe25.png" />
+<img alt="_images/abe68e6fe5a0009d7eeedd2023ce919a3a6882fb769797667cf821d795bd64ba.png" src="_images/abe68e6fe5a0009d7eeedd2023ce919a3a6882fb769797667cf821d795bd64ba.png" />
 </div>
 </div>
 <section id="boundary-polylines">
-<h3>Boundary polylines<a class="headerlink" href="#boundary-polylines" title="Permalink to this heading">#</a></h3>
+<h3>Boundary polylines<a class="headerlink" href="#boundary-polylines" title="Link to this heading">#</a></h3>
 <p>It can sometimes be convenient to have mesh boundary as a polyline (or multiple in case of more complex meshes).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -571,13 +582,13 @@ projection: UTM-31
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/a3c8b37000d2c9295e882efbf6344c8d747ba5e8fda21d5d55d6ef8173a051b9.png" src="_images/a3c8b37000d2c9295e882efbf6344c8d747ba5e8fda21d5d55d6ef8173a051b9.png" />
+<img alt="_images/e77ceadd70aeb21e61c174a57c7543278f3c6bcfefd99240f9631a9d4005a09f.png" src="_images/e77ceadd70aeb21e61c174a57c7543278f3c6bcfefd99240f9631a9d4005a09f.png" />
 </div>
 </div>
 </section>
 </section>
 <section id="inside-domain">
-<h2>Inside domain?<a class="headerlink" href="#inside-domain" title="Permalink to this heading">#</a></h2>
+<h2>Inside domain?<a class="headerlink" href="#inside-domain" title="Link to this heading">#</a></h2>
 <p>MIKE IO has a method for determining if a point (or a list of points) is inside the domain:</p>
 <ul class="simple">
 <li><p>contains()</p></li>
@@ -623,12 +634,12 @@ projection: UTM-31
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/590284fc35beeb1a1dcb61b12ac4216fb14339638db05d62ada245916efb335e.png" src="_images/590284fc35beeb1a1dcb61b12ac4216fb14339638db05d62ada245916efb335e.png" />
+<img alt="_images/d990a3d6cbca54ffea96dff035d663c6db7c87ac7f5e2f25d1e9af306543acdc.png" src="_images/d990a3d6cbca54ffea96dff035d663c6db7c87ac7f5e2f25d1e9af306543acdc.png" />
 </div>
 </div>
 </section>
 <section id="find-element-containing-point">
-<h2>Find element containing point<a class="headerlink" href="#find-element-containing-point" title="Permalink to this heading">#</a></h2>
+<h2>Find element containing point<a class="headerlink" href="#find-element-containing-point" title="Link to this heading">#</a></h2>
 <p>MIKE IO has a method for obtaining the index of the element <em>containing</em> a point:</p>
 <ul class="simple">
 <li><p>find_index()</p></li>
@@ -701,28 +712,36 @@ projection: UTM-31
 </div>
 </section>
 <section id="a-larger-mesh">
-<h2>A larger mesh<a class="headerlink" href="#a-larger-mesh" title="Permalink to this heading">#</a></h2>
-<p>A dfsu file can also be loaded as a Mesh object</p>
+<h2>A larger mesh<a class="headerlink" href="#a-larger-mesh" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fn</span> <span class="o">=</span> <span class="s2">&quot;data/FakeLake.dfsu&quot;</span>
-<span class="n">msh</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">Mesh</span><span class="p">(</span><span class="n">fn</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">msh</span><span class="o">.</span><span class="n">plot</span><span class="p">();</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dfs</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;data/FakeLake.dfsu&quot;</span><span class="p">)</span>
+<span class="n">g</span> <span class="o">=</span> <span class="n">dfs</span><span class="o">.</span><span class="n">geometry</span>
+<span class="n">g</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/5919d1ddfc2c83cab4478f6ba93605e453702f52bd7f448713a5322b37a3cb35.png" src="_images/5919d1ddfc2c83cab4478f6ba93605e453702f52bd7f448713a5322b37a3cb35.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Flexible Mesh Geometry: Dfsu2D
+number of nodes: 798
+number of elements: 1011
+projection: PROJCS[&quot;UTM-17&quot;,GEOGCS[&quot;Unused&quot;,DATUM[&quot;UTM Projections&quot;,SPHEROID[&quot;WGS 1984&quot;,6378137,298.257223563]],PRIMEM[&quot;Greenwich&quot;,0],UNIT[&quot;Degree&quot;,0.0174532925199433]],PROJECTION[&quot;Transverse_Mercator&quot;],PARAMETER[&quot;False_Easting&quot;,500000],PARAMETER[&quot;False_Northing&quot;,0],PARAMETER[&quot;Central_Meridian&quot;,-81],PARAMETER[&quot;Scale_Factor&quot;,0.9996],PARAMETER[&quot;Latitude_Of_Origin&quot;,0],UNIT[&quot;Meter&quot;,1]]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g</span><span class="o">.</span><span class="n">plot</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/f6af6b29032e15839d7f1939286b9a5ac412479a7d38d055a845c495fcb26f60.png" src="_images/f6af6b29032e15839d7f1939286b9a5ac412479a7d38d055a845c495fcb26f60.png" />
 </div>
 </div>
 <section id="inline-exercise">
-<h3>Inline Exercise<a class="headerlink" href="#inline-exercise" title="Permalink to this heading">#</a></h3>
+<h3>Inline Exercise<a class="headerlink" href="#inline-exercise" title="Link to this heading">#</a></h3>
 <ol class="arabic simple">
 <li><p>please check if the point A: (x,y)=(-0.5, 0.0) is inside the mesh</p></li>
 <li><p>please check if the point B: (x,y)=(-0.5, 0.4) is inside the mesh</p></li>
@@ -737,7 +756,7 @@ projection: UTM-31
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">msh</span><span class="o">.</span><span class="n">max_nodes_per_element</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g</span><span class="o">.</span><span class="n">max_nodes_per_element</span>
 </pre></div>
 </div>
 </div>
@@ -747,93 +766,52 @@ projection: UTM-31
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">msh</span><span class="o">.</span><span class="n">plot_boundary_nodes</span><span class="p">();</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/c4875ec789179d588d701cf2e407b28eefab413d131754f263ff2cfb6f859866.png" src="_images/c4875ec789179d588d701cf2e407b28eefab413d131754f263ff2cfb6f859866.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bnd</span> <span class="o">=</span> <span class="n">msh</span><span class="o">.</span><span class="n">boundary_polylines</span>
-<span class="n">bnd</span><span class="o">.</span><span class="n">n_exteriors</span><span class="p">,</span> <span class="n">bnd</span><span class="o">.</span><span class="n">n_interiors</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1, 1)
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ext0</span> <span class="o">=</span> <span class="n">bnd</span><span class="o">.</span><span class="n">exteriors</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ext0</span><span class="o">.</span><span class="n">xy</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">ext0</span><span class="o">.</span><span class="n">xy</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;exterior 0&#39;</span><span class="p">)</span>
-<span class="n">int0</span> <span class="o">=</span> <span class="n">bnd</span><span class="o">.</span><span class="n">interiors</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">int0</span><span class="o">.</span><span class="n">xy</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">int0</span><span class="o">.</span><span class="n">xy</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;interior 0&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/85601679b01245f3097dd5315e71b6eaed1cf87acc9c4c682582694e1298b4ba.png" src="_images/85601679b01245f3097dd5315e71b6eaed1cf87acc9c4c682582694e1298b4ba.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># msh.to_shapely()</span>
-</pre></div>
-</div>
-</div>
-</div>
 </section>
 </section>
 <section id="change-depth">
-<h2>Change depth<a class="headerlink" href="#change-depth" title="Permalink to this heading">#</a></h2>
+<h2>Change depth<a class="headerlink" href="#change-depth" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">msh</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">Mesh</span><span class="p">(</span><span class="n">fn</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">msh</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;data/FakeLake.dfsu&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">geometry</span>
 <span class="n">msh</span><span class="o">.</span><span class="n">plot</span><span class="p">();</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/5919d1ddfc2c83cab4478f6ba93605e453702f52bd7f448713a5322b37a3cb35.png" src="_images/5919d1ddfc2c83cab4478f6ba93605e453702f52bd7f448713a5322b37a3cb35.png" />
+<img alt="_images/f6af6b29032e15839d7f1939286b9a5ac412479a7d38d055a845c495fcb26f60.png" src="_images/f6af6b29032e15839d7f1939286b9a5ac412479a7d38d055a845c495fcb26f60.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># zn == nodes, not elements!</span>
-<span class="n">msh</span><span class="o">.</span><span class="n">zn</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">msh</span><span class="o">.</span><span class="n">zn</span><span class="p">,</span> <span class="o">-</span><span class="mi">15</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="c1"># clip depth to interval [-15,0]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">msh</span><span class="o">.</span><span class="n">node_coordinates</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">msh</span><span class="o">.</span><span class="n">node_coordinates</span><span class="p">[:,</span><span class="mi">2</span><span class="p">],</span> <span class="o">-</span><span class="mi">15</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="c1"># clip depth to interval [-15,0]</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">msh</span><span class="o">.</span><span class="n">plot</span><span class="p">();</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">msh</span><span class="o">.</span><span class="n">to_mesh</span><span class="p">(</span><span class="s1">&#39;Fake_lake_clip15.mesh&#39;</span><span class="p">)</span>   <span class="c1"># save to a new file</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">msh2</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;Fake_lake_clip15.mesh&#39;</span><span class="p">)</span>
+<span class="n">msh2</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/5919d1ddfc2c83cab4478f6ba93605e453702f52bd7f448713a5322b37a3cb35.png" src="_images/5919d1ddfc2c83cab4478f6ba93605e453702f52bd7f448713a5322b37a3cb35.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">msh</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;Fake_lake_clip15.mesh&#39;</span><span class="p">)</span>   <span class="c1"># save to a new file</span>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: title={&#39;center&#39;: &#39;Bathymetry&#39;}, xlabel=&#39;Easting [m]&#39;, ylabel=&#39;Northing [m]&#39;&gt;
 </pre></div>
 </div>
+<img alt="_images/053cec1f35b8abd92532440e5b0f5a3e3f45d671865a0943ea99b29c2f4dec1b.png" src="_images/053cec1f35b8abd92532440e5b0f5a3e3f45d671865a0943ea99b29c2f4dec1b.png" />
 </div>
 </div>
 </section>
 <section id="visualisation">
-<h2>Visualisation<a class="headerlink" href="#visualisation" title="Permalink to this heading">#</a></h2>
+<h2>Visualisation<a class="headerlink" href="#visualisation" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">msh</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;data/southern_north_sea.mesh&quot;</span><span class="p">)</span>
@@ -858,7 +836,7 @@ projection: LONG/LAT
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/a92db0a8977690b4f027e2bb299b71c5ae856e1be6c4edf09e485d3ffd5f49fc.png" src="_images/a92db0a8977690b4f027e2bb299b71c5ae856e1be6c4edf09e485d3ffd5f49fc.png" />
+<img alt="_images/66b423fbc4e2817fed5cc0a01c0338f013ee0af1e2b3a9720673252376f82073.png" src="_images/66b423fbc4e2817fed5cc0a01c0338f013ee0af1e2b3a9720673252376f82073.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -868,7 +846,7 @@ projection: LONG/LAT
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/399452ca0ef8b3aad3d2628a12455a6fd7b8dd5e10044d6760ecf86ef69c9be5.png" src="_images/399452ca0ef8b3aad3d2628a12455a6fd7b8dd5e10044d6760ecf86ef69c9be5.png" />
+<img alt="_images/5a4dd23f665cd786ec6de9a1f4ea88d84c2e054b31a740b1956b738e32f81dab.png" src="_images/5a4dd23f665cd786ec6de9a1f4ea88d84c2e054b31a740b1956b738e32f81dab.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -878,7 +856,7 @@ projection: LONG/LAT
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/41131d34fda6f8b55a593ef2762f4241db7b077d4d6242df74b833e57b040027.png" src="_images/41131d34fda6f8b55a593ef2762f4241db7b077d4d6242df74b833e57b040027.png" />
+<img alt="_images/613acecc5fc98b8e2f188bce74c8dab8d2a50c56c96b8ea532f34a0121bd21d0.png" src="_images/613acecc5fc98b8e2f188bce74c8dab8d2a50c56c96b8ea532f34a0121bd21d0.png" />
 </div>
 </div>
 <p>Maybe we would like to higlight the bathymetric variations in some range, in this case in the -40, -20m range.</p>
@@ -889,7 +867,7 @@ projection: LONG/LAT
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/96a2674cf3ea2cf6540afbda34623ebf5edccc9ae7829efe63b04ce96a6f8ae6.png" src="_images/96a2674cf3ea2cf6540afbda34623ebf5edccc9ae7829efe63b04ce96a6f8ae6.png" />
+<img alt="_images/bb64fb9996440d66fa1aa7363968d43c8cd45dffbc7f6f5d2c6d9c04a964d4e5.png" src="_images/bb64fb9996440d66fa1aa7363968d43c8cd45dffbc7f6f5d2c6d9c04a964d4e5.png" />
 </div>
 </div>
 <p>There are other options as well, such as explicit specification of which contour lines to show or choosing a specific colormap (<a class="reference external" href="https://matplotlib.org/stable/tutorials/colors/colormaps.html">matplotlib colormaps</a>)</p>
@@ -902,7 +880,7 @@ projection: LONG/LAT
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/5817329c0ec7c46de87f154576470d9aafc124c5a8462fd1b444bc7f60da4740.png" src="_images/5817329c0ec7c46de87f154576470d9aafc124c5a8462fd1b444bc7f60da4740.png" />
+<img alt="_images/4b71b5ab33c7bbbf9b98c3e928abfd8f57e13423158019035c09aecfdf4caa86.png" src="_images/4b71b5ab33c7bbbf9b98c3e928abfd8f57e13423158019035c09aecfdf4caa86.png" />
 </div>
 </div>
 <p>See the <a class="reference external" href="https://nbviewer.jupyter.org/github/DHI/mikeio/blob/main/notebooks/Mesh.ipynb">MIKE IO Mesh Example notebook</a> for more Mesh operations (including shapely operations).</p>
@@ -939,7 +917,7 @@ projection: LONG/LAT
               
               
                 <footer class="prev-next-footer">
-                  <!-- Previous / next buttons -->
+                  
 <div class="prev-next-area">
     <a class="left-prev"
        href="exercises/exercise_xarray.html"
@@ -967,6 +945,7 @@ projection: LONG/LAT
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -1007,9 +986,10 @@ By Henrik Andersson and Jesper Mariegaard
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
@@ -1033,8 +1013,8 @@ By Henrik Andersson and Jesper Mariegaard
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

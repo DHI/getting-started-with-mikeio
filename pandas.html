@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Pandas &#8212; Getting started with Dfs files in Python using MIKE IO</title>
   
@@ -19,49 +18,45 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
-  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'pandas';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -76,10 +71,9 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>
@@ -120,11 +114,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -139,6 +136,7 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="intro.html">
@@ -157,7 +155,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -357,6 +366,7 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
@@ -366,6 +376,7 @@ document.write(`
   </button>
 `);
 </script>
+
 
 <script>
 document.write(`
@@ -415,13 +426,25 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="pandas">
-<h1>Pandas<a class="headerlink" href="#pandas" title="Permalink to this heading">#</a></h1>
+<h1>Pandas<a class="headerlink" href="#pandas" title="Link to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2436/4080736814.py:1: DeprecationWarning: 
+Pyarrow will become a required dependency of pandas in the next major release of pandas (pandas 3.0),
+(to allow more performant data types, such as the Arrow string type, and better interoperability with other libraries)
+but was not found to be installed on your system.
+If this would cause problems for you,
+please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
+        
+  import pandas as pd
 </pre></div>
 </div>
 </div>
@@ -537,7 +560,7 @@ document.write(`
 </div>
 </div>
 <section id="get-row-by-number">
-<h2>Get row by number<a class="headerlink" href="#get-row-by-number" title="Permalink to this heading">#</a></h2>
+<h2>Get row by number<a class="headerlink" href="#get-row-by-number" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -570,7 +593,7 @@ Name: 1, dtype: object
 </div>
 </section>
 <section id="get-row-by-name-named-index">
-<h2>Get row by name (named index)<a class="headerlink" href="#get-row-by-name-named-index" title="Permalink to this heading">#</a></h2>
+<h2>Get row by name (named index)<a class="headerlink" href="#get-row-by-name-named-index" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)</span>
@@ -718,7 +741,7 @@ Name: London, dtype: float64
 </div>
 </section>
 <section id="delimited-files">
-<h2>Delimited files<a class="headerlink" href="#delimited-files" title="Permalink to this heading">#</a></h2>
+<h2>Delimited files<a class="headerlink" href="#delimited-files" title="Link to this heading">#</a></h2>
 <p>Delimited files, separated by comma, semi-colon, tabs, spaces or any other special character, is a very common data format for tabular data. Comma separated value (csv) files can be read by the <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.read_csv.html">pandas <code class="docutils literal notranslate"><span class="pre">read_csv</span></code> function</a>. It is a very powerful function, with a lot of options. It is very rare, that you have to write your own python function to parse csv files.</p>
 <p>Below is an example of csv file:</p>
 <p><img alt="" src="_images/csv_example.png" /></p>
@@ -743,6 +766,10 @@ Name: London, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2436/477751268.py:1: FutureWarning: Support for nested sequences for &#39;parse_dates&#39; in pd.read_csv is deprecated. Combine the desired columns with pd.to_datetime after parsing instead.
+  df = pd.read_csv(&quot;data/boogus.csv&quot;,
+</pre></div>
+</div>
 <div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -962,7 +989,7 @@ Name: London, dtype: float64
 </ol>
 </section>
 <section id="timeseries">
-<h2>Timeseries<a class="headerlink" href="#timeseries" title="Permalink to this heading">#</a></h2>
+<h2>Timeseries<a class="headerlink" href="#timeseries" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/oceandata.csv&quot;</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="s1">&#39;datetime&#39;</span><span class="p">)</span>
@@ -1075,7 +1102,7 @@ Name: London, dtype: float64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;datetime&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/74fb459f37ced6b2c9228ef6bf306608c6d8cc50a534c9c3d7f26313c95cc003.png" src="_images/74fb459f37ced6b2c9228ef6bf306608c6d8cc50a534c9c3d7f26313c95cc003.png" />
+<img alt="_images/6c59243b331259d63b44613ea8440d5d5ebee0fe9fec1b4e8e539e804bd1385a.png" src="_images/6c59243b331259d63b44613ea8440d5d5ebee0fe9fec1b4e8e539e804bd1385a.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1088,7 +1115,7 @@ Name: London, dtype: float64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;datetime&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/b3fde00ae3b05c8405f75bae843a20d3b2bcfeb675cfc0a907cbd605b360ab80.png" src="_images/b3fde00ae3b05c8405f75bae843a20d3b2bcfeb675cfc0a907cbd605b360ab80.png" />
+<img alt="_images/ab430227d9e27ce2a0a0f09b2ee1b7e80d9dd9559df17cfc0b9f310cefa99863.png" src="_images/ab430227d9e27ce2a0a0f09b2ee1b7e80d9dd9559df17cfc0b9f310cefa99863.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1207,7 +1234,7 @@ Name: London, dtype: float64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;datetime&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/394c2f489872e7069265920d8829c63be0bbaa7f9d50234735c168e5d97211d3.png" src="_images/394c2f489872e7069265920d8829c63be0bbaa7f9d50234735c168e5d97211d3.png" />
+<img alt="_images/1a32cc522db98ad523fde25e63ede5dbc2321ce02f2acf85753a335d42669a7f.png" src="_images/1a32cc522db98ad523fde25e63ede5dbc2321ce02f2acf85753a335d42669a7f.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1220,7 +1247,7 @@ Name: London, dtype: float64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;datetime&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/c60d37f0655116a93af4a3055a8303621e92fd9f9248be747937ac2affee66ef.png" src="_images/c60d37f0655116a93af4a3055a8303621e92fd9f9248be747937ac2affee66ef.png" />
+<img alt="_images/9d97e1d21328a3ff98f4d82fa908b95e4f6df11617e40b3fee3fece421097e27.png" src="_images/9d97e1d21328a3ff98f4d82fa908b95e4f6df11617e40b3fee3fece421097e27.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1398,7 +1425,7 @@ Name: London, dtype: float64
 </div>
 </section>
 <section id="resampling">
-<h2>Resampling<a class="headerlink" href="#resampling" title="Permalink to this heading">#</a></h2>
+<h2>Resampling<a class="headerlink" href="#resampling" title="Link to this heading">#</a></h2>
 <p>Aggregate temporal data</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1407,7 +1434,11 @@ Name: London, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;pandas.core.resample.DatetimeIndexResampler object at 0x7f410c33f250&gt;
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2436/2537799294.py:1: FutureWarning: &#39;H&#39; is deprecated and will be removed in a future version, please use &#39;h&#39; instead.
+  df.resample(&#39;H&#39;)
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;pandas.core.resample.DatetimeIndexResampler object at 0x7f76426eb950&gt;
 </pre></div>
 </div>
 </div>
@@ -1474,6 +1505,10 @@ Name: London, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2436/2974226651.py:1: FutureWarning: &#39;H&#39; is deprecated and will be removed in a future version, please use &#39;h&#39; instead.
+  df.resample(&#39;H&#39;).mean().head()
+</pre></div>
+</div>
 <div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1545,6 +1580,10 @@ Name: London, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2436/3542134512.py:1: FutureWarning: &#39;H&#39; is deprecated and will be removed in a future version, please use &#39;h&#39; instead.
+  df.resample(&#39;H&#39;).first().head()
+</pre></div>
+</div>
 <div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1616,6 +1655,10 @@ Name: London, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2436/493145522.py:1: FutureWarning: &#39;H&#39; is deprecated and will be removed in a future version, please use &#39;h&#39; instead.
+  df.resample(&#39;H&#39;).median().head()
+</pre></div>
+</div>
 <div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1688,6 +1731,10 @@ Name: London, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2436/2175245212.py:1: FutureWarning: &#39;H&#39; is deprecated and will be removed in a future version, please use &#39;h&#39; instead.
+  df_h = df.resample(&#39;H&#39;).interpolate().dropna()
+</pre></div>
+</div>
 <div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1754,7 +1801,7 @@ Name: London, dtype: float64
 </div>
 <p>Note: resample will use either the left or the right end-point depending on the resampling frequency (e.g. for hours the beginning of the hour but for months the end of the month). If you want to make sure you are resampling right - specify the closed argument.</p>
 <section id="inline-exercise">
-<h3>Inline exercise<a class="headerlink" href="#inline-exercise" title="Permalink to this heading">#</a></h3>
+<h3>Inline exercise<a class="headerlink" href="#inline-exercise" title="Link to this heading">#</a></h3>
 <p>Please find the maximum value for every 6 hour period.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1766,7 +1813,7 @@ Name: London, dtype: float64
 </section>
 </section>
 <section id="extrapolation">
-<h2>Extrapolation<a class="headerlink" href="#extrapolation" title="Permalink to this heading">#</a></h2>
+<h2>Extrapolation<a class="headerlink" href="#extrapolation" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rng</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s2">&quot;2015-02-17&quot;</span><span class="p">,</span><span class="s2">&quot;2015-02-20&quot;</span><span class="p">,</span><span class="n">freq</span><span class="o">=</span><span class="s1">&#39;H&#39;</span><span class="p">)</span>
@@ -1777,10 +1824,14 @@ Name: London, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2436/4003255755.py:1: FutureWarning: &#39;H&#39; is deprecated and will be removed in a future version, please use &#39;h&#39; instead.
+  rng = pd.date_range(&quot;2015-02-17&quot;,&quot;2015-02-20&quot;,freq=&#39;H&#39;)
+</pre></div>
+</div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: &gt;
 </pre></div>
 </div>
-<img alt="_images/6e49afbea1a89c829ceabb7e3b694259466da8ed25b2f6070727075ae35e7daf.png" src="_images/6e49afbea1a89c829ceabb7e3b694259466da8ed25b2f6070727075ae35e7daf.png" />
+<img alt="_images/8cbe866baa4f858a21c32940aa00059ef1de518a2a600d9f0892d38eae5ceaba.png" src="_images/8cbe866baa4f858a21c32940aa00059ef1de518a2a600d9f0892d38eae5ceaba.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1793,7 +1844,7 @@ Name: London, dtype: float64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: &gt;
 </pre></div>
 </div>
-<img alt="_images/b33c786722a9df3fbee9d074ecbb80e9bf467d50a02154bca1f36580a8fe1e72.png" src="_images/b33c786722a9df3fbee9d074ecbb80e9bf467d50a02154bca1f36580a8fe1e72.png" />
+<img alt="_images/c0ff2421df366243f5f0c684d010ee642ed4f46b48336735c32197a8746408c2.png" src="_images/c0ff2421df366243f5f0c684d010ee642ed4f46b48336735c32197a8746408c2.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1807,7 +1858,7 @@ Name: London, dtype: float64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: &gt;
 </pre></div>
 </div>
-<img alt="_images/956e866ab9651d51c5d623b8db4cd3631c7c7653601b38f35fcfc6a5cd2b0c96.png" src="_images/956e866ab9651d51c5d623b8db4cd3631c7c7653601b38f35fcfc6a5cd2b0c96.png" />
+<img alt="_images/6f177eb42ec278ea366eb1452487fad563d8836a1ef0bdcca4136bb4310524b5.png" src="_images/6f177eb42ec278ea366eb1452487fad563d8836a1ef0bdcca4136bb4310524b5.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1967,7 +2018,7 @@ Name: London, dtype: float64
               
               
                 <footer class="prev-next-footer">
-                  <!-- Previous / next buttons -->
+                  
 <div class="prev-next-area">
     <a class="left-prev"
        href="exercises/exercise_C_matplotlib.html"
@@ -1995,6 +2046,7 @@ Name: London, dtype: float64
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -2032,9 +2084,10 @@ By Henrik Andersson and Jesper Mariegaard
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
@@ -2058,8 +2111,8 @@ By Henrik Andersson and Jesper Mariegaard
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

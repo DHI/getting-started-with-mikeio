@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Generic dfs processing &#8212; Getting started with Dfs files in Python using MIKE IO</title>
   
@@ -19,49 +18,45 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
-  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'generic';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -76,10 +71,9 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>
@@ -120,11 +114,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -139,6 +136,7 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="intro.html">
@@ -157,7 +155,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -357,6 +366,7 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
@@ -366,6 +376,7 @@ document.write(`
   </button>
 `);
 </script>
+
 
 <script>
 document.write(`
@@ -414,10 +425,10 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="generic-dfs-processing">
-<h1>Generic dfs processing<a class="headerlink" href="#generic-dfs-processing" title="Permalink to this heading">#</a></h1>
+<h1>Generic dfs processing<a class="headerlink" href="#generic-dfs-processing" title="Link to this heading">#</a></h1>
 <p>Tools and methods that applies to any type of dfs files.</p>
 <p>The generic tools are useful for common data processing tasks, where detailed configuration is not necessary.</p>
 <p>mikeio.generic: methods that read any dfs file and outputs a new dfs file of the same type</p>
@@ -434,8 +445,7 @@ document.write(`
 <p>See <a class="reference external" href="https://dhi.github.io/mikeio/generic.html">Generic in MIKE IO Documentation</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
 <span class="kn">import</span> <span class="nn">mikeio</span>
 <span class="kn">import</span> <span class="nn">mikeio.generic</span>
@@ -444,7 +454,7 @@ document.write(`
 </div>
 </div>
 <section id="concatenation">
-<h2>Concatenation<a class="headerlink" href="#concatenation" title="Permalink to this heading">#</a></h2>
+<h2>Concatenation<a class="headerlink" href="#concatenation" title="Link to this heading">#</a></h2>
 <p>Take a look at these two files with overlapping timesteps.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -491,7 +501,7 @@ items:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/407ce62b8e3b9235ded9284a1bb1ae433d568540e63660cff1fda0f35c738b04.png" src="_images/407ce62b8e3b9235ded9284a1bb1ae433d568540e63660cff1fda0f35c738b04.png" />
+<img alt="_images/1614cd2860d94440b053df3d2be33b694009f724779e1aa0e7236785f03b6c73.png" src="_images/1614cd2860d94440b053df3d2be33b694009f724779e1aa0e7236785f03b6c73.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -506,7 +516,7 @@ items:
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0%|          | 0/2 [00:00&lt;?, ?it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 2/2 [00:00&lt;00:00, 677.87it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 2/2 [00:00&lt;00:00, 688.38it/s]
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -539,12 +549,12 @@ items:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/9401af8095baf4fe653809b65cec1d01fa0e49ce07014e7315f50b9d7b3520d3.png" src="_images/9401af8095baf4fe653809b65cec1d01fa0e49ce07014e7315f50b9d7b3520d3.png" />
+<img alt="_images/d691002ee4c5a86e1bb1dcb3795d6502f918bf6116af7bd48945ad2e554ce986.png" src="_images/d691002ee4c5a86e1bb1dcb3795d6502f918bf6116af7bd48945ad2e554ce986.png" />
 </div>
 </div>
 </section>
 <section id="extract-time-steps-or-items">
-<h2>Extract time steps or items<a class="headerlink" href="#extract-time-steps-or-items" title="Permalink to this heading">#</a></h2>
+<h2>Extract time steps or items<a class="headerlink" href="#extract-time-steps-or-items" title="Link to this heading">#</a></h2>
 <p>The extract() method can extract a part of a file:</p>
 <ul class="simple">
 <li><p><strong>time slice</strong> by specifying <em>start</em> and/or <em>end</em></p></li>
@@ -632,7 +642,7 @@ items:
 </div>
 </section>
 <section id="diff">
-<h2>Diff<a class="headerlink" href="#diff" title="Permalink to this heading">#</a></h2>
+<h2>Diff<a class="headerlink" href="#diff" title="Link to this heading">#</a></h2>
 <p>Take difference between two dfs files with same structure - e.g. to see the difference in result between two calibration runs</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -647,7 +657,7 @@ items:
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0%|          | 0/5 [00:00&lt;?, ?it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 5/5 [00:00&lt;00:00, 2114.06it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 5/5 [00:00&lt;00:00, 3095.43it/s]
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -669,12 +679,12 @@ items:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/78261f53f60938a0ac92d7e6dfe7149bf554793340f0fcbfc960e726dde069a1.png" src="_images/78261f53f60938a0ac92d7e6dfe7149bf554793340f0fcbfc960e726dde069a1.png" />
+<img alt="_images/9f78f3c5c21dda9aea5f333a63b04638f2f7a583e6bbfe1e7332b87d3979b8d7.png" src="_images/9f78f3c5c21dda9aea5f333a63b04638f2f7a583e6bbfe1e7332b87d3979b8d7.png" />
 </div>
 </div>
 </section>
 <section id="scaling">
-<h2>Scaling<a class="headerlink" href="#scaling" title="Permalink to this heading">#</a></h2>
+<h2>Scaling<a class="headerlink" href="#scaling" title="Link to this heading">#</a></h2>
 <p>Adding a constant e.g to adjust datum</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -684,7 +694,7 @@ items:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/b4c649818efac04cd32bbe6fba172015374783fa1eec154792e4bae724735078.png" src="_images/b4c649818efac04cd32bbe6fba172015374783fa1eec154792e4bae724735078.png" />
+<img alt="_images/94591b2e5f6c498be5b6c566e2e57165839be26d89536b3a705377bab049fa7d.png" src="_images/94591b2e5f6c498be5b6c566e2e57165839be26d89536b3a705377bab049fa7d.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -715,7 +725,7 @@ values: -1.0
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0%|          | 0/1 [00:00&lt;?, ?it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 1/1 [00:00&lt;00:00, 1036.14it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 1/1 [00:00&lt;00:00, 1308.27it/s]
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -731,7 +741,7 @@ values: -1.0
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/b4c649818efac04cd32bbe6fba172015374783fa1eec154792e4bae724735078.png" src="_images/b4c649818efac04cd32bbe6fba172015374783fa1eec154792e4bae724735078.png" />
+<img alt="_images/94591b2e5f6c498be5b6c566e2e57165839be26d89536b3a705377bab049fa7d.png" src="_images/94591b2e5f6c498be5b6c566e2e57165839be26d89536b3a705377bab049fa7d.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -752,7 +762,7 @@ values: -3.0999999046325684
 </div>
 </div>
 <section id="spatially-varying-correction">
-<h3>Spatially varying correction<a class="headerlink" href="#spatially-varying-correction" title="Permalink to this heading">#</a></h3>
+<h3>Spatially varying correction<a class="headerlink" href="#spatially-varying-correction" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -779,7 +789,7 @@ values: -3.0999999046325684
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/54c1dc71e7a5912a755f24c6e5297d00d845ca1f55defbf9ea51875f58d6910f.png" src="_images/54c1dc71e7a5912a755f24c6e5297d00d845ca1f55defbf9ea51875f58d6910f.png" />
+<img alt="_images/d41e5227cc1fbf3dee684a3fe22863007be1a1abbd4cc51b846623d575036223.png" src="_images/d41e5227cc1fbf3dee684a3fe22863007be1a1abbd4cc51b846623d575036223.png" />
 </div>
 </div>
 <p>The 2d array must first be flipped upside down and then converted to a 1d vector using <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.flatten.html">numpy.ndarray.flatten</a> to match how data is stored in dfs files.</p>
@@ -795,7 +805,7 @@ values: -3.0999999046325684
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0%|          | 0/1 [00:00&lt;?, ?it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 1/1 [00:00&lt;00:00, 1316.07it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 1/1 [00:00&lt;00:00, 1038.45it/s]
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -812,13 +822,13 @@ values: -3.0999999046325684
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/123659df2fee415999ec740ca1c1b09c9ff88993cc10c05389dc4f8ae44431b4.png" src="_images/123659df2fee415999ec740ca1c1b09c9ff88993cc10c05389dc4f8ae44431b4.png" />
+<img alt="_images/a7f9d8add0eaceeccd6c287781ac840032a44f067e77814e0edc9641e14f203b.png" src="_images/a7f9d8add0eaceeccd6c287781ac840032a44f067e77814e0edc9641e14f203b.png" />
 </div>
 </div>
 </section>
 </section>
 <section id="clean-up">
-<h2>Clean up<a class="headerlink" href="#clean-up" title="Permalink to this heading">#</a></h2>
+<h2>Clean up<a class="headerlink" href="#clean-up" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
@@ -828,6 +838,25 @@ values: -3.0999999046325684
 <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;oresundHD_difference.dfsu&quot;</span><span class="p">)</span>
 <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;gebco_sound_local_datum.dfs2&quot;</span><span class="p">)</span>
 <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;gebco_sound_spatial.dfs2&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">utils</span>
+
+<span class="n">utils</span><span class="o">.</span><span class="n">sysinfo</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    System: 3.11.7 (main, Dec  5 2023, 08:47:01) [GCC 11.4.0]
+    NumPy: 1.26.4
+    Pandas: 2.2.0
+    MIKE IO: 1.7.0
+    Last modified: 2024-02-12 10:10:37.795475
+    
 </pre></div>
 </div>
 </div>
@@ -865,7 +894,7 @@ values: -3.0999999046325684
               
               
                 <footer class="prev-next-footer">
-                  <!-- Previous / next buttons -->
+                  
 <div class="prev-next-area">
     <a class="left-prev"
        href="exercises/exercise_F_Dfs0.html"
@@ -893,6 +922,7 @@ values: -3.0999999046325684
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -929,9 +959,10 @@ By Henrik Andersson and Jesper Mariegaard
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
@@ -955,8 +986,8 @@ By Henrik Andersson and Jesper Mariegaard
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>
