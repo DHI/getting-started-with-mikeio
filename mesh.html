@@ -564,7 +564,7 @@ projection: UTM-31
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f99d494f550&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f0952857950&gt;]
 </pre></div>
 </div>
 <img alt="_images/abe68e6fe5a0009d7eeedd2023ce919a3a6882fb769797667cf821d795bd64ba.png" src="_images/abe68e6fe5a0009d7eeedd2023ce919a3a6882fb769797667cf821d795bd64ba.png" />
@@ -784,8 +784,31 @@ projection: PROJCS[&quot;UTM-17&quot;,GEOGCS[&quot;Unused&quot;,DATUM[&quot;UTM 
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">msh</span><span class="o">.</span><span class="n">node_coordinates</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">msh</span><span class="o">.</span><span class="n">node_coordinates</span><span class="p">[:,</span><span class="mi">2</span><span class="p">],</span> <span class="o">-</span><span class="mi">15</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="c1"># clip depth to interval [-15,0]</span>
+
+
+<span class="n">msh</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;No change??&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: title={&#39;center&#39;: &#39;No change??&#39;}, xlabel=&#39;Easting [m]&#39;, ylabel=&#39;Northing [m]&#39;&gt;
+</pre></div>
+</div>
+<img alt="_images/456418bdbf798339ff939bd78416ac55ba6ae2f273fc932fe774b65bb51d1674.png" src="_images/456418bdbf798339ff939bd78416ac55ba6ae2f273fc932fe774b65bb51d1674.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">del</span> <span class="n">msh</span><span class="o">.</span><span class="n">element_coordinates</span> <span class="c1"># remove cached element coords calculated based on original node coords)</span>
+<span class="n">msh</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Updated&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: title={&#39;center&#39;: &#39;Updated&#39;}, xlabel=&#39;Easting [m]&#39;, ylabel=&#39;Northing [m]&#39;&gt;
+</pre></div>
+</div>
+<img alt="_images/58e49ecacdcce34ca2b62857037e164a2b0d5a159981266eee999301ed2e1ade.png" src="_images/58e49ecacdcce34ca2b62857037e164a2b0d5a159981266eee999301ed2e1ade.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -793,20 +816,6 @@ projection: PROJCS[&quot;UTM-17&quot;,GEOGCS[&quot;Unused&quot;,DATUM[&quot;UTM 
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">msh</span><span class="o">.</span><span class="n">to_mesh</span><span class="p">(</span><span class="s1">&#39;Fake_lake_clip15.mesh&#39;</span><span class="p">)</span>   <span class="c1"># save to a new file</span>
 </pre></div>
 </div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">msh2</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;Fake_lake_clip15.mesh&#39;</span><span class="p">)</span>
-<span class="n">msh2</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: title={&#39;center&#39;: &#39;Bathymetry&#39;}, xlabel=&#39;Easting [m]&#39;, ylabel=&#39;Northing [m]&#39;&gt;
-</pre></div>
-</div>
-<img alt="_images/053cec1f35b8abd92532440e5b0f5a3e3f45d671865a0943ea99b29c2f4dec1b.png" src="_images/053cec1f35b8abd92532440e5b0f5a3e3f45d671865a0943ea99b29c2f4dec1b.png" />
 </div>
 </div>
 </section>
