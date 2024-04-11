@@ -2,6 +2,7 @@ jupyter-book
 matplotlib
 numpy
 pandas
+pyarrow
 mikeio>=1.2
 netcdf4
 xarray
