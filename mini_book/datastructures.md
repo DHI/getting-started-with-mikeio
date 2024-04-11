@@ -6,7 +6,7 @@ MIKE IO has these primary data structures:
 * **DataArray** - data and metadata corresponding to one "item" in a dfs file. 
 * **Geometry** - spatial description of the data in a dfs file; comes in different flavours corresponding to different types of dfs files.
 
-More information is available in the [MIKE IO documentation](https://dhi.github.io/mikeio/data-structures.html)
+More information is available in the [MIKE IO documentation](https://dhi.github.io/mikeio/user-guide/data-structures.html)
 
 ## Dataset
 The Dataset is the MIKE IO data structure 
