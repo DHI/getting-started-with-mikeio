@@ -14,19 +14,19 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
@@ -34,15 +34,15 @@
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=87e54e7c" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
-  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
 
     <script src="_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="_static/copybutton.js?v=f281be69"></script>
@@ -52,7 +52,7 @@
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
@@ -71,27 +71,23 @@
 
   
   
-  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -113,8 +109,13 @@
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
     </header>
   
 
@@ -179,50 +180,50 @@
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python for data analysis</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installing Python</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="basic.html">Basic Python</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="basic.html">Basic Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="exercises/exercise_A_basic_python.html">Exercise A: basic python</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="numpy.html">NumPy</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="numpy.html">NumPy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="exercises/exercise_B_NumPy.html">Exercise B: NumPy</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="matplotlib.html">Matplotlib</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="matplotlib.html">Matplotlib</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="exercises/exercise_C_matplotlib.html">Exercise C: Matplotlib</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="pandas.html">Pandas</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="pandas.html">Pandas</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="exercises/exercise_D_pandas_basics.html">Exercise D: Pandas basics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="exercises/exercise_E_pandas_timeseries.html">Exercise E: Pandas timeseries</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">MIKE IO</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="installation_mikeio.html">Installing MIKE IO</a></li>
 <li class="toctree-l1"><a class="reference internal" href="datastructures.html">Data Structures</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="dfs0.html">Dfs0</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="dfs0.html">Dfs0</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="exercises/exercise_F_Dfs0.html">Exercise F: Dfs0</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="generic.html">Generic dfs processing</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="generic.html">Generic dfs processing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="exercises/exercise_H_generic_dfs.html">Exercise H: Generic dfs</a></li>
 </ul>
-</li>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="dfs1.html">Dfs1</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Dfs2</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="netcdf.html">NetCDF to dfs2</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="netcdf.html">NetCDF to dfs2</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="exercises/exercise_xarray.html">Exercise: NetCDF and xarray</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="mesh.html">Mesh</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="mesh.html">Mesh</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="exercises/exercise_mesh.html">Exercise: Mesh</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="dfsu2d.html">Dfsu 2D</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="dfsu2d.html">Dfsu 2D</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="exercises/exercise_dfsu.html">Exercise: Dfsu 2D</a></li>
 </ul>
-</li>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="statistics.html">Statistics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="exercises/final_assignment.html">Final assignment</a></li>
 </ul>
@@ -244,7 +245,7 @@
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -253,7 +254,7 @@
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
@@ -529,7 +530,7 @@ items:
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;Longitude [degrees]&#39;, ylabel=&#39;Latitude [degrees]&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/e811d01cd8479999664f751773a77040d01d3bb1d58872b7fecbb4338fefab3c.png" src="_images/e811d01cd8479999664f751773a77040d01d3bb1d58872b7fecbb4338fefab3c.png" />
+<img alt="_images/9e49123a273febe3d76ce32d49ed51506c4f7741cd913b338acafb7bd5d01f23.png" src="_images/9e49123a273febe3d76ce32d49ed51506c4f7741cd913b338acafb7bd5d01f23.png" />
 </div>
 </div>
 </section>
@@ -597,7 +598,7 @@ values: [-42.69764539]
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(12.3, 55.8, &#39;Denmark&#39;)
 </pre></div>
 </div>
-<img alt="_images/c445ecd4ba1babc12ff3b04f002cb0c8e3ef6a2159a4cb2d980dc54e90bb6d42.png" src="_images/c445ecd4ba1babc12ff3b04f002cb0c8e3ef6a2159a4cb2d980dc54e90bb6d42.png" />
+<img alt="_images/cf1b4cc00b18c8129e8dec2038462fd0071f894d7e839a2d97425d42310c2fb3.png" src="_images/cf1b4cc00b18c8129e8dec2038462fd0071f894d7e839a2d97425d42310c2fb3.png" />
 </div>
 </div>
 <section id="inline-exercise">
@@ -627,10 +628,10 @@ values: [-42.69764539]
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.lines.Line2D at 0x7f2ec4905850&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.lines.Line2D at 0x7f982824e650&gt;
 </pre></div>
 </div>
-<img alt="_images/25f4784c500159b7173f98f8e493624689cb65487dfff5efe8f66697dda5c912.png" src="_images/25f4784c500159b7173f98f8e493624689cb65487dfff5efe8f66697dda5c912.png" />
+<img alt="_images/60a9ed232e15d7b77d6a3cc5c4f1ac106f42beed806d62cc299a858d68bb66e2.png" src="_images/60a9ed232e15d7b77d6a3cc5c4f1ac106f42beed806d62cc299a858d68bb66e2.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -640,7 +641,7 @@ values: [-42.69764539]
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/08e6146b99b18747376dcee8aa0421c9a30346e89f9b20f82e90a84b1775f31e.png" src="_images/08e6146b99b18747376dcee8aa0421c9a30346e89f9b20f82e90a84b1775f31e.png" />
+<img alt="_images/beb9a9dedf6f03a90e603a2359af6141f27bf6b5a11dd068d73d3c1bc7a6314e.png" src="_images/beb9a9dedf6f03a90e603a2359af6141f27bf6b5a11dd068d73d3c1bc7a6314e.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -650,7 +651,7 @@ values: [-42.69764539]
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/437508520b65dd59a53057cab7dbe3c3b9256a58fc44addf8f42b1e6fc59642a.png" src="_images/437508520b65dd59a53057cab7dbe3c3b9256a58fc44addf8f42b1e6fc59642a.png" />
+<img alt="_images/6fda0ff4528e93fea8b9d1e492694052737dab1adba2f3d7ce1793718b696609.png" src="_images/6fda0ff4528e93fea8b9d1e492694052737dab1adba2f3d7ce1793718b696609.png" />
 </div>
 </div>
 <section id="id1">
@@ -693,10 +694,10 @@ values: [-42.69764539]
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x7f2ec4824150&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x7f9828198c10&gt;
 </pre></div>
 </div>
-<img alt="_images/72ae9ce1c7b84688fb14bd36717e63c297dd286b95c13fe7ca21b5194a4d7972.png" src="_images/72ae9ce1c7b84688fb14bd36717e63c297dd286b95c13fe7ca21b5194a4d7972.png" />
+<img alt="_images/e1615a53f0eff29494133e1dda11cbaabc7df4a77aaa3867eae1e3bf58de6d4b.png" src="_images/e1615a53f0eff29494133e1dda11cbaabc7df4a77aaa3867eae1e3bf58de6d4b.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -830,7 +831,7 @@ geometry: Grid2D (ny=4, nx=3)
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;Easting [m]&#39;, ylabel=&#39;Northing [m]&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/1ea526ae71c2c916c124bdcfc66b0c21a63ffd440d4e6a50120df6393d51b71b.png" src="_images/1ea526ae71c2c916c124bdcfc66b0c21a63ffd440d4e6a50120df6393d51b71b.png" />
+<img alt="_images/dfac2990aa3222d2de25c40ba2f70f5f4582081aad1cc6df0629bb7fd1319c25.png" src="_images/dfac2990aa3222d2de25c40ba2f70f5f4582081aad1cc6df0629bb7fd1319c25.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -849,11 +850,11 @@ geometry: Grid2D (ny=4, nx=3)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    System: 3.11.9 (main, Apr  2 2024, 15:19:53) [GCC 11.4.0]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    System: 3.11.9 (main, May  9 2024, 14:13:20) [GCC 11.4.0]
     NumPy: 1.26.4
     Pandas: 2.2.2
     MIKE IO: 1.7.1
-    Last modified: 2024-04-11 17:10:53.823415
+    Last modified: 2024-06-11 07:44:45.108590
     
 </pre></div>
 </div>
@@ -890,7 +891,7 @@ geometry: Grid2D (ny=4, nx=3)
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -992,8 +993,8 @@ By Henrik Andersson and Jesper Mariegaard
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+  <script src="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
 
   <footer class="bd-footer">
   </footer>

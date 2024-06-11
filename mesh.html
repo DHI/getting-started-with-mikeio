@@ -14,19 +14,19 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
@@ -34,15 +34,15 @@
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=87e54e7c" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
-  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
 
     <script src="_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="_static/copybutton.js?v=f281be69"></script>
@@ -52,7 +52,7 @@
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
@@ -71,27 +71,23 @@
 
   
   
-  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -113,8 +109,13 @@
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
     </header>
   
 
@@ -179,50 +180,50 @@
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python for data analysis</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installing Python</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="basic.html">Basic Python</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="basic.html">Basic Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="exercises/exercise_A_basic_python.html">Exercise A: basic python</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="numpy.html">NumPy</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="numpy.html">NumPy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="exercises/exercise_B_NumPy.html">Exercise B: NumPy</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="matplotlib.html">Matplotlib</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="matplotlib.html">Matplotlib</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="exercises/exercise_C_matplotlib.html">Exercise C: Matplotlib</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="pandas.html">Pandas</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="pandas.html">Pandas</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="exercises/exercise_D_pandas_basics.html">Exercise D: Pandas basics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="exercises/exercise_E_pandas_timeseries.html">Exercise E: Pandas timeseries</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">MIKE IO</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="installation_mikeio.html">Installing MIKE IO</a></li>
 <li class="toctree-l1"><a class="reference internal" href="datastructures.html">Data Structures</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="dfs0.html">Dfs0</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="dfs0.html">Dfs0</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="exercises/exercise_F_Dfs0.html">Exercise F: Dfs0</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="generic.html">Generic dfs processing</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="generic.html">Generic dfs processing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="exercises/exercise_H_generic_dfs.html">Exercise H: Generic dfs</a></li>
 </ul>
-</li>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="dfs1.html">Dfs1</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dfs2.html">Dfs2</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="netcdf.html">NetCDF to dfs2</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="netcdf.html">NetCDF to dfs2</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="exercises/exercise_xarray.html">Exercise: NetCDF and xarray</a></li>
 </ul>
-</li>
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Mesh</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Mesh</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="exercises/exercise_mesh.html">Exercise: Mesh</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="dfsu2d.html">Dfsu 2D</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="dfsu2d.html">Dfsu 2D</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="exercises/exercise_dfsu.html">Exercise: Dfsu 2D</a></li>
 </ul>
-</li>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="statistics.html">Statistics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="exercises/final_assignment.html">Final assignment</a></li>
 </ul>
@@ -244,7 +245,7 @@
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -253,7 +254,7 @@
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
@@ -496,7 +497,7 @@ projection: UTM-31
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/e079adc852f663b7ec2803946c2edbadb21986f402bbcb9984f8097e404f759a.png" src="_images/e079adc852f663b7ec2803946c2edbadb21986f402bbcb9984f8097e404f759a.png" />
+<img alt="_images/82cc12f1e9c51669efc522f3f0733185d405b8555b1ddd3df9067542f4070828.png" src="_images/82cc12f1e9c51669efc522f3f0733185d405b8555b1ddd3df9067542f4070828.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -564,10 +565,10 @@ projection: UTM-31
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f979c087b10&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fac430c1810&gt;]
 </pre></div>
 </div>
-<img alt="_images/0118a23b0ae621debf33f04af4e8e33190f1f7723b50821e72b11a40a682fd7d.png" src="_images/0118a23b0ae621debf33f04af4e8e33190f1f7723b50821e72b11a40a682fd7d.png" />
+<img alt="_images/f720689354f3f89266eebc915455d71fdf2d98a08eaac3578d4eecb38a34cc87.png" src="_images/f720689354f3f89266eebc915455d71fdf2d98a08eaac3578d4eecb38a34cc87.png" />
 </div>
 </div>
 <section id="boundary-polylines">
@@ -582,7 +583,7 @@ projection: UTM-31
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/e05e30bfa663c50e1e9355d479fbc5c88561fe3d00e5c545ef7c3f7d6bbf223f.png" src="_images/e05e30bfa663c50e1e9355d479fbc5c88561fe3d00e5c545ef7c3f7d6bbf223f.png" />
+<img alt="_images/2b2be65b1f10625cab8c4b242ce5bc332b5bf85e20bce96968480f7f6d1c60ac.png" src="_images/2b2be65b1f10625cab8c4b242ce5bc332b5bf85e20bce96968480f7f6d1c60ac.png" />
 </div>
 </div>
 </section>
@@ -634,7 +635,7 @@ projection: UTM-31
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/e6d18aab565b57e8df1bd2e76909ec8759f692bd862c5fc4807b2f5f5680f42b.png" src="_images/e6d18aab565b57e8df1bd2e76909ec8759f692bd862c5fc4807b2f5f5680f42b.png" />
+<img alt="_images/6185b1c47e02a186c2c4a3780400b86c1a15267ee865441a97b599197deaa042.png" src="_images/6185b1c47e02a186c2c4a3780400b86c1a15267ee865441a97b599197deaa042.png" />
 </div>
 </div>
 </section>
@@ -737,7 +738,7 @@ projection: PROJCS[&quot;UTM-17&quot;,GEOGCS[&quot;Unused&quot;,DATUM[&quot;UTM 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/755a95fd1c73a117558d147955fcc4358d448db2c7b3c1bf94682019a3ad5c1e.png" src="_images/755a95fd1c73a117558d147955fcc4358d448db2c7b3c1bf94682019a3ad5c1e.png" />
+<img alt="_images/f930558eda4dc8df9ea353582c94e3d377b94c3a96b68e07c4ca6065077b9919.png" src="_images/f930558eda4dc8df9ea353582c94e3d377b94c3a96b68e07c4ca6065077b9919.png" />
 </div>
 </div>
 <section id="inline-exercise">
@@ -778,7 +779,7 @@ projection: PROJCS[&quot;UTM-17&quot;,GEOGCS[&quot;Unused&quot;,DATUM[&quot;UTM 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/755a95fd1c73a117558d147955fcc4358d448db2c7b3c1bf94682019a3ad5c1e.png" src="_images/755a95fd1c73a117558d147955fcc4358d448db2c7b3c1bf94682019a3ad5c1e.png" />
+<img alt="_images/f930558eda4dc8df9ea353582c94e3d377b94c3a96b68e07c4ca6065077b9919.png" src="_images/f930558eda4dc8df9ea353582c94e3d377b94c3a96b68e07c4ca6065077b9919.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -794,7 +795,7 @@ projection: PROJCS[&quot;UTM-17&quot;,GEOGCS[&quot;Unused&quot;,DATUM[&quot;UTM 
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: title={&#39;center&#39;: &#39;No change??&#39;}, xlabel=&#39;Easting [m]&#39;, ylabel=&#39;Northing [m]&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/0b6ee7c495421f75b3014a5defd4abd7d18a22508ffa77bb9e55b2495c7f8523.png" src="_images/0b6ee7c495421f75b3014a5defd4abd7d18a22508ffa77bb9e55b2495c7f8523.png" />
+<img alt="_images/23ac8f9144a8c8df62ba5d3a3665fa7cf58b9389f6967302f0266f83f7a4cd17.png" src="_images/23ac8f9144a8c8df62ba5d3a3665fa7cf58b9389f6967302f0266f83f7a4cd17.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -808,7 +809,7 @@ projection: PROJCS[&quot;UTM-17&quot;,GEOGCS[&quot;Unused&quot;,DATUM[&quot;UTM 
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: title={&#39;center&#39;: &#39;Updated&#39;}, xlabel=&#39;Easting [m]&#39;, ylabel=&#39;Northing [m]&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/e1b6fde389eb36704861deaa0caf58c3afb439578abae4cc1e36f7ed12f454b0.png" src="_images/e1b6fde389eb36704861deaa0caf58c3afb439578abae4cc1e36f7ed12f454b0.png" />
+<img alt="_images/62dffb878fd2e9caf7a2519364acb949be3e28f4bc492f6f6d6949b32066f5d4.png" src="_images/62dffb878fd2e9caf7a2519364acb949be3e28f4bc492f6f6d6949b32066f5d4.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -845,7 +846,7 @@ projection: LONG/LAT
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/487e6e0bf6dc42af7ec2c8b631e92213386f127e6168211a1af927a5328d217d.png" src="_images/487e6e0bf6dc42af7ec2c8b631e92213386f127e6168211a1af927a5328d217d.png" />
+<img alt="_images/cdb5260997c23494d7d4553d1620c59336dbe4b469bcd34156d6e72493adb7b9.png" src="_images/cdb5260997c23494d7d4553d1620c59336dbe4b469bcd34156d6e72493adb7b9.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -855,7 +856,7 @@ projection: LONG/LAT
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/ab026f76f7022f7e5e989acd16d4ee2fb4729303a7f3f71d2c42e7a7509a9a3d.png" src="_images/ab026f76f7022f7e5e989acd16d4ee2fb4729303a7f3f71d2c42e7a7509a9a3d.png" />
+<img alt="_images/e941646847a76b785e97dbe195ed3ddf830ba236ec937b70bb6ca9aba549d60a.png" src="_images/e941646847a76b785e97dbe195ed3ddf830ba236ec937b70bb6ca9aba549d60a.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -865,7 +866,7 @@ projection: LONG/LAT
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/302652b34d76b0ea055b7d9fcaf4b21067dbe13c7e17a3b621664411c6005165.png" src="_images/302652b34d76b0ea055b7d9fcaf4b21067dbe13c7e17a3b621664411c6005165.png" />
+<img alt="_images/892767970017675bc17264517d39ed26794b7d8924e68ac3706c1b51b95aa3ee.png" src="_images/892767970017675bc17264517d39ed26794b7d8924e68ac3706c1b51b95aa3ee.png" />
 </div>
 </div>
 <p>Maybe we would like to higlight the bathymetric variations in some range, in this case in the -40, -20m range.</p>
@@ -876,7 +877,7 @@ projection: LONG/LAT
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/f63187abdd09d95e69536a1d7e1c30689a5725e7f35c12ef5dba985675a2d4d7.png" src="_images/f63187abdd09d95e69536a1d7e1c30689a5725e7f35c12ef5dba985675a2d4d7.png" />
+<img alt="_images/e889342b53cd374813c4a700e08e31e1988d83bc33e6d6810c23e927f4c79246.png" src="_images/e889342b53cd374813c4a700e08e31e1988d83bc33e6d6810c23e927f4c79246.png" />
 </div>
 </div>
 <p>There are other options as well, such as explicit specification of which contour lines to show or choosing a specific colormap (<a class="reference external" href="https://matplotlib.org/stable/tutorials/colors/colormaps.html">matplotlib colormaps</a>)</p>
@@ -889,7 +890,7 @@ projection: LONG/LAT
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/c6a24e35f2826366fb16f0903365a7b03e3fea61d6690af290b2c6f037fb3d42.png" src="_images/c6a24e35f2826366fb16f0903365a7b03e3fea61d6690af290b2c6f037fb3d42.png" />
+<img alt="_images/1620b6d855d26faa2ac082ab2b1f5c1d02ff85c3730834642c71af1beca074db.png" src="_images/1620b6d855d26faa2ac082ab2b1f5c1d02ff85c3730834642c71af1beca074db.png" />
 </div>
 </div>
 <p>See the <a class="reference external" href="https://nbviewer.jupyter.org/github/DHI/mikeio/blob/main/notebooks/Mesh.ipynb">MIKE IO Mesh Example notebook</a> for more Mesh operations (including shapely operations).</p>
@@ -925,7 +926,7 @@ projection: LONG/LAT
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -1022,8 +1023,8 @@ By Henrik Andersson and Jesper Mariegaard
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+  <script src="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
 
   <footer class="bd-footer">
   </footer>
