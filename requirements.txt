@@ -3,6 +3,6 @@ matplotlib
 numpy
 pandas
 pyarrow
-mikeio>=1.2
+mikeio>=2.0
 netcdf4
 xarray
