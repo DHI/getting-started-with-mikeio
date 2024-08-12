@@ -31,7 +31,7 @@ print("Matplotlib: " + mpl.__version__)
 Can you say yes to the following questions? 
 
 * My Python version is 3.9 or greater
-* My NumPy version is 1.21 or greater
+* My NumPy version is 1.23 or greater
 * My pandas version is 1.3 or greater
 * My matplotlib version is 3.4 or greater
 
