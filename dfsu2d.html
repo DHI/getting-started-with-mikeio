@@ -453,8 +453,8 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fn</span> <span class="o">=</span> <span class="s2">&quot;data/oresundHD_run1.dfsu&quot;</span>
-<span class="n">msh</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">fn</span><span class="p">)</span>
-<span class="n">msh</span>
+<span class="n">dfs</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">fn</span><span class="p">)</span>
+<span class="n">dfs</span>
 </pre></div>
 </div>
 </div>
@@ -479,7 +479,7 @@ time: 2018-03-07 00:00:00 - 2018-03-11 00:00:00 (5 records)
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">msh</span><span class="o">.</span><span class="n">geometry</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dfs</span><span class="o">.</span><span class="n">geometry</span>
 </pre></div>
 </div>
 </div>
@@ -494,7 +494,7 @@ projection: UTM-33
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">msh</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">plot</span><span class="p">();</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dfs</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">plot</span><span class="p">();</span>
 </pre></div>
 </div>
 </div>
@@ -504,7 +504,7 @@ projection: UTM-33
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">msh</span><span class="o">.</span><span class="n">n_items</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dfs</span><span class="o">.</span><span class="n">n_items</span>
 </pre></div>
 </div>
 </div>
@@ -516,7 +516,7 @@ projection: UTM-33
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">msh</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">projection_string</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dfs</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">projection_string</span>
 </pre></div>
 </div>
 </div>
@@ -528,7 +528,7 @@ projection: UTM-33
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">msh</span><span class="o">.</span><span class="n">timestep</span>    <span class="c1"># in seconds ...</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dfs</span><span class="o">.</span><span class="n">timestep</span>    <span class="c1"># in seconds ...</span>
 </pre></div>
 </div>
 </div>
@@ -540,7 +540,7 @@ projection: UTM-33
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span> <span class="o">=</span> <span class="n">msh</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">items</span><span class="o">=</span><span class="s2">&quot;Surface elevation&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span> <span class="o">=</span> <span class="n">dfs</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">items</span><span class="o">=</span><span class="s2">&quot;Surface elevation&quot;</span><span class="p">)</span>
 <span class="n">ds</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 </div>
@@ -582,7 +582,7 @@ geometry: Dfsu2D (3612 elements, 2046 nodes)
 <h3>Subset data<a class="headerlink" href="#subset-data" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ze</span> <span class="o">=</span> <span class="n">msh</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">element_coordinates</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span>    <span class="c1"># third column is depth</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ze</span> <span class="o">=</span> <span class="n">dfs</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">element_coordinates</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span>    <span class="c1"># third column is depth</span>
 <span class="n">ze</span><span class="o">&lt;-</span><span class="mi">20</span>
 </pre></div>
 </div>
@@ -596,7 +596,7 @@ geometry: Dfsu2D (3612 elements, 2046 nodes)
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">elems</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">ze</span><span class="o">&lt;-</span><span class="mi">20</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">ds_sub</span> <span class="o">=</span> <span class="n">msh</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">items</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">time</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">elements</span><span class="o">=</span><span class="n">elems</span><span class="p">)</span>    <span class="c1"># read only data where depth is more than 20m</span>
+<span class="n">ds_sub</span> <span class="o">=</span> <span class="n">dfs</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">items</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">time</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">elements</span><span class="o">=</span><span class="n">elems</span><span class="p">)</span>    <span class="c1"># read only data where depth is more than 20m</span>
 <span class="n">ds_sub</span>
 </pre></div>
 </div>
@@ -615,7 +615,7 @@ items:
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">ds_sub</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
-<span class="n">msh</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">mesh</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">);</span>
+<span class="n">dfs</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">mesh</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -825,7 +825,7 @@ values: [0.08848, 0.1241, ..., 0.08814]
     NumPy: 2.0.1
     Pandas: 2.2.2
     MIKE IO: 2.0.0
-    Last modified: 2024-08-16 07:16:54.989820
+    Last modified: 2024-08-16 09:12:32.039066
     
 </pre></div>
 </div>
