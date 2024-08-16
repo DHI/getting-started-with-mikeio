@@ -426,25 +426,18 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="exercise-mesh">
 <h1>Exercise: Mesh<a class="headerlink" href="#exercise-mesh" title="Link to this heading">#</a></h1>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import the Mesh class</span>
-</pre></div>
-</div>
-</div>
-</div>
 <section id="a-simple-mesh">
 <h2>A simple mesh<a class="headerlink" href="#a-simple-mesh" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fn</span> <span class="o">=</span> <span class="s2">&quot;../data/three_elements.mesh&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fn</span> <span class="o">=</span> <span class="s2">&quot;../data/two_elements.mesh&quot;</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># load the mesh to a variable msh</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># load the mesh to a variable msh using mikeio.open</span>
 </pre></div>
 </div>
 </div>
@@ -458,7 +451,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># determine the cell center coordinates for the three elements</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># determine the cell center coordinates for the two elements</span>
 </pre></div>
 </div>
 </div>
@@ -489,14 +482,14 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot the mesh boundary</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot the mesh boundary nodes</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># check if the point p1 is inside the mesh</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># check if the point p1 is inside the mesh (use the .geometry attribute)</span>
 <span class="n">p1</span> <span class="o">=</span> <span class="p">[</span><span class="mf">4.8674</span><span class="p">,</span> <span class="mf">53.2126</span><span class="p">]</span>
 </pre></div>
 </div>

@@ -411,7 +411,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#read">Read</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#open-read">Open / Read</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#write">Write</a></li>
 </ul>
             </nav>
@@ -426,15 +426,8 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="exercise-dfsu-2d">
 <h1>Exercise: Dfsu 2D<a class="headerlink" href="#exercise-dfsu-2d" title="Link to this heading">#</a></h1>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import the Dfsu class </span>
-</pre></div>
-</div>
-</div>
-</div>
-<section id="read">
-<h2>Read<a class="headerlink" href="#read" title="Link to this heading">#</a></h2>
+<section id="open-read">
+<h2>Open / Read<a class="headerlink" href="#open-read" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fn</span> <span class="o">=</span> <span class="s2">&quot;../data/NorthSea_HD_and_windspeed.dfsu&quot;</span>
@@ -444,7 +437,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create Dfsu object &quot;dfs&quot; from fn</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create a Dfsu2DH object &quot;dfs&quot; from fn using mikeio.open</span>
 </pre></div>
 </div>
 </div>
@@ -458,7 +451,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># does the mesh have any quad elements? </span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># does the mesh (use the .geometry attribute) have any quad elements, or is it triangles only?</span>
 </pre></div>
 </div>
 </div>
@@ -479,7 +472,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get an array of max wind speed per timestep (hint: use the max(axis=1) on ds) </span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get an array of max wind speed per timestep (hint: use the max(axis=1) on ds)</span>
 </pre></div>
 </div>
 </div>
@@ -505,7 +498,7 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># rename the first and only item of this dataset (Surface elevation) to `Sea Level`</span>
-<span class="c1"># ds.items[0].name = &quot;new name&quot;</span>
+<span class="c1"># (hint: use the .rename method on the dataset)</span>
 </pre></div>
 </div>
 </div>
@@ -594,7 +587,7 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#read">Read</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#open-read">Open / Read</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#write">Write</a></li>
 </ul>
   </nav></div>
