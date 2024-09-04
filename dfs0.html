@@ -448,19 +448,17 @@ document.write(`
 <h2>Reading data<a class="headerlink" href="#reading-data" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">&quot;data/TemporalEqTime.dfs0&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">&quot;data/Oresund_ts.dfs0&quot;</span><span class="p">)</span>
 <span class="n">ds</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mikeio.Dataset&gt;
-dims: (time:10)
-time: 1970-01-01 00:00:03 - 1970-01-01 00:01:33 (10 records)
+dims: (time:2017)
+time: 2018-03-04 00:00:00 - 2018-03-11 00:00:00 (2017 records)
 geometry: GeometryUndefined()
-items:
-  0:  WaterLevel item &lt;Water Level&gt; (meter)
-  1:  WaterDepth item &lt;Water Depth&gt; (meter)
+number of items: 12
 </pre></div>
 </div>
 </div>
@@ -477,11 +475,202 @@ items:
 </div>
 </div>
 </div>
-<p>The MIKE IO <code class="docutils literal notranslate"><span class="pre">Dataset</span></code> are used by all Dfs classes (Dfs0,Dfs1,Dfs2,Dfs3, Dfsu).
-A simple timeseries dataset can easily be converted to a Pandas DataFrame.</p>
+<p>The mikeio read function returns a <code class="docutils literal notranslate"><span class="pre">Dataset</span></code> which is a container of <code class="docutils literal notranslate"><span class="pre">DataArray</span></code>s.</p>
+<p>A <code class="docutils literal notranslate"><span class="pre">DataArray</span></code> can be selected by name or by index.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span> <span class="c1"># convert dataset to dataframe</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">da</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[</span><span class="s2">&quot;Drogden: Surface elevation&quot;</span><span class="p">]</span>   <span class="c1"># or ds.Drogden_Surface_elevation or ds[2]</span>
+<span class="n">da</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mikeio.DataArray&gt;
+name: Drogden: Surface elevation
+dims: (time:2017)
+time: 2018-03-04 00:00:00 - 2018-03-11 00:00:00 (2017 records)
+geometry: GeometryUndefined()
+values: [0.05063, 0.04713, ..., 0.2404]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Upon <code class="docutils literal notranslate"><span class="pre">read</span></code>, specific items can be selected with the <code class="docutils literal notranslate"><span class="pre">items</span></code> argument using name or index.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">&quot;data/Oresund_ts.dfs0&quot;</span><span class="p">,</span> <span class="n">items</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+<span class="n">ds</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mikeio.Dataset&gt;
+dims: (time:2017)
+time: 2018-03-04 00:00:00 - 2018-03-11 00:00:00 (2017 records)
+geometry: GeometryUndefined()
+items:
+  0:  Viken: Surface elevation &lt;Surface Elevation&gt; (meter)
+  1:  Drogden: Surface elevation &lt;Surface Elevation&gt; (meter)
+  2:  Klagshamn: Surface elevation &lt;Surface Elevation&gt; (meter)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Wildcards can be used to select multiple items:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">&quot;data/Oresund_ts.dfs0&quot;</span><span class="p">,</span> <span class="n">items</span><span class="o">=</span><span class="s2">&quot;*Surf*&quot;</span><span class="p">)</span>
+<span class="n">ds</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mikeio.Dataset&gt;
+dims: (time:2017)
+time: 2018-03-04 00:00:00 - 2018-03-11 00:00:00 (2017 records)
+geometry: GeometryUndefined()
+items:
+  0:  Viken: Surface elevation &lt;Surface Elevation&gt; (meter)
+  1:  Hornbæk: Surface elevation &lt;Surface Elevation&gt; (meter)
+  2:  Drogden: Surface elevation &lt;Surface Elevation&gt; (meter)
+  3:  Klagshamn: Surface elevation &lt;Surface Elevation&gt; (meter)
+</pre></div>
+</div>
+</div>
+</div>
+<p>A specific time subset can be selected by index (or sel method) or already upon read:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span><span class="p">[</span><span class="s2">&quot;2018-03-04&quot;</span><span class="p">]</span>  <span class="c1"># or ds.sel(time=&quot;2018-03-04&quot;)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mikeio.Dataset&gt;
+dims: (time:288)
+time: 2018-03-04 00:00:00 - 2018-03-04 23:55:00 (288 records)
+geometry: GeometryUndefined()
+items:
+  0:  Viken: Surface elevation &lt;Surface Elevation&gt; (meter)
+  1:  Hornbæk: Surface elevation &lt;Surface Elevation&gt; (meter)
+  2:  Drogden: Surface elevation &lt;Surface Elevation&gt; (meter)
+  3:  Klagshamn: Surface elevation &lt;Surface Elevation&gt; (meter)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">&quot;data/Oresund_ts.dfs0&quot;</span><span class="p">,</span> <span class="n">items</span><span class="o">=</span><span class="s2">&quot;*Surf*&quot;</span><span class="p">,</span> <span class="n">time</span><span class="o">=</span><span class="s2">&quot;2018-03-04&quot;</span><span class="p">)</span>
+<span class="n">ds</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mikeio.Dataset&gt;
+dims: (time:288)
+time: 2018-03-04 00:00:00 - 2018-03-04 23:55:00 (288 records)
+geometry: GeometryUndefined()
+items:
+  0:  Viken: Surface elevation &lt;Surface Elevation&gt; (meter)
+  1:  Hornbæk: Surface elevation &lt;Surface Elevation&gt; (meter)
+  2:  Drogden: Surface elevation &lt;Surface Elevation&gt; (meter)
+  3:  Klagshamn: Surface elevation &lt;Surface Elevation&gt; (meter)
+</pre></div>
+</div>
+</div>
+</div>
+<p>The Dataset and DataArray have a number of useful attributes like <code class="docutils literal notranslate"><span class="pre">time</span></code>, <code class="docutils literal notranslate"><span class="pre">items</span></code>, <code class="docutils literal notranslate"><span class="pre">ndims</span></code>, <code class="docutils literal notranslate"><span class="pre">shape</span></code>, <code class="docutils literal notranslate"><span class="pre">values</span></code> (only DataArray) etc</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span><span class="o">.</span><span class="n">time</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DatetimeIndex([&#39;2018-03-04 00:00:00&#39;, &#39;2018-03-04 00:05:00&#39;,
+               &#39;2018-03-04 00:10:00&#39;, &#39;2018-03-04 00:15:00&#39;,
+               &#39;2018-03-04 00:20:00&#39;, &#39;2018-03-04 00:25:00&#39;,
+               &#39;2018-03-04 00:30:00&#39;, &#39;2018-03-04 00:35:00&#39;,
+               &#39;2018-03-04 00:40:00&#39;, &#39;2018-03-04 00:45:00&#39;,
+               ...
+               &#39;2018-03-04 23:10:00&#39;, &#39;2018-03-04 23:15:00&#39;,
+               &#39;2018-03-04 23:20:00&#39;, &#39;2018-03-04 23:25:00&#39;,
+               &#39;2018-03-04 23:30:00&#39;, &#39;2018-03-04 23:35:00&#39;,
+               &#39;2018-03-04 23:40:00&#39;, &#39;2018-03-04 23:45:00&#39;,
+               &#39;2018-03-04 23:50:00&#39;, &#39;2018-03-04 23:55:00&#39;],
+              dtype=&#39;datetime64[ns]&#39;, length=288, freq=None)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span><span class="o">.</span><span class="n">items</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Viken: Surface elevation &lt;Surface Elevation&gt; (meter),
+ Hornbæk: Surface elevation &lt;Surface Elevation&gt; (meter),
+ Drogden: Surface elevation &lt;Surface Elevation&gt; (meter),
+ Klagshamn: Surface elevation &lt;Surface Elevation&gt; (meter)]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">da</span><span class="o">.</span><span class="n">item</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Drogden: Surface elevation &lt;Surface Elevation&gt; (meter)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">da</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(2017,)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">da</span><span class="o">.</span><span class="n">values</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.05062908, 0.04713159, 0.04382962, ..., 0.23521478, 0.23782268,
+       0.24038477])
+</pre></div>
+</div>
+</div>
+</div>
+<p>The time series can be plotted with the plot method.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span><span class="o">.</span><span class="n">plot</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/eb4de9caa58a968f3eea30776d7bbc0841f0aa936913760e44c74bb0bf18c7a9.png" src="_images/eb4de9caa58a968f3eea30776d7bbc0841f0aa936913760e44c74bb0bf18c7a9.png" />
+</div>
+</div>
+<p>A simple timeseries Dataset can easily be converted to a Pandas DataFrame.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span> <span class="c1"># convert dataset to dataframe</span>
 <span class="n">df</span>
 </pre></div>
 </div>
@@ -505,68 +694,99 @@ A simple timeseries dataset can easily be converted to a Pandas DataFrame.</p>
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>WaterLevel item</th>
-      <th>WaterDepth item</th>
+      <th>Viken: Surface elevation</th>
+      <th>Hornbæk: Surface elevation</th>
+      <th>Drogden: Surface elevation</th>
+      <th>Klagshamn: Surface elevation</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>1970-01-01 00:00:03</th>
-      <td>0.0</td>
-      <td>100.0</td>
+      <th>2018-03-04 00:00:00</th>
+      <td>0.268416</td>
+      <td>0.279761</td>
+      <td>0.050629</td>
+      <td>0.018723</td>
     </tr>
     <tr>
-      <th>1970-01-01 00:00:13</th>
-      <td>1.0</td>
-      <td>101.0</td>
+      <th>2018-03-04 00:05:00</th>
+      <td>0.265478</td>
+      <td>0.276792</td>
+      <td>0.047132</td>
+      <td>0.014833</td>
     </tr>
     <tr>
-      <th>1970-01-01 00:00:23</th>
-      <td>2.0</td>
-      <td>102.0</td>
+      <th>2018-03-04 00:10:00</th>
+      <td>0.262521</td>
+      <td>0.273909</td>
+      <td>0.043830</td>
+      <td>0.011230</td>
     </tr>
     <tr>
-      <th>1970-01-01 00:00:33</th>
-      <td>3.0</td>
-      <td>103.0</td>
+      <th>2018-03-04 00:15:00</th>
+      <td>0.259481</td>
+      <td>0.270935</td>
+      <td>0.040655</td>
+      <td>0.007876</td>
     </tr>
     <tr>
-      <th>1970-01-01 00:00:43</th>
-      <td>4.0</td>
-      <td>104.0</td>
+      <th>2018-03-04 00:20:00</th>
+      <td>0.256348</td>
+      <td>0.267858</td>
+      <td>0.037621</td>
+      <td>0.004712</td>
     </tr>
     <tr>
-      <th>1970-01-01 00:00:53</th>
-      <td>5.0</td>
-      <td>105.0</td>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
     </tr>
     <tr>
-      <th>1970-01-01 00:01:03</th>
-      <td>10.0</td>
-      <td>110.0</td>
+      <th>2018-03-04 23:35:00</th>
+      <td>0.232721</td>
+      <td>0.237954</td>
+      <td>0.099927</td>
+      <td>0.076122</td>
     </tr>
     <tr>
-      <th>1970-01-01 00:01:13</th>
-      <td>11.0</td>
-      <td>111.0</td>
+      <th>2018-03-04 23:40:00</th>
+      <td>0.229933</td>
+      <td>0.235055</td>
+      <td>0.098214</td>
+      <td>0.073399</td>
     </tr>
     <tr>
-      <th>1970-01-01 00:01:23</th>
-      <td>12.0</td>
-      <td>112.0</td>
+      <th>2018-03-04 23:45:00</th>
+      <td>0.227105</td>
+      <td>0.232199</td>
+      <td>0.096391</td>
+      <td>0.070642</td>
     </tr>
     <tr>
-      <th>1970-01-01 00:01:33</th>
-      <td>13.0</td>
-      <td>113.0</td>
+      <th>2018-03-04 23:50:00</th>
+      <td>0.224168</td>
+      <td>0.229341</td>
+      <td>0.094460</td>
+      <td>0.067864</td>
+    </tr>
+    <tr>
+      <th>2018-03-04 23:55:00</th>
+      <td>0.221046</td>
+      <td>0.226392</td>
+      <td>0.092474</td>
+      <td>0.065087</td>
     </tr>
   </tbody>
 </table>
+<p>288 rows × 4 columns</p>
 </div></div></div>
 </div>
 </section>
 <section id="writing-data">
 <h2>Writing data<a class="headerlink" href="#writing-data" title="Link to this heading">#</a></h2>
+<p>Often, time series data will come from a csv or an Excel file. Here is an example of how to read a csv file with pandas and then write the pandas DataFrame to a dfs0 file.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/naples_fl.csv&quot;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
@@ -1396,10 +1616,10 @@ items:
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    System: 3.11.9 (main, Jul 15 2024, 21:50:21) [GCC 11.4.0]
-    NumPy: 2.1.0
+    NumPy: 2.1.1
     Pandas: 2.2.2
     MIKE IO: 2.1.0
-    Last modified: 2024-09-03 11:41:25.198126
+    Last modified: 2024-09-04 15:29:26.821396
     
 </pre></div>
 </div>
