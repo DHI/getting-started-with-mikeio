@@ -28,8 +28,8 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
@@ -438,8 +438,8 @@ document.write(`
 <p>See <a class="reference external" href="https://dhi.github.io/mikeio/user-guide/dfs0.html">Dfs0 in MIKE IO Documentation</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">mikeio</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">mikeio</span>
 </pre></div>
 </div>
 </div>
@@ -651,7 +651,7 @@ items:
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.05062908, 0.04713159, 0.04382962, ..., 0.23521478, 0.23782268,
-       0.24038477])
+       0.24038477], shape=(2017,))
 </pre></div>
 </div>
 </div>
@@ -664,7 +664,7 @@ items:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/eb4de9caa58a968f3eea30776d7bbc0841f0aa936913760e44c74bb0bf18c7a9.png" src="_images/eb4de9caa58a968f3eea30776d7bbc0841f0aa936913760e44c74bb0bf18c7a9.png" />
+<img alt="_images/0a55f8014070457604a5a4dc3560117852e4fc3a277f740d7f2baa8455488a57.png" src="_images/0a55f8014070457604a5a4dc3560117852e4fc3a277f740d7f2baa8455488a57.png" />
 </div>
 </div>
 <p>A simple timeseries Dataset can easily be converted to a Pandas DataFrame.</p>
@@ -938,7 +938,7 @@ items:
 <p>You will probably have the need to parse certain a specific data formats many times, then it is a good idea to create a function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">read_ncei_obs</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">read_ncei_obs</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
     <span class="c1"># old name : new name</span>
     <span class="n">mapping</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;TAVG (Degrees Fahrenheit)&#39;</span><span class="p">:</span> <span class="s1">&#39;temperature_avg_f&#39;</span><span class="p">,</span>
                <span class="s1">&#39;TMAX (Degrees Fahrenheit)&#39;</span><span class="p">:</span> <span class="s1">&#39;temperature_max_f&#39;</span><span class="p">,</span>
@@ -1227,7 +1227,7 @@ items:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/4e4d79f8e5b85b548fe3aa380efc04c2123cfc767900d39d3cd1c0afb22f0258.png" src="_images/4e4d79f8e5b85b548fe3aa380efc04c2123cfc767900d39d3cd1c0afb22f0258.png" />
+<img alt="_images/c5096b62db3cc9a60a76d6169e5325512b983d92816f067c949bb87ab1d948e2.png" src="_images/c5096b62db3cc9a60a76d6169e5325512b983d92816f067c949bb87ab1d948e2.png" />
 </div>
 </div>
 <p>Creating a dfs0 file from a dataframe is pretty straightforward.</p>
@@ -1359,7 +1359,7 @@ items:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">mikeio</span> <span class="kn">import</span> <span class="n">ItemInfo</span><span class="p">,</span> <span class="n">EUMType</span><span class="p">,</span> <span class="n">EUMUnit</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">mikeio</span><span class="w"> </span><span class="kn">import</span> <span class="n">ItemInfo</span><span class="p">,</span> <span class="n">EUMType</span><span class="p">,</span> <span class="n">EUMUnit</span>
 
 <span class="n">ds2</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">from_pandas</span><span class="p">(</span><span class="n">df2</span><span class="p">,</span> 
                          <span class="n">items</span><span class="o">=</span><span class="p">[</span>
@@ -1387,7 +1387,7 @@ items:
 <h2>EUM<a class="headerlink" href="#eum" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">mikeio.eum</span> <span class="kn">import</span> <span class="n">ItemInfo</span><span class="p">,</span> <span class="n">EUMType</span><span class="p">,</span> <span class="n">EUMUnit</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">mikeio.eum</span><span class="w"> </span><span class="kn">import</span> <span class="n">ItemInfo</span><span class="p">,</span> <span class="n">EUMType</span><span class="p">,</span> <span class="n">EUMUnit</span>
 
 <span class="n">EUMType</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">&quot;wind&quot;</span><span class="p">)</span>
 </pre></div>
@@ -1546,7 +1546,7 @@ items:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">mikecore.DfsFile</span> <span class="kn">import</span> <span class="n">DataValueType</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">mikecore.DfsFile</span><span class="w"> </span><span class="kn">import</span> <span class="n">DataValueType</span>
 
 <span class="p">(</span><span class="n">mikeio</span><span class="o">.</span><span class="n">from_pandas</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">items</span><span class="o">=</span><span class="n">ItemInfo</span><span class="p">(</span><span class="n">EUMType</span><span class="o">.</span><span class="n">Precipitation_Rate</span><span class="p">,</span> <span class="n">EUMUnit</span><span class="o">.</span><span class="n">mm_per_hour</span><span class="p">,</span> <span class="n">data_value_type</span><span class="o">=</span><span class="n">DataValueType</span><span class="o">.</span><span class="n">MeanStepBackward</span><span class="p">))</span>
         <span class="o">.</span><span class="n">to_dfs</span><span class="p">(</span><span class="s2">&quot;output/precipitation.dfs0&quot;</span><span class="p">)</span>
@@ -1608,18 +1608,18 @@ items:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">utils</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">utils</span>
 
 <span class="n">utils</span><span class="o">.</span><span class="n">sysinfo</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    System: 3.11.9 (main, Jul 15 2024, 21:50:21) [GCC 11.4.0]
-    NumPy: 2.1.1
-    Pandas: 2.2.2
-    MIKE IO: 2.1.0
-    Last modified: 2024-09-18 15:25:46.457344
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    System: 3.11.12 (main, Apr  8 2025, 21:35:04) [GCC 13.3.0]
+    NumPy: 2.2.5
+    Pandas: 2.2.3
+    MIKE IO: 2.5.0
+    Last modified: 2025-04-22 06:52:07.002591
     
 </pre></div>
 </div>

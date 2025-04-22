@@ -28,8 +28,8 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
@@ -439,9 +439,9 @@ document.write(`
 <p>See <a class="reference external" href="https://dhi.github.io/mikeio/mesh.html">Mesh in MIKE IO Documentation</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">mikeio</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">mikeio</span>
 </pre></div>
 </div>
 </div>
@@ -485,8 +485,8 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Mesh&gt;
-number of elements: 2
 number of nodes: 4
+number of elements: 2
 projection: UTM-31
 </pre></div>
 </div>
@@ -499,7 +499,7 @@ projection: UTM-31
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/23e3ab3146f26c019f8d095b9bfc733324e3cb0c50e162534c84430c19000e35.png" src="_images/23e3ab3146f26c019f8d095b9bfc733324e3cb0c50e162534c84430c19000e35.png" />
+<img alt="_images/21bc8d313a5762716f23d2474cc2a1d9504a8ecafd6565cea6671ac59691e8ef.png" src="_images/21bc8d313a5762716f23d2474cc2a1d9504a8ecafd6565cea6671ac59691e8ef.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -582,10 +582,10 @@ projection: UTM-31
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f66d1ee3ad0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f76723157d0&gt;]
 </pre></div>
 </div>
-<img alt="_images/30fafd57a25387f48eecb9c1625330b082ea1d07c413ca19e87a04ad4260cf1f.png" src="_images/30fafd57a25387f48eecb9c1625330b082ea1d07c413ca19e87a04ad4260cf1f.png" />
+<img alt="_images/02e036685497527091ad694c78b54697e0d8c82021f67842709b91f7e2dde7e1.png" src="_images/02e036685497527091ad694c78b54697e0d8c82021f67842709b91f7e2dde7e1.png" />
 </div>
 </div>
 <section id="boundary-polylines">
@@ -600,7 +600,11 @@ projection: UTM-31
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/583e426200a69825e80db59b02a2a9e113711d192ad5bd983aade20d89ddea00.png" src="_images/583e426200a69825e80db59b02a2a9e113711d192ad5bd983aade20d89ddea00.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/hostedtoolcache/Python/3.11.12/x64/lib/python3.11/site-packages/mikeio/spatial/_FM_geometry.py:871: FutureWarning: boundary_polylines is renamed to boundary_polygons
+  warnings.warn(
+</pre></div>
+</div>
+<img alt="_images/3a21ea21b0820536d7a15b8ad85d0bc4eaf12186d3316f8785dfe7018fdc4628.png" src="_images/3a21ea21b0820536d7a15b8ad85d0bc4eaf12186d3316f8785dfe7018fdc4628.png" />
 </div>
 </div>
 </section>
@@ -652,7 +656,7 @@ projection: UTM-31
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/b76c83a52fe457375ae2fc7bea12380e0ef630186a80a5d996ff66ebc9d6380a.png" src="_images/b76c83a52fe457375ae2fc7bea12380e0ef630186a80a5d996ff66ebc9d6380a.png" />
+<img alt="_images/cde749bed4b7a4e8dfa9f9fb4f60664f315fb9efe8d9f41a28c67c7f25ce6c5b.png" src="_images/cde749bed4b7a4e8dfa9f9fb4f60664f315fb9efe8d9f41a28c67c7f25ce6c5b.png" />
 </div>
 </div>
 </section>
@@ -755,7 +759,7 @@ projection: PROJCS[&quot;UTM-17&quot;,GEOGCS[&quot;Unused&quot;,DATUM[&quot;UTM 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/51332fede9da62b6a6af4f243cf90e548d29864fdab14c985bc3b99b695c0bb6.png" src="_images/51332fede9da62b6a6af4f243cf90e548d29864fdab14c985bc3b99b695c0bb6.png" />
+<img alt="_images/7c6b9c8b6e9792d1331d24914dc8072580220b1a30b9102b807b0a6f0f0f1c89.png" src="_images/7c6b9c8b6e9792d1331d24914dc8072580220b1a30b9102b807b0a6f0f0f1c89.png" />
 </div>
 </div>
 <section id="inline-exercise">
@@ -796,7 +800,7 @@ projection: PROJCS[&quot;UTM-17&quot;,GEOGCS[&quot;Unused&quot;,DATUM[&quot;UTM 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/51332fede9da62b6a6af4f243cf90e548d29864fdab14c985bc3b99b695c0bb6.png" src="_images/51332fede9da62b6a6af4f243cf90e548d29864fdab14c985bc3b99b695c0bb6.png" />
+<img alt="_images/7c6b9c8b6e9792d1331d24914dc8072580220b1a30b9102b807b0a6f0f0f1c89.png" src="_images/7c6b9c8b6e9792d1331d24914dc8072580220b1a30b9102b807b0a6f0f0f1c89.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -812,7 +816,7 @@ projection: PROJCS[&quot;UTM-17&quot;,GEOGCS[&quot;Unused&quot;,DATUM[&quot;UTM 
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: title={&#39;center&#39;: &#39;No change??&#39;}, xlabel=&#39;Easting [m]&#39;, ylabel=&#39;Northing [m]&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/5f45f9953874b350d5338ede058f113d283175e43a7a4c41814860ef1e9481ad.png" src="_images/5f45f9953874b350d5338ede058f113d283175e43a7a4c41814860ef1e9481ad.png" />
+<img alt="_images/272246763178c04c537649e030df241351b8b36895d93f70ac8ed0fd5b42d45d.png" src="_images/272246763178c04c537649e030df241351b8b36895d93f70ac8ed0fd5b42d45d.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -826,7 +830,7 @@ projection: PROJCS[&quot;UTM-17&quot;,GEOGCS[&quot;Unused&quot;,DATUM[&quot;UTM 
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: title={&#39;center&#39;: &#39;Updated&#39;}, xlabel=&#39;Easting [m]&#39;, ylabel=&#39;Northing [m]&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/3c6595bc45e98b1005f5b41286324fde9de4c825bdb1534f576afc0321cd7dd7.png" src="_images/3c6595bc45e98b1005f5b41286324fde9de4c825bdb1534f576afc0321cd7dd7.png" />
+<img alt="_images/845942eb0eb8f9cdfd9a644cbff1562f3954f627ce7a434db7a9f65660463168.png" src="_images/845942eb0eb8f9cdfd9a644cbff1562f3954f627ce7a434db7a9f65660463168.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -848,8 +852,8 @@ projection: PROJCS[&quot;UTM-17&quot;,GEOGCS[&quot;Unused&quot;,DATUM[&quot;UTM 
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Mesh&gt;
-number of elements: 958
 number of nodes: 570
+number of elements: 958
 projection: LONG/LAT
 </pre></div>
 </div>
@@ -863,7 +867,7 @@ projection: LONG/LAT
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/3f4d0464b246e9583c5cb5a78f60ff77658bc52d3ecd8ba7fc725dae18444e62.png" src="_images/3f4d0464b246e9583c5cb5a78f60ff77658bc52d3ecd8ba7fc725dae18444e62.png" />
+<img alt="_images/350fc17329c82f917e3ac3b9ccccbaf7298f6382d68136d18ec3ca281ecfcc6e.png" src="_images/350fc17329c82f917e3ac3b9ccccbaf7298f6382d68136d18ec3ca281ecfcc6e.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -873,7 +877,7 @@ projection: LONG/LAT
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/280c1a1f25eba0150693238c527b6b8b8f40253a604eb5984154d65a6cf26171.png" src="_images/280c1a1f25eba0150693238c527b6b8b8f40253a604eb5984154d65a6cf26171.png" />
+<img alt="_images/bf90edca68a4d7bf33a5cdfd3bce04957d8527cb874ff9f56dd47ab34d424c2e.png" src="_images/bf90edca68a4d7bf33a5cdfd3bce04957d8527cb874ff9f56dd47ab34d424c2e.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -883,7 +887,7 @@ projection: LONG/LAT
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/3b743ab1e95203958d37604ae697d39df10e8067a70f3ca4eab8ebd4450cd988.png" src="_images/3b743ab1e95203958d37604ae697d39df10e8067a70f3ca4eab8ebd4450cd988.png" />
+<img alt="_images/52723bc35b0b54e178d3cd17ee275c62858100ff167f77ff5150d823284a3fda.png" src="_images/52723bc35b0b54e178d3cd17ee275c62858100ff167f77ff5150d823284a3fda.png" />
 </div>
 </div>
 <p>Maybe we would like to higlight the bathymetric variations in some range, in this case in the -40, -20m range.</p>
@@ -894,7 +898,7 @@ projection: LONG/LAT
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/ec51456a62d5749c2275c963bb10f10a7cc629c6218af39c0509e78dcc3c3a89.png" src="_images/ec51456a62d5749c2275c963bb10f10a7cc629c6218af39c0509e78dcc3c3a89.png" />
+<img alt="_images/f492b51d12d51a26b4ae1d3aa1cbf86cc0fdcfaf9238b914eb16ac04df4d14f9.png" src="_images/f492b51d12d51a26b4ae1d3aa1cbf86cc0fdcfaf9238b914eb16ac04df4d14f9.png" />
 </div>
 </div>
 <p>There are other options as well, such as explicit specification of which contour lines to show or choosing a specific colormap (<a class="reference external" href="https://matplotlib.org/stable/tutorials/colors/colormaps.html">matplotlib colormaps</a>)</p>
@@ -907,7 +911,7 @@ projection: LONG/LAT
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/b56a40601f9b8b289f3aacd00d1964713be8f9b6cd6942432114caffc8ac9e7c.png" src="_images/b56a40601f9b8b289f3aacd00d1964713be8f9b6cd6942432114caffc8ac9e7c.png" />
+<img alt="_images/8b7029f5f26d4a2160fd26b72acb67e823d21dfaaf88cc1590ff1a3305967f04.png" src="_images/8b7029f5f26d4a2160fd26b72acb67e823d21dfaaf88cc1590ff1a3305967f04.png" />
 </div>
 </div>
 <p>See more in the MIKE IO User guide section on <a class="reference external" href="https://dhi.github.io/mikeio/user-guide/mesh.html">Mesh</a> for more Mesh operations (including shapely operations).</p>

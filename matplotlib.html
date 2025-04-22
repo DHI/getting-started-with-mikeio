@@ -28,8 +28,8 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
@@ -433,8 +433,8 @@ document.write(`
 <h2>Line plots (e.g. timeseries)<a class="headerlink" href="#line-plots-e-g-timeseries" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
 <span class="n">y1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
@@ -444,10 +444,10 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f559d9416d0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fb6c8318990&gt;]
 </pre></div>
 </div>
-<img alt="_images/cd97953b55d044590f1ae2d42e9f95ca1a7fb820fb75077702ca3309df0a465f.png" src="_images/cd97953b55d044590f1ae2d42e9f95ca1a7fb820fb75077702ca3309df0a465f.png" />
+<img alt="_images/f2942d70692870d84bc1ab9249d70d07a8bedb2350931f477b2d0945c751b989.png" src="_images/f2942d70692870d84bc1ab9249d70d07a8bedb2350931f477b2d0945c751b989.png" />
 </div>
 </div>
 <p>Great, let’s add some common things, like legend and axis labels.</p>
@@ -468,7 +468,7 @@ document.write(`
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;Relative time (h)&#39;)
 </pre></div>
 </div>
-<img alt="_images/2680fbcb3fb762e12efebfde88a34167fb560ec72b8ca1560a1c3608a13f5873.png" src="_images/2680fbcb3fb762e12efebfde88a34167fb560ec72b8ca1560a1c3608a13f5873.png" />
+<img alt="_images/6a1867635510b3e807b7382a039e2c6fda6bb9f0afc6f48e891865045f6b2160.png" src="_images/6a1867635510b3e807b7382a039e2c6fda6bb9f0afc6f48e891865045f6b2160.png" />
 </div>
 </div>
 <p>Wow, the plot looks great, but it is too narrow. (<a class="reference external" href="https://matplotlib.org/devdocs/gallery/subplots_axes_and_figures/figure_size_units.html">Figsize units</a>)</p>
@@ -490,7 +490,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/766f547555cc3fae1e72454ed3e9e16ddb35baecad99e7d4534f6bcd1eaf3420.png" src="_images/766f547555cc3fae1e72454ed3e9e16ddb35baecad99e7d4534f6bcd1eaf3420.png" />
+<img alt="_images/2d244ead21b6b544267e93c61a7d7dc8f236be5d834fa8fa611d8fdffe617be0.png" src="_images/2d244ead21b6b544267e93c61a7d7dc8f236be5d834fa8fa611d8fdffe617be0.png" />
 </div>
 </div>
 </section>
@@ -520,7 +520,7 @@ document.write(`
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;The other variable&#39;)
 </pre></div>
 </div>
-<img alt="_images/dfefdbc79e9484d7de3b2e5678ad0111d42a9e3badc271caf6c61b0bcbf0da85.png" src="_images/dfefdbc79e9484d7de3b2e5678ad0111d42a9e3badc271caf6c61b0bcbf0da85.png" />
+<img alt="_images/04e561403d806231876c75c89eae331c83d40cd5e2c05f69d7a1f63d820ff036.png" src="_images/04e561403d806231876c75c89eae331c83d40cd5e2c05f69d7a1f63d820ff036.png" />
 </div>
 </div>
 <p>Many points on top of each other…</p>
@@ -536,7 +536,7 @@ document.write(`
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;The other variable&#39;)
 </pre></div>
 </div>
-<img alt="_images/c62ec647ff0a20cc324f12edc2095cb680ff1c60a4d2b652952701ca0d8cf62c.png" src="_images/c62ec647ff0a20cc324f12edc2095cb680ff1c60a4d2b652952701ca0d8cf62c.png" />
+<img alt="_images/6f999235f805c456eccffe01471d037a73b8888652971045e1db9df283b5d8cd.png" src="_images/6f999235f805c456eccffe01471d037a73b8888652971045e1db9df283b5d8cd.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -553,7 +553,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/68cb8b10a008f2d7109ccfe075ce13647a92899d2fb0ccad4411ed22b86308be.png" src="_images/68cb8b10a008f2d7109ccfe075ce13647a92899d2fb0ccad4411ed22b86308be.png" />
+<img alt="_images/b8f594206f11bcf02de782cf748f2b2e213fd943db57a354ede5ea5bbd605596.png" src="_images/b8f594206f11bcf02de782cf748f2b2e213fd943db57a354ede5ea5bbd605596.png" />
 </div>
 </div>
 </section>
@@ -566,7 +566,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/f5decf1539e614b421ac19c4b5d0dda8cb0fd7d47127fed57097600d637ff899.png" src="_images/f5decf1539e614b421ac19c4b5d0dda8cb0fd7d47127fed57097600d637ff899.png" />
+<img alt="_images/357e8122afa185d4abd8a61cc92d22a915da042ea26921ccbc8f2b22da1d5dd1.png" src="_images/357e8122afa185d4abd8a61cc92d22a915da042ea26921ccbc8f2b22da1d5dd1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -583,7 +583,7 @@ document.write(`
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(-3, 0.95, &quot;It doesn&#39;t get higher than this&quot;)
 </pre></div>
 </div>
-<img alt="_images/508fc3a0b84ce61acd0dd0d8e5c38873030fa204bfd9ece7a7719a4294679354.png" src="_images/508fc3a0b84ce61acd0dd0d8e5c38873030fa204bfd9ece7a7719a4294679354.png" />
+<img alt="_images/946fec6d3d6e1caa4cebda45e273c1ac8b6e416c2c568426c9468c5315089e6a.png" src="_images/946fec6d3d6e1caa4cebda45e273c1ac8b6e416c2c568426c9468c5315089e6a.png" />
 </div>
 </div>
 </section>
