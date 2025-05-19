@@ -538,17 +538,17 @@ items:
 </div>
 </div>
 </div>
-<p>A specific time subset can be selected by index (or sel method) or already upon read:</p>
+<p>A specific time subset can be using .sel:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span><span class="p">[</span><span class="s2">&quot;2018-03-04&quot;</span><span class="p">]</span>  <span class="c1"># or ds.sel(time=&quot;2018-03-04&quot;)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="s2">&quot;2018-03-04&quot;</span><span class="p">,</span><span class="s2">&quot;2018-03-04 12:00&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mikeio.Dataset&gt;
-dims: (time:288)
-time: 2018-03-04 00:00:00 - 2018-03-04 23:55:00 (288 records)
+dims: (time:145)
+time: 2018-03-04 00:00:00 - 2018-03-04 12:00:00 (145 records)
 geometry: GeometryUndefined()
 items:
   0:  Viken: Surface elevation &lt;Surface Elevation&gt; (meter)
@@ -559,17 +559,17 @@ items:
 </div>
 </div>
 </div>
+<p>Or with positional indexing using .isel:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">&quot;data/Oresund_ts.dfs0&quot;</span><span class="p">,</span> <span class="n">items</span><span class="o">=</span><span class="s2">&quot;*Surf*&quot;</span><span class="p">,</span> <span class="n">time</span><span class="o">=</span><span class="s2">&quot;2018-03-04&quot;</span><span class="p">)</span>
-<span class="n">ds</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mikeio.Dataset&gt;
-dims: (time:288)
-time: 2018-03-04 00:00:00 - 2018-03-04 23:55:00 (288 records)
+dims: (time:10)
+time: 2018-03-04 00:50:00 - 2018-03-04 01:35:00 (10 records)
 geometry: GeometryUndefined()
 items:
   0:  Viken: Surface elevation &lt;Surface Elevation&gt; (meter)
@@ -594,12 +594,12 @@ items:
                &#39;2018-03-04 00:30:00&#39;, &#39;2018-03-04 00:35:00&#39;,
                &#39;2018-03-04 00:40:00&#39;, &#39;2018-03-04 00:45:00&#39;,
                ...
-               &#39;2018-03-04 23:10:00&#39;, &#39;2018-03-04 23:15:00&#39;,
-               &#39;2018-03-04 23:20:00&#39;, &#39;2018-03-04 23:25:00&#39;,
-               &#39;2018-03-04 23:30:00&#39;, &#39;2018-03-04 23:35:00&#39;,
-               &#39;2018-03-04 23:40:00&#39;, &#39;2018-03-04 23:45:00&#39;,
-               &#39;2018-03-04 23:50:00&#39;, &#39;2018-03-04 23:55:00&#39;],
-              dtype=&#39;datetime64[ns]&#39;, length=288, freq=None)
+               &#39;2018-03-10 23:15:00&#39;, &#39;2018-03-10 23:20:00&#39;,
+               &#39;2018-03-10 23:25:00&#39;, &#39;2018-03-10 23:30:00&#39;,
+               &#39;2018-03-10 23:35:00&#39;, &#39;2018-03-10 23:40:00&#39;,
+               &#39;2018-03-10 23:45:00&#39;, &#39;2018-03-10 23:50:00&#39;,
+               &#39;2018-03-10 23:55:00&#39;, &#39;2018-03-11 00:00:00&#39;],
+              dtype=&#39;datetime64[ns]&#39;, length=2017, freq=None)
 </pre></div>
 </div>
 </div>
@@ -664,13 +664,13 @@ items:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/0a55f8014070457604a5a4dc3560117852e4fc3a277f740d7f2baa8455488a57.png" src="_images/0a55f8014070457604a5a4dc3560117852e4fc3a277f740d7f2baa8455488a57.png" />
+<img alt="_images/f8d5f39c0dccb38e0290a660b21554a9336921c6dffdeea1c7f4663f80b0567c.png" src="_images/f8d5f39c0dccb38e0290a660b21554a9336921c6dffdeea1c7f4663f80b0567c.png" />
 </div>
 </div>
 <p>A simple timeseries Dataset can easily be converted to a Pandas DataFrame.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span> <span class="c1"># convert dataset to dataframe</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
 <span class="n">df</span>
 </pre></div>
 </div>
@@ -744,43 +744,43 @@ items:
       <td>...</td>
     </tr>
     <tr>
-      <th>2018-03-04 23:35:00</th>
-      <td>0.232721</td>
-      <td>0.237954</td>
-      <td>0.099927</td>
-      <td>0.076122</td>
+      <th>2018-03-10 23:40:00</th>
+      <td>0.136196</td>
+      <td>0.134429</td>
+      <td>0.230030</td>
+      <td>0.225920</td>
     </tr>
     <tr>
-      <th>2018-03-04 23:40:00</th>
-      <td>0.229933</td>
-      <td>0.235055</td>
-      <td>0.098214</td>
-      <td>0.073399</td>
+      <th>2018-03-10 23:45:00</th>
+      <td>0.139276</td>
+      <td>0.137607</td>
+      <td>0.232610</td>
+      <td>0.229034</td>
     </tr>
     <tr>
-      <th>2018-03-04 23:45:00</th>
-      <td>0.227105</td>
-      <td>0.232199</td>
-      <td>0.096391</td>
-      <td>0.070642</td>
+      <th>2018-03-10 23:50:00</th>
+      <td>0.142336</td>
+      <td>0.140712</td>
+      <td>0.235215</td>
+      <td>0.232193</td>
     </tr>
     <tr>
-      <th>2018-03-04 23:50:00</th>
-      <td>0.224168</td>
-      <td>0.229341</td>
-      <td>0.094460</td>
-      <td>0.067864</td>
+      <th>2018-03-10 23:55:00</th>
+      <td>0.145396</td>
+      <td>0.143796</td>
+      <td>0.237823</td>
+      <td>0.235325</td>
     </tr>
     <tr>
-      <th>2018-03-04 23:55:00</th>
-      <td>0.221046</td>
-      <td>0.226392</td>
-      <td>0.092474</td>
-      <td>0.065087</td>
+      <th>2018-03-11 00:00:00</th>
+      <td>0.148458</td>
+      <td>0.146873</td>
+      <td>0.240385</td>
+      <td>0.238351</td>
     </tr>
   </tbody>
 </table>
-<p>288 rows × 4 columns</p>
+<p>2017 rows × 4 columns</p>
 </div></div></div>
 </div>
 </section>
@@ -945,12 +945,13 @@ items:
                <span class="s1">&#39;TMIN (Degrees Fahrenheit)&#39;</span><span class="p">:</span> <span class="s1">&#39;temperature_min_f&#39;</span><span class="p">,</span>
                <span class="s1">&#39;PRCP (Inches)&#39;</span><span class="p">:</span> <span class="s1">&#39;prec_in&#39;</span><span class="p">}</span>
     
-    <span class="n">sel_cols</span> <span class="o">=</span> <span class="n">mapping</span><span class="o">.</span><span class="n">values</span><span class="p">()</span> <span class="c1"># No need to repeat [&#39;temperature_avg_f&#39;,...]</span>
-    <span class="n">df</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">df_renamed</span> <span class="o">=</span> <span class="p">(</span>
         <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
            <span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">mapping</span><span class="p">)</span>
-    <span class="p">)[</span><span class="n">sel_cols</span><span class="p">]</span>
-    <span class="k">return</span> <span class="n">df</span>
+    <span class="p">)</span>
+    <span class="n">sel_cols</span> <span class="o">=</span> <span class="n">mapping</span><span class="o">.</span><span class="n">values</span><span class="p">()</span> <span class="c1"># No need to repeat [&#39;temperature_avg_f&#39;,...]</span>
+    <span class="n">df_selected</span> <span class="o">=</span> <span class="n">df_renamed</span><span class="p">[</span><span class="n">sel_cols</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">df_selected</span>
 </pre></div>
 </div>
 </div>
@@ -1128,7 +1129,7 @@ items:
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_final</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">temperature_max_c</span><span class="o">=</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;temperature_max_f&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="mi">32</span><span class="p">)</span><span class="o">/</span><span class="mf">1.8</span><span class="p">,</span>
-                 <span class="n">prec_mm</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;prec_in&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mf">25.4</span><span class="p">)</span>
+                     <span class="n">prec_mm</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;prec_in&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mf">25.4</span><span class="p">)</span>
 
 <span class="n">df_final</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
@@ -1227,7 +1228,7 @@ items:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/c5096b62db3cc9a60a76d6169e5325512b983d92816f067c949bb87ab1d948e2.png" src="_images/c5096b62db3cc9a60a76d6169e5325512b983d92816f067c949bb87ab1d948e2.png" />
+<img alt="_images/74a512aa33cd008229dda1995fc54c6db5e87de9183facdddb6e9f5afd0f7500.png" src="_images/74a512aa33cd008229dda1995fc54c6db5e87de9183facdddb6e9f5afd0f7500.png" />
 </div>
 </div>
 <p>Creating a dfs0 file from a dataframe is pretty straightforward.</p>
@@ -1616,10 +1617,10 @@ items:
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    System: 3.11.12 (main, Apr  8 2025, 21:35:04) [GCC 13.3.0]
-    NumPy: 2.2.5
+    NumPy: 2.2.6
     Pandas: 2.2.3
-    MIKE IO: 2.5.0
-    Last modified: 2025-04-22 08:56:52.321003
+    MIKE IO: 2.6.0
+    Last modified: 2025-05-19 12:07:38.937438
     
 </pre></div>
 </div>
