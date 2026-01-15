@@ -1,7 +1,7 @@
 digraph{
 
     node [shape=box]; numpy; pandas;
-    node [shape=ellipse]; mikecore; mikeio; ufs; fmskill; fmdap
+    node [shape=ellipse]; mikecore; mikeio; ufs; modelskill
 
     mikeio -> mikecore
     mikeio -> pandas
@@ -10,7 +10,6 @@ digraph{
     mikecore -> numpy
     pandas -> numpy
 
-    fmskill -> mikeio
-    fmdap -> mikeio
+    modelskill -> mikeio
 
 }
