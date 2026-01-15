@@ -21,7 +21,7 @@ print("MIKE IO: " + mikeio.__version__)
 
 Can you say yes to the following question? 
 
-* My MIKE IO version is 2.0 or greater
+* My MIKE IO version is 3.0 or greater
 
 ## FAQ
 ### When I try to import mikeio I get this error:
