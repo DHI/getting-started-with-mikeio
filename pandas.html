@@ -656,7 +656,7 @@ Name: London, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;Copenhagen&#39;, &#39;London&#39;], dtype=&#39;object&#39;, name=&#39;name&#39;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;Copenhagen&#39;, &#39;London&#39;], dtype=&#39;str&#39;, name=&#39;name&#39;)
 </pre></div>
 </div>
 </div>
@@ -668,7 +668,7 @@ Name: London, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;population&#39;, &#39;dist_to_coast&#39;], dtype=&#39;object&#39;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;population&#39;, &#39;dist_to_coast&#39;], dtype=&#39;str&#39;)
 </pre></div>
 </div>
 </div>
@@ -757,56 +757,66 @@ Name: London, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2737/477751268.py:1: FutureWarning: Support for nested sequences for &#39;parse_dates&#39; in pd.read_csv is deprecated. Combine the desired columns with pd.to_datetime after parsing instead.
-  df = pd.read_csv(&quot;data/boogus.csv&quot;,
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">14</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/boogus.csv&quot;</span><span class="p">,</span> 
+<span class="g g-Whitespace">      </span><span class="mi">2</span>                  <span class="n">comment</span><span class="o">=</span><span class="s2">&quot;%&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span>                  <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;;&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span>                  <span class="n">decimal</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span>                  <span class="n">parse_dates</span><span class="o">=</span><span class="p">[[</span><span class="s2">&quot;dato&quot;</span><span class="p">,</span><span class="s2">&quot;tid&quot;</span><span class="p">]],</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span>                  <span class="n">usecols</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">df</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages/pandas/io/parsers/readers.py:873,</span> in <span class="ni">read_csv</span><span class="nt">(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, skip_blank_lines, parse_dates, date_format, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, encoding_errors, dialect, on_bad_lines, low_memory, memory_map, float_precision, storage_options, dtype_backend)</span>
+<span class="g g-Whitespace">    </span><span class="mi">861</span> <span class="n">kwds_defaults</span> <span class="o">=</span> <span class="n">_refine_defaults_read</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">862</span>     <span class="n">dialect</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">863</span>     <span class="n">delimiter</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>    <span class="mi">869</span>     <span class="n">dtype_backend</span><span class="o">=</span><span class="n">dtype_backend</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">870</span> <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">871</span> <span class="n">kwds</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwds_defaults</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">873</span> <span class="k">return</span> <span class="n">_read</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages/pandas/io/parsers/readers.py:300,</span> in <span class="ni">_read</span><span class="nt">(filepath_or_buffer, kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">297</span> <span class="n">_validate_names</span><span class="p">(</span><span class="n">kwds</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;names&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">299</span> <span class="c1"># Create the parser.</span>
+<span class="ne">--&gt; </span><span class="mi">300</span> <span class="n">parser</span> <span class="o">=</span> <span class="n">TextFileReader</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">302</span> <span class="k">if</span> <span class="n">chunksize</span> <span class="ow">or</span> <span class="n">iterator</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">303</span>     <span class="k">return</span> <span class="n">parser</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages/pandas/io/parsers/readers.py:1645,</span> in <span class="ni">TextFileReader.__init__</span><span class="nt">(self, f, engine, **kwds)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1642</span>     <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwds</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span>
+<span class="g g-Whitespace">   </span><span class="mi">1644</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span><span class="p">:</span> <span class="n">IOHandles</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="ne">-&gt; </span><span class="mi">1645</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_engine</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages/pandas/io/parsers/readers.py:1922,</span> in <span class="ni">TextFileReader._make_engine</span><span class="nt">(self, f, engine)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1919</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1921</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1922</span>     <span class="k">return</span> <span class="n">mapping</span><span class="p">[</span><span class="n">engine</span><span class="p">](</span><span class="n">f</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1923</span> <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1924</span>     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages/pandas/io/parsers/c_parser_wrapper.py:152,</span> in <span class="ni">CParserWrapper.__init__</span><span class="nt">(self, src, **kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">146</span>     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">names</span><span class="p">)</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">usecols</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">147</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_validate_usecols_names</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">148</span>             <span class="n">usecols</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">149</span>             <span class="bp">self</span><span class="o">.</span><span class="n">names</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">150</span>         <span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">152</span> <span class="n">validate_parse_dates_presence</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parse_dates</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">names</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">153</span> <span class="bp">self</span><span class="o">.</span><span class="n">_set_noconvert_columns</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">155</span> <span class="bp">self</span><span class="o">.</span><span class="n">orig_names</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">names</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages/pandas/io/parsers/base_parser.py:914,</span> in <span class="ni">validate_parse_dates_presence</span><span class="nt">(parse_dates, columns)</span>
+<span class="g g-Whitespace">    </span><span class="mi">912</span>         <span class="n">unique_cols</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">col</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">913</span>     <span class="k">else</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">914</span>         <span class="n">unique_cols</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">columns</span><span class="p">[</span><span class="n">col</span><span class="p">])</span>
+<span class="g g-Whitespace">    </span><span class="mi">915</span> <span class="k">if</span> <span class="n">missing</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">916</span>     <span class="n">missing_cols</span> <span class="o">=</span> <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">missing</span><span class="p">))</span>
+
+<span class="ne">TypeError</span>: list indices must be integers or slices, not list
 </pre></div>
 </div>
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>dato_tid</th>
-      <th>temperatur</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>2000-03-01 10:00:00</td>
-      <td>3.50</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>2000-03-02 12:00:00</td>
-      <td>3.80</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>2000-03-03 10:00:00</td>
-      <td>4.23</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>2000-03-04 13:00:00</td>
-      <td>10.50</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
+</div>
 </div>
 <p>Most functions in Pandas returns a copy, so even though the below line, looks like it changes the name, since it is printed to the screen, the <code class="docutils literal notranslate"><span class="pre">df</span></code> variable is not changed.</p>
 <div class="cell docutils container">
@@ -815,53 +825,6 @@ Name: London, dtype: float64
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>dato_tid</th>
-      <th>air_temperature</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>2000-03-01 10:00:00</td>
-      <td>3.50</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>2000-03-02 12:00:00</td>
-      <td>3.80</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>2000-03-03 10:00:00</td>
-      <td>4.23</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>2000-03-04 13:00:00</td>
-      <td>10.50</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -869,53 +832,6 @@ Name: London, dtype: float64
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>dato_tid</th>
-      <th>temperatur</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>2000-03-01 10:00:00</td>
-      <td>3.50</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>2000-03-02 12:00:00</td>
-      <td>3.80</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>2000-03-03 10:00:00</td>
-      <td>4.23</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>2000-03-04 13:00:00</td>
-      <td>10.50</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -924,53 +840,6 @@ Name: London, dtype: float64
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>dato_tid</th>
-      <th>air_temperature</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>2000-03-01 10:00:00</td>
-      <td>3.50</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>2000-03-02 12:00:00</td>
-      <td>3.80</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>2000-03-03 10:00:00</td>
-      <td>4.23</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>2000-03-04 13:00:00</td>
-      <td>10.50</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 <p><strong>Inline exercise</strong></p>
 <ol class="arabic simple">
@@ -994,79 +863,10 @@ Name: London, dtype: float64
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>waterlevel</th>
-      <th>current</th>
-      <th>temperature</th>
-    </tr>
-    <tr>
-      <th>datetime</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>2015-02-18 12:30:00</th>
-      <td>-0.23</td>
-      <td>0.852451</td>
-      <td>10.852451</td>
-    </tr>
-    <tr>
-      <th>2015-02-18 12:40:00</th>
-      <td>-0.25</td>
-      <td>0.902668</td>
-      <td>10.902668</td>
-    </tr>
-    <tr>
-      <th>2015-02-18 12:50:00</th>
-      <td>-0.26</td>
-      <td>0.163363</td>
-      <td>10.163363</td>
-    </tr>
-    <tr>
-      <th>2015-02-18 13:00:00</th>
-      <td>-0.27</td>
-      <td>0.668361</td>
-      <td>10.668361</td>
-    </tr>
-    <tr>
-      <th>2015-02-18 13:10:00</th>
-      <td>-0.28</td>
-      <td>0.069319</td>
-      <td>10.069319</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pandas.core.frame.DataFrame
 </pre></div>
 </div>
 </div>
@@ -1077,23 +877,12 @@ Name: London, dtype: float64
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pandas.core.series.Series
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;datetime&#39;&gt;
-</pre></div>
-</div>
-<img alt="_images/ab9a38bc9afb588018303e19d21bc5487ef5132d17c93c10bf962bf8e1e1f885.png" src="_images/ab9a38bc9afb588018303e19d21bc5487ef5132d17c93c10bf962bf8e1e1f885.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1102,32 +891,10 @@ Name: London, dtype: float64
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;datetime&#39;&gt;
-</pre></div>
-</div>
-<img alt="_images/82e5513bd55a9074660047c0de7fbf89c0a213b7c688cc45399e6f58c7bfd930.png" src="_images/82e5513bd55a9074660047c0de7fbf89c0a213b7c688cc45399e6f58c7bfd930.png" />
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">index</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DatetimeIndex([&#39;2015-02-18 12:30:00&#39;, &#39;2015-02-18 12:40:00&#39;,
-               &#39;2015-02-18 12:50:00&#39;, &#39;2015-02-18 13:00:00&#39;,
-               &#39;2015-02-18 13:10:00&#39;, &#39;2015-02-18 13:20:00&#39;,
-               &#39;2015-02-18 13:30:00&#39;, &#39;2015-02-18 13:40:00&#39;,
-               &#39;2015-02-18 13:50:00&#39;, &#39;2015-02-18 14:00:00&#39;,
-               ...
-               &#39;2015-02-19 11:40:00&#39;, &#39;2015-02-19 11:50:00&#39;,
-               &#39;2015-02-19 12:00:00&#39;, &#39;2015-02-19 12:10:00&#39;,
-               &#39;2015-02-19 12:20:00&#39;, &#39;2015-02-19 12:30:00&#39;,
-               &#39;2015-02-19 12:40:00&#39;, &#39;2015-02-19 12:50:00&#39;,
-               &#39;2015-02-19 13:00:00&#39;, &#39;2015-02-19 13:10:00&#39;],
-              dtype=&#39;datetime64[ns]&#39;, name=&#39;datetime&#39;, length=144, freq=None)
 </pre></div>
 </div>
 </div>
@@ -1138,94 +905,12 @@ Name: London, dtype: float64
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>waterlevel</th>
-      <th>current</th>
-      <th>temperature</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>count</th>
-      <td>139.000000</td>
-      <td>144.000000</td>
-      <td>144.000000</td>
-    </tr>
-    <tr>
-      <th>mean</th>
-      <td>-0.098129</td>
-      <td>0.530844</td>
-      <td>10.530844</td>
-    </tr>
-    <tr>
-      <th>std</th>
-      <td>0.144847</td>
-      <td>0.278987</td>
-      <td>0.278987</td>
-    </tr>
-    <tr>
-      <th>min</th>
-      <td>-0.340000</td>
-      <td>0.012785</td>
-      <td>10.012785</td>
-    </tr>
-    <tr>
-      <th>25%</th>
-      <td>-0.235000</td>
-      <td>0.295251</td>
-      <td>10.295251</td>
-    </tr>
-    <tr>
-      <th>50%</th>
-      <td>-0.080000</td>
-      <td>0.507880</td>
-      <td>10.507880</td>
-    </tr>
-    <tr>
-      <th>75%</th>
-      <td>0.020000</td>
-      <td>0.786672</td>
-      <td>10.786672</td>
-    </tr>
-    <tr>
-      <th>max</th>
-      <td>0.150000</td>
-      <td>0.993855</td>
-      <td>10.993855</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;2015-02-18&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;datetime&#39;&gt;
-</pre></div>
-</div>
-<img alt="_images/dbca75a3b60fe0a7e8660bfd11e0791418eadc2f60dcc4a959f384495e226116.png" src="_images/dbca75a3b60fe0a7e8660bfd11e0791418eadc2f60dcc4a959f384495e226116.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1234,12 +919,6 @@ Name: London, dtype: float64
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;datetime&#39;&gt;
-</pre></div>
-</div>
-<img alt="_images/cf0a0864e9f7212a0e0ed6cb1d4a1487b9c4eb52c159da5dcbb862b6f06e7e52.png" src="_images/cf0a0864e9f7212a0e0ed6cb1d4a1487b9c4eb52c159da5dcbb862b6f06e7e52.png" />
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1247,82 +926,6 @@ Name: London, dtype: float64
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>waterlevel</th>
-      <th>current</th>
-      <th>temperature</th>
-    </tr>
-    <tr>
-      <th>datetime</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>2015-02-18 14:00:00</th>
-      <td>-0.34</td>
-      <td>0.788007</td>
-      <td>10.788007</td>
-    </tr>
-    <tr>
-      <th>2015-02-18 14:10:00</th>
-      <td>NaN</td>
-      <td>0.030756</td>
-      <td>10.030756</td>
-    </tr>
-    <tr>
-      <th>2015-02-18 14:20:00</th>
-      <td>NaN</td>
-      <td>0.293056</td>
-      <td>10.293056</td>
-    </tr>
-    <tr>
-      <th>2015-02-18 14:30:00</th>
-      <td>NaN</td>
-      <td>0.259692</td>
-      <td>10.259692</td>
-    </tr>
-    <tr>
-      <th>2015-02-18 14:40:00</th>
-      <td>NaN</td>
-      <td>0.471166</td>
-      <td>10.471166</td>
-    </tr>
-    <tr>
-      <th>2015-02-18 14:50:00</th>
-      <td>NaN</td>
-      <td>0.822787</td>
-      <td>10.822787</td>
-    </tr>
-    <tr>
-      <th>2015-02-18 15:20:00</th>
-      <td>-0.31</td>
-      <td>0.262204</td>
-      <td>10.262204</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1337,82 +940,6 @@ Name: London, dtype: float64
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>waterlevel</th>
-      <th>current</th>
-      <th>temperature</th>
-    </tr>
-    <tr>
-      <th>datetime</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>2015-02-18 14:00:00</th>
-      <td>-0.340</td>
-      <td>0.788007</td>
-      <td>10.788007</td>
-    </tr>
-    <tr>
-      <th>2015-02-18 14:10:00</th>
-      <td>-0.335</td>
-      <td>0.030756</td>
-      <td>10.030756</td>
-    </tr>
-    <tr>
-      <th>2015-02-18 14:20:00</th>
-      <td>-0.330</td>
-      <td>0.293056</td>
-      <td>10.293056</td>
-    </tr>
-    <tr>
-      <th>2015-02-18 14:30:00</th>
-      <td>-0.325</td>
-      <td>0.259692</td>
-      <td>10.259692</td>
-    </tr>
-    <tr>
-      <th>2015-02-18 14:40:00</th>
-      <td>-0.320</td>
-      <td>0.471166</td>
-      <td>10.471166</td>
-    </tr>
-    <tr>
-      <th>2015-02-18 14:50:00</th>
-      <td>-0.315</td>
-      <td>0.822787</td>
-      <td>10.822787</td>
-    </tr>
-    <tr>
-      <th>2015-02-18 15:20:00</th>
-      <td>-0.310</td>
-      <td>0.262204</td>
-      <td>10.262204</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 </section>
 <section id="resampling">
@@ -1420,16 +947,7 @@ Name: London, dtype: float64
 <p>Aggregate temporal data</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;H&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2737/2537799294.py:1: FutureWarning: &#39;H&#39; is deprecated and will be removed in a future version, please use &#39;h&#39; instead.
-  df.resample(&#39;H&#39;)
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;pandas.core.resample.DatetimeIndexResampler object at 0x7ff17f5bca10&gt;
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;h&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1441,354 +959,36 @@ Name: London, dtype: float64
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>waterlevel</th>
-      <th>current</th>
-      <th>temperature</th>
-    </tr>
-    <tr>
-      <th>datetime</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>2015-02-18</th>
-      <td>-8.36</td>
-      <td>34.500139</td>
-      <td>704.500139</td>
-    </tr>
-    <tr>
-      <th>2015-02-19</th>
-      <td>-5.28</td>
-      <td>41.941404</td>
-      <td>811.941404</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">sum</span></code> function doesn’t make sense in this example. Better to use <code class="docutils literal notranslate"><span class="pre">mean</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;H&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;h&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2737/2974226651.py:1: FutureWarning: &#39;H&#39; is deprecated and will be removed in a future version, please use &#39;h&#39; instead.
-  df.resample(&#39;H&#39;).mean().head()
-</pre></div>
-</div>
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>waterlevel</th>
-      <th>current</th>
-      <th>temperature</th>
-    </tr>
-    <tr>
-      <th>datetime</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>2015-02-18 12:00:00</th>
-      <td>-0.246667</td>
-      <td>0.639494</td>
-      <td>10.639494</td>
-    </tr>
-    <tr>
-      <th>2015-02-18 13:00:00</th>
-      <td>-0.305000</td>
-      <td>0.394493</td>
-      <td>10.394493</td>
-    </tr>
-    <tr>
-      <th>2015-02-18 14:00:00</th>
-      <td>-0.340000</td>
-      <td>0.444244</td>
-      <td>10.444244</td>
-    </tr>
-    <tr>
-      <th>2015-02-18 15:00:00</th>
-      <td>-0.322500</td>
-      <td>0.397150</td>
-      <td>10.397150</td>
-    </tr>
-    <tr>
-      <th>2015-02-18 16:00:00</th>
-      <td>-0.283333</td>
-      <td>0.488036</td>
-      <td>10.488036</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;H&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;h&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2737/3542134512.py:1: FutureWarning: &#39;H&#39; is deprecated and will be removed in a future version, please use &#39;h&#39; instead.
-  df.resample(&#39;H&#39;).first().head()
-</pre></div>
-</div>
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>waterlevel</th>
-      <th>current</th>
-      <th>temperature</th>
-    </tr>
-    <tr>
-      <th>datetime</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>2015-02-18 12:00:00</th>
-      <td>-0.23</td>
-      <td>0.852451</td>
-      <td>10.852451</td>
-    </tr>
-    <tr>
-      <th>2015-02-18 13:00:00</th>
-      <td>-0.27</td>
-      <td>0.668361</td>
-      <td>10.668361</td>
-    </tr>
-    <tr>
-      <th>2015-02-18 14:00:00</th>
-      <td>-0.34</td>
-      <td>0.788007</td>
-      <td>10.788007</td>
-    </tr>
-    <tr>
-      <th>2015-02-18 15:00:00</th>
-      <td>-0.31</td>
-      <td>0.262204</td>
-      <td>10.262204</td>
-    </tr>
-    <tr>
-      <th>2015-02-18 16:00:00</th>
-      <td>-0.32</td>
-      <td>0.012785</td>
-      <td>10.012785</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;H&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">median</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;h&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">median</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2737/493145522.py:1: FutureWarning: &#39;H&#39; is deprecated and will be removed in a future version, please use &#39;h&#39; instead.
-  df.resample(&#39;H&#39;).median().head()
-</pre></div>
-</div>
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>waterlevel</th>
-      <th>current</th>
-      <th>temperature</th>
-    </tr>
-    <tr>
-      <th>datetime</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>2015-02-18 12:00:00</th>
-      <td>-0.250</td>
-      <td>0.852451</td>
-      <td>10.852451</td>
-    </tr>
-    <tr>
-      <th>2015-02-18 13:00:00</th>
-      <td>-0.305</td>
-      <td>0.473989</td>
-      <td>10.473989</td>
-    </tr>
-    <tr>
-      <th>2015-02-18 14:00:00</th>
-      <td>-0.340</td>
-      <td>0.382111</td>
-      <td>10.382111</td>
-    </tr>
-    <tr>
-      <th>2015-02-18 15:00:00</th>
-      <td>-0.320</td>
-      <td>0.380533</td>
-      <td>10.380533</td>
-    </tr>
-    <tr>
-      <th>2015-02-18 16:00:00</th>
-      <td>-0.285</td>
-      <td>0.501532</td>
-      <td>10.501532</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_h</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;H&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">interpolate</span><span class="p">()</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_h</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;h&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">interpolate</span><span class="p">()</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
 <span class="n">df_h</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2737/2175245212.py:1: FutureWarning: &#39;H&#39; is deprecated and will be removed in a future version, please use &#39;h&#39; instead.
-  df_h = df.resample(&#39;H&#39;).interpolate().dropna()
-</pre></div>
-</div>
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>waterlevel</th>
-      <th>current</th>
-      <th>temperature</th>
-    </tr>
-    <tr>
-      <th>datetime</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>2015-02-18 13:00:00</th>
-      <td>-0.27</td>
-      <td>0.668361</td>
-      <td>10.668361</td>
-    </tr>
-    <tr>
-      <th>2015-02-18 14:00:00</th>
-      <td>-0.34</td>
-      <td>0.788007</td>
-      <td>10.788007</td>
-    </tr>
-    <tr>
-      <th>2015-02-18 15:00:00</th>
-      <td>-0.33</td>
-      <td>0.400396</td>
-      <td>10.400396</td>
-    </tr>
-    <tr>
-      <th>2015-02-18 16:00:00</th>
-      <td>-0.32</td>
-      <td>0.012785</td>
-      <td>10.012785</td>
-    </tr>
-    <tr>
-      <th>2015-02-18 17:00:00</th>
-      <td>-0.23</td>
-      <td>0.817479</td>
-      <td>10.817479</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 <p>Note: resample will use either the left or the right end-point depending on the resampling frequency (e.g. for hours the beginning of the hour but for months the end of the month). If you want to make sure you are resampling right - specify the closed argument.</p>
 <section id="inline-exercise">
@@ -1807,22 +1007,11 @@ Name: London, dtype: float64
 <h2>Extrapolation<a class="headerlink" href="#extrapolation" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rng</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s2">&quot;2015-02-17&quot;</span><span class="p">,</span><span class="s2">&quot;2015-02-20&quot;</span><span class="p">,</span><span class="n">freq</span><span class="o">=</span><span class="s1">&#39;H&#39;</span><span class="p">)</span>
-<span class="n">ix</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DatetimeIndex</span><span class="p">(</span><span class="n">rng</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ix</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s2">&quot;2015-02-17&quot;</span><span class="p">,</span><span class="s2">&quot;2015-02-20&quot;</span><span class="p">,</span><span class="n">freq</span><span class="o">=</span><span class="s1">&#39;h&#39;</span><span class="p">)</span>
 <span class="n">dfr</span> <span class="o">=</span> <span class="n">df_interp</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">ix</span><span class="p">)</span>
 <span class="n">dfr</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2737/4003255755.py:1: FutureWarning: &#39;H&#39; is deprecated and will be removed in a future version, please use &#39;h&#39; instead.
-  rng = pd.date_range(&quot;2015-02-17&quot;,&quot;2015-02-20&quot;,freq=&#39;H&#39;)
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: &gt;
-</pre></div>
-</div>
-<img alt="_images/020066386c312920fe7bf6fc53e6c46bc8676517ef089c8646a778c70e4c5543.png" src="_images/020066386c312920fe7bf6fc53e6c46bc8676517ef089c8646a778c70e4c5543.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1830,12 +1019,6 @@ Name: London, dtype: float64
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dfr</span><span class="o">.</span><span class="n">ffill</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: &gt;
-</pre></div>
-</div>
-<img alt="_images/57304ee9dae7fba984839dc458553e5a542120c1ecda0bfde2f17fec551d0829.png" src="_images/57304ee9dae7fba984839dc458553e5a542120c1ecda0bfde2f17fec551d0829.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1845,12 +1028,6 @@ Name: London, dtype: float64
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: &gt;
-</pre></div>
-</div>
-<img alt="_images/7463589ab5af540b4f9e1149c4da4814af38292a3fd5717cbaf9a922e2b1d0b1.png" src="_images/7463589ab5af540b4f9e1149c4da4814af38292a3fd5717cbaf9a922e2b1d0b1.png" />
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1858,101 +1035,6 @@ Name: London, dtype: float64
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>waterlevel</th>
-      <th>current</th>
-      <th>temperature</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>2015-02-17 00:00:00</th>
-      <td>-0.27</td>
-      <td>0.668361</td>
-      <td>10.668361</td>
-    </tr>
-    <tr>
-      <th>2015-02-17 01:00:00</th>
-      <td>-0.27</td>
-      <td>0.668361</td>
-      <td>10.668361</td>
-    </tr>
-    <tr>
-      <th>2015-02-17 02:00:00</th>
-      <td>-0.27</td>
-      <td>0.668361</td>
-      <td>10.668361</td>
-    </tr>
-    <tr>
-      <th>2015-02-17 03:00:00</th>
-      <td>-0.27</td>
-      <td>0.668361</td>
-      <td>10.668361</td>
-    </tr>
-    <tr>
-      <th>2015-02-17 04:00:00</th>
-      <td>-0.27</td>
-      <td>0.668361</td>
-      <td>10.668361</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>2015-02-19 20:00:00</th>
-      <td>-0.08</td>
-      <td>0.619919</td>
-      <td>10.619919</td>
-    </tr>
-    <tr>
-      <th>2015-02-19 21:00:00</th>
-      <td>-0.08</td>
-      <td>0.619919</td>
-      <td>10.619919</td>
-    </tr>
-    <tr>
-      <th>2015-02-19 22:00:00</th>
-      <td>-0.08</td>
-      <td>0.619919</td>
-      <td>10.619919</td>
-    </tr>
-    <tr>
-      <th>2015-02-19 23:00:00</th>
-      <td>-0.08</td>
-      <td>0.619919</td>
-      <td>10.619919</td>
-    </tr>
-    <tr>
-      <th>2015-02-20 00:00:00</th>
-      <td>-0.08</td>
-      <td>0.619919</td>
-      <td>10.619919</td>
-    </tr>
-  </tbody>
-</table>
-<p>73 rows × 3 columns</p>
-</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1962,17 +1044,6 @@ Name: London, dtype: float64
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html">
-        <iframe
-            width="400"
-            height="300"
-            src="https://www.youtube.com/embed/8upGdZMlkYM"
-            frameborder="0"
-            allowfullscreen
-            
-        ></iframe>
-        </div></div>
 </div>
 <p>For more tips and tricks on how to use Pandas for timeseries data see this talk:
 <a class="reference external" href="https://www.youtube.com/watch?v=8upGdZMlkYM">Ian Ozsvald: A gentle introduction to Pandas timeseries and Seaborn | PyData London 2019</a></p>
