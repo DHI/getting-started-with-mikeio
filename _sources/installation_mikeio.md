@@ -16,7 +16,7 @@
 
 ```python
 import mikeio
-print(f"MIKE IO: {{mikeio.__version__}")
+print(f"MIKE IO: {mikeio.__version__}")
 ```
 
 Can you say yes to the following question? 
