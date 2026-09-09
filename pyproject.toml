@@ -1,0 +1,18 @@
+[project]
+name = "getting-started-with-mikeio"
+version = "0.1.0"
+description = "Course material for: Getting started with dfs files in Python - Using MIKE IO"
+requires-python = ">=3.10"
+dependencies = [
+    "jupyter-book<2.0",
+    "matplotlib",
+    "mikeio>=3.0",
+    "netcdf4",
+    "numpy",
+    "pandas",
+    "pyarrow",
+    "xarray",
+]
+
+[tool.uv]
+package = false

@@ -11,7 +11,13 @@ The entire repo can be downloaded as a [zip file](https://github.com/DHI/getting
 
 ## Info for creators
 
-Creating the book is done by automatically by Github Actions or locally:
+The environment is managed with [uv](https://docs.astral.sh/uv/).
+
+Creating the book is done automatically by Github Actions or locally:
 ```
-$ jupyter-book build mini_book
+$ uv run jupyter-book build mini_book
+```
+or with [just](https://just.systems/):
+```
+$ just build
 ```

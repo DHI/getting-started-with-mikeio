@@ -10,18 +10,19 @@ jobs:
   check:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-    
-      - name: Set up Python
-        uses: actions/setup-python@v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d # v10.0.1
         with:
-          python-version: 3.12
-    
+          python-version: "3.13"
+          enable-cache: true
+
+      - name: Install dependencies
+        run: uv sync
+
       - name: Install MIKE IO from main
-        run: pip install https://github.com/DHI/mikeio/archive/main.zip
-        
-      - name: Install other dependencies
-        run: pip install -r requirements.txt
-            
+        run: uv pip install --reinstall https://github.com/DHI/mikeio/archive/main.zip
+
       - name: Build the book
-        run: jupyter-book build -W mini_book/
+        run: uv run --no-sync jupyter-book build -W mini_book/
