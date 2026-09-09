@@ -16,41 +16,44 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-
-  
-  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
+  <!-- So that users can add custom icons -->
+  <script defer src="_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
 
     <script src="_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="_static/doctools.js?v=9a2dae69"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="_static/copybutton.js?v=f281be69"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js?v=1ae7504c"></script>
+    <script src="_static/togglebutton.js?v=b8b12719"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
@@ -60,40 +63,37 @@
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'statistics';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Final assignment" href="exercises/final_assignment.html" />
     <link rel="prev" title="Exercise: Dfsu 2D" href="exercises/exercise_dfsu.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="_static/searchtools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="searchindex.js"></script>
+  
   </head>
-  
-  
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
-
+  <body data-default-mode="">
   
   
   <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
-
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="search.html"
       method="get">
@@ -101,7 +101,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -109,15 +108,59 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
 </div>
 
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
     </header>
   
 
@@ -126,7 +169,8 @@
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -156,21 +200,17 @@
     
     
     <img src="_static/logo.png" class="logo__image only-light" alt="Getting started with Dfs files in Python using MIKE IO - Home"/>
-    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Getting started with Dfs files in Python using MIKE IO - Home"/>`);</script>
+    <img src="_static/logo.png" class="logo__image only-dark pst-js-only" alt="Getting started with Dfs files in Python using MIKE IO - Home"/>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
@@ -242,9 +282,14 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -358,7 +403,7 @@
 
 
 <button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
   title="Fullscreen mode"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
@@ -372,25 +417,17 @@
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
 </div></div>
@@ -412,7 +449,7 @@ document.write(`
                 <h2> Contents </h2>
             </div>
             <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-dataarray">Dataset / DataArray</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#temporal-aggregations-mean">Temporal aggregations: mean</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spatial-aggregations">Spatial aggregations</a></li>
@@ -472,13 +509,14 @@ document.write(`
 <p>For smaller dfs files (maybe up to 2GB) it can be convenient to read the data to memory before doing aggregations. The MIKEIO.Dataset class have several <a class="reference external" href="https://dhi.github.io/mikeio/dataset.html#methods">methods</a> for aggregating data along an axis. See the generic section below for larger-than-memory data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">&quot;data/NorthSea_HD_and_windspeed.dfsu&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">"data/NorthSea_HD_and_windspeed.dfsu"</span><span class="p">)</span>
 <span class="n">ds</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mikeio.Dataset&gt;
+title: Area Series
 dims: (time:67, element:958)
 time: 2017-10-27 00:00:00 - 2017-10-29 18:00:00 (67 records)
 geometry: Dfsu2D (958 elements, 570 nodes)
@@ -495,7 +533,7 @@ items:
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dsm</span>  <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-<span class="n">mean_ws</span> <span class="o">=</span> <span class="n">dsm</span><span class="p">[</span><span class="s2">&quot;Wind speed&quot;</span><span class="p">]</span>
+<span class="n">mean_ws</span> <span class="o">=</span> <span class="n">dsm</span><span class="p">[</span><span class="s2">"Wind speed"</span><span class="p">]</span>
 <span class="n">mean_ws</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 </div>
@@ -508,12 +546,12 @@ items:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mean_ws</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Mean wind speed&quot;</span><span class="p">);</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mean_ws</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">"Mean wind speed"</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/aa26d56a05cac88541faa8dae909525f66b39a0bfd6e3e447fafe95a8cec9c74.png" src="_images/aa26d56a05cac88541faa8dae909525f66b39a0bfd6e3e447fafe95a8cec9c74.png" />
+<img alt="_images/c9515772553b5ee89171465133d402a8a43f74fe51d54532f406075a0e388f67.png" src="_images/c9515772553b5ee89171465133d402a8a43f74fe51d54532f406075a0e388f67.png" />
 </div>
 </div>
 </section>
@@ -526,49 +564,49 @@ items:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;space&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">();</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">"space"</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">();</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6b8dc470bd1e877b4265dddd5e8ba26b2f17faec9d7fdb3d65b43bff1b116477.png" src="_images/6b8dc470bd1e877b4265dddd5e8ba26b2f17faec9d7fdb3d65b43bff1b116477.png" />
+<img alt="_images/07e6dfbf00140659489e082630352778ff51b0cf37ba42bd608bf3e8858bd863.png" src="_images/07e6dfbf00140659489e082630352778ff51b0cf37ba42bd608bf3e8858bd863.png" />
 </div>
 </div>
 <p>Dataset/DataArray has other methods for calculating typical statistics, e.g. max, quantile…</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span><span class="o">.</span><span class="n">Wind_speed</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;space&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Max wind speed&quot;</span><span class="p">);</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span><span class="o">.</span><span class="n">Wind_speed</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">"space"</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">"Max wind speed"</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/ad437f152818564c3d3a3313c6a017443bab8d14e093c7ddadf9791fb6c264ed.png" src="_images/ad437f152818564c3d3a3313c6a017443bab8d14e093c7ddadf9791fb6c264ed.png" />
+<img alt="_images/8a4d51ebe26027664c972f180cf54bb3c755bf677915824bea606cdb17f9574e.png" src="_images/8a4d51ebe26027664c972f180cf54bb3c755bf677915824bea606cdb17f9574e.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span><span class="o">.</span><span class="n">Wind_speed</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="n">q</span><span class="o">=</span><span class="p">[</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.9</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;space&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">();</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span><span class="o">.</span><span class="n">Wind_speed</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="n">q</span><span class="o">=</span><span class="p">[</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.9</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="s2">"space"</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">();</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/b878b6a3579c940536ca21a1156882d55165395758d869646504816a9193847f.png" src="_images/b878b6a3579c940536ca21a1156882d55165395758d869646504816a9193847f.png" />
+<img alt="_images/690f040ffb0b685217785e507253884a08933648641675affa5897cb6e54d1ed.png" src="_images/690f040ffb0b685217785e507253884a08933648641675affa5897cb6e54d1ed.png" />
 </div>
 </div>
 <p>It’s important to know that the element area is not taking into account when doing the spatial aggregations! Only Dataset.average supports weighted averages.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[[</span><span class="s2">&quot;Wind speed&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;space&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;Wind speed&quot;</span><span class="p">:</span><span class="s2">&quot;Simple mean&quot;</span><span class="p">})</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[[</span><span class="s2">"Wind speed"</span><span class="p">]]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">"space"</span><span class="p">)</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">"Wind speed"</span><span class="p">:</span><span class="s2">"Simple mean"</span><span class="p">})</span>
 
 <span class="n">area</span><span class="o">=</span><span class="n">ds</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">get_element_area</span><span class="p">()</span>
-<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Weighted&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[[</span><span class="s2">&quot;Wind speed&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;space&quot;</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="n">area</span><span class="p">)</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">'Weighted'</span><span class="p">]</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[[</span><span class="s2">"Wind speed"</span><span class="p">]]</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">"space"</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="n">area</span><span class="p">)</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span>
 
-<span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Mean wind speed (simple vs weighted by element area)&quot;</span><span class="p">);</span>
+<span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">"Mean wind speed (simple vs weighted by element area)"</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/90999afb415c880cc2132dd1511818f1546707e51393c41d22e604bb7e8a31de.png" src="_images/90999afb415c880cc2132dd1511818f1546707e51393c41d22e604bb7e8a31de.png" />
+<img alt="_images/3fd0688c6b22286c8e4e1b53eb24d50bcc34b56e7d67cb8eb772966569b0ae47.png" src="_images/3fd0688c6b22286c8e4e1b53eb24d50bcc34b56e7d67cb8eb772966569b0ae47.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -579,6 +617,7 @@ items:
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mikeio.Dataset&gt;
+title: Area Series
 dims: (time:67, element:958)
 time: 2017-10-27 00:00:00 - 2017-10-29 18:00:00 (67 records)
 geometry: Dfsu2D (958 elements, 570 nodes)
@@ -614,6 +653,7 @@ items:
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mikeio.Dataset&gt;
+title: Area Series
 dims: (element:958)
 time: 2017-10-27 00:00:00 (time-invariant)
 geometry: Dfsu2D (958 elements, 570 nodes)
@@ -631,7 +671,7 @@ items:
 <p>Write to a new dfsu file</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dsq</span><span class="o">.</span><span class="n">to_dfs</span><span class="p">(</span><span class="s2">&quot;NorthSea_Quantiles.dfsu&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dsq</span><span class="o">.</span><span class="n">to_dfs</span><span class="p">(</span><span class="s2">"NorthSea_Quantiles.dfsu"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -761,7 +801,7 @@ items:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span><span class="p">[</span><span class="s2">&quot;Wind speed&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span><span class="p">[</span><span class="s2">"Wind speed"</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -782,7 +822,7 @@ items:
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">generic</span><span class="o">.</span><span class="n">avg_time</span><span class="p">(</span><span class="s2">&quot;data/NorthSea_HD_and_windspeed.dfsu&quot;</span><span class="p">,</span> <span class="s2">&quot;NorthSea_avg.dfsu&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">generic</span><span class="o">.</span><span class="n">avg_time</span><span class="p">(</span><span class="s2">"data/NorthSea_HD_and_windspeed.dfsu"</span><span class="p">,</span> <span class="s2">"NorthSea_avg.dfsu"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -790,7 +830,7 @@ items:
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0%|          | 0/66 [00:00&lt;?, ?it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 66/66 [00:00&lt;00:00, 23449.73it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 66/66 [00:00&lt;00:00, 21276.16it/s]
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -800,13 +840,14 @@ items:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">&quot;NorthSea_avg.dfsu&quot;</span><span class="p">,</span> <span class="n">items</span><span class="o">=</span><span class="s2">&quot;Wind speed&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">"NorthSea_avg.dfsu"</span><span class="p">,</span> <span class="n">items</span><span class="o">=</span><span class="s2">"Wind speed"</span><span class="p">)</span>
 <span class="n">ds</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mikeio.Dataset&gt;
+title: Area Series
 dims: (time:1, element:958)
 time: 2017-10-27 00:00:00 (time-invariant)
 geometry: Dfsu2D (958 elements, 570 nodes)
@@ -818,17 +859,17 @@ items:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span><span class="p">[</span><span class="s2">&quot;Wind speed&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Mean wind speed&quot;</span><span class="p">);</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span><span class="p">[</span><span class="s2">"Wind speed"</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">"Mean wind speed"</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/aa26d56a05cac88541faa8dae909525f66b39a0bfd6e3e447fafe95a8cec9c74.png" src="_images/aa26d56a05cac88541faa8dae909525f66b39a0bfd6e3e447fafe95a8cec9c74.png" />
+<img alt="_images/c9515772553b5ee89171465133d402a8a43f74fe51d54532f406075a0e388f67.png" src="_images/c9515772553b5ee89171465133d402a8a43f74fe51d54532f406075a0e388f67.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">generic</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="s2">&quot;data/NorthSea_HD_and_windspeed.dfsu&quot;</span><span class="p">,</span> <span class="s2">&quot;NorthSea_Quantiles2.dfsu&quot;</span><span class="p">,</span> <span class="n">q</span><span class="o">=</span><span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">generic</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="s2">"data/NorthSea_HD_and_windspeed.dfsu"</span><span class="p">,</span> <span class="s2">"NorthSea_Quantiles2.dfsu"</span><span class="p">,</span> <span class="n">q</span><span class="o">=</span><span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -839,7 +880,7 @@ items:
 <h2>Custom<a class="headerlink" href="#custom" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">&quot;data/NorthSea_HD_and_windspeed.dfsu&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">"data/NorthSea_HD_and_windspeed.dfsu"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -857,12 +898,12 @@ items:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dsa</span><span class="p">[</span><span class="s2">&quot;Wind speed&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;Std [m/s]&quot;</span><span class="p">);</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dsa</span><span class="p">[</span><span class="s2">"Wind speed"</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">"Std [m/s]"</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6436f76f61f7dc88a1f8d84b3ea3a9aefef14733cabf4791b0cb442a6a383cef.png" src="_images/6436f76f61f7dc88a1f8d84b3ea3a9aefef14733cabf4791b0cb442a6a383cef.png" />
+<img alt="_images/1ba7b0e7ce58ce1724a29d3ca5d129c23ae9749df275baca1ec98186f628c334.png" src="_images/1ba7b0e7ce58ce1724a29d3ca5d129c23ae9749df275baca1ec98186f628c334.png" />
 </div>
 </div>
 </section>
@@ -886,31 +927,31 @@ items:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">val</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[</span><span class="s2">&quot;Wind speed&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">element</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">val</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[</span><span class="s2">"Wind speed"</span><span class="p">]</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">element</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ds</span><span class="o">.</span><span class="n">time</span><span class="p">,</span> <span class="n">val</span><span class="p">);</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ds</span><span class="o">.</span><span class="n">time</span><span class="p">[</span><span class="n">val</span><span class="o">&gt;</span><span class="mi">12</span><span class="p">],</span> <span class="n">val</span><span class="p">[</span><span class="n">val</span><span class="o">&gt;</span><span class="mi">12</span><span class="p">],</span><span class="s1">&#39;.r&#39;</span><span class="p">);</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Wind speed [m/s]&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;How often is the wind speed above 12m/s (element 0)?&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ds</span><span class="o">.</span><span class="n">time</span><span class="p">[</span><span class="n">val</span><span class="o">&gt;</span><span class="mi">12</span><span class="p">],</span> <span class="n">val</span><span class="p">[</span><span class="n">val</span><span class="o">&gt;</span><span class="mi">12</span><span class="p">],</span><span class="s1">'.r'</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">'r'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Wind speed [m/s]'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'How often is the wind speed above 12m/s (element 0)?'</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/a0a1629e4159cc4a5c6cad1c16bd9a5647f17c555db9e26ae29633b762f626f8.png" src="_images/a0a1629e4159cc4a5c6cad1c16bd9a5647f17c555db9e26ae29633b762f626f8.png" />
+<img alt="_images/9bcf0bedfc8f0e0d98125a22c95f575edec2d317e78a91d254d8fa5c28be51a8.png" src="_images/9bcf0bedfc8f0e0d98125a22c95f575edec2d317e78a91d254d8fa5c28be51a8.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">val</span><span class="p">),</span> <span class="n">one_to_zero</span><span class="p">);</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Wind speed [m/s]&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Probability of exceedance [-]&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Wind speed exceedance in element 0&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Wind speed [m/s]'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Probability of exceedance [-]'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">'r'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Wind speed exceedance in element 0'</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/97ac0b8e395b74f2462384e902944739ad9a184b0a75e03f39acd91be22eee1d.png" src="_images/97ac0b8e395b74f2462384e902944739ad9a184b0a75e03f39acd91be22eee1d.png" />
+<img alt="_images/db6dffa536ef4e83f18913f992bd3c76cbb1dd81397411519f9b0ad260eb819d.png" src="_images/db6dffa536ef4e83f18913f992bd3c76cbb1dd81397411519f9b0ad260eb819d.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -918,7 +959,7 @@ items:
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create empty DataArray </span>
 <span class="n">item</span><span class="o">=</span><span class="n">mikeio</span><span class="o">.</span><span class="n">ItemInfo</span><span class="p">(</span><span class="n">mikeio</span><span class="o">.</span><span class="n">EUMType</span><span class="o">.</span><span class="n">Probability</span><span class="p">)</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">ds</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">n_elements</span><span class="p">),</span> <span class="n">fill_value</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
-<span class="n">dae</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">time</span><span class="o">=</span><span class="s2">&quot;2017-10-27&quot;</span><span class="p">,</span> <span class="n">item</span><span class="o">=</span><span class="n">item</span><span class="p">,</span> <span class="n">geometry</span><span class="o">=</span><span class="n">ds</span><span class="o">.</span><span class="n">geometry</span><span class="p">)</span>
+<span class="n">dae</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">time</span><span class="o">=</span><span class="s2">"2017-10-27"</span><span class="p">,</span> <span class="n">item</span><span class="o">=</span><span class="n">item</span><span class="p">,</span> <span class="n">geometry</span><span class="o">=</span><span class="n">ds</span><span class="o">.</span><span class="n">geometry</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -928,7 +969,7 @@ items:
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">threshold</span> <span class="o">=</span> <span class="mi">12</span>
 <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">ds</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">n_elements</span><span class="p">):</span>
     <span class="c1"># this is a naive and slow way of calculating this!</span>
-    <span class="n">dat</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[</span><span class="s2">&quot;Wind speed&quot;</span><span class="p">][:,</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+    <span class="n">dat</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[</span><span class="s2">"Wind speed"</span><span class="p">][:,</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
     <span class="n">dae</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="n">threshold</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">dat</span><span class="p">),</span> <span class="n">one_to_zero</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -937,26 +978,26 @@ items:
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dae100</span> <span class="o">=</span> <span class="n">dae</span><span class="o">*</span><span class="mi">100</span>
-<span class="n">dae100</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Wind speed exceeding 12 m/s&quot;</span><span class="p">,</span> 
-    <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Time of Exceedance [%]&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;YlOrRd&quot;</span><span class="p">);</span>
+<span class="n">dae100</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">"Wind speed exceeding 12 m/s"</span><span class="p">,</span> 
+    <span class="n">label</span><span class="o">=</span><span class="s2">"Time of Exceedance [%]"</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">"YlOrRd"</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/86c005dc9f804dc69b921af134254711425bad1a6d67c30385421748c420174a.png" src="_images/86c005dc9f804dc69b921af134254711425bad1a6d67c30385421748c420174a.png" />
+<img alt="_images/01d17f2331479396eb271fef17dbbf92a9ae22353264350114c21afcd7005a6f.png" src="_images/01d17f2331479396eb271fef17dbbf92a9ae22353264350114c21afcd7005a6f.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">total_hours</span> <span class="o">=</span> <span class="p">(</span><span class="n">ds</span><span class="o">.</span><span class="n">time</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">ds</span><span class="o">.</span><span class="n">time</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">total_seconds</span><span class="p">()</span><span class="o">/</span><span class="mi">3600</span>
 <span class="n">dae_hours</span> <span class="o">=</span> <span class="n">dae</span><span class="o">*</span><span class="n">total_hours</span>
-<span class="n">dae_hours</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Wind speed exceeding 12 m/s&quot;</span><span class="p">,</span> 
-    <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Exceedance [Hours]&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;YlOrRd&quot;</span><span class="p">);</span>
+<span class="n">dae_hours</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">"Wind speed exceeding 12 m/s"</span><span class="p">,</span> 
+    <span class="n">label</span><span class="o">=</span><span class="s2">"Exceedance [Hours]"</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">"YlOrRd"</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/2bf8973b8c417d1fe9597b1d8dc1a977e56b38412c408e6bef9e9e74319777c2.png" src="_images/2bf8973b8c417d1fe9597b1d8dc1a977e56b38412c408e6bef9e9e74319777c2.png" />
+<img alt="_images/1c7b58682619f578cacca3a7066e3a3156f8b796141e2c20d3b826223e6002f8.png" src="_images/1c7b58682619f578cacca3a7066e3a3156f8b796141e2c20d3b826223e6002f8.png" />
 </div>
 </div>
 </section>
@@ -1018,15 +1059,17 @@ items:
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
   </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-dataarray">Dataset / DataArray</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#temporal-aggregations-mean">Temporal aggregations: mean</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spatial-aggregations">Spatial aggregations</a></li>
@@ -1088,8 +1131,8 @@ By Henrik Andersson and Jesper Mariegaard
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
 
   <footer class="bd-footer">
   </footer>

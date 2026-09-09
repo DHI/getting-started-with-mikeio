@@ -16,41 +16,44 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-
-  
-  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
+  <!-- So that users can add custom icons -->
+  <script defer src="_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
 
     <script src="_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="_static/doctools.js?v=9a2dae69"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="_static/copybutton.js?v=f281be69"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js?v=1ae7504c"></script>
+    <script src="_static/togglebutton.js?v=b8b12719"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
@@ -58,40 +61,37 @@
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'dfs0';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Exercise F: Dfs0" href="exercises/exercise_F_Dfs0.html" />
     <link rel="prev" title="Data Structures" href="datastructures.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="_static/searchtools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="searchindex.js"></script>
+  
   </head>
-  
-  
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
-
+  <body data-default-mode="">
   
   
   <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
-
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="search.html"
       method="get">
@@ -99,7 +99,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -107,15 +106,59 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
 </div>
 
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
     </header>
   
 
@@ -124,7 +167,8 @@
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -154,21 +198,17 @@
     
     
     <img src="_static/logo.png" class="logo__image only-light" alt="Getting started with Dfs files in Python using MIKE IO - Home"/>
-    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Getting started with Dfs files in Python using MIKE IO - Home"/>`);</script>
+    <img src="_static/logo.png" class="logo__image only-dark pst-js-only" alt="Getting started with Dfs files in Python using MIKE IO - Home"/>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
@@ -240,9 +280,14 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -356,7 +401,7 @@
 
 
 <button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
   title="Fullscreen mode"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
@@ -370,25 +415,17 @@
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
 </div></div>
@@ -410,7 +447,7 @@ document.write(`
                 <h2> Contents </h2>
             </div>
             <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-data">Reading data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-data">Writing data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eum">EUM</a><ul class="nav section-nav flex-column">
@@ -448,13 +485,14 @@ document.write(`
 <h2>Reading data<a class="headerlink" href="#reading-data" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">&quot;data/Oresund_ts.dfs0&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">"data/Oresund_ts.dfs0"</span><span class="p">)</span>
 <span class="n">ds</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mikeio.Dataset&gt;
+title: TS
 dims: (time:2017)
 time: 2018-03-04 00:00:00 - 2018-03-11 00:00:00 (2017 records)
 geometry: GeometryUndefined()
@@ -479,7 +517,7 @@ number of items: 12
 <p>A <code class="docutils literal notranslate"><span class="pre">DataArray</span></code> can be selected by name or by index.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">da</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[</span><span class="s2">&quot;Drogden: Surface elevation&quot;</span><span class="p">]</span>   <span class="c1"># or ds.Drogden_Surface_elevation or ds[2]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">da</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[</span><span class="s2">"Drogden: Surface elevation"</span><span class="p">]</span>   <span class="c1"># or ds.Drogden_Surface_elevation or ds[2]</span>
 <span class="n">da</span>
 </pre></div>
 </div>
@@ -498,13 +536,14 @@ values: [0.05063, 0.04713, ..., 0.2404]
 <p>Upon <code class="docutils literal notranslate"><span class="pre">read</span></code>, specific items can be selected with the <code class="docutils literal notranslate"><span class="pre">items</span></code> argument using name or index.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">&quot;data/Oresund_ts.dfs0&quot;</span><span class="p">,</span> <span class="n">items</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">"data/Oresund_ts.dfs0"</span><span class="p">,</span> <span class="n">items</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
 <span class="n">ds</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mikeio.Dataset&gt;
+title: TS
 dims: (time:2017)
 time: 2018-03-04 00:00:00 - 2018-03-11 00:00:00 (2017 records)
 geometry: GeometryUndefined()
@@ -519,13 +558,14 @@ items:
 <p>Wildcards can be used to select multiple items:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">&quot;data/Oresund_ts.dfs0&quot;</span><span class="p">,</span> <span class="n">items</span><span class="o">=</span><span class="s2">&quot;*Surf*&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">"data/Oresund_ts.dfs0"</span><span class="p">,</span> <span class="n">items</span><span class="o">=</span><span class="s2">"*Surf*"</span><span class="p">)</span>
 <span class="n">ds</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mikeio.Dataset&gt;
+title: TS
 dims: (time:2017)
 time: 2018-03-04 00:00:00 - 2018-03-11 00:00:00 (2017 records)
 geometry: GeometryUndefined()
@@ -541,12 +581,13 @@ items:
 <p>A specific time subset can be using .sel:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="s2">&quot;2018-03-04&quot;</span><span class="p">,</span><span class="s2">&quot;2018-03-04 12:00&quot;</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="s2">"2018-03-04"</span><span class="p">,</span><span class="s2">"2018-03-04 12:00"</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mikeio.Dataset&gt;
+title: TS
 dims: (time:145)
 time: 2018-03-04 00:00:00 - 2018-03-04 12:00:00 (145 records)
 geometry: GeometryUndefined()
@@ -568,6 +609,7 @@ items:
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mikeio.Dataset&gt;
+title: TS
 dims: (time:10)
 time: 2018-03-04 00:50:00 - 2018-03-04 01:35:00 (10 records)
 geometry: GeometryUndefined()
@@ -588,18 +630,18 @@ items:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DatetimeIndex([&#39;2018-03-04 00:00:00&#39;, &#39;2018-03-04 00:05:00&#39;,
-               &#39;2018-03-04 00:10:00&#39;, &#39;2018-03-04 00:15:00&#39;,
-               &#39;2018-03-04 00:20:00&#39;, &#39;2018-03-04 00:25:00&#39;,
-               &#39;2018-03-04 00:30:00&#39;, &#39;2018-03-04 00:35:00&#39;,
-               &#39;2018-03-04 00:40:00&#39;, &#39;2018-03-04 00:45:00&#39;,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DatetimeIndex(['2018-03-04 00:00:00', '2018-03-04 00:05:00',
+               '2018-03-04 00:10:00', '2018-03-04 00:15:00',
+               '2018-03-04 00:20:00', '2018-03-04 00:25:00',
+               '2018-03-04 00:30:00', '2018-03-04 00:35:00',
+               '2018-03-04 00:40:00', '2018-03-04 00:45:00',
                ...
-               &#39;2018-03-10 23:15:00&#39;, &#39;2018-03-10 23:20:00&#39;,
-               &#39;2018-03-10 23:25:00&#39;, &#39;2018-03-10 23:30:00&#39;,
-               &#39;2018-03-10 23:35:00&#39;, &#39;2018-03-10 23:40:00&#39;,
-               &#39;2018-03-10 23:45:00&#39;, &#39;2018-03-10 23:50:00&#39;,
-               &#39;2018-03-10 23:55:00&#39;, &#39;2018-03-11 00:00:00&#39;],
-              dtype=&#39;datetime64[s]&#39;, length=2017, freq=None)
+               '2018-03-10 23:15:00', '2018-03-10 23:20:00',
+               '2018-03-10 23:25:00', '2018-03-10 23:30:00',
+               '2018-03-10 23:35:00', '2018-03-10 23:40:00',
+               '2018-03-10 23:45:00', '2018-03-10 23:50:00',
+               '2018-03-10 23:55:00', '2018-03-11 00:00:00'],
+              dtype='datetime64[s]', length=2017, freq=None)
 </pre></div>
 </div>
 </div>
@@ -664,7 +706,7 @@ items:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/09130bd0f4dcb80658463d0a846c152044557847fc2d85dc83e844de28fc1d58.png" src="_images/09130bd0f4dcb80658463d0a846c152044557847fc2d85dc83e844de28fc1d58.png" />
+<img alt="_images/dec55d3d252bc6ad8e76a95de8663bb545974d91b0471b88ccab1c9d9b177e1e.png" src="_images/dec55d3d252bc6ad8e76a95de8663bb545974d91b0471b88ccab1c9d9b177e1e.png" />
 </div>
 </div>
 <p>A simple timeseries Dataset can easily be converted to a Pandas DataFrame.</p>
@@ -789,7 +831,7 @@ items:
 <p>Often, time series data will come from a csv or an Excel file. Here is an example of how to read a csv file with pandas and then write the pandas DataFrame to a dfs0 file.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/naples_fl.csv&quot;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"data/naples_fl.csv"</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">df</span>
 </pre></div>
 </div>
@@ -940,16 +982,16 @@ items:
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">read_ncei_obs</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
     <span class="c1"># old name : new name</span>
-    <span class="n">mapping</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;TAVG (Degrees Fahrenheit)&#39;</span><span class="p">:</span> <span class="s1">&#39;temperature_avg_f&#39;</span><span class="p">,</span>
-               <span class="s1">&#39;TMAX (Degrees Fahrenheit)&#39;</span><span class="p">:</span> <span class="s1">&#39;temperature_max_f&#39;</span><span class="p">,</span>
-               <span class="s1">&#39;TMIN (Degrees Fahrenheit)&#39;</span><span class="p">:</span> <span class="s1">&#39;temperature_min_f&#39;</span><span class="p">,</span>
-               <span class="s1">&#39;PRCP (Inches)&#39;</span><span class="p">:</span> <span class="s1">&#39;prec_in&#39;</span><span class="p">}</span>
+    <span class="n">mapping</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'TAVG (Degrees Fahrenheit)'</span><span class="p">:</span> <span class="s1">'temperature_avg_f'</span><span class="p">,</span>
+               <span class="s1">'TMAX (Degrees Fahrenheit)'</span><span class="p">:</span> <span class="s1">'temperature_max_f'</span><span class="p">,</span>
+               <span class="s1">'TMIN (Degrees Fahrenheit)'</span><span class="p">:</span> <span class="s1">'temperature_min_f'</span><span class="p">,</span>
+               <span class="s1">'PRCP (Inches)'</span><span class="p">:</span> <span class="s1">'prec_in'</span><span class="p">}</span>
     
     <span class="n">df_renamed</span> <span class="o">=</span> <span class="p">(</span>
         <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
            <span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">mapping</span><span class="p">)</span>
     <span class="p">)</span>
-    <span class="n">sel_cols</span> <span class="o">=</span> <span class="n">mapping</span><span class="o">.</span><span class="n">values</span><span class="p">()</span> <span class="c1"># No need to repeat [&#39;temperature_avg_f&#39;,...]</span>
+    <span class="n">sel_cols</span> <span class="o">=</span> <span class="n">mapping</span><span class="o">.</span><span class="n">values</span><span class="p">()</span> <span class="c1"># No need to repeat ['temperature_avg_f',...]</span>
     <span class="n">df_selected</span> <span class="o">=</span> <span class="n">df_renamed</span><span class="p">[</span><span class="n">sel_cols</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">df_selected</span>
 </pre></div>
@@ -958,7 +1000,7 @@ items:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">read_ncei_obs</span><span class="p">(</span><span class="s2">&quot;data/naples_fl.csv&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">read_ncei_obs</span><span class="p">(</span><span class="s2">"data/naples_fl.csv"</span><span class="p">)</span>
 <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1128,8 +1170,8 @@ items:
 <p>Convert temperature to Celsius and precipitation to mm.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_final</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">temperature_max_c</span><span class="o">=</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;temperature_max_f&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="mi">32</span><span class="p">)</span><span class="o">/</span><span class="mf">1.8</span><span class="p">,</span>
-                     <span class="n">prec_mm</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;prec_in&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mf">25.4</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_final</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">temperature_max_c</span><span class="o">=</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">'temperature_max_f'</span><span class="p">]</span> <span class="o">-</span> <span class="mi">32</span><span class="p">)</span><span class="o">/</span><span class="mf">1.8</span><span class="p">,</span>
+                     <span class="n">prec_mm</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">'prec_in'</span><span class="p">]</span> <span class="o">*</span> <span class="mf">25.4</span><span class="p">)</span>
 
 <span class="n">df_final</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
@@ -1223,12 +1265,12 @@ items:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_final</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;2021&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">();</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_final</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">'2021'</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">();</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/54f7ff9eff9ead98a0eb3aa8978b1d15e6ca813901318eb875e9fd8ed732976d.png" src="_images/54f7ff9eff9ead98a0eb3aa8978b1d15e6ca813901318eb875e9fd8ed732976d.png" />
+<img alt="_images/215de9c7c10337e6d3018af5785241b805052bdd8f5474d862257f61b7bbe023.png" src="_images/215de9c7c10337e6d3018af5785241b805052bdd8f5474d862257f61b7bbe023.png" />
 </div>
 </div>
 <p>Creating a dfs0 file from a dataframe is pretty straightforward.</p>
@@ -1263,7 +1305,7 @@ items:
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span><span class="o">.</span><span class="n">to_dfs</span><span class="p">(</span><span class="s2">&quot;output/naples_fl.dfs0&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span><span class="o">.</span><span class="n">to_dfs</span><span class="p">(</span><span class="s2">"output/naples_fl.dfs0"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1271,7 +1313,7 @@ items:
 <p>Let’s read it back in again…</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">saved_ds</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">&quot;output/naples_fl.dfs0&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">saved_ds</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">"output/naples_fl.dfs0"</span><span class="p">)</span>
 <span class="n">saved_ds</span>
 </pre></div>
 </div>
@@ -1295,7 +1337,7 @@ items:
 <p>By default, EUM types are undefined. But it can be specified. Let’s select a few colums.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df2</span> <span class="o">=</span> <span class="n">df_final</span><span class="p">[[</span><span class="s1">&#39;temperature_max_c&#39;</span><span class="p">,</span> <span class="s1">&#39;prec_in&#39;</span><span class="p">]]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df2</span> <span class="o">=</span> <span class="n">df_final</span><span class="p">[[</span><span class="s1">'temperature_max_c'</span><span class="p">,</span> <span class="s1">'prec_in'</span><span class="p">]]</span>
 <span class="n">df2</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1390,7 +1432,7 @@ items:
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">mikeio.eum</span><span class="w"> </span><span class="kn">import</span> <span class="n">ItemInfo</span><span class="p">,</span> <span class="n">EUMType</span><span class="p">,</span> <span class="n">EUMUnit</span>
 
-<span class="n">EUMType</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">&quot;wind&quot;</span><span class="p">)</span>
+<span class="n">EUMType</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">"wind"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1433,7 +1475,7 @@ items:
 <h2>Precipitation data<a class="headerlink" href="#precipitation-data" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/precipitation.csv&quot;</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"data/precipitation.csv"</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1550,7 +1592,7 @@ items:
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">mikecore.DfsFile</span><span class="w"> </span><span class="kn">import</span> <span class="n">DataValueType</span>
 
 <span class="p">(</span><span class="n">mikeio</span><span class="o">.</span><span class="n">from_pandas</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">items</span><span class="o">=</span><span class="n">ItemInfo</span><span class="p">(</span><span class="n">EUMType</span><span class="o">.</span><span class="n">Precipitation_Rate</span><span class="p">,</span> <span class="n">EUMUnit</span><span class="o">.</span><span class="n">mm_per_hour</span><span class="p">,</span> <span class="n">data_value_type</span><span class="o">=</span><span class="n">DataValueType</span><span class="o">.</span><span class="n">MeanStepBackward</span><span class="p">))</span>
-        <span class="o">.</span><span class="n">to_dfs</span><span class="p">(</span><span class="s2">&quot;output/precipitation.dfs0&quot;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">to_dfs</span><span class="p">(</span><span class="s2">"output/precipitation.dfs0"</span><span class="p">)</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -1561,7 +1603,7 @@ items:
 <h2>Selecting<a class="headerlink" href="#selecting" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">&quot;output/precipitation.dfs0&quot;</span><span class="p">,</span> <span class="n">items</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span> <span class="c1"># select item by item number (starting from zero)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">"output/precipitation.dfs0"</span><span class="p">,</span> <span class="n">items</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span> <span class="c1"># select item by item number (starting from zero)</span>
 <span class="n">ds</span>
 </pre></div>
 </div>
@@ -1572,15 +1614,15 @@ dims: (time:31)
 time: 2001-01-01 00:00:00 - 2001-01-31 00:00:00 (31 records)
 geometry: GeometryUndefined()
 items:
-  0:  Precipitation station 2 &lt;Precipitation Rate&gt; (mm per hour) - 3
-  1:  Precipitation station 5 &lt;Precipitation Rate&gt; (mm per hour) - 3
+  0:  Precipitation station 2 &lt;Precipitation Rate&gt; (mm per hour) - MeanStepBackward
+  1:  Precipitation station 5 &lt;Precipitation Rate&gt; (mm per hour) - MeanStepBackward
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">&quot;output/precipitation.dfs0&quot;</span><span class="p">,</span> <span class="n">items</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Precipitation station 5&quot;</span><span class="p">,</span><span class="s2">&quot;Precipitation station 1&quot;</span><span class="p">])</span> <span class="c1"># or by name (in the order you like it)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span> <span class="o">=</span> <span class="n">mikeio</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">"output/precipitation.dfs0"</span><span class="p">,</span> <span class="n">items</span><span class="o">=</span><span class="p">[</span><span class="s2">"Precipitation station 5"</span><span class="p">,</span><span class="s2">"Precipitation station 1"</span><span class="p">])</span> <span class="c1"># or by name (in the order you like it)</span>
 <span class="n">ds</span>
 </pre></div>
 </div>
@@ -1591,8 +1633,8 @@ dims: (time:31)
 time: 2001-01-01 00:00:00 - 2001-01-31 00:00:00 (31 records)
 geometry: GeometryUndefined()
 items:
-  0:  Precipitation station 5 &lt;Precipitation Rate&gt; (mm per hour) - 3
-  1:  Precipitation station 1 &lt;Precipitation Rate&gt; (mm per hour) - 3
+  0:  Precipitation station 5 &lt;Precipitation Rate&gt; (mm per hour) - MeanStepBackward
+  1:  Precipitation station 1 &lt;Precipitation Rate&gt; (mm per hour) - MeanStepBackward
 </pre></div>
 </div>
 </div>
@@ -1616,11 +1658,11 @@ items:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    System: 3.11.14 (main, Oct 10 2025, 01:03:14) [GCC 13.3.0]
-    NumPy: 2.4.2
-    Pandas: 3.0.1
-    MIKE IO: 3.0.1
-    Last modified: 2026-03-05 10:02:59.104366
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    System: 3.12.14 (main, Aug 13 2026, 02:47:42) [GCC 13.3.0]
+    NumPy: 2.5.3
+    Pandas: 3.0.5
+    MIKE IO: 3.2.0
+    Last modified: 2026-09-09 06:03:07.470449
     
 </pre></div>
 </div>
@@ -1687,15 +1729,17 @@ items:
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
   </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-data">Reading data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-data">Writing data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eum">EUM</a><ul class="nav section-nav flex-column">
@@ -1755,8 +1799,8 @@ By Henrik Andersson and Jesper Mariegaard
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
 
   <footer class="bd-footer">
   </footer>
