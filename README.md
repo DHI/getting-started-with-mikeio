@@ -1,13 +1,13 @@
 # Getting started with dfs files in Python - Using MIKE IO
-Course material for the course: Getting started with dfs files in Python - Using MIKE IO
 
+**Archived.** This course has been retired. Its MIKE IO content now lives in the
+[MIKE IO documentation](https://dhi.github.io/mikeio/), and the published book
+redirects there. For general Python, NumPy, pandas and matplotlib, use those
+projects' own tutorials.
 
-## Info for participants
-
-The material is based on MIKE IO 3.0
-
-
-The entire repo can be downloaded as a [zip file](https://github.com/DHI/getting-started-with-mikeio/archive/refs/heads/main.zip).
+The notebooks and exercises are kept as they were. Dependencies are pinned in
+`uv.lock` (MIKE IO 3.2.0 on Python 3.12+), so `uv sync` still gives a working
+environment.
 
 ## Info for creators
 
